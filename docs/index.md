@@ -1,17 +1,29 @@
-# Welcome to MkDocs
+> 记录
+>
+> 参考文档：
+>
+> - [官方文档]()
+> - [知乎](https://zhuanlan.zhihu.com/p/630165427)
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# MkDocs 的预下载
 
-## Commands
+[ 官方文档]: https://squidfunk.github.io/mkdocs-material/
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+```
+mkdocs new     // 新建一个MkDocs
 
-## Project layout
+mkdocs serve   // 建立一个预览
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+mkdocs build   // 建立一个静态网页
+```
+
+# Github Page 的部署
+
+[官方文档]: https://docs.github.com/en/pages/quickstart
+[ 知乎]: https://zhuanlan.zhihu.com/p/76063614
+
+![image-20240113210407673](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401132104761.png)
+
+# 省流版步骤
+
+1. 确保你安装了 python 和 pip
