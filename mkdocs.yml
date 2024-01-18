@@ -1,3 +1,61 @@
-site_name: My Docs
+site_name: ZZIcarus NOTE
+site_author: ZZIcarus
+site_url: "https://zzicarus.github.io/"
+
+repo_name: "zzicarus/zzicarus.github.io"
+
 theme:
   name: material
+  # color 部分
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey #原色用于标题、侧边栏、文本链接和其他几个组件。
+      accent: indigo # 主题色  强调时的颜色
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey #原色用于标题、侧边栏、文本链接和其他几个组件。
+      accent: indigo # 主题色  强调时的颜色
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  # 字体
+  font:
+    text: Roboto
+    code: JetBrains Mono
+
+  # 语言
+  language: zh
+
+  icon:
+    logo: material/google-downasaur
+  features:
+    - content.code.annotate
+    # 导航栏
+    - navigation.instant
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking # 地址栏中的 URL 会自动更新为目录中突出显示的活动定位点
+    - navigation.path
+
+    - search.highlight
+    - search.share
+  # custom_dir: overrides
+
+nav:
+  - "封面":
+      - "封面": index.md
+  - "Tools":
+      - "Git": Read.md
+
+extra_css:
+  - stylesheets/extra.css
