@@ -1,0 +1,2368 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="ZZIcarus">
+      
+      
+        <link rel="canonical" href="https://zzicarus.github.io/CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P3/">
+      
+      
+        <link rel="prev" href="../P2/">
+      
+      
+        <link rel="next" href="../P4/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Chapter 3 组合电路设计 | Combinational Logic Design - ZZIcarus NOTE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elements-for-design" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="ZZIcarus NOTE" class="md-header__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v1h-1v6h-1v1H9v1H8v1H7v1H5v-1H4v-1H3V9H2v6h1v1h1v1h1v1h1v4h2v-1H7v-1h1v-1h1v-1h1v1h1v3h2v-1h-1v-4h1v-1h1v-1h1v-3h1v1h1v-2h-2V9h5V8h-3V7h5V3h-1V2m-7 1h1v1h-1Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZZIcarus NOTE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 3 组合电路设计 | Combinational Logic Design
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zzicarus/zzicarus.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zzicarus/zzicarus.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  封面
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Tools/Git/" class="md-tabs__link">
+          
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  课内
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-tabs__link">
+          
+  
+    
+  
+  Others
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ZZIcarus NOTE" class="md-nav__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v1h-1v6h-1v1H9v1H8v1H7v1H5v-1H4v-1H3V9H2v6h1v1h1v1h1v1h1v4h2v-1H7v-1h1v-1h1v-1h1v1h1v3h2v-1h-1v-4h1v-1h1v-1h1v-3h1v1h1v-2h-2V9h5V8h-3V7h5V3h-1V2m-7 1h1v1h-1Z"/></svg>
+
+    </a>
+    ZZIcarus NOTE
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zzicarus/zzicarus.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zzicarus/zzicarus.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    封面
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            封面
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    课内
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            课内
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    数字逻辑设计
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            数字逻辑设计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 数字系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 组合电路 | Combinational Logic Circuits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 3 组合电路设计 | Combinational Logic Design
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 组合电路设计 | Combinational Logic Design
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elements-for-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elements for Design | 设计要素
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fan-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      fan-in
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fan-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      fan-out
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fan-out">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transition-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition Time | 转换时间
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      传播模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="传播模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gate-transport-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Transport Delay | 传播延迟
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inertial-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inertial delay | 惯性延迟
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Delay | 电路延迟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Procedure | 设计过程
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      组合逻辑
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="组合逻辑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-and-function-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function and function Blocks | 基本函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docoding | 解码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docoding | 解码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decoder-with-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder with Enable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoder-and-or-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder and OR gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoder and OR gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADDer 的实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoding | 编码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoding | 编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#priority-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority Encoder | 优先选择
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecting | 选择器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Selecting | 选择器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiplexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiplexer | 多路复用器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiplexer | 多路复用器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用三态门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approach-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approach 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approach-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approach  2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-arithmetic-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3 Arithmetic Function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adder_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adder | 加法器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adder | 加法器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#half-adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Half Adder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Adder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ripple-curry-adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ripple Curry Adder | 行波加法器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curry-look-ahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curry Look Ahead | 超前进位加法器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制加法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二进制加法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unsigned-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unsigned Integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signed-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signed Integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      OverFlow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-arithmetic-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Arithmetic Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Arithmetic Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incrementing-decrementing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incrementing &amp; Decrementing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 时序逻辑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 数字硬件实现
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 寄存器 | Logic and Computer Design Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 存储器基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验部分
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DIP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            DIP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DIP/DIP_Review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    期末复习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Others
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    微观经济学
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            微观经济学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%201%20%20%E4%BB%B7%E6%A0%BC%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1  价格机制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%202%20%E6%B6%88%E8%B4%B9%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 消费者理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%203%20%E7%94%9F%E4%BA%A7%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 生产者理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%204%20%E5%BC%B9%E6%80%A7%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 弹性理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%205%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 完全竞争市场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%206%20%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 不完全竞争市场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%207%20%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 博弈论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%208%20%E8%A6%81%E7%B4%A0%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 要素市场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#elements-for-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elements for Design | 设计要素
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fan-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      fan-in
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fan-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      fan-out
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fan-out">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transition-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transition Time | 转换时间
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      传播模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="传播模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gate-transport-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Transport Delay | 传播延迟
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inertial-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inertial delay | 惯性延迟
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#circuit-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Circuit Delay | 电路延迟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Procedure | 设计过程
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      组合逻辑
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="组合逻辑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-and-function-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function and function Blocks | 基本函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docoding | 解码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docoding | 解码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#decoder-with-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder with Enable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decoder-and-or-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decoder and OR gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decoder and OR gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADDer 的实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoding | 编码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encoding | 编码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#priority-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority Encoder | 优先选择
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selecting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecting | 选择器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Selecting | 选择器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiplexer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiplexer | 多路复用器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiplexer | 多路复用器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用三态门
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approach-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approach 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approach-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approach  2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-arithmetic-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3 Arithmetic Function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adder_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adder | 加法器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adder | 加法器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#half-adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Half Adder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Adder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ripple-curry-adder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ripple Curry Adder | 行波加法器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curry-look-ahead" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curry Look Ahead | 超前进位加法器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制加法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二进制加法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unsigned-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unsigned Integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signed-integer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signed Integer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      OverFlow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-arithmetic-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Arithmetic Function
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Arithmetic Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incrementing-decrementing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incrementing &amp; Decrementing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h2 id="elements-for-design">Elements for Design | 设计要素<a class="headerlink" href="#elements-for-design" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697510454557-de254edd-cd75-4b74-940d-b7dc80043026.png#averageHue=%23e5e3e2&amp;clientId=u062a7aa5-48fa-4&amp;from=paste&amp;height=362&amp;id=u8851b911&amp;originHeight=724&amp;originWidth=1422&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=132034&amp;status=done&amp;style=none&amp;taskId=uff2a4aab-cf89-4168-b2be-7ebc154641e&amp;title=&amp;width=711" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697510454557-de254edd-cd75-4b74-940d-b7dc80043026.png#averageHue=%23e5e3e2&amp;clientId=u062a7aa5-48fa-4&amp;from=paste&amp;height=362&amp;id=u8851b911&amp;originHeight=724&amp;originWidth=1422&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=132034&amp;status=done&amp;style=none&amp;taskId=uff2a4aab-cf89-4168-b2be-7ebc154641e&amp;title=&amp;width=711" /></a></p>
+<h2 id="fan-in">fan-in<a class="headerlink" href="#fan-in" title="Permanent link">&para;</a></h2>
+<h2 id="fan-out">fan-out<a class="headerlink" href="#fan-out" title="Permanent link">&para;</a></h2>
+<p>fan-out 会影响Propogation Delay
+<a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021018184.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021018184.png" alt="image-20240102101841967" style="zoom:50%;" /></a></p>
+<p>可以被标准负载（stadard load）定义</p>
+<blockquote>
+<p><strong>标准负载：
+大小上等同于一个反相器的输入</strong></p>
+</blockquote>
+<h3 id="transition-time">Transition Time | 转换时间<a class="headerlink" href="#transition-time" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>对于输出的变化而言</strong> </li>
+<li><code>tHL</code>VCC 的 10% 升高到 90% 所需要的时间</li>
+<li><code>tLH</code>VCC 的 90% 降低到 10% 所需要的时间</li>
+<li>无需比较变化</li>
+<li>最大负载：不超过规定的最大转换时间的负载</li>
+</ul>
+<h2 id="_1">传播模型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="gate-transport-delay">Gate Transport Delay | 传播延迟<a class="headerlink" href="#gate-transport-delay" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>tPHL</code>High to low</li>
+<li><strong><code>计算方法</code></strong>  是变化前后的中点时间差</li>
+<li>td = max( tPHL,tPLH )</li>
+</ul>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697365248456-23bce20c-e7fd-4420-b17c-b0a68879a4fe.png#averageHue=%23fefefd&amp;clientId=uabe4f76e-e7d1-4&amp;from=paste&amp;height=258&amp;id=ue524457c&amp;originHeight=516&amp;originWidth=989&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=33749&amp;status=done&amp;style=none&amp;taskId=u5aed4ecb-96cb-48b9-abf3-913518af8d0&amp;title=&amp;width=494.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697365248456-23bce20c-e7fd-4420-b17c-b0a68879a4fe.png#averageHue=%23fefefd&amp;clientId=uabe4f76e-e7d1-4&amp;from=paste&amp;height=258&amp;id=ue524457c&amp;originHeight=516&amp;originWidth=989&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=33749&amp;status=done&amp;style=none&amp;taskId=u5aed4ecb-96cb-48b9-abf3-913518af8d0&amp;title=&amp;width=494.5" /></a></p>
+<h3 id="inertial-delay">Inertial delay | 惯性延迟<a class="headerlink" href="#inertial-delay" title="Permanent link">&para;</a></h3>
+<p>类似于传输延迟 
+<strong><code>Difinition</code></strong>： 如果输入变化使得输出在一个小于拒绝时间的间隔内发生两次变化，那么第一个变化将不会发生
+以下图为例
+<strong>蓝色的条带代表传播延迟，其中的黑色条代表惯性延迟</strong></p>
+<ul>
+<li>a、b：b 发生在<strong>拒绝时间 [rejection time]</strong>，故 a 没有出现在惯性延迟中</li>
+<li>c、d、e：d 恰好在拒绝时间，故而 c 发生，又 e 在拒绝时间内，故而 d 不发生</li>
+</ul>
+<p><a class="glightbox" href="http://cdn.nlark.com/yuque/0/2023/png/36192378/1697365737558-961c3379-fbb6-42aa-a808-6ed9215c45c0.png#averageHue=%23fefdfd&amp;clientId=uabe4f76e-e7d1-4&amp;from=paste&amp;height=331&amp;id=qjNME&amp;originHeight=662&amp;originWidth=962&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=47203&amp;status=done&amp;style=none&amp;taskId=ue213b129-2335-4398-94d6-08cb161afed&amp;title=&amp;width=481" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="http://cdn.nlark.com/yuque/0/2023/png/36192378/1697365737558-961c3379-fbb6-42aa-a808-6ed9215c45c0.png#averageHue=%23fefdfd&amp;clientId=uabe4f76e-e7d1-4&amp;from=paste&amp;height=331&amp;id=qjNME&amp;originHeight=662&amp;originWidth=962&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=47203&amp;status=done&amp;style=none&amp;taskId=ue213b129-2335-4398-94d6-08cb161afed&amp;title=&amp;width=481" /></a></p>
+<h1 id="circuit-delay">Circuit Delay | 电路延迟<a class="headerlink" href="#circuit-delay" title="Permanent link">&para;</a></h1>
+<p><a class="glightbox" href="http://cdn.nlark.com/yuque/0/2023/png/36192378/1697965892820-51accbc5-f4f8-43ac-8b21-ec0e2ca8a818.png#averageHue=%23ededed&amp;clientId=u3c69ed47-b661-4&amp;from=paste&amp;height=483&amp;id=u0e739a0f&amp;originHeight=965&amp;originWidth=1503&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=96526&amp;status=done&amp;style=none&amp;taskId=u466e7ea5-8bd6-4b08-8a2c-74ff463a8e4&amp;title=&amp;width=751.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="http://cdn.nlark.com/yuque/0/2023/png/36192378/1697965892820-51accbc5-f4f8-43ac-8b21-ec0e2ca8a818.png#averageHue=%23ededed&amp;clientId=u3c69ed47-b661-4&amp;from=paste&amp;height=483&amp;id=u0e739a0f&amp;originHeight=965&amp;originWidth=1503&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=96526&amp;status=done&amp;style=none&amp;taskId=u466e7ea5-8bd6-4b08-8a2c-74ff463a8e4&amp;title=&amp;width=751.5" /></a></p>
+<h1 id="design-procedure">Design Procedure | 设计过程<a class="headerlink" href="#design-procedure" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Specialfication</li>
+<li>Formulation</li>
+<li>
+<p>Optimization</p>
+</li>
+<li>
+<p>Technology mapping | 工艺映射</p>
+</li>
+</ul>
+<blockquote>
+<p>一般使用与非门+非门 或者 或非门 + 非门</p>
+</blockquote>
+<p>先将其他门替换为指定 lib 中的器件，然后消去 doubly invertor</p>
+<ul>
+<li>Verification | 验证</li>
+<li>Manaul Logic Analysis 利用真值表、布尔代数等方式进行验证</li>
+<li>Simulation 进行仿真</li>
+</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021031880.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021031880.png" alt="image-20240102103142726" style="zoom:50%;" /></a></p>
+<h1 id="part-2">Part 2<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h1>
+<h1 id="_2">组合逻辑<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<h2 id="function-and-function-blocks">Function and function Blocks | 基本函数<a class="headerlink" href="#function-and-function-blocks" title="Permanent link">&para;</a></h2>
+<p><code>Single varible</code></p>
+<ul>
+<li>常值 (fixing - value) | 输出定值</li>
+</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202310242048565.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202310242048565.png" style="zoom:50%;" /></a></p>
+<ul>
+<li>传输（transforming）| 保持不变</li>
+<li>逆变（inverting）|  相反</li>
+</ul>
+<p><code>Multiple Rugimentary Functions</code></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231024205054878.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231024205054878" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231024205054878.png" /></a></p>
+<p><code>Enabling Function</code></p>
+<ul>
+<li>允许<code>input</code>是否输入</li>
+<li>当中断时，输出值可能为Hi-Z，0，1</li>
+<li>注意<code>AND</code>和<code>OR</code>中具有不同的表现形式(原理一样)</li>
+</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202310242054689.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202310242054689.png" /></a></p>
+<h1 id="docoding">Docoding | 解码<a class="headerlink" href="#docoding" title="Permanent link">&para;</a></h1>
+<ul>
+<li><code>Definition</code></li>
+</ul>
+<p>input <code>n</code> bits
+  output <code>n&lt;=m&lt;=2^n</code></p>
+<ul>
+<li>
+<p>产生 <code>minterm</code>
+  于是衍生另一个 话题 <code>Decoder and OR Gates</code></p>
+</li>
+<li>
+<p><strong><code>n-to-m line decoder</code></strong></p>
+</li>
+<li>
+<p>A general Rule</p>
+</li>
+</ul>
+<blockquote>
+<p>如果一直使用 <code>minterm</code> 进行解码，Cost将大幅度上升（使用更多输入的与门）。</p>
+<p>我们需要一种利用分层和一组与门实现编码</p>
+</blockquote>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231024210059487.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231024210059487" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231024210059487.png" /></a></p>
+<table>
+<thead>
+<tr>
+<th>关于计算与门输入成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025101551984.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231025101551984" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025101551984.png" /></a> </p>
+<ol>
+<li>6/2 = 3，连接 64 个二输入与门的是两个<code>3-8译码器</code></li>
+<li>COST : 6 + 2*（4*2）+2*(8*2)+64*2</li>
+</ol>
+<h3 id="decoder-with-enable">Decoder with Enable<a class="headerlink" href="#decoder-with-enable" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231024210259859.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231024210259859.png" /></a></p>
+<h3 id="decoder-and-or-gates">Decoder and OR gates<a class="headerlink" href="#decoder-and-or-gates" title="Permanent link">&para;</a></h3>
+<h4 id="adder">ADDer 的实现<a class="headerlink" href="#adder" title="Permanent link">&para;</a></h4>
+<p><a class="glightbox" href="http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231024210552085.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231024210552085.png" style="zoom:30%;" /></a>    </p>
+<blockquote>
+<p>实现 1 bit 的加减，需要两个相加位，上一位的进位，存储本位结果和下一位进位。即 X+Y+Z=(CS)~2~</p>
+<p>对于是否利用minterm表示，我们需要自己做出权衡；</p>
+<p>It`s a business of budgt.</p>
+</blockquote>
+<p><strong>EXAMPLE</strong></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202310241104870.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202310241104870.png" style="zoom:50%;" /></a></p>
+<h1 id="encoding">Encoding | 编码<a class="headerlink" href="#encoding" title="Permanent link">&para;</a></h1>
+<ul>
+<li><code>one-hot</code>的形式，一般而言只有一位为1</li>
+<li><code>Encoder</code>实现电路</li>
+</ul>
+<p><strong>示例：Decimal-to-BCD</strong></p>
+<blockquote>
+<p>input : 0-9 共10个数字</p>
+<p>output : 4-bits BCD码</p>
+<p>function : if D~i~ == 1, then the output (A1-A4) is just the BCD code for i</p>
+</blockquote>
+<p>需要注意的是，这样一种方式的局限性很大，主要在于我们很难确保<code>one-hot</code>的形式，于是我们需要一种能够保证接受所有输入的方法。</p>
+<h2 id="priority-encoder">Priority Encoder | 优先选择<a class="headerlink" href="#priority-encoder" title="Permanent link">&para;</a></h2>
+<ul>
+<li>优先编码器能够实现优先级函数，它不要求输入是 one-hot 的，而是总是关注有效输入中优先级最高的那一个。即比如当优先级最高的那一位是 <code>1</code> 时，其它所有优先级不如它的位置的值都是我们不关心的内容了。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<p>​   <em>这里的A2A1A0表示下标</em></p>
+<p><a class="glightbox" href="http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025102908415.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025102908415.png" alt="image-20231025102908415" style="zoom:50%;" /></a></p>
+<h1 id="selecting">Selecting | 选择器<a class="headerlink" href="#selecting" title="Permanent link">&para;</a></h1>
+<h2 id="multiplexer">Multiplexer | 多路复用器<a class="headerlink" href="#multiplexer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>简写为 <code>MUX</code>，又被称为<code>data selecter</code></li>
+<li>基本构成 2^n^-to-1-Line Multiplexer`</li>
+<li>n-to-2^n^-line decoder</li>
+<li>2n× 2 AND-OR</li>
+<li>形成一种观念——选择是相互的，也就是说，INPUT和Enable不是绝对的概念（一个简单的例子是前文带使能的1-2Decoder，但是书上称他为多路分配器|demultiplexer，个人感觉没有区别）</li>
+<li>Example</li>
+</ul>
+<p><strong><em>2-to-1-Line Multiplexer</em></strong></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025104530493.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231025104530493" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025104530493.png" /></a></p>
+<p><a class="glightbox" href="C:\Users\orz20\AppData\Roaming\Typora\typora-user-images\image-20231105141240607.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="C:\Users\orz20\AppData\Roaming\Typora\typora-user-images\image-20231105141240607.png" alt="image-20231105141240607" style="zoom:33%;" /></a></p>
+<h3 id="_3">使用三态门<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025105111720.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025105111720.png" style="zoom: 33%;" /></a></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025105133567.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025105133567.png" alt="image-20231025105133567" style="zoom:33%;" /></a></p>
+<h3 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h3>
+<h4 id="approach-1">Approach 1<a class="headerlink" href="#approach-1" title="Permanent link">&para;</a></h4>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025105909620.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231025105909620.png" alt="image-20231025105909620" style="zoom:33%;" /></a></p>
+<p>利用多重的多路复用器进行操作，计算SOM；</p>
+<p>Y = minOR</p>
+<p><a class="glightbox" href="http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231105104954935.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231105104954935.png" alt="image-20231105104954935" style="zoom:50%;" /></a></p>
+<h4 id="approach-2">Approach  2<a class="headerlink" href="#approach-2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>重点在于找到对应的Function进行化简</li>
+</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231105105417894.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231105105417894.png" alt="image-20231105105417894" style="zoom:50%;" /></a></p>
+<h1 id="part-3-arithmetic-function">Part 3 Arithmetic Function<a class="headerlink" href="#part-3-arithmetic-function" title="Permanent link">&para;</a></h1>
+<h1 id="adder_1">Adder | 加法器<a class="headerlink" href="#adder_1" title="Permanent link">&para;</a></h1>
+<h2 id="half-adder">Half Adder<a class="headerlink" href="#half-adder" title="Permanent link">&para;</a></h2>
+<h2 id="full-adder">Full Adder<a class="headerlink" href="#full-adder" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021916640.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021916640.png" alt="image-20240102191632600" style="zoom:50%;" /></a></p>
+<h2 id="ripple-curry-adder">Ripple Curry Adder | 行波加法器<a class="headerlink" href="#ripple-curry-adder" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021937583.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021937583.png" alt="image-20240102193706539" style="zoom:50%;" /></a></p>
+<h2 id="curry-look-ahead">Curry Look Ahead | 超前进位加法器<a class="headerlink" href="#curry-look-ahead" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021908728.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021908728.png" alt="image-20240102190844670" style="zoom:33%;" /></a></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031535978.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031535978.png" alt="image-20240103153558911" style="zoom: 50%;" /></a></p>
+<hr />
+<p><strong>计算Delay</strong></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021941075.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401021941075.png" alt="image-20240102194159010" style="zoom:50%;" /></a></p>
+<hr />
+<h1 id="_4">二进制加法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<ul>
+<li>1`s Complement  反码</li>
+<li>2`s Complement  补码</li>
+<li>减法Substraction可以 由  A + B的补码  实现</li>
+</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031236066.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031236066.png" alt="image-20240103123623998" style="zoom:50%;" /></a></p>
+<h2 id="unsigned-integer">Unsigned Integer<a class="headerlink" href="#unsigned-integer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>进位为0，对结果修正</li>
+</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031234869.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031234869.png" alt="image-20240103123437751" style="zoom:33%;" /></a></p>
+<ul>
+<li>进位为1，不需要修正</li>
+</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031235949.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031235949.png" style="zoom:33%;" /></a></p>
+<h2 id="signed-integer">Signed Integer<a class="headerlink" href="#signed-integer" title="Permanent link">&para;</a></h2>
+<h2 id="overflow">OverFlow<a class="headerlink" href="#overflow" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031248476.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240103124815421" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401031248476.png" /></a></p>
+<h1 id="other-arithmetic-function">Other Arithmetic Function<a class="headerlink" href="#other-arithmetic-function" title="Permanent link">&para;</a></h1>
+<h2 id="incrementing-decrementing">Incrementing &amp; Decrementing<a class="headerlink" href="#incrementing-decrementing" title="Permanent link">&para;</a></h2>
+<p>+1</p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041414327.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240104141447136" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041414327.png" /></a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.instant", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

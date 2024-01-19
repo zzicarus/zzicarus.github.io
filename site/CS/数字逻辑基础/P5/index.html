@@ -10,26 +10,28 @@
         <meta name="author" content="ZZIcarus">
       
       
-        <link rel="canonical" href="https://zzicarus.github.io/">
+        <link rel="canonical" href="https://zzicarus.github.io/CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P5/">
       
       
+        <link rel="prev" href="../P4/">
       
-        <link rel="next" href="Tools/Git/">
+      
+        <link rel="next" href="../P6/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
-        <title>封面 - ZZIcarus NOTE</title>
+        <title>Chapter 5 数字硬件实现 - ZZIcarus NOTE</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.50c56a3b.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -89,18 +91,18 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -111,7 +113,7 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -130,7 +132,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#test-for-it" class="md-skip">
+        <a href="#rom" class="md-skip">
           跳转至
         </a>
       
@@ -144,7 +146,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="." title="ZZIcarus NOTE" class="md-header__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
+    <a href="../../.." title="ZZIcarus NOTE" class="md-header__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v1h-1v6h-1v1H9v1H8v1H7v1H5v-1H4v-1H3V9H2v6h1v1h1v1h1v1h1v4h2v-1H7v-1h1v-1h1v-1h1v1h1v3h2v-1h-1v-4h1v-1h1v-1h1v-3h1v1h1v-2h-2V9h5V8h-3V7h5V3h-1V2m-7 1h1v1h-1Z"/></svg>
@@ -164,7 +166,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              封面
+              Chapter 5 数字硬件实现
             
           </span>
         </div>
@@ -232,13 +234,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="." class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
           
   
     
@@ -258,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="Tools/Git/" class="md-tabs__link">
+        <a href="../../../Tools/Git/" class="md-tabs__link">
           
   
     
@@ -274,17 +274,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
     
@@ -313,7 +317,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-tabs__link">
+        <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-tabs__link">
           
   
     
@@ -351,7 +355,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="ZZIcarus NOTE" class="md-nav__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
+    <a href="../../.." title="ZZIcarus NOTE" class="md-nav__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v1h-1v6h-1v1H9v1H8v1H7v1H5v-1H4v-1H3V9H2v6h1v1h1v1h1v1h1v4h2v-1H7v-1h1v-1h1v-1h1v1h1v3h2v-1h-1v-4h1v-1h1v-1h1v-3h1v1h1v-2h-2V9h5V8h-3V7h5V3h-1V2m-7 1h1v1h-1Z"/></svg>
@@ -378,8 +382,6 @@
       
   
   
-    
-  
   
   
     
@@ -396,17 +398,17 @@
       
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="." class="md-nav__link md-nav__link--active">
+            <a href="../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -418,7 +420,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             封面
@@ -485,7 +487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Tools/Git/" class="md-nav__link">
+      <a href="../../../Tools/Git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -510,8 +512,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -526,12 +530,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -545,7 +549,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             课内
@@ -556,6 +560,8 @@
                 
   
   
+    
+  
   
   
     
@@ -585,17 +591,17 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -612,7 +618,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             数字逻辑设计
@@ -628,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P1/" class="md-nav__link">
+      <a href="../P1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -649,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P2/" class="md-nav__link">
+      <a href="../P2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,7 +676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P3/" class="md-nav__link">
+      <a href="../P3/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -691,7 +697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P4/" class="md-nav__link">
+      <a href="../P4/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -709,10 +715,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P5/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 5 数字硬件实现
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -721,6 +745,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rom" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pal" class="md-nav__link">
+    <span class="md-ellipsis">
+      PAL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pla" class="md-nav__link">
+    <span class="md-ellipsis">
+      PLA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fpga" class="md-nav__link">
+    <span class="md-ellipsis">
+      FPGA
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -733,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P6/" class="md-nav__link">
+      <a href="../P6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -754,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P7/" class="md-nav__link">
+      <a href="../P7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -775,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/Labs/" class="md-nav__link">
+      <a href="../Labs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -845,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="CS/DIP/DIP_Review/" class="md-nav__link">
+      <a href="../../DIP/DIP_Review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -961,7 +1039,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-nav__link ">
+            <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -994,7 +1072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%201%20%20%E4%BB%B7%E6%A0%BC%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%201%20%20%E4%BB%B7%E6%A0%BC%E6%9C%BA%E5%88%B6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1015,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%202%20%E6%B6%88%E8%B4%B9%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%202%20%E6%B6%88%E8%B4%B9%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1036,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%203%20%E7%94%9F%E4%BA%A7%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%203%20%E7%94%9F%E4%BA%A7%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1057,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%204%20%E5%BC%B9%E6%80%A7%E7%90%86%E8%AE%BA/" class="md-nav__link">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%204%20%E5%BC%B9%E6%80%A7%E7%90%86%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1078,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%205%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%205%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1099,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%206%20%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%206%20%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1120,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%207%20%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%207%20%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1141,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%208%20%E8%A6%81%E7%B4%A0%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%208%20%E8%A6%81%E7%B4%A0%E5%B8%82%E5%9C%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1195,68 +1273,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#test-for-it" class="md-nav__link">
+  <a href="#rom" class="md-nav__link">
     <span class="md-ellipsis">
-      Test For it
+      ROM
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#pal" class="md-nav__link">
     <span class="md-ellipsis">
-      预下载
+      PAL
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#material" class="md-nav__link">
+  <a href="#pla" class="md-nav__link">
     <span class="md-ellipsis">
-      Material
+      PLA
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#github-page" class="md-nav__link">
+  <a href="#fpga" class="md-nav__link">
     <span class="md-ellipsis">
-      Github Page 的部署
+      FPGA
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Github Page 的部署">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      一些用法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="一些用法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#annotation" class="md-nav__link">
-    <span class="md-ellipsis">
-      annotation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1278,174 +1326,29 @@
   
 
 
+  <h1>Chapter 5 数字硬件实现</h1>
+
+<p><code>Technology</code></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312261017031.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312261017031.png" alt="image-20231226101704761" style="zoom:50%;" /></a></p>
+<p><strong>特性</strong></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312261018618.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312261018618.png" alt="image-20231226101852488" style="zoom:50%;" /></a></p>
+<h2 id="rom">ROM<a class="headerlink" href="#rom" title="Permanent link">&para;</a></h2>
+<p>Read-only</p>
 <blockquote>
-<p>记录搭建 MkDocs 的过程</p>
-<p>参考文档：</p>
-<ul>
-<li><a href="https://squidfunk.github.io/mkdocs-material/">Material</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/630165427">知乎</a></li>
-</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401062316695.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401062316695.png" alt="image-20240106231609618" style="zoom:50%;" /></a></p>
 </blockquote>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 初步搭建平台</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 搭建笔记框架</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 上传笔记</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 熟悉新的extension语法</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 对页面美化，风格化</li>
-</ul>
-<h2 id="test-for-it">Test For it<a class="headerlink" href="#test-for-it" title="Permanent link">&para;</a></h2>
-<p>数学公式
-<span class="arithmatex">\(N==S_2\)</span></p>
-<p><strong>Mention</strong>
-<code>Code Block</code></p>
-<div class="language-C highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Test</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// From here</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
-<h2 id="_1">预下载<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>为了成功搭建，你需要如下预备：</p>
-<ul>
-<li>python 环境，并且安装好了 pip</li>
-<li>了解基本的 git 语法（online 部署）</li>
-<li>了解基本的 md 语法</li>
-</ul>
-<h1 id="material">Material<a class="headerlink" href="#material" title="Permanent link">&para;</a></h1>
+<h2 id="pal">PAL<a class="headerlink" href="#pal" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401062322675.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401062322675.png" alt="image-20240106232243622" style="zoom:50%;" /></a></p>
+<h2 id="pla">PLA<a class="headerlink" href="#pla" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231212102148676.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231212102148676.png" alt="image-20231212102148676" style="zoom:50%;" /></a></p>
 <blockquote>
-<p>由于<code>MkDocs</code>的原版主题确实不太好看，所以这里使用了<code>Material For MkDocs</code>进行优化</p>
+<p>利用K-map寻找相同项
+XOR门可以增加一组值，有利于优化（使得一种输出成为可能）  NOT</p>
+<p>Example：</p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401062328154.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401062328154.png" alt="image-20240106232854095" style="zoom: 33%;" /></a></p>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401062329517.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401062329517.png" alt="image-20240106232906467" style="zoom:33%;" /></a></p>
 </blockquote>
-<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>mkdocs<span class="w"> </span>new<span class="w">     </span>//<span class="w"> </span>新建一个MkDocs
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>mkdocs<span class="w"> </span>serve<span class="w">   </span>//<span class="w"> </span>建立一个预览
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>mkdocs<span class="w"> </span>build<span class="w">   </span>//<span class="w"> </span>建立一个静态网页
-</span></code></pre></div></td></tr></table></div>
-<h1 id="github-page">Github Page 的部署<a class="headerlink" href="#github-page" title="Permanent link">&para;</a></h1>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401132104761.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240113210407673" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401132104761.png" /></a></p>
-<ul>
-<li>自动部署需要在<code>.github\workflows</code>中加入<code>ci.yml</code>文件，内容如下：</li>
-</ul>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span>
-<span class="normal"><a href="#__codelineno-2-25">25</a></span>
-<span class="normal"><a href="#__codelineno-2-26">26</a></span>
-<span class="normal"><a href="#__codelineno-2-27">27</a></span>
-<span class="normal"><a href="#__codelineno-2-28">28</a></span>
-<span class="normal"><a href="#__codelineno-2-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>name: ci
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>on:
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>  push:
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>    branches:
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>      - master
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>      - main
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>permissions:
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>  contents: write
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>jobs:
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>  deploy:
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>    runs-on: ubuntu-latest
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a>    steps:
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a>      - uses: actions/checkout@v4
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a>      - name: Configure Git Credentials
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a>        run: |
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a>          git config user.name github-actions[bot]
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a>          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a>      - uses: actions/setup-python@v4
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a>        with:
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20"></a>          python-version: 3.x
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21"></a>      - run: echo &quot;cache_id=$(date --utc &#39;+%V&#39;)&quot; &gt;&gt; $GITHUB_ENV
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22"></a>      - uses: actions/cache@v3
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23"></a>        with:
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24"></a>          key: mkdocs-material-${{ env.cache_id }}
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25"></a>          path: .cache
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26"></a>          restore-keys: |
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27"></a>            mkdocs-material-
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28"></a>      - run: pip install mkdocs-material
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29"></a>      - run: mkdocs gh-deploy --force
-</span></code></pre></div></td></tr></table></div>
-<h2 id="_2">一些用法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="annotation">annotation<a class="headerlink" href="#annotation" title="Permanent link">&para;</a></h3>
-<div class="language-md highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>!!! 或者 ???
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>???+ 折叠，默认展开状态
-</span></code></pre></div></td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-massa, nec semper lorem quam in massa.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">info</p>
-<p>info </p>
-</div>
-<div class="admonition abstract">
-<p class="admonition-title">Abstt</p>
-<p>abd</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">tip</p>
-<p>octicons/squirrel-16</p>
-</div>
-<details class="success">
-<summary>success</summary>
-<p>success</p>
-</details>
-<details class="quote">
-<summary>quote</summary>
-<p>quote</p>
-</details>
-<details class="question">
-<summary>question</summary>
-<p>question</p>
-</details>
-<details class="warning inline end">
-<summary>warning</summary>
-<p>warning</p>
-</details>
-<details class="inline bug" open="open">
-<summary>bug</summary>
-<p>bug</p>
-</details>
-<div class="admonition example inline end">
-<p class="admonition-title">example</p>
-<p>example</p>
-</div>
-<div class="admonition failure">
-<p class="admonition-title">failure</p>
-<p>failure</p>
-</div>
+<h2 id="fpga">FPGA<a class="headerlink" href="#fpga" title="Permanent link">&para;</a></h2>
 
 
 
@@ -1478,7 +1381,7 @@ massa, nec semper lorem quam in massa.</p>
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 13, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2024</span>
   </span>
 
     
@@ -1530,18 +1433,18 @@ massa, nec semper lorem quam in massa.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.instant", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.instant", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="assets/javascripts/bundle.d7c377c4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="javascripts/katex.js"></script>
+        <script src="../../../javascripts/katex.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       

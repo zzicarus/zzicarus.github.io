@@ -1,0 +1,2013 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="ZZIcarus">
+      
+      
+        <link rel="canonical" href="https://zzicarus.github.io/CS/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E5%9F%BA%E7%A1%80/P2/">
+      
+      
+        <link rel="prev" href="../P1/">
+      
+      
+        <link rel="next" href="../P3/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>Chapter 2 组合电路 | Combinational Logic Circuits - ZZIcarus NOTE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="ZZIcarus NOTE" class="md-header__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v1h-1v6h-1v1H9v1H8v1H7v1H5v-1H4v-1H3V9H2v6h1v1h1v1h1v1h1v4h2v-1H7v-1h1v-1h1v-1h1v1h1v3h2v-1h-1v-4h1v-1h1v-1h1v-3h1v1h1v-2h-2V9h5V8h-3V7h5V3h-1V2m-7 1h1v1h-1Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZZIcarus NOTE
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 2 组合电路 | Combinational Logic Circuits
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/zzicarus/zzicarus.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zzicarus/zzicarus.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  封面
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Tools/Git/" class="md-tabs__link">
+          
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  课内
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-tabs__link">
+          
+  
+    
+  
+  Others
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ZZIcarus NOTE" class="md-nav__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v1h-1v6h-1v1H9v1H8v1H7v1H5v-1H4v-1H3V9H2v6h1v1h1v1h1v1h1v4h2v-1H7v-1h1v-1h1v-1h1v1h1v3h2v-1h-1v-4h1v-1h1v-1h1v-3h1v1h1v-2h-2V9h5V8h-3V7h5V3h-1V2m-7 1h1v1h-1Z"/></svg>
+
+    </a>
+    ZZIcarus NOTE
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/zzicarus/zzicarus.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    zzicarus/zzicarus.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    封面
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            封面
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    课内
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            课内
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    数字逻辑设计
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            数字逻辑设计
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 数字系统
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 2 组合电路 | Combinational Logic Circuits
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 组合电路 | Combinational Logic Circuits
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logic-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logic Gate | 逻辑门
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gate-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Delay | 门延迟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boolean-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boolean Algebra | 布尔代数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boolean Algebra | 布尔代数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      * some principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canonical-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonical Forms | 规范型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Form | 标准型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2 优化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      cost function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      K-map | 卡诺图
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-map | 卡诺图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Simplification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-cares" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don`t Cares
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gate-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gate Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primitive-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primitive Gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primitive Gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer | 缓冲器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-state-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three-state Buffer | 三态缓冲器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complex-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complex Gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complex Gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odd-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odd Function | 奇函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 组合电路设计 | Combinational Logic Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 时序逻辑
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 数字硬件实现
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 寄存器 | Logic and Computer Design Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../P7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 存储器基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Labs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验部分
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DIP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            DIP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DIP/DIP_Review/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    期末复习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Others
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    微观经济学
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            微观经济学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%201%20%20%E4%BB%B7%E6%A0%BC%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1  价格机制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%202%20%E6%B6%88%E8%B4%B9%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 2 消费者理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%203%20%E7%94%9F%E4%BA%A7%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 3 生产者理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%204%20%E5%BC%B9%E6%80%A7%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 4 弹性理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%205%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 5 完全竞争市场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%206%20%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 6 不完全竞争市场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%207%20%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 7 博弈论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%208%20%E8%A6%81%E7%B4%A0%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 8 要素市场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logic-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logic Gate | 逻辑门
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gate-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Delay | 门延迟
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boolean-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boolean Algebra | 布尔代数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boolean Algebra | 布尔代数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Duality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#some-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      * some principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canonical-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonical Forms | 规范型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Form | 标准型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2 优化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      cost function
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#k-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      K-map | 卡诺图
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="K-map | 卡诺图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Simplification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-cares" class="md-nav__link">
+    <span class="md-ellipsis">
+      Don`t Cares
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gate-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gate Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gate Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primitive-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primitive Gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primitive Gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer | 缓冲器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-state-buffer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Three-state Buffer | 三态缓冲器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complex-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complex Gates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Complex Gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      补充
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="补充">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odd-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odd Function | 奇函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h2 id="part-1">Part 1<a class="headerlink" href="#part-1" title="Permanent link">&para;</a></h2>
+<h1 id="logic-gate">Logic Gate | 逻辑门<a class="headerlink" href="#logic-gate" title="Permanent link">&para;</a></h1>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696150925670-f0e93941-3565-459f-a034-24b5aaac701e.png#averageHue=%23f6f5f4&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=105&amp;id=ub97f8931&amp;originHeight=210&amp;originWidth=1043&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=37167&amp;status=done&amp;style=none&amp;taskId=ua1c123d5-8361-4181-addf-e151e3e77b4&amp;title=&amp;width=521.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696150925670-f0e93941-3565-459f-a034-24b5aaac701e.png#averageHue=%23f6f5f4&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=105&amp;id=ub97f8931&amp;originHeight=210&amp;originWidth=1043&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=37167&amp;status=done&amp;style=none&amp;taskId=ua1c123d5-8361-4181-addf-e151e3e77b4&amp;title=&amp;width=521.5" /></a>
+<strong>NOT OR</strong>
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151032027-c86bfb49-83fb-406d-84ea-82529337ee3f.png#averageHue=%23fafaf9&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=125&amp;id=HA54w&amp;originHeight=250&amp;originWidth=366&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=16541&amp;status=done&amp;style=none&amp;taskId=u5150b496-5ccc-40e9-ac7b-2dbe712316d&amp;title=&amp;width=183" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151032027-c86bfb49-83fb-406d-84ea-82529337ee3f.png#averageHue=%23fafaf9&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=125&amp;id=HA54w&amp;originHeight=250&amp;originWidth=366&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=16541&amp;status=done&amp;style=none&amp;taskId=u5150b496-5ccc-40e9-ac7b-2dbe712316d&amp;title=&amp;width=183" /></a>
+<strong>EXCLUCIVE OR</strong>
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151203328-23871ecf-2349-4d10-b794-6d6e32625cb5.png#averageHue=%23f9f8f8&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=119&amp;id=tnhBs&amp;originHeight=238&amp;originWidth=417&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=18154&amp;status=done&amp;style=none&amp;taskId=uf0455d13-f6b3-4a78-969d-295e99e01e1&amp;title=&amp;width=208.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151203328-23871ecf-2349-4d10-b794-6d6e32625cb5.png#averageHue=%23f9f8f8&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=119&amp;id=tnhBs&amp;originHeight=238&amp;originWidth=417&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=18154&amp;status=done&amp;style=none&amp;taskId=uf0455d13-f6b3-4a78-969d-295e99e01e1&amp;title=&amp;width=208.5" /></a><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151274216-2339f5c0-0eae-4421-b8b9-e2f646c55500.png#averageHue=%23f4f2f1&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=29&amp;id=T7Cmc&amp;originHeight=58&amp;originWidth=633&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=4434&amp;status=done&amp;style=none&amp;taskId=u2fa1c790-b380-4877-b73d-d0a2589cfd6&amp;title=&amp;width=316.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151274216-2339f5c0-0eae-4421-b8b9-e2f646c55500.png#averageHue=%23f4f2f1&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=29&amp;id=T7Cmc&amp;originHeight=58&amp;originWidth=633&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=4434&amp;status=done&amp;style=none&amp;taskId=u2fa1c790-b380-4877-b73d-d0a2589cfd6&amp;title=&amp;width=316.5" /></a><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151296331-9916121f-98de-41d3-8855-632d7b9213fd.png#averageHue=%23f5f3f2&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=34&amp;id=GcvbG&amp;originHeight=68&amp;originWidth=312&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=4372&amp;status=done&amp;style=none&amp;taskId=u21289cab-4bd0-4267-8120-b81491f2e6a&amp;title=&amp;width=156" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151296331-9916121f-98de-41d3-8855-632d7b9213fd.png#averageHue=%23f5f3f2&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=34&amp;id=GcvbG&amp;originHeight=68&amp;originWidth=312&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=4372&amp;status=done&amp;style=none&amp;taskId=u21289cab-4bd0-4267-8120-b81491f2e6a&amp;title=&amp;width=156" /></a>
+<strong>NOT AND</strong>
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151007070-31f5f4ae-ae4c-4a2a-8bcf-55c3bd21d95c.png#averageHue=%23faf9f9&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=107&amp;id=kqciz&amp;originHeight=213&amp;originWidth=331&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=14759&amp;status=done&amp;style=none&amp;taskId=uc3382c30-3618-4549-bd5f-e491be94e3e&amp;title=&amp;width=165.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151007070-31f5f4ae-ae4c-4a2a-8bcf-55c3bd21d95c.png#averageHue=%23faf9f9&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=107&amp;id=kqciz&amp;originHeight=213&amp;originWidth=331&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=14759&amp;status=done&amp;style=none&amp;taskId=uc3382c30-3618-4549-bd5f-e491be94e3e&amp;title=&amp;width=165.5" /></a>
+<strong>EXCLUCIVE NOR</strong>
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151387330-97bf07af-3fca-4420-b6af-85e96aa18d17.png#averageHue=%23f8f8f7&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=122&amp;id=RhS7R&amp;originHeight=244&amp;originWidth=406&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=18768&amp;status=done&amp;style=none&amp;taskId=u750c4847-f9bc-4f2f-ae9e-2187e12c7b3&amp;title=&amp;width=203" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696151387330-97bf07af-3fca-4420-b6af-85e96aa18d17.png#averageHue=%23f8f8f7&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=122&amp;id=RhS7R&amp;originHeight=244&amp;originWidth=406&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=18768&amp;status=done&amp;style=none&amp;taskId=u750c4847-f9bc-4f2f-ae9e-2187e12c7b3&amp;title=&amp;width=203" /></a></p>
+<ul>
+<li><strong>Identity</strong></li>
+</ul>
+<h1 id="gate-delay">Gate Delay | 门延迟<a class="headerlink" href="#gate-delay" title="Permanent link">&para;</a></h1>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696150967128-466e724c-0b86-477e-8b6a-ffe62b23d0c4.png#averageHue=%23efeeed&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=219&amp;id=u5a47e1af&amp;originHeight=437&amp;originWidth=927&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=73972&amp;status=done&amp;style=none&amp;taskId=uc3865fb4-be7a-44af-8f21-74956565c77&amp;title=&amp;width=463.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696150967128-466e724c-0b86-477e-8b6a-ffe62b23d0c4.png#averageHue=%23efeeed&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=219&amp;id=u5a47e1af&amp;originHeight=437&amp;originWidth=927&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=73972&amp;status=done&amp;style=none&amp;taskId=uc3865fb4-be7a-44af-8f21-74956565c77&amp;title=&amp;width=463.5" /></a></p>
+<hr />
+<p>较详细
+<a href="#c5znF">传播延时</a></p>
+<h1 id="boolean-algebra">Boolean Algebra | 布尔代数<a class="headerlink" href="#boolean-algebra" title="Permanent link">&para;</a></h1>
+<h3 id="_1">表示<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p><strong>Truth Table   Logic Graph Equation</strong>
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695696338833-44606527-ed5c-4a8b-9523-f6e7a8a4f0be.png#averageHue=%23f0f0ef&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=310&amp;id=ub113bb5a&amp;originHeight=619&amp;originWidth=1371&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=60398&amp;status=done&amp;style=none&amp;taskId=u2a088dbf-bf95-4ebf-aa82-c10ad53fb64&amp;title=&amp;width=685.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695696338833-44606527-ed5c-4a8b-9523-f6e7a8a4f0be.png#averageHue=%23f0f0ef&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=310&amp;id=ub113bb5a&amp;originHeight=619&amp;originWidth=1371&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=60398&amp;status=done&amp;style=none&amp;taskId=u2a088dbf-bf95-4ebf-aa82-c10ad53fb64&amp;title=&amp;width=685.5" /></a></p>
+<h3 id="duality">Duality<a class="headerlink" href="#duality" title="Permanent link">&para;</a></h3>
+<ul>
+<li>不改变事件本身</li>
+</ul>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091648277.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240109164824240" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091648277.png" /></a></p>
+<ul>
+<li><strong>self - dual</strong></li>
+</ul>
+<p>AB + AC + BC</p>
+<ul>
+<li><strong>反函数 | Complementing</strong></li>
+</ul>
+<p><strong>改变事件  其他性质同 dual</strong></p>
+<h3 id="some-principles">* some principles<a class="headerlink" href="#some-principles" title="Permanent link">&para;</a></h3>
+<ul>
+<li>需要更多注意那些使用 OR 分配律或结合律的，这一事实本身违反之前的数学逻辑</li>
+</ul>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696152394718-6c694124-f24d-4013-a441-afd3009ed99f.png#averageHue=%23fff6f5&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=94&amp;id=ua28829dc&amp;originHeight=188&amp;originWidth=602&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=12262&amp;status=done&amp;style=none&amp;taskId=u4edd9d7f-3434-4e11-adff-ad0c91b2ab3&amp;title=&amp;width=301" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696152394718-6c694124-f24d-4013-a441-afd3009ed99f.png#averageHue=%23fff6f5&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=94&amp;id=ua28829dc&amp;originHeight=188&amp;originWidth=602&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=12262&amp;status=done&amp;style=none&amp;taskId=u4edd9d7f-3434-4e11-adff-ad0c91b2ab3&amp;title=&amp;width=301" /></a>
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696152249873-359ce852-a842-48f3-a20f-a8e14930da2f.png#averageHue=%23edeceb&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=204&amp;id=u866ee2c3&amp;originHeight=407&amp;originWidth=1009&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=85228&amp;status=done&amp;style=none&amp;taskId=udcce9033-d367-45ff-a516-74803b2b483&amp;title=&amp;width=504.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696152249873-359ce852-a842-48f3-a20f-a8e14930da2f.png#averageHue=%23edeceb&amp;clientId=u837c7906-ebd6-4&amp;from=paste&amp;height=204&amp;id=u866ee2c3&amp;originHeight=407&amp;originWidth=1009&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=85228&amp;status=done&amp;style=none&amp;taskId=udcce9033-d367-45ff-a516-74803b2b483&amp;title=&amp;width=504.5" /></a>
+<strong>思路：</strong></p>
+<ol>
+<li><code>**AND**</code>**操作符多的：求对偶 dual **</li>
+</ol>
+<h2 id="canonical-forms">Canonical Forms | 规范型<a class="headerlink" href="#canonical-forms" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>方法</strong></li>
+<li>转换  dual</li>
+<li>化归</li>
+<li><strong>Minterm</strong></li>
+<li>每个变量都出现</li>
+<li><code>index</code>the decimal equivalent of the binary combination corresponding to the Minterm</li>
+</ul>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695700828236-91218843-576b-4717-a88c-49fd900f8ba2.png#averageHue=%23fbfbfb&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=197&amp;id=uf29ca8e5&amp;originHeight=393&amp;originWidth=899&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=69840&amp;status=done&amp;style=none&amp;taskId=uad18dced-e118-4fc6-9050-a641da38c1e&amp;title=&amp;width=449.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695700828236-91218843-576b-4717-a88c-49fd900f8ba2.png#averageHue=%23fbfbfb&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=197&amp;id=uf29ca8e5&amp;originHeight=393&amp;originWidth=899&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=69840&amp;status=done&amp;style=none&amp;taskId=uad18dced-e118-4fc6-9050-a641da38c1e&amp;title=&amp;width=449.5" /></a></p>
+<ul>
+<li><strong>Maxterm</strong></li>
+</ul>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695700816715-d86b05c0-9942-4010-9dc6-611cd66d63ef.png#averageHue=%23fbfbfb&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=205&amp;id=u090c6f5c&amp;originHeight=410&amp;originWidth=1029&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=76150&amp;status=done&amp;style=none&amp;taskId=u544f777c-e37f-444e-bcd8-9301deee4eb&amp;title=&amp;width=514.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695700816715-d86b05c0-9942-4010-9dc6-611cd66d63ef.png#averageHue=%23fbfbfb&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=205&amp;id=u090c6f5c&amp;originHeight=410&amp;originWidth=1029&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=76150&amp;status=done&amp;style=none&amp;taskId=u544f777c-e37f-444e-bcd8-9301deee4eb&amp;title=&amp;width=514.5" /></a></p>
+<ul>
+<li><strong>SOM | sum of minterms</strong></li>
+</ul>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695701400824-34b76258-2a89-471c-9255-dc0c48feb70b.png#averageHue=%23f2f1f1&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=371&amp;id=ucd2ecf58&amp;originHeight=742&amp;originWidth=1096&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=64427&amp;status=done&amp;style=none&amp;taskId=ub64c21cd-40ff-4fbc-b742-1b53caab558&amp;title=&amp;width=548" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695701400824-34b76258-2a89-471c-9255-dc0c48feb70b.png#averageHue=%23f2f1f1&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=371&amp;id=ucd2ecf58&amp;originHeight=742&amp;originWidth=1096&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=64427&amp;status=done&amp;style=none&amp;taskId=ub64c21cd-40ff-4fbc-b742-1b53caab558&amp;title=&amp;width=548" /></a></p>
+<ul>
+<li><strong>POM | product of maxterms</strong></li>
+<li><strong>所有令 f 值为 0 的组合  只要有任意一个不为 0 则为 1</strong></li>
+</ul>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695701415646-19933382-5adf-40ec-b2f6-485f468a73e4.png#averageHue=%23f1f0ef&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=374&amp;id=ue1d81720&amp;originHeight=747&amp;originWidth=1122&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=78164&amp;status=done&amp;style=none&amp;taskId=u4281a636-857e-438b-8c40-743e8768e78&amp;title=&amp;width=561" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1695701415646-19933382-5adf-40ec-b2f6-485f468a73e4.png#averageHue=%23f1f0ef&amp;clientId=u5b33e211-e71a-4&amp;from=paste&amp;height=374&amp;id=ue1d81720&amp;originHeight=747&amp;originWidth=1122&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=78164&amp;status=done&amp;style=none&amp;taskId=u4281a636-857e-438b-8c40-743e8768e78&amp;title=&amp;width=561" /></a>
+:::info
+Tips:</p>
+<ul>
+<li>最大项和最小项可以相互转化</li>
+</ul>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696237143745-efd3eeb1-f28d-43eb-936b-d7c8bac03128.png#averageHue=%23fcfbfa&amp;clientId=u56d69353-cb6d-4&amp;from=paste&amp;height=104&amp;id=u5647c98d&amp;originHeight=208&amp;originWidth=1056&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=25377&amp;status=done&amp;style=none&amp;taskId=u3f79ca81-f143-4fe9-bcda-17f2e20fe76&amp;title=&amp;width=528" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696237143745-efd3eeb1-f28d-43eb-936b-d7c8bac03128.png#averageHue=%23fcfbfa&amp;clientId=u56d69353-cb6d-4&amp;from=paste&amp;height=104&amp;id=u5647c98d&amp;originHeight=208&amp;originWidth=1056&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=25377&amp;status=done&amp;style=none&amp;taskId=u3f79ca81-f143-4fe9-bcda-17f2e20fe76&amp;title=&amp;width=528" /></a></p>
+<ul>
+<li></li>
+</ul>
+<p>:::</p>
+<h2 id="standard-form">Standard Form | 标准型<a class="headerlink" href="#standard-form" title="Permanent link">&para;</a></h2>
+<p>类似离散数学中的 DNF CNF 与 Full DNF 的区别
+可以少项</p>
+<ul>
+<li>sum of product</li>
+<li>product of sum</li>
+</ul>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696237569873-5cac73cd-89bd-4250-891f-b0d184ad3e08.png#averageHue=%23efeeed&amp;clientId=ucae926bd-329b-4&amp;from=paste&amp;height=172&amp;id=u6c82fb48&amp;originHeight=343&amp;originWidth=968&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=52431&amp;status=done&amp;style=none&amp;taskId=u514e1114-5841-490f-a5fe-a42ba2dacb2&amp;title=&amp;width=484" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696237569873-5cac73cd-89bd-4250-891f-b0d184ad3e08.png#averageHue=%23efeeed&amp;clientId=ucae926bd-329b-4&amp;from=paste&amp;height=172&amp;id=u6c82fb48&amp;originHeight=343&amp;originWidth=968&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=52431&amp;status=done&amp;style=none&amp;taskId=u514e1114-5841-490f-a5fe-a42ba2dacb2&amp;title=&amp;width=484" /></a></p>
+<h1 id="part-2">Part 2 优化<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h1>
+<h1 id="cost-function">cost function<a class="headerlink" href="#cost-function" title="Permanent link">&para;</a></h1>
+<p>三个维度
+<code>literal</code> Complement 包括本身都计算在内，重复也计算
+<code>G</code>
+<code>GN</code>
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696939217868-79dfee06-2ae3-471a-acd6-0f5d7e68390b.png#averageHue=%23e3e1df&amp;clientId=u4537cb59-03bf-4&amp;from=paste&amp;height=247&amp;id=u9f8c396c&amp;originHeight=494&amp;originWidth=1298&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=123613&amp;status=done&amp;style=none&amp;taskId=uc0564a65-d806-448f-b4f2-dd4e1465303&amp;title=&amp;width=649" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1696939217868-79dfee06-2ae3-471a-acd6-0f5d7e68390b.png#averageHue=%23e3e1df&amp;clientId=u4537cb59-03bf-4&amp;from=paste&amp;height=247&amp;id=u9f8c396c&amp;originHeight=494&amp;originWidth=1298&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=123613&amp;status=done&amp;style=none&amp;taskId=uc0564a65-d806-448f-b4f2-dd4e1465303&amp;title=&amp;width=649" /></a></p>
+<ul>
+<li>注意  <strong>comlemented single literals 只计入一次</strong></li>
+<li>
+<p><strong>利用图示数</strong>
+   查连线数
+   <a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231106224536945.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231106224536945.png" alt="image-20231106224536945" style="zoom:50%;" /></a></p>
+</li>
+<li>
+<p><strong>数的时候可以一层层拆解下去</strong></p>
+</li>
+</ul>
+<p>比如上图中的 2
+宏观上 为 X + Y
+之后再去 分别看 XY 是否计入一次 
+拆解 XY
+不断重复</p>
+<hr />
+<p><code>**例子**</code></p>
+<blockquote>
+<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091623036.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091623036.png" /></a></p>
+<ul>
+<li>以第三个为例子</li>
+<li>literal cost  8</li>
+<li>首先， + 两边的两个大项  2`  ,  每个大项内部，A ，C single；B + D  1</li>
+</ul>
+</blockquote>
+<h1 id="k-map">K-map | 卡诺图<a class="headerlink" href="#k-map" title="Permanent link">&para;</a></h1>
+<ul>
+<li>可以看作真值表的另一种表达</li>
+<li>注意相隔的 squre 只有一位不同，<strong>Gray Code</strong></li>
+</ul>
+<h3 id="system-simplification">System Simplification<a class="headerlink" href="#system-simplification" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>蕴含项 | implicant</strong></li>
+</ul>
+<p>含有 2^n^ 个 1 的矩形</p>
+<ul>
+<li><strong>主蕴含项 | prime implicant</strong></li>
+</ul>
+<p>极大蕴含项</p>
+<ul>
+<li><strong>基本主蕴含项 | essential prime implicant</strong></li>
+</ul>
+<p>无可替代
+TIP :
+<strong>主蕴含项一定存在但基本主蕴含项不一定</strong>
+<strong>基本主蕴含项一定存在在化简结果中</strong></p>
+<blockquote>
+<p>和之积SOP的优化方法：
+法一:  先取反再操作
+法二：直接对 0 操作</p>
+</blockquote>
+<h3 id="dont-cares">Don`t Cares<a class="headerlink" href="#dont-cares" title="Permanent link">&para;</a></h3>
+<p>x</p>
+<h1 id="part-3">Part 3<a class="headerlink" href="#part-3" title="Permanent link">&para;</a></h1>
+<h1 id="gate-types">Gate Types<a class="headerlink" href="#gate-types" title="Permanent link">&para;</a></h1>
+<h2 id="primitive-gates">Primitive Gates<a class="headerlink" href="#primitive-gates" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697359662127-d2fc5964-7ade-43f5-87dd-80c7e44e56c8.png#averageHue=%23fdfdfd&amp;clientId=u34c54306-4f6b-4&amp;from=paste&amp;height=470&amp;id=u063dba5a&amp;originHeight=678&amp;originWidth=507&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=32560&amp;status=done&amp;style=none&amp;taskId=u5f8021f4-f382-4861-bdc6-5ed3732d0a9&amp;title=&amp;width=351.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697359662127-d2fc5964-7ade-43f5-87dd-80c7e44e56c8.png#averageHue=%23fdfdfd&amp;clientId=u34c54306-4f6b-4&amp;from=paste&amp;height=470&amp;id=u063dba5a&amp;originHeight=678&amp;originWidth=507&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=32560&amp;status=done&amp;style=none&amp;taskId=u5f8021f4-f382-4861-bdc6-5ed3732d0a9&amp;title=&amp;width=351.5" /></a></p>
+<h3 id="buffer">Buffer | 缓冲器<a class="headerlink" href="#buffer" title="Permanent link">&para;</a></h3>
+<p>提高电路电压水平和增加电路运行速度。</p>
+<h3 id="three-state-buffer">Three-state Buffer | 三态缓冲器<a class="headerlink" href="#three-state-buffer" title="Permanent link">&para;</a></h3>
+<p>给出三种状态：0，1，Hi-Z
+<code>*IN</code> ：<strong>数据端
+<code>**EN**</code></strong>：<strong>控制端
+<code>HI-Z</code></strong>:** 既不是高电平也不是低电平，它的表现与通路类似，如果输入到下一端口将不造成影响。另外，如果用万用表测量电平，其高低取决于它后面的东西
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697360051385-f372bc3b-e0ab-4d0c-bd8a-208dcae34998.png#averageHue=%23f0efef&clientId=u34c54306-4f6b-4&from=paste&height=420&id=V7GKp&originHeight=839&originWidth=586&originalType=binary&ratio=2&rotation=0&showTitle=false&size=30362&status=done&style=none&taskId=u3aedf5dd-b975-4c87-979b-7afbc79a75c&title=&width=293" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697360051385-f372bc3b-e0ab-4d0c-bd8a-208dcae34998.png#averageHue=%23f0efef&clientId=u34c54306-4f6b-4&from=paste&height=420&id=V7GKp&originHeight=839&originWidth=586&originalType=binary&ratio=2&rotation=0&showTitle=false&size=30362&status=done&style=none&taskId=u3aedf5dd-b975-4c87-979b-7afbc79a75c&title=&width=293" alt="image.png" style="zoom:50%;" /></a></p>
+<h2 id="complex-gates">Complex Gates<a class="headerlink" href="#complex-gates" title="Permanent link">&para;</a></h2>
+<h3 id="_2"><a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697360730312-297cd2d3-e1c1-4dd2-a92d-563e7a49b110.png#averageHue=%23fcfcfc&amp;clientId=u34c54306-4f6b-4&amp;from=paste&amp;height=441&amp;id=u43bd3e6a&amp;originHeight=665&amp;originWidth=601&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=50793&amp;status=done&amp;style=none&amp;taskId=u8d5d91e6-a9c6-45e3-82d5-061349a2ad5&amp;title=&amp;width=398.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697360730312-297cd2d3-e1c1-4dd2-a92d-563e7a49b110.png#averageHue=%23fcfcfc&amp;clientId=u34c54306-4f6b-4&amp;from=paste&amp;height=441&amp;id=u43bd3e6a&amp;originHeight=665&amp;originWidth=601&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=50793&amp;status=done&amp;style=none&amp;taskId=u8d5d91e6-a9c6-45e3-82d5-061349a2ad5&amp;title=&amp;width=398.5" /></a><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h1 id="_3">补充<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<h2 id="odd-function">Odd Function | 奇函数<a class="headerlink" href="#odd-function" title="Permanent link">&para;</a></h2>
+<p>通过<code>exclusive or</code>搭建
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697364976545-8afc93cd-ee9e-4a98-bc60-22f625ff50ca.png#averageHue=%23fefdfd&clientId=uabe4f76e-e7d1-4&from=paste&height=287&id=ue4e4c434&originHeight=573&originWidth=813&originalType=binary&ratio=2&rotation=0&showTitle=false&size=42104&status=done&style=none&taskId=u0a34b307-1ec7-4f1f-8a6a-3677b2073cf&title=&width=406.5" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697364976545-8afc93cd-ee9e-4a98-bc60-22f625ff50ca.png#averageHue=%23fefdfd&clientId=uabe4f76e-e7d1-4&from=paste&height=287&id=ue4e4c434&originHeight=573&originWidth=813&originalType=binary&ratio=2&rotation=0&showTitle=false&size=42104&status=done&style=none&taskId=u0a34b307-1ec7-4f1f-8a6a-3677b2073cf&title=&width=406.5" alt="image.png" style="zoom: 67%;" /></a>
+<a class="glightbox" href="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697364945589-a687201f-3733-4ce6-bca2-a8a2c41df626.png#averageHue=%23fdfdfd&amp;clientId=uabe4f76e-e7d1-4&amp;from=paste&amp;height=177&amp;id=WHbjs&amp;originHeight=353&amp;originWidth=1086&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=38002&amp;status=done&amp;style=none&amp;taskId=u05449891-93e6-4a90-8afa-af635e972c3&amp;title=&amp;width=543" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2023/png/36192378/1697364945589-a687201f-3733-4ce6-bca2-a8a2c41df626.png#averageHue=%23fdfdfd&amp;clientId=uabe4f76e-e7d1-4&amp;from=paste&amp;height=177&amp;id=WHbjs&amp;originHeight=353&amp;originWidth=1086&amp;originalType=binary&amp;ratio=2&amp;rotation=0&amp;showTitle=false&amp;size=38002&amp;status=done&amp;style=none&amp;taskId=u05449891-93e6-4a90-8afa-af635e972c3&amp;title=&amp;width=543" /></a></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 19, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.instant", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
