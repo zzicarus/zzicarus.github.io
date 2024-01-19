@@ -82,9 +82,6 @@ extra_javascript:
 
 # 插件部分
 plugins:
-  # 时间支持
-  - git-revision-date-localized:
-      enable_creation_date: true
   # 图像缩放
   - glightbox
 
