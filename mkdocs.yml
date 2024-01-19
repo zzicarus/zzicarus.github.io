@@ -7,6 +7,7 @@ repo_url: "https://github.com/zzicarus/zzicarus.github.io"
 
 theme:
   name: material
+  favicon: images/favicon.png
   # color 部分
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -63,7 +64,6 @@ theme:
     - navigation.top
     - navigation.tracking # 地址栏中的 URL 会自动更新为目录中突出显示的活动定位点
     - navigation.path
-
     - search.highlight
     - search.share
   # custom_dir: overrides
