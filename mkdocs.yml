@@ -80,11 +80,6 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
   - javascripts/extra.js
 
-# 插件部分
-plugins:
-  # 图像缩放
-  - glightbox
-
 # 加入 md 拓展
 markdown_extensions:
   - toc:
