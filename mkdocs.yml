@@ -91,6 +91,7 @@ plugins:
 markdown_extensions:
   - toc:
       permalink: true
+      toc_depth: 4
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.arithmatex:
