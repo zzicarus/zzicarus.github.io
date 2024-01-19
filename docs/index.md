@@ -5,12 +5,21 @@
 > - [Material](https://squidfunk.github.io/mkdocs-material/)
 > - [知乎](https://zhuanlan.zhihu.com/p/630165427)
 
-# Test For it
+- [x] 初步搭建平台
+- [ ] 搭建笔记框架
+- [ ] 上传笔记
+- [ ] 熟悉新的extension语法
+- [ ] 对页面美化，风格化
+
+## Test For it
+
+数学公式
+$N==S_2$
 
 **Mention**
 `Code Block`
 
-```C
+```C linenums="1" title="Test"  
 // From here
 int main()
 {
@@ -18,7 +27,7 @@ int main()
 }
 ```
 
-# 预下载
+## 预下载
 
 为了成功搭建，你需要如下预备：
 
@@ -28,29 +37,25 @@ int main()
 
 # Material
 
-- [官方文档]: https://squidfunk.github.io/mkdocs-material/
-
 > 由于`MkDocs`的原版主题确实不太好看，所以这里使用了`Material For MkDocs`进行优化
 
-```
+```shell  
 
 mkdocs new     // 新建一个MkDocs
 
 mkdocs serve   // 建立一个预览
 
 mkdocs build   // 建立一个静态网页
+
 ```
 
 # Github Page 的部署
-
-[官方文档]: https://docs.github.com/en/pages/quickstart
-[ 知乎]: https://zhuanlan.zhihu.com/p/76063614
 
 ![image-20240113210407673](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401132104761.png)
 
 - 自动部署需要在`.github\workflows`中加入`ci.yml`文件，内容如下：
 
-```yml
+``` yml linenums="1"
 name: ci
 on:
   push:
@@ -81,3 +86,51 @@ jobs:
       - run: pip install mkdocs-material
       - run: mkdocs gh-deploy --force
 ```
+
+## 一些用法
+
+### annotation
+
+``` md
+!!! 或者 ???
+
+???+ 折叠，默认展开状态
+```
+
+
+!!! note "Note"
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+    nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+    massa, nec semper lorem quam in massa.
+
+!!! info "info"
+    info 
+
+!!! abstract "Abstt"
+    abd
+
+!!! tip "tip" 
+    octicons/squirrel-16
+
+??? success "success"
+    success
+
+??? quote "quote"
+    quote
+
+??? question "question"
+    question
+
+
+??? warning  inline end "warning"
+    warning
+
+???+ inline bug "bug"
+    bug
+
+!!! example inline end "example"
+    example
+
+!!! failure "failure"
+    failure

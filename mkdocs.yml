@@ -3,6 +3,7 @@ site_author: ZZIcarus
 site_url: "https://zzicarus.github.io/"
 
 repo_name: "zzicarus/zzicarus.github.io"
+repo_url: "https://github.com/zzicarus/zzicarus.github.io"
 
 theme:
   name: material
@@ -35,13 +36,29 @@ theme:
 
   icon:
     logo: material/google-downasaur
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
   features:
     - content.code.annotate
+    - content.code.copy # 代码复制
+    - content.tooltips
     # 导航栏
     - navigation.instant
     - navigation.tabs
     # - navigation.tabs.sticky
-    - navigation.sections
+    # - navigation.sections
     - navigation.indexes
     - navigation.top
     - navigation.tracking # 地址栏中的 URL 会自动更新为目录中突出显示的活动定位点
@@ -51,11 +68,84 @@ theme:
     - search.share
   # custom_dir: overrides
 
-nav:
-  - "封面":
-      - "封面": index.md
-  - "Tools":
-      - "Git": Read.md
-
 extra_css:
   - stylesheets/extra.css
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/katex.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+# 插件部分
+plugins:
+  # 时间支持
+  - git-revision-date-localized:
+      enable_creation_date: true
+  # 图像缩放
+  - glightbox
+
+# 加入 md 拓展
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.arithmatex:
+      generic: true
+
+  # 图像
+  - attr_list
+  - md_in_html
+  # 工具提示
+  - abbr
+  # annotation
+  - admonition
+  # task list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  # 代码块
+  - pymdownx.details
+  - pymdownx.highlight:
+      linenums: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#embedding-external-files
+  #
+  - pymdownx.snippets # 将任意文件中的内容嵌入到文档
+  - pymdownx.superfences
+
+nav:
+  - 封面:
+      - "封面": index.md
+  - Tools:
+      - Git: Tools/Git.md
+  - 课内:
+      - 数字逻辑设计:
+          - Initial: CS/数字逻辑基础/index.md
+          - Chapter 1 数字系统: CS/数字逻辑基础/P1.md
+          - Chapter 2 组合电路 | Combinational Logic Circuits: CS/数字逻辑基础/P2.md
+          - Chapter 3 组合电路设计 | Combinational Logic Design: CS/数字逻辑基础/P3.md
+          - Chapter 4 时序逻辑: CS/数字逻辑基础/P4.md
+          - Chapter 5 数字硬件实现: CS/数字逻辑基础/P5.md
+          - Chapter 6 寄存器 | Logic and Computer Design Fundamentals: CS/数字逻辑基础/P6.md
+          - Chapter 7 存储器基础: CS/数字逻辑基础/P7.md
+          - 实验部分: CS/数字逻辑基础/Labs.md
+      - DIP:
+          - 期末复习: CS/DIP/DIP_Review.md
+
+  - Others:
+      - 微观经济学:
+          - others/微观经济学/index.md
+          - others/微观经济学/Chapter 1  价格机制.md
+          - others/微观经济学/Chapter 2 消费者理论.md
+          - others/微观经济学/Chapter 3 生产者理论.md
+          - others/微观经济学/Chapter 4 弹性理论.md
+          - others/微观经济学/Chapter 5 完全竞争市场.md
+          - others/微观经济学/Chapter 6 不完全竞争市场.md
+          - others/微观经济学/Chapter 7 博弈论.md
+          - others/微观经济学/Chapter 8 要素市场.md
