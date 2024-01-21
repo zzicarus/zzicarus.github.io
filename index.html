@@ -89,7 +89,11 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="css/timeago.css">
+    
+      <link rel="stylesheet" href="css/extra.css">
+    
+      <link rel="stylesheet" href="css/status.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
@@ -119,7 +123,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#test-for-it" class="md-skip">
+        <a href="#0" class="md-skip">
           跳转至
         </a>
       
@@ -476,6 +480,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -525,6 +533,97 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Tools/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    站点
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            站点
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Tools/%E7%AB%99%E7%82%B9/mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mkdocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1218,89 +1317,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#test-for-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test For it
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      预下载
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#material" class="md-nav__link">
-    <span class="md-ellipsis">
-      Material
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#github-page" class="md-nav__link">
-    <span class="md-ellipsis">
-      Github Page 的部署
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Github Page 的部署">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      一些用法
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="一些用法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#md" class="md-nav__link">
-    <span class="md-ellipsis">
-      md 格式的调整
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#annotation" class="md-nav__link">
-    <span class="md-ellipsis">
-      annotation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1318,193 +1336,8 @@
   
 
 
-<blockquote>
-<p>记录搭建 MkDocs 的过程</p>
-<p>参考文档：</p>
-<ul>
-<li><a href="https://squidfunk.github.io/mkdocs-material/">Material</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/630165427">知乎</a></li>
-</ul>
-</blockquote>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 初步搭建平台</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 搭建笔记框架</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 上传笔记</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 熟悉新的extension语法</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 对页面美化，风格化</li>
-</ul>
-<h2 id="test-for-it">Test For it<a class="headerlink" href="#test-for-it" title="Permanent link">&para;</a></h2>
-<p>数学公式
-<span class="arithmatex">\(N==S_2\)</span></p>
-<p><strong>Mention</strong>
-<code>Code Block</code></p>
-<div class="language-C highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Test</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// From here</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
-<h2 id="_1">预下载<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>为了成功搭建，你需要如下预备：</p>
-<ul>
-<li>python 环境，并且安装好了 pip</li>
-<li>了解基本的 git 语法（online 部署）</li>
-<li>了解基本的 md 语法</li>
-</ul>
-<h1 id="material">Material<a class="headerlink" href="#material" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>由于<code>MkDocs</code>的原版主题确实不太好看，所以这里使用了<code>Material For MkDocs</code>进行优化</p>
-</blockquote>
-<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>mkdocs<span class="w"> </span>new<span class="w">     </span>//<span class="w"> </span>新建一个MkDocs
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>mkdocs<span class="w"> </span>serve<span class="w">   </span>//<span class="w"> </span>建立一个预览
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>mkdocs<span class="w"> </span>build<span class="w">   </span>//<span class="w"> </span>建立一个静态网页
-</span></code></pre></div></td></tr></table></div>
-<h1 id="github-page">Github Page 的部署<a class="headerlink" href="#github-page" title="Permanent link">&para;</a></h1>
-<p><img alt="image-20240113210407673" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401132104761.png" /></p>
-<ul>
-<li>自动部署需要在<code>.github\workflows</code>中加入<code>ci.yml</code>文件，内容如下：</li>
-</ul>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span>
-<span class="normal"><a href="#__codelineno-2-25">25</a></span>
-<span class="normal"><a href="#__codelineno-2-26">26</a></span>
-<span class="normal"><a href="#__codelineno-2-27">27</a></span>
-<span class="normal"><a href="#__codelineno-2-28">28</a></span>
-<span class="normal"><a href="#__codelineno-2-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>name: ci
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>on:
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>  push:
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>    branches:
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>      - master
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>      - main
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>permissions:
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>  contents: write
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>jobs:
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>  deploy:
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>    runs-on: ubuntu-latest
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a>    steps:
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a>      - uses: actions/checkout@v4
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a>      - name: Configure Git Credentials
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a>        run: |
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a>          git config user.name github-actions[bot]
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a>          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a>      - uses: actions/setup-python@v4
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a>        with:
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20"></a>          python-version: 3.x
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21"></a>      - run: echo &quot;cache_id=$(date --utc &#39;+%V&#39;)&quot; &gt;&gt; $GITHUB_ENV
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22"></a>      - uses: actions/cache@v3
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23"></a>        with:
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24"></a>          key: mkdocs-material-${{ env.cache_id }}
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25"></a>          path: .cache
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26"></a>          restore-keys: |
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27"></a>            mkdocs-material-
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28"></a>      - run: pip install mkdocs-material
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29"></a>      - run: mkdocs gh-deploy --force
-</span></code></pre></div></td></tr></table></div>
-<h2 id="_2">一些用法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="md">md 格式的调整<a class="headerlink" href="#md" title="Permanent link">&para;</a></h3>
-<p>代码见CSS部分</p>
-<ul>
-<li>无序列表</li>
-<li>
-<p>无序列表</p>
-</li>
-<li>
-<p>有序列表</p>
-</li>
-<li>有序列表</li>
-</ul>
-<p><em>斜体</em></p>
-<p><strong>加粗</strong></p>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<p>:bread:</p>
-<hr />
-<h3 id="annotation">annotation<a class="headerlink" href="#annotation" title="Permanent link">&para;</a></h3>
-<div class="language-md highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>!!! 或者 ???
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>???+ 折叠，默认展开状态
-</span></code></pre></div></td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
-nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
-massa, nec semper lorem quam in massa.</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">info</p>
-<p>info </p>
-</div>
-<div class="admonition abstract">
-<p class="admonition-title">Abstt</p>
-<p>abd</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">tip</p>
-<p>octicons/squirrel-16</p>
-</div>
-<details class="success">
-<summary>success</summary>
-<p>success</p>
-</details>
-<details class="quote">
-<summary>quote</summary>
-<p>quote</p>
-</details>
-<details class="question">
-<summary>question</summary>
-<p>question</p>
-</details>
-<details class="warning inline end">
-<summary>warning</summary>
-<p>warning</p>
-</details>
-<details class="inline bug" open="open">
-<summary>bug</summary>
-<p>bug</p>
-</details>
-<div class="admonition example inline end">
-<p class="admonition-title">example</p>
-<p>example</p>
-</div>
-<div class="admonition failure">
-<p class="admonition-title">failure</p>
-<p>failure</p>
-</div>
+<h1 id="0">欢迎\(@^0^@)/<a class="headerlink" href="#0" title="Permanent link">&para;</a></h1>
+<p><img alt="Alt text" src="images/custom-wallhaven-85rw5o.jpg" /></p>
 
 
 
@@ -1512,6 +1345,38 @@ massa, nec semper lorem quam in massa.</p>
 
 
 
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-21T06:05:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-21</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-01-13T13:18:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-01-13</span>
+  </span>
+
+    
+    
+    
+  </aside>
 
 
 
@@ -1562,7 +1427,13 @@ massa, nec semper lorem quam in massa.</p>
     
       <script src="assets/javascripts/bundle.7389ff0e.min.js"></script>
       
+        <script src="js/timeago.min.js"></script>
+      
+        <script src="js/timeago_mkdocs_material.js"></script>
+      
         <script src="javascripts/mathjax.js"></script>
+      
+        <script src="javascripts/box.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
