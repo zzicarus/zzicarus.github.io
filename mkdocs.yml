@@ -7,7 +7,7 @@ repo_url: "https://github.com/zzicarus/zzicarus.github.io"
 
 theme:
   name: material
-  favicon: images/favicon.png
+  favicon: images/joystick.png
   # color 部分
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -29,7 +29,7 @@ theme:
 
   # 字体
   font:
-    text: Roboto
+    text: Noto Sans Mongolian
     code: JetBrains Mono
 
   # 语言
@@ -56,7 +56,8 @@ theme:
     - content.code.copy # 代码复制
     - content.tooltips
     # 导航栏
-    - navigation.instant
+    # - navigation.instant
+    - toc.follow
     - navigation.tabs
     # - navigation.tabs.sticky
     # - navigation.sections
@@ -66,7 +67,7 @@ theme:
     - navigation.path
     - search.highlight
     - search.share
-  # custom_dir: overrides
+  #custom_dir: overrides
 
 extra_css:
   - stylesheets/extra.css
