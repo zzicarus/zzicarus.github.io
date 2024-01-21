@@ -58,19 +58,6 @@ mkdocs serve   // 建立一个预览
 mkdocs build   // 建立一个静态网页
 
 ```
-
-## 额外功能
-
-### box
-!!! note "From"
-    这一部分是从[xyjj的Page](https://xuan-insr.github.io/%E6%9D%82%E9%A1%B9/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/#status-%E5%B0%8F%E6%96%B9%E5%9D%97)看到的
-
-<span class="box box-blue">blue</span>
-<span class="box box-green">green</span>
-<span class="box box-red">red</span>
-<span class="box box-yellow">yellow</span>
-<span class="box box-gray">gray</span>
-
 ## Github Page 的部署
 
 ![image-20240113210407673](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401132104761.png)
@@ -109,6 +96,23 @@ jobs:
       - run: mkdocs gh-deploy --force
 ```
 
+## 额外功能
+
+### box
+!!! note "From"
+    这一部分是从[xyjj的Page](https://xuan-insr.github.io/%E6%9D%82%E9%A1%B9/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/#status-%E5%B0%8F%E6%96%B9%E5%9D%97)看到的
+
+<span class="box box-blue">blue</span>
+<span class="box box-green">green</span>
+<span class="box box-red">red</span>
+<span class="box box-yellow">yellow</span>
+<span class="box box-gray">gray</span>
+
+### 字数统计
+
+直接使用了一位[学长的插件](https://github.com/TonyCrane/mkdocs-statistics-plugin)
+
+
 ## 一些用法 | 测试格式
 
 ### md 格式的调整
@@ -126,11 +130,25 @@ jobs:
 **加粗**
 
 > 引用
+> 
+[链接](http://127.0.0.1:8000/#github-page)
 
-[链接]:(http://127.0.0.1:8000/#github-page)
+------
+下面的是一些拓展的，在markdown - extension中可以选择加入（建议读[官方文档](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#arithmatex-docsjavascriptsmathjaxjs)）
+```md
+:bread:
+~~删除~~
+==突出显示==
+^^插入^^
+```
 
 :bread:
 
+~~删除~~
+
+==突出显示==
+
+^^插入^^
 
 --------
 

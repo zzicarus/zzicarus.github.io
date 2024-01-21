@@ -98,10 +98,10 @@ markdown_extensions:
       generic: true
   - pymdownx.arithmatex:
       generic: true
-
+  # 加入html 支持
+  - md_in_html
   # 图像
   - attr_list
-  - md_in_html
   # 工具提示
   - abbr
   # annotation
@@ -125,13 +125,18 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
 nav:
   - 封面:
       - "封面": index.md
-  - Tools:
-      - Git: Tools/Git.md
-      - Shell: Tools/Shell.md
-      - 站点:
+  - ⚙️ Tools:
+      - ⚙️ Git: Tools/Git.md
+      - ⚙️ Shell: Tools/Shell.md
+      - ⚙️ GNU Make: Tools/GNUMake.md
+      - ⚙️ 站点:
           - mkdocs: Tools/站点/mkdocs.md
   - 课内:
       - 数字逻辑设计:
@@ -146,11 +151,23 @@ nav:
           - 实验部分: CS/数字逻辑基础/Labs.md
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md
-
+  - ⌨️ 语言学习:
+      - 语言学习/index.md
+      - ⌨️ C语言:
+          - 语言学习/C/index.md
+          - 存储类别、链接和内存管理: 语言学习/C/存储类别、链接和内存管理.md
+          - 指针: 语言学习/C/指针.md
+      - ⌨️ CPP:
+          - 语言学习/CPP/index.md
+      - ⌨️ Python:
+          - Python: 语言学习/Python/index.md
+          - 💡CS61A: 语言学习/Python/CS61A.md
+  - 杂谈:
+      - 杂谈/index.md
   - Others:
       - 微观经济学:
           - 微观经济学: others/微观经济学/index.md
-          - others/微观经济学/Chapter 1  价格机制.md
+          - Chapter 1  价格机制: others/微观经济学/Chapter 1  价格机制.md
           - others/微观经济学/Chapter 2 消费者理论.md
           - others/微观经济学/Chapter 3 生产者理论.md
           - others/微观经济学/Chapter 4 弹性理论.md

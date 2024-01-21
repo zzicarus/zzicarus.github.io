@@ -1,3 +1,5 @@
+# Chapter 3 生产者理论
+
 ## 生产者
 
 ## 企业
@@ -30,7 +32,7 @@
 
 > 市场交易成本和企业组织协调成本的概念提出后，生产过程中的某一环节、某一道工序、某一部件、某一个零件是由市场交易来协调，还是由企业的内部组织管理来协调，就取决于市场交易成本大，还是企业的组织协调成本大。
 
-# 生产分析
+## 生产分析
 
 `生产要素`
 
@@ -39,7 +41,7 @@
 - 土地
 - **企业家才能**
 
-## 生产函数
+### 生产函数
 
 一般而言，我们只考虑资本和劳动的投入，而忽略其他的生产要素
 
@@ -62,7 +64,7 @@
 
   可变生产要素 固定生产要素
 
-###  **短期生产函数**
+####  **短期生产函数**
 
 **总产量	TP**
 **平均产量   AP**
@@ -71,17 +73,17 @@
 Q = f(K) or f(L)
 <img src="C:\Users\orz20\AppData\Roaming\Typora\typora-user-images\image-20231111152119533.png" alt="image-20231111152119533" style="zoom:67%;" />
 
-#### 边际报酬递减
+##### 边际报酬递减
 
 ![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231030193835283.png)
 
-### 长期生产函数
+#### 长期生产函数
 
-#### 等产量曲线
+##### 等产量曲线
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231030202516318.png" alt="image-20231030202516318" style="zoom:50%;" />
 
-#### 边际技术替代率 
+##### 边际技术替代率 
 
 边际技术替代率 Marginal Rate of Technological Substitution 
 
@@ -92,7 +94,7 @@ $MRTS_{LK} = - \Delta K/\Delta L = \frac{MP_L}{MP_K} = \frac{w}{k}$
 $-\Delta K*MP_K = \Delta L*MP_L$ 
 L对K的边际替代率 —— 增加 1 单位 L 可以带来 K的变化
 
-## 最优化
+### 最优化
 
 - 总产量一定，成本最低
 - 成本一定，总产量最大
@@ -103,15 +105,15 @@ L对K的边际替代率 —— 增加 1 单位 L 可以带来 K的变化
 $利用偏导 求出MP_L 和MP_K要注意他们都是关于Q的函数，即Q=f(K,L)$
 $之后利用 MRTS_{LK} = \frac{w}{k}$
 
-### 等成本方程
+#### 等成本方程
 
-# 成本分析
+## 成本分析
 
 ![image-20231106190155881](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231106190155881.png)
 
 会计成本不计算隐性成本
 
-## 短期成本
+### 短期成本
 
 > 这里描述的是成本和产量的关系 C = f（Q）
 
@@ -138,7 +140,7 @@ $MC = \frac{\Delta TC}{\Delta Q}=\frac{\Delta VC}{\Delta Q}$
 > A : 从生产函数进行分析，成本函数就是生产函数的“反转”
 > ![image-20231111160956321](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231111160956321.png) 
 
-## 长期成本函数
+### 长期成本函数
 
 **长期总成本 ： LTC**
 **长期平均成本： LAC**
@@ -153,7 +155,7 @@ $MC = \frac{\Delta TC}{\Delta Q}=\frac{\Delta VC}{\Delta Q}$
 
 - 由短期平均成本曲线推导
 
-## 规模经济
+### 规模经济
 
 ![image-20231106202215753](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231106202215753.png)
 
@@ -164,11 +166,11 @@ $MC = \frac{\Delta TC}{\Delta Q}=\frac{\Delta VC}{\Delta Q}$
 
 也就是说，α+β = 上图中的 n
 
-# 规模经济
+## 规模经济
 
 ![image-20240107202157395](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401072021489.png)
 
-# 计算
+## 计算
 
 Q = aL^α^K^β^
 C = aL + bK
