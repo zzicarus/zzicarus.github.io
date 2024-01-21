@@ -66,6 +66,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://zzicarus.github.io/Tools/GNUMake/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://zzicarus.github.io/Tools/Git/</loc>
          <lastmod>2024-01-21</lastmod>
          <changefreq>daily</changefreq>
@@ -122,6 +127,46 @@
     </url>
     <url>
          <loc>https://zzicarus.github.io/others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%208%20%E8%A6%81%E7%B4%A0%E5%B8%82%E5%9C%BA/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/%E6%9D%82%E8%B0%88/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/C/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/C/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB%E3%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/C/%E6%8C%87%E9%92%88/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/CPP/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/Python/</loc>
+         <lastmod>2024-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/Python/CS61A/</loc>
          <lastmod>2024-01-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
