@@ -73,6 +73,7 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       type: timeago
+  - statistics
 
 extra_css:
   - css/extra.css
@@ -120,6 +121,9 @@ markdown_extensions:
   #
   - pymdownx.snippets # 将任意文件中的内容嵌入到文档
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 nav:
   - 封面:
