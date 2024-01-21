@@ -19,7 +19,7 @@
         <link rel="next" href="../Labs/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../images/joystick.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
@@ -86,12 +86,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Mongolian:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Mongolian";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/status.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
@@ -102,18 +104,7 @@
     
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  </head>
   
   
     
@@ -447,6 +438,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -496,6 +491,97 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    站点
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            站点
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/%E7%AB%99%E7%82%B9/mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mkdocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1224,12 +1310,15 @@
 
 <p><strong>Definition</strong></p>
 <h1 id="rom">ROM<a class="headerlink" href="#rom" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>:material-circle-edit-outline: 约 210 个字 :material-clock-time-two-outline: 预计阅读时间 1 分钟</p>
+</div>
 <h1 id="ram">RAM<a class="headerlink" href="#ram" title="Permanent link">&para;</a></h1>
 <h1 id="sram">SRAM<a class="headerlink" href="#sram" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>静态的RAM</p>
 </blockquote>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041241391.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041241391.png" alt="image-20240104124100346" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041241391.png" alt="image-20240104124100346" style="zoom:50%;" /></p>
 <ul>
 <li>SR Latch</li>
 <li>Select input for control 1</li>
@@ -1238,12 +1327,12 @@
 </ul>
 <h2 id="coincident-selection">Coincident Selection<a class="headerlink" href="#coincident-selection" title="Permanent link">&para;</a></h2>
 <p>如果只是使用一种Decoder，门的消耗很大很大，实现这种阵列选择更好</p>
-<p><a class="glightbox" href="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20240104123940215.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20240104123940215.png" alt="image-20240104123940215" style="zoom:50%;" /></a></p>
+<p><img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20240104123940215.png" alt="image-20240104123940215" style="zoom:50%;" /></p>
 <h2 id="array-of-ram">Array Of RAM<a class="headerlink" href="#array-of-ram" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Simplified Symbol Of RAM</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041248858.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041248858.png" alt="image-20240104124822810" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041248858.png" alt="image-20240104124822810" style="zoom:67%;" /></p>
 <ul>
 <li>The capacity OF RAM</li>
 <li>The <strong>number Of Word</strong>  ---  the address</li>
@@ -1252,9 +1341,9 @@
 <blockquote>
 <p>Example 1 :
 将四个64K*8的转化为一个256K*8</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041250653.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041250653.png" alt="image-20240104125051597" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041250653.png" alt="image-20240104125051597" style="zoom:50%;" /></p>
 <p>Example 2:</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041252969.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041252969.png" alt="image-20240104125248940" style="zoom: 67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041252969.png" alt="image-20240104125248940" style="zoom: 67%;" /></p>
 </blockquote>
 <h1 id="dram">DRAM<a class="headerlink" href="#dram" title="Permanent link">&para;</a></h1>
 <blockquote>
@@ -1262,15 +1351,15 @@
 <p>成本低（用晶体管数目更少，结构更简单），容量大
 SRAM Cell 使用一个锁存器来存储数据，而 DRAM Cell 使用<strong>一个电容</strong>和<strong>一个晶体管</strong>来存储数据。</p>
 </blockquote>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041258590.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240104125838575" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041258590.png" /></a></p>
+<p><img alt="image-20240104125838575" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041258590.png" /></p>
 <ul>
 <li>D锁存器</li>
 <li>一个Select</li>
 </ul>
 <h2 id="slice"><strong>Slice</strong><a class="headerlink" href="#slice" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041301534.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041301534.png" alt="image-20240104130118482" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041301534.png" alt="image-20240104130118482" style="zoom:50%;" /></p>
 <h2 id="timing">Timing<a class="headerlink" href="#timing" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041304832.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041304832.png" alt="image-20240104130445773" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401041304832.png" alt="image-20240104130445773" style="zoom:67%;" /></p>
 <h1 id="_1">例题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <ul>
 <li>
@@ -1284,11 +1373,11 @@ SRAM Cell 使用一个锁存器来存储数据，而 DRAM Cell 使用<strong>一
 </li>
 </ul>
 <h2 id="dram_1">DRAM<a class="headerlink" href="#dram_1" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091400569.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091400569.png" alt="image-20240109140024508" style="zoom:50%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091403562.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240109140320524" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091403562.png" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091400569.png" alt="image-20240109140024508" style="zoom:50%;" /></p>
+<p><img alt="image-20240109140320524" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091403562.png" /></p>
 <h2 id="_2">内存计算<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091408331.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240109140817271" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091408331.png" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091411420.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240109141101392" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091411420.png" /></a></p>
+<p><img alt="image-20240109140817271" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091408331.png" /></p>
+<p><img alt="image-20240109141101392" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091411420.png" /></p>
 <ul>
 <li>个人认为，他并没有提及之后的输出情况，所以按照2 byte计算</li>
 </ul>
@@ -1376,12 +1465,14 @@ SRAM Cell 使用一个锁存器来存储数据，而 DRAM Cell 使用<strong>一
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.instant", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../javascripts/box.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
@@ -1393,6 +1484,8 @@ SRAM Cell 使用一个锁存器来存储数据，而 DRAM Cell 使用<strong>一
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
+        <script src="../../../javascripts/extra.js"></script>
+      
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  </body>
 </html>

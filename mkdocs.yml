@@ -68,12 +68,19 @@ theme:
     - search.highlight
     - search.share
   #custom_dir: overrides
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
 
 extra_css:
-  - stylesheets/extra.css
+  - css/extra.css
+  - css/status.css
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 extra_javascript:
   - javascripts/mathjax.js
+  - javascripts/box.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/katex.js
@@ -119,9 +126,12 @@ nav:
       - "封面": index.md
   - Tools:
       - Git: Tools/Git.md
+      - Shell: Tools/Shell.md
+      - 站点:
+          - mkdocs: Tools/站点/mkdocs.md
   - 课内:
       - 数字逻辑设计:
-          - Initial: CS/数字逻辑基础/index.md
+          - 数字逻辑设计: CS/数字逻辑基础/index.md
           - Chapter 1 数字系统: CS/数字逻辑基础/P1.md
           - Chapter 2 组合电路 | Combinational Logic Circuits: CS/数字逻辑基础/P2.md
           - Chapter 3 组合电路设计 | Combinational Logic Design: CS/数字逻辑基础/P3.md
@@ -135,7 +145,7 @@ nav:
 
   - Others:
       - 微观经济学:
-          - others/微观经济学/index.md
+          - 微观经济学: others/微观经济学/index.md
           - others/微观经济学/Chapter 1  价格机制.md
           - others/微观经济学/Chapter 2 消费者理论.md
           - others/微观经济学/Chapter 3 生产者理论.md

@@ -19,7 +19,7 @@
         <link rel="next" href="../P7/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../images/joystick.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
@@ -86,12 +86,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Mongolian:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Mongolian";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/status.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
@@ -102,18 +104,7 @@
     
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  </head>
   
   
     
@@ -447,6 +438,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -496,6 +491,97 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    站点
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            站点
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/%E7%AB%99%E7%82%B9/mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mkdocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1641,14 +1727,14 @@
 <blockquote>
 <p>In a digital system, a datapath and a control unit are frequently present at the upper levels of the design hierarchy. </p>
 <p>A <strong>datapath</strong> consists of processing logic and a collection of registers that performs data processing. A <strong><em>control unit</em></strong> is made up of logic that determines the sequence of data-processing operations performed by the datapath. Register transfer notation describes elementary data-processing actions referred to as <strong><em>microoperations</em></strong>. <code>Register transfers</code> move information between registers, between registers and memory, and through processing logic. Dedicated transfer hardware using multiplexers and shared transfer hardware called <em>buses</em> implement these movements of data. The design of the control unit for controlling register transfers is also covered in this chapter. </p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241907377.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241907377.png" alt="image-20231224190754272" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241907377.png" alt="image-20231224190754272" style="zoom:50%;" /></p>
 </blockquote>
 <h2 id="register">Register | 寄存器<a class="headerlink" href="#register" title="Permanent link">&para;</a></h2>
 <ul>
 <li>寄存器其实就是存储数据用的触发器部分和控制不同状态转换的组合电路部分组成</li>
 </ul>
 <p><code>Notation</code></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231212112620339.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231212112620339.png" alt="image-20231212112620339" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231212112620339.png" alt="image-20231212112620339" style="zoom:50%;" /></p>
 <ul>
 <li>
 <p>K1 : R1 &lt;- R2  相当于条件约束</p>
@@ -1657,10 +1743,10 @@
 <p>如果在左边条件中出现  <code>A + B</code> 表示逻辑运算，右边表示算术运算   如：<code>A + B : R1 + R2</code></p>
 </li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241908101.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241908101.png" alt="image-20231224190840991" style="zoom: 50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241908101.png" alt="image-20231224190840991" style="zoom: 50%;" /></p>
 <p><code>Example</code></p>
 <p>一个简单的加减法实现</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241910367.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241910367.png" alt="image-20231224191058307" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241910367.png" alt="image-20231224191058307" style="zoom:50%;" /></p>
 <p>一些可能用不到的细节：</p>
 <ul>
 <li>大写字母表示功能，<code>AR</code> 地址寄存器：保留存储单元地址；<code>PC</code>程序计数器；<code>IR</code>指令寄存器；<code>R2</code>寄存器2；</li>
@@ -1683,41 +1769,44 @@
 <p>思路很简单，就是利用一个二选一的多路复用器对input处理，于是便形成了 b 中的带有EN端的D触发器</p>
 </li>
 </ol>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241854849.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231224185432694" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241854849.png" /></a></p>
+<p><img alt="image-20231224185432694" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241854849.png" /></p>
 <h1 id="transfer">Transfer | 传输<a class="headerlink" href="#transfer" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>:material-circle-edit-outline: 约 984 个字 :material-clock-time-two-outline: 预计阅读时间 3 分钟</p>
+</div>
 <h2 id="multiplexer"><strong>基于 Multiplexer</strong><a class="headerlink" href="#multiplexer" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241927014.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241927014.png" alt="image-20231224192746930" style="zoom:33%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241925552.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241925552.png" alt="image-20231224192546446" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241927014.png" alt="image-20231224192746930" style="zoom:33%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241925552.png" alt="image-20231224192546446" style="zoom:50%;" /></p>
 <h2 id="_1"><strong>基于多路复用和总线</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><strong>Dedicated</strong></p>
 <ul>
 <li>为每一个寄存器都提供一个专属的选择器</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241939616.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241939616.png" alt="image-20231224193937500" style="zoom:33%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241939616.png" alt="image-20231224193937500" style="zoom:33%;" /></p>
 <ul>
 <li>好处与缺点同样明显：能够同时提供不同的传输值（R0&lt;-R1,R1&lt;-R2），但耗费更多的cost</li>
 </ul>
 <p><strong>Shared</strong></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241940623.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241940623.png" alt="image-20231224194028515" style="zoom:33%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241940623.png" alt="image-20231224194028515" style="zoom:33%;" /></p>
 <ul>
 <li>三态门实现</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091131452.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240109113112346" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091131452.png" /></a></p>
+<p><img alt="image-20240109113112346" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091131452.png" /></p>
 <h1 id="microoperations"><strong>Microoperations</strong><a class="headerlink" href="#microoperations" title="Permanent link">&para;</a></h1>
 <h2 id="shift-register">Shift Register | 移位寄存器<a class="headerlink" href="#shift-register" title="Permanent link">&para;</a></h2>
 <ul>
 <li>' 0 Filled'</li>
 </ul>
 <p><strong>串行 | Serial</strong></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219102550178.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231219102550178" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219102550178.png" /></a></p>
+<p><img alt="image-20231219102550178" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219102550178.png" /></p>
 <ul>
 <li>常常用于串行、并行的转换</li>
 <li>有时钟偏移的风险</li>
 <li>当数据刚进入的时候，后几个寄存器内的值是无法确定的状态</li>
 </ul>
 <p><strong>并行加载的移位寄存器 | Parallel Load Shift Registers</strong></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219102902142.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231219102902142" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219102902142.png" /></a>
-<a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241949161.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241949161.png" alt="image-20231224194901026" style="zoom:67%;" /></a></p>
+<p><img alt="image-20231219102902142" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219102902142.png" />
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312241949161.png" alt="image-20231224194901026" style="zoom:67%;" /></p>
 <ul>
 <li>每个寄存器前三个AND </li>
 <li>用于Shift</li>
@@ -1728,13 +1817,13 @@
 <ul>
 <li>注意，下图是在上面的6-10基础上完成的——它在每一个寄存器前多加了一个MUX（每个寄存器前都有一个MUX）</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219103427404.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219103427404.png" alt="image-20231219103427404" style="zoom:50%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312252026416.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312252026416.png" style="zoom:33%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219103427404.png" alt="image-20231219103427404" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312252026416.png" style="zoom:33%;" /></p>
 <h1 id="part-2counters-register-cells-buses-serial-operations">Part 2:<strong>Counters, register cells, buses, &amp; serial</strong> operations<a class="headerlink" href="#part-2counters-register-cells-buses-serial-operations" title="Permanent link">&para;</a></h1>
 <h1 id="counter">Counter<a class="headerlink" href="#counter" title="Permanent link">&para;</a></h1>
 <h2 id="ripple-counter">ripple Counter | 行波计数器<a class="headerlink" href="#ripple-counter" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219104138993.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219104138993.png" alt="image-20231219104138993" style="zoom:50%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242001586.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242001586.png" alt="image-20231224200141506" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231219104138993.png" alt="image-20231219104138993" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242001586.png" alt="image-20231224200141506" style="zoom:50%;" /></p>
 <p><strong>工作原理</strong></p>
 <ul>
 <li>在每个时钟周期反转（默认是在时钟信号的上升沿触发）</li>
@@ -1745,12 +1834,12 @@
 <li><code>Timing Delay</code>
   这个时序图要注意</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401110925781.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240111092527628" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401110925781.png" /></a></p>
+<p><img alt="image-20240111092527628" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401110925781.png" /></p>
 <ul>
 <li>好处是功耗低</li>
 </ul>
 <h2 id="synchronous-counters"><strong>Synchronous Counters</strong> | 同步二进制计数器<a class="headerlink" href="#synchronous-counters" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219110357803.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219110357803.png" alt="image-20231219110357803" style="zoom:50%;" /></a></p>
+<p><img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219110357803.png" alt="image-20231219110357803" style="zoom:50%;" /></p>
 <ul>
 <li>
 <p><span class="arithmatex">\(Q_n翻转的条件：Q_1 - Q_{n-1}均等于1\)</span></p>
@@ -1761,7 +1850,7 @@
 </ul>
 <h2 id="other-counters">Other Counters<a class="headerlink" href="#other-counters" title="Permanent link">&para;</a></h2>
 <h3 id="with-parallel-load">With Parallel Load<a class="headerlink" href="#with-parallel-load" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219110647444.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219110647444.png" alt="image-20231219110647444" style="zoom: 67%;" /></a></p>
+<p><img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219110647444.png" alt="image-20231219110647444" style="zoom: 67%;" /></p>
 <table>
 <thead>
 <tr>
@@ -1790,21 +1879,21 @@
 </table>
 <p>可以看出来，当Load == 1时，Count是被抑制了的；这样设计有一个好处，就是输入为 1 1 的状态不会发生冲突</p>
 <h3 id="bcd-code-counter">BCD code Counter<a class="headerlink" href="#bcd-code-counter" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242022641.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242022641.png" alt="image-20231224202203517" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242022641.png" alt="image-20231224202203517" style="zoom:67%;" /></p>
 <h3 id="module-n-counter">module N Counter<a class="headerlink" href="#module-n-counter" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219112453514.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219112453514.png" alt="image-20231219112453514" style="zoom:50%;" /></a></p>
+<p><img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20231219112453514.png" alt="image-20231219112453514" style="zoom:50%;" /></p>
 <ul>
 <li><code>LOAD</code>是并行进行的。6 - 0110  ReLOAD</li>
 <li>一种不可行的方法是在 7-0111 时进行<code>Clear</code></li>
 <li>Clear 操作不是同步的，可能将D0 Reset 到1时，clear信号已经发生变化，但clear过程并未完成</li>
 </ul>
 <h1 id="serial-transfers-and-microoperations"><strong>Serial Transfers and Microoperations</strong> | 串行<a class="headerlink" href="#serial-transfers-and-microoperations" title="Permanent link">&para;</a></h1>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242040205.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231224204019100" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242040205.png" /></a></p>
+<p><img alt="image-20231224204019100" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242040205.png" /></p>
 <ul>
 <li>SRG4 为四位串行行波计数器</li>
 </ul>
 <p><strong>串行加法</strong></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242045376.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242045376.png" alt="image-20231224204503256" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312242045376.png" alt="image-20231224204503256" style="zoom:50%;" /></p>
 <ul>
 <li>好处在于用的空间更少</li>
 <li>A 保存运算结果；B 用于加载加数；</li>
@@ -1818,7 +1907,7 @@
 </blockquote>
 <h2 id="design-procedure">Design Procedure<a class="headerlink" href="#design-procedure" title="Permanent link">&para;</a></h2>
 <p>书上的两个例子</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312251918888.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231225191837570" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312251918888.png" /></a></p>
+<p><img alt="image-20231225191837570" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202312251918888.png" /></p>
 
 
 
@@ -1903,12 +1992,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.instant", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../javascripts/box.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
@@ -1920,6 +2011,8 @@
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
+        <script src="../../../javascripts/extra.js"></script>
+      
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  </body>
 </html>

@@ -19,7 +19,7 @@
         <link rel="next" href="../P5/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../images/joystick.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
@@ -86,12 +86,14 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Mongolian:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Mongolian";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../../css/status.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
@@ -102,18 +104,7 @@
     
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-        html.glightbox-open { overflow: initial; height: 100%; }
-        .gslide-title { margin-top: 0px; user-select: text; }
-        .gslide-desc { color: #666; user-select: text; }
-        .gslide-image img { background: white; }
-        
-            .gscrollbar-fixer { padding-right: 15px; }
-            .gdesc-inner { font-size: 0.75rem; }
-            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  </head>
   
   
     
@@ -447,6 +438,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -496,6 +491,97 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    站点
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            站点
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tools/%E7%AB%99%E7%82%B9/mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mkdocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1226,7 +1312,7 @@
 <p>​     This chapter begins with an introduction to <strong>sequential circuits</strong>, describing the difference between <strong>synchronous sequential circuits(同步变化)</strong>, which have a clock signal to synchronize changes in the state of the circuit at discrete points in time, and <strong>asynchronous sequential circuits（异步）</strong>, which can change state at any time in response to changes in inputs.</p>
 </blockquote>
 <p>要实现信息的存储，我们就需要一种新的电路：时序电路
-<a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114120141839.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114120141839.png" alt="image-20231114120141839" style="zoom:67%;" /></a></p>
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114120141839.png" alt="image-20231114120141839" style="zoom:67%;" /></p>
 <ul>
 <li>
 <p>Combinational Logic</p>
@@ -1250,8 +1336,11 @@ Next State = f(Inputs, State)</p>
 </ul>
 <p>下面是一种最基本的<code>Buffer</code>（缓冲器），可以保持一个值在一定时间内不变
 将反相器改为其他原件，即得到最基本的锁存器</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118213036932.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118213036932.png" alt="image-20231118213036932" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118213036932.png" alt="image-20231118213036932" style="zoom:50%;" /></p>
 <h1 id="part-1-storage-elements-and-analysis">Part 1 Storage Elements and Analysis<a class="headerlink" href="#part-1-storage-elements-and-analysis" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>:material-circle-edit-outline: 约 1070 个字 :material-clock-time-two-outline: 预计阅读时间 4 分钟</p>
+</div>
 <h1 id="type">Type<a class="headerlink" href="#type" title="Permanent link">&para;</a></h1>
 <h3 id="synchronous">Synchronous | 同步变化<a class="headerlink" href="#synchronous" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -1262,26 +1351,26 @@ Next State = f(Inputs, State)</p>
 <blockquote>
 <p>通过时钟产生器<code>Clock Generator</code>产生周期性的时钟脉冲<code>clock pulse</code>来实现。脉冲系统分布于整个系统，同步存储元件之在每一个脉冲特定的时刻受到影响</p>
 </blockquote>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118213903053.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118213903053.png" style="zoom: 67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118213903053.png" style="zoom: 67%;" /></p>
 <h3 id="asynchronous">Asynchronous | 异步变化<a class="headerlink" href="#asynchronous" title="Permanent link">&para;</a></h3>
 <h1 id="latch">锁存器 | Latch<a class="headerlink" href="#latch" title="Permanent link">&para;</a></h1>
 <h3 id="basic-nand-bars-barr-latch">Basic (NAND)  <span class="arithmatex">\(\bar{S}-\bar{R}\)</span> Latch<a class="headerlink" href="#basic-nand-bars-barr-latch" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/1688787640601-fc5646c2-938a-46a4-974b-86044d360139.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/1688787640601-fc5646c2-938a-46a4-974b-86044d360139.png" alt="img" style="zoom:50%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110523834.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110523834.png" alt="image-20231114110523834" style="zoom: 50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/1688787640601-fc5646c2-938a-46a4-974b-86044d360139.png" alt="img" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110523834.png" alt="image-20231114110523834" style="zoom: 50%;" /></p>
 <p>一般来说，set为置1端口，reset为置0端口
 但是，这里的<span class="arithmatex">\(\bar{R}-\bar{S}\)</span>使用的是 <span class="arithmatex">\(\bar{S\R}\)</span> 来表示</p>
 <h3 id="basic-nor-s-r-latch">Basic (NOR) S – R Latch<a class="headerlink" href="#basic-nor-s-r-latch" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110637432.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110637432.png" alt="image-20231114110637432" style="zoom:50%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110654679.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110654679.png" alt="image-20231114110654679" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110637432.png" alt="image-20231114110637432" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114110654679.png" alt="image-20231114110654679" style="zoom:67%;" /></p>
 <p>S 置 1 端口
 R 置 0 端口</p>
 <h3 id="clocked-s-r-latch">Clocked S - R Latch<a class="headerlink" href="#clocked-s-r-latch" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114111104144.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114111104144.png" alt="image-20231114111104144" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114111104144.png" alt="image-20231114111104144" style="zoom:67%;" /></p>
 <ul>
 <li>实际上，它将NAND的行为转为了与NOR相同的寄存器</li>
 </ul>
 <h3 id="d-latch">D- Latch<a class="headerlink" href="#d-latch" title="Permanent link">&para;</a></h3>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114111759468.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114111759468.png" alt="image-20231114111759468" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114111759468.png" alt="image-20231114111759468" style="zoom:67%;" /></p>
 <ul>
 <li>没有模糊值 ( <code>indeterminate value</code> )</li>
 </ul>
@@ -1294,43 +1383,43 @@ R 置 0 端口</p>
 <p>边沿触发式 D 触发器是目前使用最广泛的触发器。</p>
 </blockquote>
 <h2 id="s-r-master-slave-flip-flop">主从触发|S-R master-slave flip-flop<a class="headerlink" href="#s-r-master-slave-flip-flop" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114113352328.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114113352328.png" alt="image-20231114113352328" style="zoom:80%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114113352328.png" alt="image-20231114113352328" style="zoom:80%;" /></p>
 <ul>
 <li>它存在的问题与R-S Latch类似，都存在不确定的状态，导致可能发生错误</li>
 <li>1`s catching Problem</li>
 </ul>
 <h2 id="edge-triggered-flip-flop">边缘检测|edge-triggered flip-flop<a class="headerlink" href="#edge-triggered-flip-flop" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114114937118.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114114937118.png" alt="image-20231114114937118" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114114937118.png" alt="image-20231114114937118" style="zoom:67%;" /></p>
 <ul>
 <li>上图负边缘变化</li>
 </ul>
 <p><strong>正边缘变化</strong></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114115026274.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114115026274.png" alt="image-20231114115026274" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231114115026274.png" alt="image-20231114115026274" style="zoom:67%;" /></p>
 <h1 id="standard-symbols">标准图形符号 | Standard Symbols<a class="headerlink" href="#standard-symbols" title="Permanent link">&para;</a></h1>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224139440.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224139440.png" alt="image-20231118224139440" style="zoom:50%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224147895.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224147895.png" alt="image-20231118224147895" style="zoom: 50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224139440.png" alt="image-20231118224139440" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224147895.png" alt="image-20231118224147895" style="zoom: 50%;" /></p>
 <ul>
 <li>直角 符号表示 <strong>延时输出指示器</strong>  表示输出信号在脉冲的结尾发生改变</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224128869.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224128869.png" alt="image-20231118224128869" style="zoom:67%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231118224128869.png" alt="image-20231118224128869" style="zoom:67%;" /></p>
 <ul>
 <li>C前面的箭头表示动态输入，<strong>表示触发器相应输入时钟脉冲的边沿跳变</strong></li>
 </ul>
 <h1 id="_1">时序电路分析<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>Example</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121103402471.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121103402471.png" alt="image-20231121103402471" style="zoom:50%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121103419249.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121103419249.png" alt="image-20231121103419249" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121103402471.png" alt="image-20231121103402471" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121103419249.png" alt="image-20231121103419249" style="zoom:50%;" /></p>
 <h2 id="state-graph">State Graph<a class="headerlink" href="#state-graph" title="Permanent link">&para;</a></h2>
 <ul>
 <li>当前状态 下一状态 输入 输出</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121112021926.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231121112021926" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121112021926.png" /></a></p>
+<p><img alt="image-20231121112021926" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121112021926.png" /></p>
 <ul>
 <li>Mealy和Moore的状态表不同</li>
 <li>如果输出既依赖于当前状态，也依赖于输入的时序电路，则称为 <strong>米勒型电路(Mealy model circuit)</strong>；而如果输出只依赖于当前状态，则称为 <strong>摩尔型电路(Moore model circuit)</strong>。</li>
 </ul>
 <h2 id="state-diagram">State Diagram<a class="headerlink" href="#state-diagram" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121105907456.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231121105907456" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121105907456.png" /></a></p>
+<p><img alt="image-20231121105907456" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121105907456.png" /></p>
 <p>Mealy模型</p>
 <ul>
 <li>Node 指示状态；箭头表示输入输出</li>
@@ -1341,7 +1430,7 @@ R 置 0 端口</p>
 <li>Def: 如果两个状态对每一个输入符号产生的输出相同，而且下一个状态相同或者等价，那么我们称他们等价</li>
 </ul>
 <p>Example</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121111326120.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121111326120.png" alt="image-20231121111326120" style="zoom: 25%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121111326120.png" alt="image-20231121111326120" style="zoom: 25%;" /></p>
 <h1 id="timing-parameter">Timing Parameter<a class="headerlink" href="#timing-parameter" title="Permanent link">&para;</a></h1>
 <ul>
 <li>Setup Time  <span class="arithmatex">\(t_s\)</span>：采样边缘前输入信号需要保持稳定的时间，否则会发生</li>
@@ -1351,8 +1440,8 @@ R 置 0 端口</p>
 <li>Slack Time：松弛时间 <span class="arithmatex">\(t_{slack}&gt;=0，一般接近0\)</span></li>
 </ul>
 <p>​   对于 <span class="arithmatex">\(t_h&lt;t_{pd}\)</span></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121113546701.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231121113546701" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121113546701.png" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121115046807.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231121115046807" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121115046807.png" /></a></p>
+<p><img alt="image-20231121113546701" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121113546701.png" /></p>
+<p><img alt="image-20231121115046807" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231121115046807.png" /></p>
 <p><span class="arithmatex">\(t_p=t_{pd}+t_{slack}+t_s = t_{pd,FF}+t_{pd,Com}+t_s+t_{slack}\)</span></p>
 <h1 id="part-2-design-procedure">Part 2 Design Procedure<a class="headerlink" href="#part-2-design-procedure" title="Permanent link">&para;</a></h1>
 <p>Specification</p>
@@ -1376,12 +1465,12 @@ R 置 0 端口</p>
 </ul>
 <h1 id="preparation">Preparation<a class="headerlink" href="#preparation" title="Permanent link">&para;</a></h1>
 <p>Reset设置</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231128103259334.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20231128103259334" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231128103259334.png" /></a></p>
+<p><img alt="image-20231128103259334" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231128103259334.png" /></p>
 <h1 id="formulation">Formulation<a class="headerlink" href="#formulation" title="Permanent link">&para;</a></h1>
 <p><strong>Example 1 : Sequence Check</strong></p>
 <p>目的：在一段连续的序列中检测要求的序列，假设为“1101”
-状态图：<a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231128104735661.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231128104735661.png" alt="image-20231128104735661" style="zoom:67%;" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231211233035303.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231211233035303.png" alt="image-20231211233035303" style="zoom:50%;" /></a></p>
+状态图：<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231128104735661.png" alt="image-20231128104735661" style="zoom:67%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231211233035303.png" alt="image-20231211233035303" style="zoom:50%;" /></p>
 <ul>
 <li>A为初始状态，"Reset"位</li>
 </ul>
@@ -1396,35 +1485,35 @@ R 置 0 端口</p>
 </blockquote>
 <h2 id="_4">优化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><strong>对等效状态的理解</strong>
-<a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231205102533959.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231205102533959.png" alt="image-20231205102533959" style="zoom: 33%;" /></a></p>
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231205102533959.png" alt="image-20231205102533959" style="zoom: 33%;" /></p>
 <p><strong>隐含表化简</strong></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401051731608.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240105173111300" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401051731608.png" /></a></p>
+<p><img alt="image-20240105173111300" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401051731608.png" /></p>
 <h2 id="_5"><strong>状态分配</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231205102816201.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231205102816201.png" alt="image-20231205102816201" style="zoom:50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/image-20231205102816201.png" alt="image-20231205102816201" style="zoom:50%;" /></p>
 <blockquote>
 <p>一般情况下，第一条原则较为重要，需优先考虑，其次要考虑由前三条原则得到的应分配相邻代码的状态对出现的次数，次数多的状态对应优先分配相邻的二进制代码</p>
 </blockquote>
 <h1 id="_6">例题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
 <h2 id="_7">时序计算<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>注意结合时序图进行分析</p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091943431.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091943431.png" alt="image-20231121115046807" style="zoom: 50%;" /></a></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091943431.png" alt="image-20231121115046807" style="zoom: 50%;" /></p>
 <ul>
 <li>边沿触发的，<span class="arithmatex">\(t_s\)</span>在边沿触发之前进行</li>
 <li>故而常说的，"to the positive clock edge"需要计算 <span class="arithmatex">\(t_s\)</span></li>
 <li></li>
 </ul>
 <blockquote>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091931776.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240109193146028" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091931776.png" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091932193.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091932193.png" alt="image-20240109193217153" style="zoom:50%;" /></a></p>
+<p><img alt="image-20240109193146028" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091931776.png" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091932193.png" alt="image-20240109193217153" style="zoom:50%;" /></p>
 <ul>
 <li>一般在这种clock stew问题中才考虑<span class="arithmatex">\(t_h\)</span>,在触发后</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091935376.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="img" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091935376.png" /></a></p>
+<p><img alt="img" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091935376.png" /></p>
 <ul>
 <li>计算时间延时Max的时候，从一个FF的输出到另外一个的输入</li>
 </ul>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091935676.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="img" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091935676.png" /></a></p>
-<p><a class="glightbox" href="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091941022.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image-20240109194120962" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091941022.png" /></a></p>
+<p><img alt="img" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091935676.png" /></p>
+<p><img alt="image-20240109194120962" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401091941022.png" /></p>
 <ul>
 <li>X -&gt; S  审题，是从external input</li>
 <li>边沿触发</li>
@@ -1514,12 +1603,14 @@ R 置 0 端口</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.instant", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.d7c377c4.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../javascripts/box.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
@@ -1531,6 +1622,8 @@ R 置 0 端口</p>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
+        <script src="../../../javascripts/extra.js"></script>
+      
     
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+  </body>
 </html>
