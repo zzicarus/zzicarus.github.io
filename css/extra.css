@@ -126,13 +126,13 @@ li {
   /* 代码块中文本和背景的颜色，以及代码高亮时不同部分的颜色 */
   --md-code-fg-color: #1b172a;
   --md-code-bg-color: #d0dbf191;
-  --md-code-hl-color: #fcfcfc;
+  --md-code-hl-color: #d7e1c3;
   --md-code-hl-number-color: #d52a2a;
   --md-code-hl-special-color: #db1457;
   --md-code-hl-function-color: #a846b9;
-  --md-code-hl-constant-color: #ef0000;
-  --md-code-hl-keyword-color: #0f3a65;
-  --md-code-hl-string-color: #fffd70eb;
+  --md-code-hl-constant-color: #6e59d9;
+  --md-code-hl-keyword-color: #3f6ec6;
+  --md-code-hl-string-color: #1c7d4d;
   --md-code-hl-name-color: var(--md-code-fg-color);
   --md-code-hl-operator-color: var(--md-default-fg-color--light);
   --md-code-hl-punctuation-color: var(--md-default-fg-color--light);
