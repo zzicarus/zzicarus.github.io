@@ -1,30 +1,38 @@
 # CS61A
 
 !!! abstract "概述"
-**FALL 2020**
+
+    这个文档记录了之前学习CS61A的一部分笔记，当时并没有听完所有课，这份笔记不算特别完善。（当然有一部分是觉得没什么记的必要）
+
+    不得不说，这个课作为我上过的第一门国外网课，它的课程网站、作业OJ、包括指导教程都令我印象挺深的。（对比下来，某三本的课程指导，emm，依托...）
+
+!!! info "资源"
+
+    **FALL 2020**
 
     [CS 61A Fall 2020](https://inst.eecs.berkeley.edu/~cs61a/fa20/)
-
+    
     **ANSEWR**
-
+    
     [GitHub - HobbitQia/CS61A-Fall-2020: My solutions for CS61A Fall 2020.](https://github.com/HobbitQia/CS61A-Fall-2020)
-
+    
     **Python Tutor**
-
+    
     [Online Python Tutor - Composing Programs - Python 3](https://pythontutor.com/cp/composingprograms.html#mode=edit)
-
+    
     **TextBook**
-
+    
     [Composing Programs](http://www.composingprograms.com/)
+
 
 ## Chapter 1: Building Abstractions with Function
 
-### 基本特征
+## 基本特征
 
-#### **Features**
+### **Features**
 
-- turediv / 浮点数
-- floordiv // 整除
+- turediv   /     浮点数
+- floordiv  //    整除
 
 ---
 
@@ -33,7 +41,7 @@
 def divide_exact(n,d)
 return n//d, n%d
 
-#### 字符串
+### 字符串
 
 1. py 没有单独的字符类型，一个字符就是长度为 1 的字符串
 2. Python 中的字符串不能改变
@@ -52,36 +60,34 @@ print(str[1:5:2])# 输出从第二个开始到第五个且每隔一个的字符�
 >>> 24
 ```
 
-5. 字符串可以用 **+** 运算符连接在一起，用 **\*** 运算符重复
+5. 字符串可以用 **+** 运算符连接在一起，用 ***** 运算符重复
 
 ```python
 print(ptr * 2)
 ```
 
-#### 交互
+### 交互
 
 - **Print 和 return**
 
-print 输出的是 ‘’引号内的
+print输出的是 ‘’引号内的
 return 所有
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689953236212-19be7c70-4e61-4701-b7cc-bf3895e2d3fe.png)![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689953242353-5087eb66-d4e6-4d6b-8c9b-c4ef32e8cf45.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328856.png)![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328857.png)
 
-### environment
+## environment
 
-####
-
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1688983871225-81767381-8266-4931-9490-3f76dc581464.png#averageHue=%23fcfbfb&clientId=u2ad99b45-6811-4&from=paste&height=267&id=u435c36ae&originHeight=533&originWidth=1236&originalType=binary&ratio=2&rotation=0&showTitle=false&size=60564&status=done&style=none&taskId=u1e5562ae-30e0-4f56-b4e9-06a1fd23791&title=&width=618)
+### ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328858.png)
 
 - environment is combined with many frames.
 - global frame and others(local frame)
 - And at one time, there`s only one frame( the program can`t be in two distinct frames )
-- 定义并不会创建 frame 只有当运行到函数时才会创建
+- 定义并不会创建frame 只有当运行到函数时才会创建
 
 ### 高阶函数的 Environment
 
 #### Nested / Higher
 
-````python
+```python
 # 一个嵌套函数
 # make_adder(5) 将返回一个函数（+5的adder）
 def compose(f,g):
@@ -93,7 +99,7 @@ def make_adder(x):
         return y + x
     return adder
 >>> compose(f,make_adder(5))(4)  ```完成调用
-````
+```
 
 ```python
 def print_sums(n):
@@ -114,43 +120,43 @@ def print_sums(n):
 
 #### 如何绘制
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689936271573-8e1ece37-a756-43d9-89b8-cc5d35e9dbe8.png)
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689936261692-a6ff38f9-5ca7-4234-9482-11021d19a583.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328859.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328860.png)
 
 ## funciton
 
-- **from operator import add,mul //**引入函数（build-in）
-- docstring `` **( HELP )** comments # 注释
+- **from operator import add,mul   //**引入函数（build-in）
+- docstring  ``````      **( HELP )**   comments #   注释
 
-![这里的n是一个default values，可以改变，同样也是进入函数之后才创建](https://cdn.nlark.com/yuque/0/2023/png/36192378/1688994232224-f291daf4-01fd-496a-887d-74776d544fba.png#averageHue=%23fcfbfa&clientId=u2ad99b45-6811-4&from=paste&height=164&id=u98f34847&originHeight=327&originWidth=796&originalType=binary&ratio=2&rotation=0&showTitle=true&size=33849&status=done&style=none&taskId=uea3245e7-bcb2-4fb0-80d7-d11bd98241c&title=%E8%BF%99%E9%87%8C%E7%9A%84n%E6%98%AF%E4%B8%80%E4%B8%AAdefault%20values%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%EF%BC%8C%E5%90%8C%E6%A0%B7%E4%B9%9F%E6%98%AF%E8%BF%9B%E5%85%A5%E5%87%BD%E6%95%B0%E4%B9%8B%E5%90%8E%E6%89%8D%E5%88%9B%E5%BB%BA&width=398 "这里的n是一个default values，可以改变，同样也是进入函数之后才创建")
+![这里的n是一个default values，可以改变，同样也是进入函数之后才创建](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328861.png)
 **Print and None**
 
-- Print 返回值为 None **None**在 py 中不是一个数值表达 NoneType 和 int 不能进行计算（type Error）
-  **Control**![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1688996057000-0d047f4e-4f3a-42c2-97b4-d97bb144a753.png#averageHue=%23f9f9f8&clientId=u2ad99b45-6811-4&from=paste&height=169&id=u5e2df1f0&originHeight=337&originWidth=1475&originalType=binary&ratio=2&rotation=0&showTitle=false&size=45271&status=done&style=none&taskId=u5cdc61d0-a9e0-4d89-aeb7-d7d021bc112&title=&width=737.5)
-  :::info
-  **bool ：**
-  ![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1688996599366-22ca81b4-0362-4f56-a729-a10a37176c11.png)
-  对于 and 和 or 他们总是返回最后一个 evaluate 的对象，如果判断对象不是 booleans，将返回数字；Ture and 13 will return 13 but not True
-  :::
-  :::info
-  **iteration 迭代：**
-  ![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689054915534-b721439d-b17b-42ff-81b5-b81eff2327fb.png)
-  :::
-  :::info
-  **Test ：**
-  **Assertions**在 False 时 输出后面的字符串 **‘ ’**或者**“ ”**
-  ![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689055217102-6b8b77d1-5487-4c8a-8022-43652d724f0c.png)
-  **Doctest**
+- Print 返回值为None **None**在py 中不是一个数值表达  NoneType 和 int 不能进行计算（type Error）
+**Control**![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328862.png)
+:::info
+**bool ：**
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328863.png)
+对于 and 和 or 他们总是返回最后一个evaluate的对象，如果判断对象不是booleans，将返回数字；Ture and 13  will return 13 but not True
+:::
+:::info
+**iteration 迭代：**
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328864.png)
+:::
+:::info
+**Test ：**
+**Assertions**在False时 输出后面的字符串  **‘   ’**或者**“   ”**
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328865.png)
+**Doctest**
 
 - 全局
 
 **from doctest import testmod**
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689058100547-84332613-4f31-46d9-bf8f-d635b4bc1c32.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328866.png)
 
 - 单个函数
 
 **from doctest import run_docstring_examples**
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689058354918-6c99bf48-2f97-4baa-a72a-d309221636df.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328867.png)
 :::
 :::info
 
@@ -159,12 +165,12 @@ def print_sums(n):
 **python3 -m doctest <python_source_file>**
 运行所有 doctests
 :::
-**\* 高阶函数**:::info
+*** 高阶函数**:::info
 
-- **Currying** 只含有一个 参数
+- **Currying**  只含有一个 参数
 
-例如，g (x) (y) 等效于 f (x , y) , 这个转换的过程就被称为 currying
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689856915003-3f4e495b-2694-40fb-925c-3280867ba66f.png)
+例如，g (x) (y)  等效于  f (x , y)  , 这个转换的过程就被称为currying
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328868.png)
 :::
 
 ```python
@@ -199,34 +205,34 @@ Function
 
 :::info
 
-- **Decorators 修饰符**
+- **Decorators  修饰符**
 
 用于更好地使用高阶函数
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689858093469-e95eba06-3b5f-44a1-ba16-b47f12710c0e.png)![triple 绑定的是 trace 在调用triple之后绑定的返回值](https://cdn.nlark.com/yuque/0/2023/png/36192378/1689858100341-c4ee392f-b331-480b-bf98-17de9e059d38.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328869.png)![triple 绑定的是 trace 在调用triple之后绑定的返回值](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328870.png)
 :::
 
-````python
+```python
 def print_sum(n):
     ```打印n个数的总和
-    ```
- print(n)
+```
+
+	print(n)
  def f(k):
-        return print_sum(n+k)
-    return f
+     return print_sum(n+k)
+ return f
 
 >>> print_sum(3)(5)(7)
 n  k   print_sum(3) f(5)
 3  5 print_sum(8) f(7)
 8  7 print_sum(15) f
-````
 
+```
 ### 含有任意参数的函数
-
 ```python
 def average(*args):
         k,sum = 0,0
         while k < trials_count:
-            sum += original_function(*args)
+            sum += original_function(*args) 
             k += 1
         return sum / trials_count
     return average
@@ -234,7 +240,7 @@ def average(*args):
 
 ### 修饰
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1690292020125-9c1e24a2-e2ca-41e2-9cc4-c796028b017c.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328871.png)
 
 ## Recursive Function
 
@@ -243,17 +249,17 @@ def average(*args):
 1. basic case
 2. recursive case
 
-例如，f n+1 = f n + f (n-1)
+例如，f n+1 = f n  +  f (n-1)
 
-3. 借助 helper 函数 操纵更多参数
+3. 借助 helper 函数  操纵更多参数
 
-## \*\* Lambda 表示
+## ** Lambda表示
 
 ### 基础使用
 
-### Y 算子/不动点
+### Y算子/不动点
 
-# Chapter 2 : Bulilding Abstractions with Data
+## Chapter 2 : Bulilding Abstractions with Data
 
 ## · Sequences
 
@@ -270,7 +276,7 @@ def average(*args):
 >>> [2, 7] + digits * 2  // mul 和 add 对 list
 [2, 7, 1, 8, 2, 8, 1, 8, 2, 8]
 
->>> pairs = [[10, 20], [30, 40]] // 包含list的list
+>>> pairs = [[10, 20], [30, 40]] // 包含list的list 
 >>> pairs[1]
 [30, 40]
 >>> pairs[1][0]
@@ -306,8 +312,8 @@ for <name> in <expression>:
 **range**
 
 ```python
->>> range(5,8)  //包括 5 excluding 8
->>> list(range(3))  // range()
+>>> range(5,8)  //包括 5 excluding 8  
+>>> list(range(3))  // range() 
 [0,1,2]
 >>> for _ in range(3):  // _ 表示不再suit中使用的变量  自动从 0 开始
         print('Go Bears!')
@@ -321,7 +327,7 @@ for <name> in <expression>:
 
 ```python
 [<map expression> for <name> in <sequence expression> if <filter expression>]
-# 注意是在【】中进行，生成新的 List
+# 注意是在【】中进行，生成新的 List 
 >>> odds = [1, 3, 5, 7, 9]
 >>> [x+1 for x in odds if ...]
 [2, 4, 6, 8, 10]
@@ -337,10 +343,10 @@ sum max min , etc
 # reduce 重复计算
 from functools import reduce
 reduce(fn_reduce,iterable,initial)
-# map
+# map 
 r = map(fn_map,iterable)
 list(r)
-#
+# 
 ```
 
 :::info
@@ -370,13 +376,13 @@ list[0:]
 
 ### Trees
 
-- Trees. 有一个 rootlabel 和 branches 它本身是一种用递归定义的数据结构
-- 形式：[label , branches = [] ] [1,[ [2 , [3]] , [4,[5]] , [6,[7]] ]]
+- Trees.  有一个 rootlabel 和 branches   它本身是一种用递归定义的数据结构
+- 形式：[label , branches = [] ]   [1,[  [2 , [3]] , [4,[5]] , [6,[7]] ]]
 
-尤其注意 branches 的格式问题
-也可以使用字典形式表示 tree 这种数据结构
+尤其注意branches的格式问题
+也可以使用字典形式表示tree这种数据结构
 
-- 对 tree 的遍历经常用到
+- 对 tree 的遍历经常用到  
 
 ```python
 for b in branches(t):
@@ -388,7 +394,7 @@ for b in branches(t):
 
 #### Data abstraction of trees
 
-- 此处的组件并不通过递归形成一个 tree，只是单纯 tree 的 component
+- 此处的组件并不通过递归形成一个tree，只是单纯tree的component
 - 注意 branches 的写法
 
 ```python
@@ -416,7 +422,7 @@ for b in branches(t):
         return not branches(tree)
 ```
 
-- partition 的 tree 做法
+- partition的tree做法
 
 ```python
 def partition_tree(n, m):
@@ -445,7 +451,7 @@ def print_parts(tree, partition=[]):
 
 - Add Tree
   - 考虑递归的 `Basic case` 和 `Recursive case`
-  - **Hard :** 确认对应位置
+  - **Hard :** 确认对应位置  
     - **Tip :** using the `zip` function
 
 ```python
@@ -454,13 +460,13 @@ zip(iterable1,iterable2,...):
  如果参数长度不一，取最短的
 >>> t2
 [1, [5, [6]], [9], [4, [8], [[1]]], [99]]
->>> t1
+>>> t1 
 [1, [5, [6]], [8], [9]]
 >>> list(zip(t1,t2))
 [(1, 1), ([5, [6]], [5, [6]]), ([8], [9]), ([9], [4, [8], [[1]]])]
 ```
 
-- 形成新的 Tree
+- 形成新的Tree
 - 仍然是对 rucursive 结构考虑不是很清楚. `tree : [1, [5], [6, [7]]]`, `branches` 中，每一个元素都代表一整个分支
 
 ```python
@@ -501,19 +507,19 @@ def add_tree(t1,t2):
         5
       5
     '''
-    if is_leaf(t1) and is_leaf(t2):
-        return tree(label(t1) + label(t2))
-    elif is_leaf(t1):
-        return tree(label(t1) + label(t2), branches(t2))
-    elif is_leaf(t2):
-        return tree(label(t1) + label(t2), branches(t1))
-    else:
-        new_label = label(t1) + label(t2)
-        new_branches = [add_trees(b1, b2) for b1, b2 in zip(branches(t1), branches(t2))]
-        if len(branches(t1)) > len(branches(t2)):
-            new_branches += branches(t1)[len(branches(t2)):]
-        elif len(branches(t1)) < len(branches(t2)):
-            new_branches += branches(t2)[len(branches(t1)):]
+    if is_leaf(t1) and is_leaf(t2):  
+        return tree(label(t1) + label(t2))  
+    elif is_leaf(t1):  
+        return tree(label(t1) + label(t2), branches(t2))  
+    elif is_leaf(t2):  
+        return tree(label(t1) + label(t2), branches(t1))  
+    else:  
+        new_label = label(t1) + label(t2)  
+        new_branches = [add_trees(b1, b2) for b1, b2 in zip(branches(t1), branches(t2))]  
+        if len(branches(t1)) > len(branches(t2)):  
+            new_branches += branches(t1)[len(branches(t2)):]  
+        elif len(branches(t1)) < len(branches(t2)):  
+            new_branches += branches(t2)[len(branches(t1)):]  
         return tree(new_label, new_branches)
 ```
 
@@ -521,7 +527,7 @@ def add_tree(t1,t2):
 
 ### Linked Lists
 
-- **定义**：与 **tree**类似，[ element , new_linked]
+- **定义**：与 **tree**类似，[ element ,  new_linked]
 
 [ 2, [3, [4, 'empty']]]
 
@@ -536,27 +542,27 @@ empty = 'empty'
 def link(label , rest):
     if is_link(rest):
         return [label,rest]
-
+        
 def first(s):
     assert is_link(s), "first only applies to linked lists."
     assert s != empty, "empty linked list has no first element."
     return s[0]
-
+    
 def rest(s):
     assert is_link(s), "first only applies to linked lists."
     assert s != empty, "empty linked list has no rest."
     return s[1]
-
+    
 # convenience
 def is_link(s):
     return s == empty or (len(s) == 2 and is_link(s[1]))
-
+    
 def getitem_link(s,i):
     if i == 0:
         return first(s)
     else:
         return getitem_link( rest(s) ,i - 1)
-
+        
 def len_link(s):
     length = 0
     while s != empty:
@@ -564,7 +570,7 @@ def len_link(s):
         s = rest(s)
     return length
 
-##
+## 
 
 ## application
 ```
@@ -573,10 +579,10 @@ def len_link(s):
 
 ### Abstraction barrier
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1693636064921-4d5d8ffb-509f-47ae-b29e-7214707c57a5.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328872.png)
 
-- 对功能进行不同的分层，其层级之间形成 abstraction barrier
-- 调用部分功能时不要使用过低层级，eg：add_rational( ) 中，使用 rational 、numer、denom 函数作为 component 构建相关函数
+- 对功能进行不同的分层，其层级之间形成abstraction barrier
+- 调用部分功能时不要使用过低层级，eg：add_rational( ) 中，使用 rational 、numer、denom函数作为component构建相关函数
 - 其目的是为了尽可能减少修改代码时的工作量，即所谓 isolution
 
 ### Dictionary
@@ -587,12 +593,12 @@ def len_link(s):
 
 - `**创建方法**`
 
-`**dict**(_**kwargs_)`\*\* **
-`**dict**(mapping,\_**kwargs\*)`
-`**dict**(iterable,**\*kwargs\_)`
-`键值对 {a:1,b:2}`
-`推导式 {x: x ** 2 for x in range(10)}`
-`类型构造器 dict([(a,1),(b,2)])`
+`**dict**(_**kwargs_)`****
+`**dict**(mapping,_**kwargs_)`
+`**dict**(iterable,_**kwargs_)`
+`键值对  {a:1,b:2}`
+`推导式  {x: x ** 2 for x in range(10)}`
+`类型构造器  dict([(a,1),(b,2)])`
 
 - `**methods**`
   - `**字典视图对象**`**动态变化，**不是 iterator 但可以通过函数产生`iter(dictview)`
@@ -632,7 +638,7 @@ dic = {'I':1,'A'：2,5:a} # 此处的a为已赋值的变量，或者'a'代表变
 ## · Mutable Data
 
 - Mutable Data 用于表示动态变化的值
-- py 内置的 numbers、string、tuple 不能变化，sequence 可以
+- py内置的numbers、string、tuple不能变化，sequence可以
 - **default argument** **value** is part of a function value
 
 ```python
@@ -647,18 +653,18 @@ def f(s = []):
 
 ### Object
 
-- Objects are both **information and processes (**bundling information and behavior together**)**
+- Objects are both **information and processes  (**bundling information and behavior together**)**
 - Objects have **attributes,**we use dot to represent
 
-**<expression>.<name>**这里的 name 相当于 object 的一种属性，只在 **.** 后有用
+**<expression>.<name>**这里的name相当于 object 的一种属性，只在 **.** 后有用
 
-- **method 相当于**function-valued attribute
+- **method   相当于**function-valued attribute
 - **In python, all values are objects**
 
 #### Sequence Object
 
 ```python
-# operation on data
+# operation on data 
 # share and identity
 ''' = 并没有创建新的object 故而 suits 与 chinese 指向相同的object'''
 chinese = ['coin', 'string', 'myriad']  # A list literal
@@ -679,7 +685,7 @@ suits[0:2] = ['heart', 'diamond']  # Replace a slice
 ### slicing 切片时不是mutable的
 a = suits[0:2]
 
-## 复制
+## 复制  
 '使用constructor：list创建一个副本即一个新变量'
 nested = list(suits)
 nested[0] = suits  # 指向suits列表
@@ -710,7 +716,7 @@ suits[1:]
 [1,[...],1,[...]]
 
 >>> t = [[1,2],[3,4]]
->>> t[0].append(t[1:2])    # t[1:2] ->  [[3,4]]
+>>> t[0].append(t[1:2])    # t[1:2] ->  [[3,4]]  
 [[1,2,[[3,4]],[3,4]]
 ```
 
@@ -725,14 +731,14 @@ print(c is b)
 print(c[5] is b[5])
 ```
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/36192378/1694440442582-8f05c6a7-c9d2-4a77-82a1-05c4f6edae09.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328873.png)
 
 #### Tuples
 
-- 元组 具有类似 list 的操作，但是元组本身不可以直接改变（unmutable）
+- 元组 具有类似list的操作，但是元组本身不可以直接改变（unmutable）
 - 可以包括任何类型的对象
 - 可以对对象进行改变（mutable data）
-- 创建，使用 **， （ ）**
+- 创建，使用  **， （ ）**
 
 ```python
 >>> 1, 2 + 3
@@ -756,7 +762,7 @@ Dictionaries do have some restrictions:
 - There can be **at most one value** for a given key.
 
 ```python
-#
+# 
 ##
 '普通的改变或者增加可以通过赋值语句实现'
 
@@ -775,20 +781,20 @@ Dictionaries do have some restrictions:
 
 #### String
 
-- [Unicode,ASCII,UTF-8 的区别-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1441294)
-  :::info
-  **ASCII :** 一个字节 英文编码
-  **Unicode :**两个字节 所有编码统一
-  **UTF - 8 :**自动决定字节数
+- [Unicode,ASCII,UTF-8的区别-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1441294)
+:::info
+**ASCII :** 一个字节  英文编码
+**Unicode :**两个字节  所有编码统一
+**UTF - 8 :**自动决定字节数
 
 **TIP :**
 
 - **内存**统一使用 **unicode** 编码
-  :::
+:::
 
 ### Local State
 
-- **nonlocal statement** 必须使用在已经赋值后的变量前[** in nonlocal frame **]
+- **nonlocal statement** 必须使用在已经赋值后的变量前[** in nonlocal frame  **]
 
 `no binging for nonlocal '' found`
 
@@ -796,7 +802,7 @@ Dictionaries do have some restrictions:
 
 `name '' is parameter and nonlocal`
 
-- 绑定的是第一个 `non-local frame` 中的 name 【enclosing scope】
+- 绑定的是第一个 `non-local frame` 中的name   【enclosing scope】
 - 【**referential transparency**】expression -> 用表达式的值替换表达式之后不影响整个 program
 
 【**violate ...**】mutable operation
@@ -831,7 +837,7 @@ This part is going to introduce one way to creat mutable data structure by mutab
 
 - `instance attribute`/`fileds`/`instance variables`/`properties`
 - `methods`**: functions** that operate on the object or perform object-specific computations are called methods
-- `attribute`/`class variables`/`static variables`：difined without the range of methods. It is **shared** by all the class and among all instances defined
+- `attribute`/`class variables`/`static variables`：difined without the range of methods.          It is **shared** by all the class and among all instances defined
 - `instance attribute`**specific** attributes for one instance
   - `**区分**`对于 instance ， `object`访问对象时优先访问`instance attr`，未寻找到才访问`class attribute`也就是说，可以存在一个`attr`只存在于某个特定实例而不存在于`class`
 
@@ -852,7 +858,7 @@ class Account:
             return 'Insufficient funds'
         self.balance = self.balance - amount
         return self.balance
-
+        
 a = Account('Kirk')
 # 两种不同调用 function 和 method 的方法
 '根据class 和 instance 的不同，返回值也不同'
@@ -873,13 +879,13 @@ hasattr(instance,attr)
 
 ```
 
-- As an attribute of a **class**, a **method** is just a **function**, but as an **attribute of an instance**, it is a **bound method. 区别：**当`method`被调用时，self 将自动绑定这个`object`
+- As an attribute of a **class**, a **method** is just a **function**, but as an **attribute of an instance**, it is a **bound method.   区别：**当`method`被调用时，self 将自动绑定这个`object`
 - **Python's convention：** dictates that if an attribute name starts with an **underscore**, it should only be **accessed within methods of the class itself,** rather than by users of the class.
 
 ### Inheritance
 
 - `is-a`类继承 `has-a`聚合
-- 从父类继承所有 attr，但是可以 override
+- 从父类继承所有attr，但是可以override
 
 ```python
 >>> class CheckingAccount(Account):
@@ -914,7 +920,7 @@ class AsSeenOnTVAccount(CheckingAccount, SavingsAccount):
 
 ## · Recursive Objects
 
-# Chapter 4 : Data Processing
+## Chapter 4 : Data Processing
 
 ## Implicit Sequence
 
@@ -942,7 +948,7 @@ No more values
 #### Build-in Iterator
 
 - Taking an iterator and return an iterator
-- `lazy processing`调用 iterator function 不会直接计算结果，返回一个 iterator，只有当使用某个数值时才会发生计算. 如：下例中，若之后再次调用`doubled`相关，将会出错，因为这个`iterator`已经到达尽头
+- `lazy processing`调用iterator function 不会直接计算结果，返回一个iterator，只有当使用某个数值时才会发生计算. 如：下例中，若之后再次调用`doubled`相关，将会出错，因为这个`iterator`已经到达尽头
 
 ```python
 >>> def double_and_print(x):
@@ -969,10 +975,10 @@ No more values
 ### Iterables
 
 - Any value that can produce iterators is called an`_**iterable**_** value**`.
-- 对于一些本身无序的结构，如字典和集合，Python 将会内置一个顺序，使得` iter``next `可以正常运行
+- 对于一些本身无序的结构，如字典和集合，Python 将会内置一个顺序，使得`iter``next`可以正常运行
 - 但如果改动或删除了`key`，将会出现新顺序，之前产生的`iter`失效
-  - 在高版本 py 中字典已经有了顺序
--
+- 在高版本py中字典已经有了顺序
+
 
 ### Generator
 
@@ -1021,18 +1027,18 @@ class LetterIter:
         return letter
 ```
 
-# Library
+## Library
 
-## Standard Library
+### Standard Library
 
-# Q & A
+## Q & A
 
-## 浮点数问题
+### 浮点数问题
 
 - 保留位数
 
-使用 round 函数 四舍五入类型的函数
-如果有 0 存在自动舍去多余的 0
+使用 round 函数  四舍五入类型的函数
+如果有 0 存在自动舍去多余的0
 
 ```python
 >>> round( 4.000 , 2 )
@@ -1045,7 +1051,7 @@ class LetterIter:
 
 -
 
-## 其他常用函数的细节
+### 其他常用函数的细节
 
 - max & min
 
@@ -1057,9 +1063,9 @@ max(iterable, *, default, key=None)
     key为指定的 实际传入list.sort()的参数
 '''
 
-# 应用
+# 应用 
   '''按字典顺序比较'''
-  ## 比较字符串
+  ## 比较字符串  
 >>> max('1', '9', '10', '100') # 返回多个字符串中最大的字符串
 '9'
 >>> max('asdxyz')
@@ -1077,8 +1083,8 @@ max(iterable, *, default, key=None)
 'z'
 ```
 
-- print 函数
+- print函数
 
-## 一些思考方式
+### 一些思考方式
 
-- 分 cases 考虑递归问题 tree 的想法
+- 分cases考虑递归问题  tree的想法  

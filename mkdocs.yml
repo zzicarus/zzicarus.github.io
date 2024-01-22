@@ -69,15 +69,25 @@ theme:
     - search.share
   #custom_dir: overrides
 plugins:
-  - search
+  - search:
+      lang:
+        - zh
+        - en
+      separator: '[\s\-\.]+'
   - git-revision-date-localized:
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
       enable_creation_date: true
-      type: timeago
+      exclude:
+        - index.md
+
   - statistics
 
 extra_css:
   - css/extra.css
   - css/status.css
+  - css/Myself.css
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 extra_javascript:
   - javascripts/mathjax.js
@@ -93,14 +103,15 @@ extra_javascript:
 markdown_extensions:
   - toc:
       permalink: true
-      toc_depth: 4
+      title: This Page
+      toc_depth: 4 # 目录中的级别范围
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.arithmatex:
       generic: true
   # 加入html 支持
   - md_in_html
-  # 图像
+  # 属性列表扩展允许使用特殊语法将 HTML 属性和 CSS 类添加到几乎每个Markdown 内联和块级元素。
   - attr_list
   # 工具提示
   - abbr
@@ -120,11 +131,14 @@ markdown_extensions:
   # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#embedding-external-files
   #
   - pymdownx.snippets # 将任意文件中的内容嵌入到文档
-  - pymdownx.superfences
+  - pymdownx.superfences # 允许代码和内容嵌套
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg # 选项卡
 
+
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
@@ -151,6 +165,8 @@ nav:
           - 实验部分: CS/数字逻辑基础/Labs.md
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md
+      - 【短学期】大数据可视化:
+          - 大数据可视化: CS/大数据可视化.md
   - ⌨️ 语言学习:
       - 语言学习/index.md
       - ⌨️ C语言:
@@ -165,6 +181,8 @@ nav:
   - 杂谈:
       - 杂谈/index.md
   - Others:
+      - others/index.md
+      - 大学物理实验: others/大物实验.md
       - 微观经济学:
           - 微观经济学: others/微观经济学/index.md
           - Chapter 1  价格机制: others/微观经济学/Chapter 1  价格机制.md
