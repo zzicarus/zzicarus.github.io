@@ -44,11 +44,12 @@ p,
 li {
   font-size: medium;
 }
-
+strong {
+  color: #20759fda;
+}
 .md-nav__link {
   font-size: small;
 }
-
 .md-typeset .admonition,
 .md-typeset details {
   border: none;

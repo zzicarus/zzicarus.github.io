@@ -153,6 +153,7 @@ nav:
       - ⚙️ 站点:
           - mkdocs: Tools/站点/mkdocs.md
   - 课内:
+      - CS/index.md
       - 数字逻辑设计:
           - 数字逻辑设计: CS/数字逻辑基础/index.md
           - Chapter 1 数字系统: CS/数字逻辑基础/P1.md
@@ -165,8 +166,7 @@ nav:
           - 实验部分: CS/数字逻辑基础/Labs.md
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md
-      - 【短学期】大数据可视化:
-          - 大数据可视化: CS/大数据可视化.md
+      - 【短学期】大数据可视化: CS/大数据可视化.md
   - ⌨️ 语言学习:
       - 语言学习/index.md
       - ⌨️ C语言:
