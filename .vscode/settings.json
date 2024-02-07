@@ -5,6 +5,7 @@
     "xstring": "cpp",
     "vector": "cpp",
     "iostream": "cpp",
-    "initializer_list": "cpp"
+    "initializer_list": "cpp",
+    "format": "cpp"
   }
 }

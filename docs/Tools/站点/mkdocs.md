@@ -187,6 +187,11 @@ jobs:
 
 直接使用了一位[学长的插件](https://github.com/TonyCrane/mkdocs-statistics-plugin)
 
+### 优化vsc中的工作流程
+1. 快捷键  Markdown ShortCuts 插件
+2. 自定义Snippet
+
+
 ## 一些用法 | 测试格式
 
 ### Code Block

@@ -15,8 +15,4 @@
 
     历年卷和课本答案：
     [求是潮](https://qsctech.github.io/zju-icicles/%E9%80%BB%E8%BE%91%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/)
-
-
-
-
     

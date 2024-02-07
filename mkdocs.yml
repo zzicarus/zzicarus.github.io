@@ -82,7 +82,8 @@ plugins:
       exclude:
         - index.md
 
-  - statistics
+  - statistics:
+      words_per_minute: 200
 
 extra_css:
   - css/extra.css
@@ -105,6 +106,9 @@ markdown_extensions:
       permalink: true
       title: This Page
       toc_depth: 4 # 目录中的级别范围
+      slugify: !!python/object/apply:pymdownx.slugs.slugify {
+          kwds: { case: lower },
+        } # enable Unicode link
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.arithmatex:
@@ -139,9 +143,13 @@ markdown_extensions:
 
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.critic
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.smartsymbols
+  - pymdownx.highlight
+  - pymdownx.keys
 
 nav:
   - 封面:
@@ -168,18 +176,18 @@ nav:
           - 期末复习: CS/DIP/DIP_Review.md
       - 【短学期】大数据可视化: CS/大数据可视化.md
   - ⌨️ 语言学习:
-      - 语言学习/index.md
+      - CodingLanguage/index.md
       - ⌨️ C语言:
-          - 语言学习/C/index.md
-          - 存储类别、链接和内存管理: 语言学习/C/存储类别、链接和内存管理.md
-          - 指针: 语言学习/C/指针.md
+          - CodingLanguage/C/index.md
+          - 存储类别、链接和内存管理: CodingLanguage/C/存储类别、链接和内存管理.md
+          - 指针: CodingLanguage/C/指针.md
       - ⌨️ CPP:
-          - 语言学习/CPP/index.md
-          - 基础: 语言学习/CPP/基础.md
+          - CodingLanguage/CPP/index.md
+          - 基础: CodingLanguage/CPP/基础.md
 
       - ⌨️ Python:
-          - Python: 语言学习/Python/index.md
-          - 💡CS61A: 语言学习/Python/CS61A.md
+          - Python: CodingLanguage/Python/index.md
+          - 💡CS61A: CodingLanguage/Python/CS61A.md
   - 杂谈:
       - 杂谈/index.md
   - Others:
