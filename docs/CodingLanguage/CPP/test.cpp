@@ -1,32 +1,22 @@
 #include <iostream>
-
+#include <array>
+#include <vector>
+#include <fstream>
+#include <list>
+#include <forward_list>
+#include <sstream>
 #include <string>
+#include <stack>
 using namespace std;
 
-std::string to_camel_case(std::string text)
+struct PersonInfo
 {
-    int flag_count = 0;
-    string result;
-    for (auto single : text)
-    {
-        if (single == '_' || single == '-')
-            flag_count = 1;
-        if (flag_count == 1)
-        {
-            if (isalpha(single))
-            {
-                result.push_back(toupper(single));
-                flag_count = 0;
-            }
-        }
-        else
-        {
-            result.push_back(single);
-        }
-    }
-    return result;
-}
+    string name;
+    vector<string> Phones;
+};
+
 int main()
 {
-    cout << to_camel_case("The_Formal_language");
+    int aaSSD_dawj = 5;
+    string asd;
 }
