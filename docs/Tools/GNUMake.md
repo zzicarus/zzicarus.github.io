@@ -2,28 +2,18 @@
 
 # GNU Make
 
-资料
+> **资料:**
 
-[makefile 介绍 — 跟我一起写 Makefile 1.0 文档](https://seisman.github.io/how-to-write-makefile/introduction.html)
+> [makefile 介绍 — 跟我一起写 Makefile 1.0 文档](https://seisman.github.io/how-to-write-makefile/introduction.html)
 
-> 一些视频
+> **视频:**
 
-一个较简单的入门 [https://www.youtube.com/watch?v=E1_uuFWibuM&t=1152s](https://www.youtube.com/watch?v=E1_uuFWibuM&t=1152s)
+> 一个较简单的入门 [https://www.youtube.com/watch?v=E1_uuFWibuM&t=1152s](https://www.youtube.com/watch?v=E1_uuFWibuM&t=1152s)
 
-> 踩坑：
+!!! tip "TIPS"
+    -  cc 是 C 编译器的命令。在一般的系统上（Unix/Linux），通常是一个指向 实际 C 编译器（gcc）的符号链接或别名
 
-- 建议不要只看文档，多去实践操作一下
-- 文档中的 cc 命令在 window 下不能正常运行
-  :::info
-  Tip：
-
-- cc 是 C 编译器的命令。在一般的系统上（Unix/Linux），通常是一个指向 实际 C 编译器（gcc）的符号链接或别名
-
-windows 下可以使用 gcc _.c -o _.o
-
--
-
-:::
+    windows 下可以使用 gcc _.c -o _.o
 
 ## 基本介绍
 

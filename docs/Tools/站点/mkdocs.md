@@ -243,17 +243,17 @@ The `#!python range()` function is used to generate a sequence of numbers.
 
 > 引用
 >
+
 [链接](http://127.0.0.1:8000/#github-page)
 
 ------
 下面的是一些拓展的，在markdown - extension中可以选择加入（建议读[官方文档](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#arithmatex-docsjavascriptsmathjaxjs)）
-
-```md
+```markdown
 :bread:
 ~~删除~~
 ==突出显示==
 ^^插入^^
-````
+```
 
 :bread:
 
@@ -269,7 +269,6 @@ The `#!python range()` function is used to generate a sequence of numbers.
 
 ```md
 !!! 或者 ???
-
 ???+ 折叠，默认展开状态
 ```
 

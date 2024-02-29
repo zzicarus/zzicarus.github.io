@@ -155,6 +155,7 @@ nav:
   - 封面:
       - "封面": index.md
   - ⚙️ Tools:
+      - Tools/index.md
       - ⚙️ Git: Tools/Git.md
       - ⚙️ Shell: Tools/Shell.md
       - ⚙️ GNU Make: Tools/GNUMake.md
@@ -188,6 +189,7 @@ nav:
               - IO库: CodingLanguage/CPP/Stadard_Library/IO.md
               - 顺序容器: CodingLanguage/CPP/Stadard_Library/顺序容器.md
               - 关联容器: CodingLanguage/CPP/Stadard_Library/关联容器.md
+              - 关联容器: CodingLanguage/CPP/Stadard_Library/Algorithm.md
       - ⌨️ Python:
           - CodingLanguage/Python/index.md
           - 💡CS61A: CodingLanguage/Python/CS61A.md

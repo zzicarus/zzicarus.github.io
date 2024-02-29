@@ -71,8 +71,12 @@ print(ptr * 2)
 - **Print 和 return**
 
 print输出的是 ‘’引号内的
+
 return 所有
-![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328856.png)![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328857.png)
+
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328856.png)
+
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328857.png)
 
 ## environment
 
@@ -80,7 +84,7 @@ return 所有
 
 - environment is combined with many frames.
 - global frame and others(local frame)
-- And at one time, there`s only one frame( the program can`t be in two distinct frames )
+- And at one time, there\`s only one frame**( the program can\`t be in two distinct frames )**
 - 定义并不会创建frame 只有当运行到函数时才会创建
 
 ### 高阶函数的 Environment
@@ -131,21 +135,22 @@ def print_sums(n):
 ![这里的n是一个default values，可以改变，同样也是进入函数之后才创建](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328861.png)
 **Print and None**
 
-- Print 返回值为None **None**在py 中不是一个数值表达  NoneType 和 int 不能进行计算（type Error）
+- Print 返回值为None 
+**None**在py 中不是一个数值表达  ==>  NoneType 和 int 不能进行计算（type Error）
+
 **Control**![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328862.png)
-:::info
+
 **bool ：**
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328863.png)
 对于 and 和 or 他们总是返回最后一个evaluate的对象，如果判断对象不是booleans，将返回数字；Ture and 13  will return 13 but not True
-:::
-:::info
+
 **iteration 迭代：**
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328864.png)
-:::
-:::info
+
 **Test ：**
 **Assertions**在False时 输出后面的字符串  **‘   ’**或者**“   ”**
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328865.png)
+
 **Doctest**
 
 - 全局
@@ -157,21 +162,19 @@ def print_sums(n):
 
 **from doctest import run_docstring_examples**
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328867.png)
-:::
-:::info
+
 
 - **文件**
 
 **python3 -m doctest <python_source_file>**
 运行所有 doctests
-:::
-*** 高阶函数**:::info
+
+**高阶函数**
 
 - **Currying**  只含有一个 参数
 
 例如，g (x) (y)  等效于  f (x , y)  , 这个转换的过程就被称为currying
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328868.png)
-:::
 
 ```python
 from operator import add, mul
@@ -187,12 +190,9 @@ add_three(4)
 m(2)(1)
 ```
 
-:::info
-
 - **Lambda Expressions**
 
 定义此类函数时没有 intrinsic name
-:::
 
 ```python
 b = lambda x: lambda: x  # Lambdas can return other lambdas!
@@ -203,19 +203,17 @@ Function
 88
 ```
 
-:::info
-
 - **Decorators  修饰符**
 
 用于更好地使用高阶函数
-![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328869.png)![triple 绑定的是 trace 在调用triple之后绑定的返回值](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328870.png)
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328869.png)
+triple 绑定的是 trace 在调用triple之后绑定的返回值
+![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401212328870.png)
 :::
 
 ```python
 def print_sum(n):
-    ```打印n个数的总和
-```
-
+    //打印n个数的总和
 	print(n)
  def f(k):
      return print_sum(n+k)
@@ -225,8 +223,8 @@ def print_sum(n):
 n  k   print_sum(3) f(5)
 3  5 print_sum(8) f(7)
 8  7 print_sum(15) f
-
 ```
+
 ### 含有任意参数的函数
 ```python
 def average(*args):
