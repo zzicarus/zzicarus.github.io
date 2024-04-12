@@ -1,59 +1,51 @@
 #include <iostream>
-#include <array>
 #include <vector>
-#include <fstream>
-#include <list>
-#include <forward_list>
-#include <sstream>
 #include <string>
-#include <stack>
+#include <iomanip>
+#include <algorithm>
+#include <numeric>
+#include <map>
+#include <set>
+#include <memory>
+#include <malloc.h>
 using namespace std;
 
-struct PersonInfo
-{
-    string name;
-    vector<string> Phones;
-};
-
-void PrintVector(vector<int> a)
-{
-    for (auto single : a)
-    {
-        cout << " " << single;
-    }
-    cout << endl;
-}
-int main()
-{
-    int aaSSD_dawj = 5;
-    string asd;
-    int count = 4;
-    vector<int> a({0, 1, 2, 3, 4, 5, 6, 7});
-
-    vector<vector<int>> D = {{0, 1, 2}, {3, 4, 5, 6}};
-    cout << D[0][0];
-}
-
-class Solution
+class S
 {
 public:
-    vector<string> fizzBuzz(int n)
+    void f()
     {
-        vector<string> ans;
-        for (size_t i = 1; i <= n; i++)
-        {
-            if (i % 3 == 0 && i % 5 == 0)
-                ans.push_back("FizzBuzz");
-            else
-            {
-                if (i % 3 == 0)
-                    ans.push_back("Fizz");
-                else if (i % 5 == 0)
-                    ans.push_back("Buzz");
-                else
-                    ans.push_back(to_string(i));
-            }
-        }
-        return ans;
+        cout << sizeof(S) << endl;
     }
+    void x()
+    {
+        int a;
+        return;
+    }
+    static int count;
+};
+int S::count = 0;
+
+void f(shared_ptr<string> s)
+{
+    cout << s.unique() << endl;
+    return;
+}
+
+int main()
+{
+    const char *s1 = "Hello"; // 指向静态变量的指针
+    char *s3 = "Hello";
+    char s2[] = "Hello";
+
+    cout << (void *)main << endl;
+    cout << (void *)s1 << endl;
+    cout << (void *)s2 << endl;
+    cout << (void *)s3 << endl;
+    /*
+    0x40158f
+    0x404008
+    0x61fe0a
+    0x404008
+    */
 };

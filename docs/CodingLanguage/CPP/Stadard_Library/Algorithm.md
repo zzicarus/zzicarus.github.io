@@ -2,6 +2,10 @@
 
 !!! abstract
     标准库提供了一组算法，大多数都独立于容器存在。
+    [referrence](https://en.cppreference.com/w/cpp/algorithm)
+
+    [Short Video](https://www.fluentcpp.com/2017/01/05/the-importance-of-knowing-stl-algorithms/)
+    
     多数算法在`algorithm`文件中提供:
 
     - find
@@ -38,7 +42,12 @@
 
 `equal(vec.begin(),vec.end(),vec2.begin());`
 
-> 要确保第二个序列的长度>=第一个
+!!! warning ""
+    > 要确保第二个序列的长度>=第一个
+
+    且所有第二个容器只用一个迭代器表示的算法都默认这一条规则
+
+
 
 ### fill
 <span class="box box-yellow">写操作</span>
@@ -46,11 +55,44 @@
 !!! warning "warning"
     writing操作默认有足够的空间容纳写的元素
 
-    为了保证在写入元素时存在足够的空间，可以使用[`back_inserter`](../基础.md)
+    一个很典型的错误是向空容器写入值
+
+    为了保证在写入元素时存在足够的空间，可以使用`back_inserter`
+    ```cpp
+        vector<int> a;
+        fill_n(back_inserter(a), 10, 0);
+    ```
 
 `fill(begin,end,element);`
 
 `fill_n(iter,n,element)`
 
+### copy
 
+copy 
+```c++
+auto b = copy(a.begin(), a.begin() + 5, back_inserter(c));
+copy(a.begin(), a.begin() + 1, b);
+```
+
+copy_if
+```c++
+std::copy_if(from_vector.begin(), from_vector.end(),
+                 std::back_inserter(to_vector),
+                 [](int x) { return x % 3 == 0; });
+```
+
+## 重排
+
+### unique
+
+```c++
+auto b = unique(a.begin(), a.end());
+Print(a);
+// unique 算法操作的是迭代器，为了删除元素，只能使用容器操作
+a.erase(b, a.end());
+Print(a);
+```
+
+## 定制操作
 

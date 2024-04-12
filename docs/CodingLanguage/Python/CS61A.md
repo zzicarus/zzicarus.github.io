@@ -247,7 +247,7 @@ def average(*args):
 1. basic case
 2. recursive case
 
-例如，f n+1 = f n  +  f (n-1)
+例如，$f_{n+1} = f_n  +  f (n-1)$
 
 3. 借助 helper 函数  操纵更多参数
 

@@ -6,6 +6,13 @@
     "vector": "cpp",
     "iostream": "cpp",
     "initializer_list": "cpp",
-    "format": "cpp"
+    "format": "cpp",
+    "iomanip": "cpp",
+    "ios": "cpp",
+    "string": "cpp",
+    "iosfwd": "cpp",
+    "map": "cpp",
+    "memory": "cpp",
+    "ostream": "cpp"
   }
 }

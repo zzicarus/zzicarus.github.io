@@ -106,9 +106,6 @@ markdown_extensions:
       permalink: true
       title: This Page
       toc_depth: 4 # 目录中的级别范围
-      slugify: !!python/object/apply:pymdownx.slugs.slugify {
-          kwds: { case: lower },
-        } # enable Unicode link
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.arithmatex:
@@ -151,6 +148,11 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.keys
 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
   - 封面:
       - "封面": index.md
@@ -187,12 +189,18 @@ nav:
           - 基础: CodingLanguage/CPP/基础.md
           - Stadard Library:
               - IO库: CodingLanguage/CPP/Stadard_Library/IO.md
-              - 顺序容器: CodingLanguage/CPP/Stadard_Library/顺序容器.md
-              - 关联容器: CodingLanguage/CPP/Stadard_Library/关联容器.md
-              - 关联容器: CodingLanguage/CPP/Stadard_Library/Algorithm.md
+              - 容器: CodingLanguage/CPP/Stadard_Library/容器.md
+              - 算法库: CodingLanguage/CPP/Stadard_Library/Algorithm.md
+              - 动态内存和智能指针: CodingLanguage/CPP/Stadard_Library/动态内存.md
+          - class:
+              - CodingLanguage/CPP/classes/index.md
+              - class: CodingLanguage/CPP/classes/class.md
+              - 模板: CodingLanguage/CPP/classes/模板.md
+              - inherit: CodingLanguage/CPP/classes/inherit.md
       - ⌨️ Python:
           - CodingLanguage/Python/index.md
           - 💡CS61A: CodingLanguage/Python/CS61A.md
+          - 一些实践: CodingLanguage/Python/basic.md
   - 杂谈:
       - 杂谈/index.md
   - Others:

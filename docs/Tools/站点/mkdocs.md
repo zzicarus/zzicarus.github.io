@@ -20,10 +20,9 @@
         - [x] 字数统计
         - [ ] Comment系统
 
-!!! question 
+!!! question
 
     1. ~~多个 H1 的情况，渲染会出错：主要是右侧导航栏的渲染~~
-    
 
 ---
 
@@ -90,7 +89,7 @@ jobs:
 ## 功能
 
 !!! info "介绍"
-    
+
     这里我选了几个自己之后应该常用的，记一下用法
 
 ### 选项卡
@@ -120,6 +119,7 @@ jobs:
     }
     ```
 ````
+
 === "C"
 
     ``` c
@@ -162,7 +162,6 @@ jobs:
         3. Nulla tempor lobortis orci
         ```
 
-
 ### box
 
 !!! note "From"
@@ -187,10 +186,31 @@ jobs:
 
 直接使用了一位[学长的插件](https://github.com/TonyCrane/mkdocs-statistics-plugin)
 
-### 优化vsc中的工作流程
-1. 快捷键  Markdown ShortCuts 插件
-2. 自定义Snippet
+### 优化 vsc 中的工作流程
 
+1. 快捷键 Markdown ShortCuts 插件
+2. 自定义 Snippet
+
+![alt text](images/custom-image.png)
+
+```json
+"Color Box": {
+		"prefix": "box",
+		"body": [
+			"<span class=\"box box-${1|blue,red,green,yellow|}\">$2</span>",
+			"$3",
+		],
+		"description": "Inserts a colored box span"
+	},
+	"Prompt": {
+		"prefix": "annotation",
+		"body": [
+			"!!! ${1|note,info,abstract,tip,success,quote,question,warning,bug,example,failure|} \"$2\"",
+			"\t$3",
+		],
+		"description": "Inserts an annotation"
+	},
+```
 
 ## 一些用法 | 测试格式
 
@@ -198,56 +218,57 @@ jobs:
 
 1. 突出显示特定行
 
-  ```py hl_lines="2 3"
-  def bubble_sort(items):
-      for i in range(len(items)):
-          for j in range(len(items) - 1 - i):
-              if items[j] > items[j + 1]:
-                  items[j], items[j + 1] = items[j + 1], items[j]
-  ```
+```py hl_lines="2 3"
+def bubble_sort(items):
+    for i in range(len(items)):
+        for j in range(len(items) - 1 - i):
+            if items[j] > items[j + 1]:
+                items[j], items[j + 1] = items[j + 1], items[j]
+```
 
-  ````
+````
 
-  ```py hl_lines="2 3"
-  def bubble_sort(items):
-      for i in range(len(items)):
-          for j in range(len(items) - 1 - i):
-              if items[j] > items[j + 1]:
-                  items[j], items[j + 1] = items[j + 1], items[j]
-  ```
+```py hl_lines="2 3"
+def bubble_sort(items):
+    for i in range(len(items)):
+        for j in range(len(items) - 1 - i):
+            if items[j] > items[j + 1]:
+                items[j], items[j + 1] = items[j + 1], items[j]
+```
 
-  ````
+````
 
 2. 高亮内部代码
 
-````
+```
 The `#!python range()` function is used to generate a sequence of numbers.
-````
+```
 
 The `#!python range()` function is used to generate a sequence of numbers.
 
 ### md 格式的调整
 
-代码见CSS部分
+代码见 CSS 部分
 
 1. 有序列表
 2. 有序列表
 
--------
+---
 
 - 无序列表
 
-*斜体*
+_斜体_
 
 **加粗**
 
 > 引用
->
 
 [链接](http://127.0.0.1:8000/#github-page)
 
-------
-下面的是一些拓展的，在markdown - extension中可以选择加入（建议读[官方文档](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#arithmatex-docsjavascriptsmathjaxjs)）
+---
+
+下面的是一些拓展的，在 markdown - extension 中可以选择加入（建议读[官方文档](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#arithmatex-docsjavascriptsmathjaxjs)）
+
 ```markdown
 :bread:
 ~~删除~~
@@ -265,12 +286,39 @@ The `#!python range()` function is used to generate a sequence of numbers.
 
 ---
 
+### :Todo: Mermaid 序列图
+
+这里发现格式并不是很好，之后有时间了再修改 Mermaid 的配置吧。而且 Mermaid 的渲染有点慢？（
+
+https://mermaid.js.org/syntax/flowchart.html
+
+!!! note "note"
+
+````mermaid
+flowchart LR
+subgraph subgraph1
+direction TB
+top1[top] --> bottom1[bottom]
+end
+subgraph subgraph2
+direction TB
+top2[top] --> bottom2[bottom]
+end
+%% ^ These subgraphs are identical, except for the links to them:
+
+        %% Link *to* subgraph1: subgraph1 direction is maintained
+        outside --> subgraph1
+        %% Link *within* subgraph2:
+        %% subgraph2 inherits the direction of the top-level graph (LR)
+        outside ---> top2
+    ```
+
 ### annotation
 
 ```md
 !!! 或者 ???
 ???+ 折叠，默认展开状态
-```
+````
 
 !!! note "Note"
 
@@ -287,10 +335,10 @@ The `#!python range()` function is used to generate a sequence of numbers.
     abstract
 
 !!! tip "tip"
-    octicons/squirrel-16
+octicons/squirrel-16
 
 ??? success "success"
-    success
+success
 
 ??? quote "quote"
 
