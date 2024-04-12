@@ -1,22 +1,51 @@
 #include <iostream>
-#include <array>
 #include <vector>
-#include <fstream>
-#include <list>
-#include <forward_list>
-#include <sstream>
 #include <string>
-#include <stack>
+#include <iomanip>
+#include <algorithm>
+#include <numeric>
+#include <map>
+#include <set>
+#include <memory>
+#include <malloc.h>
 using namespace std;
 
-struct PersonInfo
+class S
 {
-    string name;
-    vector<string> Phones;
+public:
+    void f()
+    {
+        cout << sizeof(S) << endl;
+    }
+    void x()
+    {
+        int a;
+        return;
+    }
+    static int count;
 };
+int S::count = 0;
+
+void f(shared_ptr<string> s)
+{
+    cout << s.unique() << endl;
+    return;
+}
 
 int main()
 {
-    int aaSSD_dawj = 5;
-    string asd;
-}
+    const char *s1 = "Hello"; // 指向静态变量的指针
+    char *s3 = "Hello";
+    char s2[] = "Hello";
+
+    cout << (void *)main << endl;
+    cout << (void *)s1 << endl;
+    cout << (void *)s2 << endl;
+    cout << (void *)s3 << endl;
+    /*
+    0x40158f
+    0x404008
+    0x61fe0a
+    0x404008
+    */
+};
