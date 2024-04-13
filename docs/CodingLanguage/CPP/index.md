@@ -7,5 +7,11 @@
         - [effective C++](https://wizardforcel.gitbooks.io/effective-cpp/content/0.html)
         - 
     - 练习
+
+!!! info "导航栏"
+    - cake
+      - [Static&Extern](Static&Extern.md)
+      - [const](const.md)
+      - [memory](memory.md)
     
 

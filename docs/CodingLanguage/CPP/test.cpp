@@ -12,40 +12,58 @@ using namespace std;
 
 class S
 {
+    static int count; // 由实例共享
+    static const int size = 100;
+    const int selfRank;
+    // int A[selfRank]; // Error
+    // int A[count];    // Error
+    int A[size];
+
 public:
     void f()
     {
-        cout << sizeof(S) << endl;
+        cout << "SizeOF S" << sizeof(S) << endl;
     }
-    void x()
+    void f() const
     {
-        int a;
-        return;
+        cout << "f() const" << endl;
     }
-    static int count;
-};
-int S::count = 0;
 
-void f(shared_ptr<string> s)
+    static void g() // 可不由实例使用
+    {
+        cout << "Recall g()" << endl;
+    }
+    S() : selfRank(0) {}
+    S(int rank) : selfRank(rank)
+    {
+    }
+};
+
+int S::count = 100;
+
+class A
 {
-    cout << s.unique() << endl;
-    return;
-}
+private:
+    int x;
+    int y;
+
+protected:
+    void UpdateX(int newX);
+
+public:
+    int count;
+};
+class B
+{
+    A a;
+};
+class C : A
+{
+};
 
 int main()
 {
-    const char *s1 = "Hello"; // 指向静态变量的指针
-    char *s3 = "Hello";
-    char s2[] = "Hello";
-
-    cout << (void *)main << endl;
-    cout << (void *)s1 << endl;
-    cout << (void *)s2 << endl;
-    cout << (void *)s3 << endl;
-    /*
-    0x40158f
-    0x404008
-    0x61fe0a
-    0x404008
-    */
+    A a;
+    B b;
+    C c;
 };

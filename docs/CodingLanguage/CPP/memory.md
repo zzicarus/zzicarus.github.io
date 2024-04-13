@@ -16,23 +16,32 @@ global vars
 static global vars
 static local vars
 
+!!! example "example"
+    ```c++
+    const char * s1 = ""      // 指向静态变量的指针  
+    char s2 [] = ""     // copy 一份 存储在栈区
+
+
+    const char *s1 = "Hello"; // 指向静态变量的指针
+    char *s3 = "Hello";
+    char s2[] = "Hello";
+
+    cout << (void *)main << endl;
+    cout << (void *)s1 << endl;
+    cout << (void *)s2 << endl;
+    cout << (void *)s3 << endl;
+    /*
+    0x40158f
+    0x404008
+    0x61fe0a
+    0x404008
+    */
+    ```
+
+## static
+
+**在类中使用**
+
 ```c++
-const char * s1 = ""      // 指向静态变量的指针  
-char s2 [] = ""     // copy 一份 存储在栈区
 
-
-const char *s1 = "Hello"; // 指向静态变量的指针
-char *s3 = "Hello";
-char s2[] = "Hello";
-
-cout << (void *)main << endl;
-cout << (void *)s1 << endl;
-cout << (void *)s2 << endl;
-cout << (void *)s3 << endl;
-/*
-0x40158f
-0x404008
-0x61fe0a
-0x404008
-*/
 ```

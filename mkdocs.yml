@@ -189,14 +189,19 @@ nav:
           - 基础: CodingLanguage/CPP/基础.md
           - Stadard Library:
               - IO库: CodingLanguage/CPP/Stadard_Library/IO.md
+              - String: CodingLanguage/CPP/Stadard_Library/string.md
               - 容器: CodingLanguage/CPP/Stadard_Library/容器.md
               - 算法库: CodingLanguage/CPP/Stadard_Library/Algorithm.md
               - 动态内存和智能指针: CodingLanguage/CPP/Stadard_Library/动态内存.md
           - class:
               - CodingLanguage/CPP/classes/index.md
               - class: CodingLanguage/CPP/classes/class.md
-              - 模板: CodingLanguage/CPP/classes/模板.md
+              - template: CodingLanguage/CPP/classes/模板.md
               - inherit: CodingLanguage/CPP/classes/inherit.md
+          - cake:
+              - const: CodingLanguage/CPP/classes/const.md
+              - memory: CodingLanguage/CPP/classes/memory.md
+              - Static&Extern: CodingLanguage/CPP/classes/Static&Extern.md
       - ⌨️ Python:
           - CodingLanguage/Python/index.md
           - 💡CS61A: CodingLanguage/Python/CS61A.md
