@@ -1,11 +1,11 @@
 /*
   这个css文档很大一部分都是从 修佬的笔记 中拿来做了简单的修改
-  由于本人对前端没那么熟悉，加了一部分个人认为必要的注释
+  由于本人对前端没那么熟悉，加了一部分注释
   
   贴个链接
   https://note.isshikih.top/
 */
-/* */
+
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap");
@@ -31,12 +31,6 @@ h1,
 .md-typeset h4,
 .md-typeset h5 {
   font-weight: 600;
-}
-
-body,
-input {
-  font-family: "LXGW WenKai Screen", "Lexend", "Noto Sans SC", "Source Code Pro",
-    -apple-system, Helvetica, Arial, sans-serif;
 }
 
 center,
@@ -113,6 +107,7 @@ strong {
 
 :root,
 [data-md-color-scheme="default"] {
+  --md-code-font: "JetBrains Mono";
   --md-default-fg-color: rgb(52, 63, 72);
   --md-default-fg-color--light: rgba(21, 83, 124, 0.54);
   --md-default-fg-color--lighter: rgba(40, 137, 207, 0.649);
