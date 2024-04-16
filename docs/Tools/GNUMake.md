@@ -15,6 +15,28 @@
 
     windows 下可以使用 gcc _.c -o _.o
 
+## 使用过程
+
+!!! info ".h文件中应该放什么？"
+    这个问题的答案似乎很理所应当，但在自己的实际操作中又常常会出现报错。
+    
+    这里总结一下这个问题。
+
+```c
+// 指定文件
+gcc your_source_file.c -o ../your_executable
+// 链接c++标准库
+gcc source/pdShow.cpp pd.cpp -o source/pdShow -lstdc++
+
+```
+
+
+
+
+​    
+
+- 
+
 ## 基本介绍
 
 ```makefile

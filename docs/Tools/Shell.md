@@ -1,9 +1,7 @@
 
 # Shell
 
-
-
-环境变量
+**环境变量**
 
 `echo $path`
 
@@ -85,14 +83,14 @@ sudo    :   super user
 
 - shell中的空格十分重要`foo=bar` `foo = bar`前者正常工作，后者找不到foo命令
 - 编写shell函数时
-  - `$0` - 脚本名
-  - `$1` 到 `$9` - 脚本的参数。 `$1` 是第一个参数，依此类推。
-  - `$@` - 所有参数
-  - `$#` - 参数个数
-  - `$?` - 前一个命令的返回值
-  - `$$` - 当前脚本的进程识别码
-  - `!!` - 完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 `sudo !!`再尝试一次。
-  - `$_` - 上一条命令的最后一个参数。如果你正在使用的是交互式 shell，你可以通过按下 `Esc` 之后键入 . 来获取这个值。
+    - `$0` - 脚本名
+    - `$1` 到 `$9` - 脚本的参数。 `$1` 是第一个参数，依此类推。
+    - `$@` - 所有参数
+    - `$#` - 参数个数
+    - `$?` - 前一个命令的返回值
+    - `$$` - 当前脚本的进程识别码
+    - `!!` - 完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 `sudo !!`再尝试一次。
+    - `$_` - 上一条命令的最后一个参数。如果你正在使用的是交互式 shell，你可以通过按下 `Esc` 之后键入 . 来获取这个值。
 
 **进程替换**  `<(CMD) `  将会执行CMD并将结果输出到一个临时文件中，并将`<(CMD)`替换为临时文件名。注意，返回值通过文件而不是STDOUT
 
@@ -124,4 +122,30 @@ ls project?
 {}
 ```
 
- 
+### prompt
+
+<span class="box box-blue">xargs</span>
+
+
+### Instance
+
+```shell
+#!/bin/bash
+# Test run in Git bash
+
+date1="2021 02 03"
+content="today\nI get a little bit happy\n"
+
+echo "hello"
+echo "--- Running to Get the Exe ---"
+# gcc source/pdRemove.cpp source/pd.cpp -o pdRemove -lstdc++
+# gcc source/pdAdd.cpp source/pd.cpp -o pdAdd -lstdc++
+# gcc source/pdList.cpp source/pd.cpp -o pdList -lstdc++
+# gcc source/pdShow.cpp source/pd.cpp -o pdShow -lstdc++
+echo "--- Complete ---"
+
+# 将脚本中的内容作为参数传递给pdAdd命令
+echo -e "$date1\n$content" | xargs ./pdAdd
+```
+
+在这个示例中，我们使用echo -e来打印字符串，并使用管道符（|）将其重定向到xargs命令的stdin。然后，xargs命令将这些输入数据作为参数传递给pdAdd命令
