@@ -87,6 +87,11 @@ name
 ['P', 'y', 't', 'h', 'o', 'n']
 ```
 
+!!! note "构造一个list"
+    ```py
+    even_squares = [x**2 for x in range(1, 11) if x % 2 == 0]
+    ```
+
 ### tuple
 
 ```python

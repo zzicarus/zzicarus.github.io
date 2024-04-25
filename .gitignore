@@ -1,3 +1,6 @@
-vscode/
+.vscode/
 site/
 temp/
+ignored/
+TODO.md
+.cache/

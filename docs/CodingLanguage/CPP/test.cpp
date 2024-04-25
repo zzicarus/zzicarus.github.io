@@ -1,69 +1,44 @@
 #include <iostream>
-#include <vector>
-#include <string>
-#include <iomanip>
-#include <algorithm>
-#include <numeric>
-#include <map>
-#include <set>
-#include <memory>
-#include <malloc.h>
 using namespace std;
-
-class S
-{
-    static int count; // 由实例共享
-    static const int size = 100;
-    const int selfRank;
-    // int A[selfRank]; // Error
-    // int A[count];    // Error
-    int A[size];
-
-public:
-    void f()
-    {
-        cout << "SizeOF S" << sizeof(S) << endl;
-    }
-    void f() const
-    {
-        cout << "f() const" << endl;
-    }
-
-    static void g() // 可不由实例使用
-    {
-        cout << "Recall g()" << endl;
-    }
-    S() : selfRank(0) {}
-    S(int rank) : selfRank(rank)
-    {
-    }
-};
-
-int S::count = 100;
 
 class A
 {
-private:
-    int x;
-    int y;
+public:
+    A(int i) : mi(i) {}
+    A(const A &rhs) : mi(rhs.mi)
+    {
+        cout << "A::A(&)" << endl;
+    }
+    A &operator=(const A &rhs)
+    {
+        mi = rhs.mi;
+        cout << "A::operator=()" << endl;
+        return *this;
+    }
+    virtual void f()
+    {
+        cout << "A::f(), " << mi << endl;
+    }
 
 protected:
-    void UpdateX(int newX);
+    int mi;
+};
 
+class B : public A
+{
 public:
-    int count;
-};
-class B
-{
-    A a;
-};
-class C : A
-{
+    B(int i, int j) : A(i), mj(j) {}
+    void f() override
+    {
+        cout << "B::f(), " << mi << ", " << mj << endl;
+    }
+
+private:
+    int mj;
 };
 
 int main()
 {
-    A a;
-    B b;
-    C c;
-};
+    A a = 4;
+    A aa(4);
+}

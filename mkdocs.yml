@@ -29,7 +29,6 @@ theme:
 
   # 字体
   font:
-    text: Noto Sans Mongolian
     code: JetBrains Mono
 
   # 语言
@@ -165,16 +164,10 @@ nav:
           - mkdocs: Tools/站点/mkdocs.md
   - 课内:
       - CS/index.md
-      - 数字逻辑设计:
-          - 数字逻辑设计: CS/数字逻辑基础/index.md
-          - Chapter 1 数字系统: CS/数字逻辑基础/P1.md
-          - Chapter 2 组合电路 | Combinational Logic Circuits: CS/数字逻辑基础/P2.md
-          - Chapter 3 组合电路设计 | Combinational Logic Design: CS/数字逻辑基础/P3.md
-          - Chapter 4 时序逻辑: CS/数字逻辑基础/P4.md
-          - Chapter 5 数字硬件实现: CS/数字逻辑基础/P5.md
-          - Chapter 6 寄存器 | Logic and Computer Design Fundamentals: CS/数字逻辑基础/P6.md
-          - Chapter 7 存储器基础: CS/数字逻辑基础/P7.md
-          - 实验部分: CS/数字逻辑基础/Labs.md
+
+      - DB:
+          - index.md
+          - 7. Relational Database Design: CS\DB\Chapter 7 Relational Database Design.md
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md
       - 【短学期】大数据可视化: CS/大数据可视化.md
@@ -199,9 +192,9 @@ nav:
               - template: CodingLanguage/CPP/classes/模板.md
               - inherit: CodingLanguage/CPP/classes/inherit.md
           - cake:
-              - const: CodingLanguage/CPP/classes/const.md
-              - memory: CodingLanguage/CPP/classes/memory.md
-              - Static&Extern: CodingLanguage/CPP/classes/Static&Extern.md
+              - const: CodingLanguage/CPP/const.md
+              - memory: CodingLanguage/CPP/memory.md
+              - Static&Extern: CodingLanguage/CPP/Static&Extern.md
       - ⌨️ Python:
           - CodingLanguage/Python/index.md
           - 💡CS61A: CodingLanguage/Python/CS61A.md
