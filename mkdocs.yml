@@ -166,7 +166,6 @@ nav:
       - CS/index.md
 
       - DB:
-          - index.md
           - 7. Relational Database Design: CS\DB\Chapter 7 Relational Database Design.md
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md

@@ -3,7 +3,7 @@
 !!! info "Docs"
     - [Command 汇总](https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
     - [Learn Branch ：一个分支的练习\学习网站](https://learngitbranching.js.org/?locale=zh_CN)
-## basic usage
+## Usage
 
 !!! note ""
     英文状态下按`q`可以退出`git log`等输出信息的命令
@@ -19,9 +19,10 @@ git status
 
 git diff
 
-git push
+git push origin main
 
-git pull
+git pull origin main
+
 ```
 
 ### 版本回退
@@ -42,5 +43,49 @@ git reset --hard d16f1504a39840ea6962aa3e464a51bd8f72f298
 !!! tip "SSH"
     
 
+**关联远程库**
+- origin 是当前的仓库名
+`git remote add origin ...`
 
-## 
+### 分支管理
+
+!!! info "分离Head"
+    分离的 HEAD 就是让其指向了某个具体的提交记录而不是分支名。
+
+`git checkout HEAD`
+![alt text](images/custom-image-1.png)
+```shell
+git checkout -b dev  // 创建并跳转
+# 创建 移动分支
+git branch dev
+git checkout dev
+# 移动指定分支到指定位置
+git branch -f main HEAD~3
+
+git branch          // 查看当前分支
+
+# 分支合并
+git checkout main
+git merge dev
+
+# 删除分支
+git branch -d dev
+
+```
+
+## Errors
+
+### 
+[stockOverflow](https://stackoverflow.com/questions/20467179/git-push-rejected-non-fast-forward/20467414#20467414)
+
+![alt text](images/custom-image.png)
+
+```shell
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'github.com:zzicarus/zzicarus.github.io.git'   
+hint: Updates were rejected because the tip of your current branch is behind      
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.  
+```
+
