@@ -10,13 +10,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;700&display=swap");
-@font-face {
-  font-family: "LXGWBold";
-  src: url("../asset/fonts/LXGWWenKai-Bold.ttf");
-}
+
+@import url("https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.css");
+@import url("https://chinese-fonts-cdn.deno.dev/chinesefonts3/packages/mzxst/dist/MZPXorig/result.css");
 
 h2::before,
 h3::before,
@@ -28,7 +26,7 @@ h4::before {
 h1,
 .headerlink {
   font-size: larger;
-  font-family: "LXGWBold", "ZCOOL XiaoWei", serif;
+  font-family: "LXGW WenKai Screen", "ZCOOL XiaoWei", serif;
 }
 
 .md-typeset h5 {
@@ -50,7 +48,7 @@ h1,
 
 body,
 input {
-  font-family: "LXGWBold", "Lexend", "Noto Sans SC", "Source Code Pro",
+  font-family: "LXGW WenKai Screen", "Lexend", "Noto Sans SC", "Source Code Pro",
     -apple-system, Helvetica, Arial, sans-serif;
 }
 
