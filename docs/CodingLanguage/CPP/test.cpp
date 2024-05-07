@@ -37,8 +37,24 @@ private:
     int mj;
 };
 
+class Base
+{
+private:
+public:
+    int a;
+    const int consA;
+    Base(int a) : Base(a, a)
+    {
+        cout << "Call Base(int a)" << endl;
+    }
+    Base(int m, int ConstM) : a(m), consA(ConstM)
+    {
+        cout << "Call Base(int m, int ConstM)" << endl;
+    }
+};
+
 int main()
 {
-    A a = 4;
-    A aa(4);
+    Base m(55);
+    cout << m.a << " " << m.consA;
 }

@@ -10,6 +10,8 @@
 
 - 同名函数的继承问题
     一个派生类中override，其他基类同名函数也被覆盖掉
+    
+    记得override所有的相关函数
 
 ??? example "覆盖关系"
     ```c++
@@ -66,3 +68,19 @@
         a2.f();
     }
     ```
+
+- copy
+派生类`=`赋值给基类，virtual的表不会拷贝过去
+    -  
+```c++
+base = derived
+```
+- upcasting
+
+用`void* *`转换
+```c++
+
+```
+
+
+**Relaxation**
