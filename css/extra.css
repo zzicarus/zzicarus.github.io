@@ -13,12 +13,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;700&display=swap");
+@font-face {
+  font-family: "LXGWBold";
+  src: url("../asset/fonts/LXGWWenKai-Bold.ttf");
+}
+
+h2::before,
+h3::before,
+h4::before {
+  content: "# ";
+}
 
 .md-ellipsis,
 h1,
 .headerlink {
   font-size: larger;
-  font-family: "LXGW WenKai Screen", "ZCOOL XiaoWei", serif;
+  font-family: "LXGWBold", "ZCOOL XiaoWei", serif;
 }
 
 .md-typeset h5 {
@@ -31,6 +41,17 @@ h1,
 .md-typeset h4,
 .md-typeset h5 {
   font-weight: 600;
+}
+
+.md-typeset h2,
+.md-typeset h3 {
+  color: #20759fda;
+}
+
+body,
+input {
+  font-family: "LXGWBold", "Lexend", "Noto Sans SC", "Source Code Pro",
+    -apple-system, Helvetica, Arial, sans-serif;
 }
 
 center,
@@ -69,7 +90,6 @@ strong {
 .md-tabs__link {
   margin-top: 0.6rem;
   opacity: 0.4;
-
   font-family: var(--md-text-font-family);
 }
 
@@ -176,6 +196,7 @@ strong {
 .md-typeset .task-list-indicator:before {
   background-color: #b8b8b8;
 }
+
 /* 引用 */
 .md-typeset blockquote {
   background-color: hsl(205deg 63.53% 66.67% / 10%);
@@ -183,5 +204,4 @@ strong {
   padding-right: 25px;
   padding-top: 1px;
   padding-bottom: 1px;
-  border-radius: 25px;
 }
