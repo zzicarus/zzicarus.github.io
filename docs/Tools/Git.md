@@ -75,7 +75,7 @@ git branch -d dev
 
 ## Errors
 
-### 
+### 冲突
 [stockOverflow](https://stackoverflow.com/questions/20467179/git-push-rejected-non-fast-forward/20467414#20467414)
 
 ![alt text](images/custom-image.png)
@@ -89,3 +89,22 @@ hint: 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.  
 ```
 
+### 分支
+
+> 切换到新建的分支后，进行push报错
+
+需要将本地新建的分支与远程的分支建立连接
+
+方法1：`git push --set-upstream origin dev` 这里的dev是新的分支
+
+方法2： 
+
+```shell
+fatal: The current branch dev has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin dev
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+```

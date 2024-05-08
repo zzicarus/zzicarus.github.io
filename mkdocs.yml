@@ -167,6 +167,9 @@ nav:
 
       - DB:
           - 7. Relational Database Design: CS\DB\Chapter 7 Relational Database Design.md
+      - CO:
+          - 2 Instruction: CS\CO\2_Instruction.md
+          - 4 Processor: CS\CO\4_Processor.md
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md
       - 【短学期】大数据可视化: CS/大数据可视化.md
