@@ -108,3 +108,24 @@ To push the current branch and set the remote as upstream, use
 To have this happen automatically for branches without a tracking
 upstream, see 'push.autoSetupRemote' in 'git help config'.
 ```
+
+### 代理问题
+!!! info ""
+    **问题**
+    ```shell
+    Connection reset by 20.205.243.160 port 443
+    fatal: Could not read from remote repository.
+
+    Please make sure you have the correct access rights
+    and the repository exists.
+    ```
+    由于设置的代理与当前的代理不同。一般是翻墙之后，网络代理发生变化。
+
+**Solution**
+```shell
+git config --global http.proxy http://127.0.0.1:7890 
+git config --global https.proxy http://127.0.0.1:7890
+```
+
+??? note "关于代理"
+    

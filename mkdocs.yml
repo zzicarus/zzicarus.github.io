@@ -166,8 +166,14 @@ nav:
       - CS/index.md
 
       - DB:
-          - 7. Relational Database Design: CS\DB\Chapter 7 Relational Database Design.md
+          - 1. Interface: CS\DB\Chapter_1.md
+          - 2. Relation: CS\DB\Chapter_2.md
+          - 345. SQL: CS\DB\Chapter_3_4_5.md
+          - 6. ER Model: CS\DB\Chapter_6.md
+          - 7. Relational Database Design: CS\DB\Chapter_7.md
+          - 12. Physical Storage: CS\DB\Chapter_12.md
       - CO:
+          - 1 Interface: CS\CO\1_Interface.md
           - 2 Instruction: CS\CO\2_Instruction.md
           - 4 Processor: CS\CO\4_Processor.md
       - DIP:
