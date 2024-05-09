@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://zzicarus.github.io/CS/DB/Chapter_7/">
       
       
+        <link rel="prev" href="../Chapter_6/">
+      
+      
+        <link rel="next" href="../Chapter_12/">
       
       
       <link rel="icon" href="../../../images/joystick.png">
@@ -20,7 +24,7 @@
     
     
       
-        <title>Chapter 7 Relational Database Design - ZZIcarus NOTE</title>
+        <title>7. Relational Database Design - ZZIcarus NOTE</title>
       
     
     
@@ -155,7 +159,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chapter 7 Relational Database Design
+              7. Relational Database Design
             
           </span>
         </div>
@@ -305,10 +309,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../" class="md-tabs__link">
           
   
@@ -690,6 +696,8 @@
       
   
   
+    
+  
   
   
     
@@ -710,14 +718,17 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
@@ -733,13 +744,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             课内
@@ -752,8 +763,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -775,11 +788,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -793,7 +806,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             DB
@@ -807,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_1.md" class="md-nav__link">
+      <a href="../Chapter_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_2.md" class="md-nav__link">
+      <a href="../Chapter_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -849,7 +862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_3_4_5.md" class="md-nav__link">
+      <a href="../Chapter_3_4_5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -870,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_6.md" class="md-nav__link">
+      <a href="../Chapter_6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,10 +901,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Chapter_7.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    7. Relational Database Design
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -900,6 +933,121 @@
   
 
       </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#features-of-good-relational-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features of Good Relational Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functional-dependency" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional Dependency
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functional Dependency">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Closure(闭包)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Closure(闭包)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armstrongs-axioms" class="md-nav__link">
+    <span class="md-ellipsis">
+      公理 | Armstrong`s Axioms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      推论
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      属性的闭包
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#canonical-cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Canonical Cover（正则覆盖）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boyce-codd-normal-form-bcnf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boyce-Codd Normal Form | BCNF
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-preservation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependency Preservation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -912,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_12.md" class="md-nav__link">
+      <a href="../Chapter_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -987,7 +1135,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/1_Interface.md" class="md-nav__link">
+      <a href="../../CO/1_Interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1008,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/2_Instruction.md" class="md-nav__link">
+      <a href="../../CO/2_Instruction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1029,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/4_Processor.md" class="md-nav__link">
+      <a href="../../CO/4_Processor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2532,7 +2680,7 @@ B--&gt;D</code></pre>
 <p><img alt="image-20240417210343263" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404172103326.png" /></p>
 </details>
 </blockquote>
-<h3 id="boyce-codd-normal-form-bcnf"><strong>Boyce-</strong>Codd <strong>Normal Form</strong>  |  BCNF<a class="headerlink" href="#boyce-codd-normal-form-bcnf" title="Permanent link">&para;</a></h3>
+<h3 id="boyce-codd-normal-form-bcnf">Boyce-Codd Normal Form  |  BCNF<a class="headerlink" href="#boyce-codd-normal-form-bcnf" title="Permanent link">&para;</a></h3>
 <ul>
 <li>任何一条函数依赖要么是平凡的，要么左边是key  ==  任何一条非平凡的左边都是key</li>
 </ul>
@@ -2579,7 +2727,7 @@ B--&gt;D</code></pre>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月9日 10:10:25</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月9日 11:30:51</span>
   </span>
 
     
