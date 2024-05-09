@@ -88,7 +88,7 @@ B-->D
 > ??? example "example"
 >     ![image-20240417210343263](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404172103326.png)
 
-### **Boyce-**Codd **Normal Form**  |  BCNF
+### Boyce-Codd Normal Form  |  BCNF
 
 - 任何一条函数依赖要么是平凡的，要么左边是key  ==  任何一条非平凡的左边都是key
 
@@ -113,3 +113,4 @@ B-->D
 
 ??? example  "execise"
     ![image-20240417220707427](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404172207505.png)
+
