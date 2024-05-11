@@ -166,6 +166,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://zzicarus.github.io/CodingLanguage/CPP/TypeCast/</loc>
+         <lastmod>2024-05-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://zzicarus.github.io/CodingLanguage/CPP/argv/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
@@ -222,6 +227,11 @@
     </url>
     <url>
          <loc>https://zzicarus.github.io/CodingLanguage/CPP/classes/Inherit/</loc>
+         <lastmod>2024-05-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://zzicarus.github.io/CodingLanguage/CPP/classes/OverloadOperator/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
