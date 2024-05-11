@@ -200,10 +200,13 @@ nav:
               - class: CodingLanguage/CPP/classes/class.md
               - template: CodingLanguage/CPP/classes/模板.md
               - inherit: CodingLanguage/CPP/classes/inherit.md
+              - copy: CodingLanguage/CPP/classes/Copy.md
+              - OverloadOperator: CodingLanguage/CPP/classes/OverloadOperator.md
           - cake:
               - const: CodingLanguage/CPP/const.md
               - memory: CodingLanguage/CPP/memory.md
               - Static&Extern: CodingLanguage/CPP/Static&Extern.md
+              - TypeCast: CodingLanguage/CPP/TypeCast.md
       - ⌨️ Python:
           - CodingLanguage/Python/index.md
           - 💡CS61A: CodingLanguage/Python/CS61A.md
