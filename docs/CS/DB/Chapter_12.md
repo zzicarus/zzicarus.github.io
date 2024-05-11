@@ -10,7 +10,24 @@
 
 ## Flash Memory | 闪存
 
+**NOR快闪**
 
+- 可以访问单个字
+
+- 速度可以与主存媲美
+
+**NAND快闪 SSD**
+
+- Reading from NAND flash requires **an entire page of data**, which is very commonly 4096 bytes, to be fetched from NAND flash into main memory.
+
+- 更经常用的
+
+**闪存特点**
+
+- 写操作比较复杂，一旦完成写操作，想要复写必须擦除之后再写
+- The erase operation must be performed on a group of pages, called an **erase block**
+- 容易损坏
+  Further, **there is a limit to how many times a flash page can be erased**, typically around 100,000 to 1,000,000 times. Once this limit is reached, **errors in storing bits are likely to occur.**
 
 ## Magnetic Disk
 
@@ -31,8 +48,6 @@
 ![image-20240506230647171](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405062306267.png)
 
 - 上面的IOPS支持的操作是Random的R/W
-
-
 
 ### Optimization
 

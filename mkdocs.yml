@@ -175,6 +175,7 @@ nav:
       - CO:
           - 1 Interface: CS/CO/1_Interface.md
           - 2 Instruction: CS/CO/2_Instruction.md
+          - 3 Arithmetic for Computer: CS/CO/3_Arithmetic.md
           - 4 Processor: CS/CO/4_Processor.md
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md

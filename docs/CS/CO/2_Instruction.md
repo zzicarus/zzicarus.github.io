@@ -353,3 +353,21 @@ Example：sd x9, 64(x22)
 	不想学了
 
 [hobbitqia的Notes](https://note.hobbitqia.cc/CO/co2/#synchronization-in-risc-v)
+
+## A C Sort Example To Put it All Together
+
+> 主要要理解一下loop
+
+## 题目
+
+### 大小端对齐
+
+> Todo  2.35 题目
+
+### 汇编
+
+#### 斐波那契数
+
+
+
+### 

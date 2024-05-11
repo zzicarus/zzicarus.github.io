@@ -14,9 +14,50 @@
 
 <div align="right" style="font-size: small;">Graph From https://xuan-insr.github.io/</div>
 
+```mermaid
+graph LR
+1[Computer System]
+2[Software]
+3[Hardware]
+2.1[Application Software]
+
+2.2[System Software]
+
+2.2.1[Operation System]
+2.2.2[GCC]
+2.2.3[Firmware/Driver Software]
+
+1 --> 2
+1-->3
+2-->2.1
+2-->2.2
+2.2-->2.2.1
+2.2-->2.2.2
+2.2-->2.2.3
+
+3.1[CPU]
+3.2[Memory]
+3.3[I/O interface]
+3.1.1[Control unit]
+3.1.2[DataPath]
+3-->3.1
+3-->3.2
+3-->3.3
+3.1-->3.1.1
+3.1-->3.1.2
+3.3.1[Input: keyboard]
+3.3.2[Bidirectional: RS-232,USB]
+3.3.3[Output: VGA，LCD]
+3.3-->3.3.1
+3.3-->3.3.2
+3.3-->3.3.3
+```
+
+> 没想到期中考试竟然考了Software部分的框图
+
 **SoftWare**
 
-<img src="C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20240508224122838.png" alt="image-20240508224122838" style="zoom:50%;" />
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405110909409.png" alt="image-20240508224122838" style="zoom:50%;" />
 
 ## I/O Interface
 
@@ -108,6 +149,16 @@ graph
 - Hierarchy of Memories (  存储器层次  ) 
 
 - Dependability via Redundancy ( 通过冗余提高可靠性) 
+
+## 补充
+
+### Power Trend
+
+![image-20240511090835195](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405110908448.png)
+
+![image-20240511091018574](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405110910724.png)
+
+> 期中考到了, 题目大意跟上图一致，计算$\frac{P_{new}}{P_{old}}$
 
 ## 题目
 
