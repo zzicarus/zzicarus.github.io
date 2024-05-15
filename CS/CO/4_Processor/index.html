@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.732c4fb1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -780,6 +780,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -928,6 +932,48 @@
   
   <span class="md-ellipsis">
     12. Physical Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DB/Chapter_13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Data Storage Structures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DB/Chapter_14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Indexing
   </span>
   
 
@@ -1210,6 +1256,48 @@
   <a href="#data-hazards" class="md-nav__link">
     <span class="md-ellipsis">
       Data hazards
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data hazards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#double-data-hazard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double Data Hazard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-use-hazard-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load-Use Hazard Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-hazard-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch hazard | Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceptions-and-interrupts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exceptions and Interrupts | 异常与中断
     </span>
   </a>
   
@@ -2707,6 +2795,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Data hazards">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#double-data-hazard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Double Data Hazard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-use-hazard-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load-Use Hazard Detection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#branch-hazard-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branch hazard | Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exceptions-and-interrupts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exceptions and Interrupts | 异常与中断
+    </span>
+  </a>
+  
 </li>
         
       </ul>
@@ -2734,7 +2864,7 @@
 
 <h1 id="chapter-4">Chapter 4<a class="headerlink" href="#chapter-4" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 266 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 1 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 575 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 8 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <h2 id="part-1-data-path">Part 1 Data Path<a class="headerlink" href="#part-1-data-path" title="Permanent link">&para;</a></h2>
 <h2 id="part-2">Part 2 流水线<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h2>
@@ -2809,22 +2939,107 @@
 <p><img alt="image-20240416214740739" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162147804.png" /></p>
 <p><img alt="image-20240416214800619" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162148679.png" /><img alt="image-20240416214931469" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162149535.png" /></p>
 <h4 id="control_1">Control 指令<a class="headerlink" href="#control_1" title="Permanent link">&para;</a></h4>
-<p><img alt="image-20240416220209541" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162202604.png" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162202604.png" alt="image-20240416220209541" style="zoom:67%;" /></p>
 <ul>
 <li><code>WB</code>步骤的<code>Write Register</code>传回寄存器堆</li>
 </ul>
-<p><img alt="image-20240416220705524" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162207595.png" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162207595.png" alt="image-20240416220705524" style="zoom:50%;" /></p>
 <h3 id="data-hazards">Data hazards<a class="headerlink" href="#data-hazards" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p><strong>Consider this sequence:</strong></p>
 <p>sub x2, x1,x3
- and x12,x2,x5
- or  x13,x6,x2
- add x14,x2,x2
- sd  x15,100(x2)</p>
+and x12,x2,x5
+or  x13,x6,x2
+add x14,x2,x2
+sd  x15,100(x2)</p>
 </blockquote>
+<ul>
+<li><code>ID/EX</code>那里要使用的<code>RS</code>是其他流水线的<code>RD</code>, 就出现了数据竞争（这里的定义有些笼统，更准确地还要加上条件：需要用到<code>RS</code>）</li>
+</ul>
 <p><img alt="image-20240422132954985" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404221329312.png" /></p>
-<p>如何检测何时 Forwarding 哪里 Forwarding 呢</p>
+<ul>
+<li>注意寄存器的写法，<code>ID/EX.RegisterRd</code></li>
+</ul>
+<div class="arithmatex">\[
+1.\ EX/MEM.RegisterRd=ID/EX.RegisterRs\\
+2.\ EX/MEM.RegisterRd\ !=0 \\
+3.\ EX/MEM.RegWrite==1
+\\ 对于MEM/WB级同理
+\\ \text{需要确保发生数据竞争的上一级的Rd是要写回的，且写回的寄存器不是}X_0
+\]</div>
+<p><img alt="image-20240504225937806" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042259884.png" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042248653.png" alt="image-20240504224803575" style="zoom:50%;" /></p>
+<h4 id="double-data-hazard"><strong>Double Data Hazard</strong><a class="headerlink" href="#double-data-hazard" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>考虑两个地方都触发了数据竞争</p>
+<p>add x1,x1,x2
+add x1,x1,x3
+add x1,x1,x4</p>
+</blockquote>
+<p>需要对<code>Mem/WB</code>级的特判</p>
+<p><code>EX/MEM</code></p>
+<p><code>EX/MEM.RegWrite and (EX/MEM.RegisterRd!=0) and EX/MEM.RegisterRd = ID/EX.RegisterRs1</code></p>
+<p><code>MEM/WB</code></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042306225.png" alt="image-20240504230626155" style="zoom:50%;" /></p>
+<h4 id="load-use-hazard-detection"><strong>Load-Use Hazard Detection</strong><a class="headerlink" href="#load-use-hazard-detection" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>graph LR
+1[IF]
+2[ID]
+3[EX]
+4[Mem]
+5[WB]
+1--&gt;2--&gt;3--&gt;4--&gt;5
+</code></pre>
+<ul>
+<li>Load的时候，在<code>IF/ID</code>步骤需要判断，因为</li>
+</ul>
+<p><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042317621.png" /></p>
+<ul>
+<li><code>ld</code>的结果在<code>EX/Mem</code>阶段才能得到</li>
+</ul>
+<p>Bubble：空挡</p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042321949.png" alt="image-20240504232137871" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042326178.png" alt="image-20240504232637109" style="zoom:50%;" /></p>
+<h3 id="branch-hazard-control">Branch hazard | Control<a class="headerlink" href="#branch-hazard-control" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20240512232013934" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405122320030.png" /></p>
+<ul>
+<li></li>
+</ul>
+<h3 id="exceptions-and-interrupts">Exceptions and Interrupts | 异常与中断<a class="headerlink" href="#exceptions-and-interrupts" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Interrupts</p>
+<p>改变CPU的 work flow 的两种形式</p>
+<p><strong>predictable</strong> 比如beq、bne等命令发生跳转</p>
+<p><strong>unpredictable</strong>  出现异常</p>
+</div>
+<p><img alt="image-20240512234655478" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405122346617.png" /></p>
+<blockquote>
+<p>很多时候二者不加区分, 广义的Exception包括Interrupt</p>
+</blockquote>
+<p>遇到异常需要处理两件事：
+- 在哪里处理异常，如何跳过去
+- 如何回去</p>
+<details class="note">
+<summary>Privilege</summary>
+<blockquote>
+<p>了解
+可以看马德老师智云
+- 模式
+<img alt="alt text" src="../images/custom-image.png" />
+  <img alt="image-20240513134529477" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405131345874.png" />
+- 与模式相关
+    - 用户模式(User Mode)
+    - 机器模式(Machine Mode)
+    - 监督模式(Supervisor Mode)
+- 原子操作
+- 一共4096个CSR寄存器
+<strong>Instruction</strong></p>
+</blockquote>
+<p><img alt="image-20240513134757839" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405131347080.png" /></p>
+</details>
+<ul>
+<li>异常控制程序</li>
+</ul>
 
 
 
@@ -2847,7 +3062,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月8日 23:56:04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月15日 23:23:52</span>
   </span>
 
     
@@ -2912,7 +3127,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
