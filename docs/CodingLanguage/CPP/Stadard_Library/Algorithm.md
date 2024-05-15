@@ -82,6 +82,8 @@ std::copy_if(from_vector.begin(), from_vector.end(),
                  [](int x) { return x % 3 == 0; });
 ```
 
+
+
 ## 重排
 
 ### unique
@@ -93,6 +95,7 @@ Print(a);
 a.erase(b, a.end());
 Print(a);
 ```
+### sort
 
 ## 定制操作
 

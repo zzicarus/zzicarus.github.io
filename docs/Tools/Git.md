@@ -73,6 +73,11 @@ git branch -d dev
 
 ```
 
+#### 分支合并
+
+两种方式`git merge` `git rebase`
+
+
 ## Errors
 
 ### 冲突

@@ -11,7 +11,7 @@
 ### Fixed Length Records
 
 ![image-20240509190603413](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091906520.png)
-
+- use freelist
 ### Variable Length
 
 **要解决的问题**
@@ -20,6 +20,7 @@
 - 如何在Block中存储变长的record？
 
 ![image-20240509192415843](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091924926.png)
+- id name dept_name salary(fixed length)
 
 **Slotted page （分槽页）**
 
@@ -38,13 +39,19 @@
 
 ![image-20240509193611151](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091936224.png)
 
+- **Free space map** written to disk periodically, OK to have wrong (old) values for some entries (will be detected and fixed)
 ### Sequential File Organization
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091816296.png" alt="image-20240509181640193" style="zoom:50%;" />
 
+- **Search key** 排序的依据。可以是某个属性或者属性的集合，是否是超码、候补码不影响
 - **Deletion** Using the pointer
 - **Insertion** locate the position where the record is to be inserted
-- **Reorganize** 使之重新物理有序存储
+  - if there is free space insert there(这里是free_list，优先考虑free_list中的块，如果其中没有空余，那么再去overflow block插入)
+  - if no free space, insert the record in an **overflow block (溢出块)**
+  - In either case, pointer chain must be updated
+
+- **Reorganize** 使之重新物理有序存储. 由于上面的溢出块模式，导致物理存储不一定按照指针顺序，进而降低访问效率
 
 ### Multitable Clustering File Organization
 
@@ -52,9 +59,9 @@
 - Results in variable size records
 - Can add **pointer chains to link records** of a particular relation
 
-![image-20240509182347022](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091823104.png)
+![alt text](images/custom-image.png)
 
-把一个department的instructor聚集在一起
+- 把一个department的instructor聚集在一起
 
 ### Partitioning
 
@@ -87,13 +94,20 @@
     - buffer is not full
 
 **pinned Block**
-
+> memory block that is not allowed to be written back to disk
 - **Pin** done before reading/writing data from a block
 - **Unpin** done when read /write is complete
 - **Multiple concurrent** pin/unpin operations possible
-- Keep a **pin count**, buffer block can be evicted only if pin count = 0
+    - Keep a **pin count**, buffer block can be evicted only if pin count = 0
 
-### 缓冲区策略
+**Shared and exclusive locks on buffer | 共享锁和排他锁**
+> Needed to prevent concurrent operations from reading page contents as they are moved/reorganized, and to **ensure only one move/reorganize at a time**
+
+- 共享锁和排他锁不能并行
+- 同一时间最多一个进程具有排他锁
+
+
+### 缓冲区替换策略
 
 #### LRU
 
@@ -108,6 +122,14 @@
 
 ??? example "Clock: An approximation of LRU"
 	[介绍](https://www.geeksforgeeks.org/lru-approximation-second-chance-algorithm/)
+
+#### others
+**Toss-immdiate 立即丢弃**
+
+**Most recently used (MRU) strategy**
+
+### 日志
+![alt text](images/custom-image-1.png)
 
 ## Column-Oriented Storage
 

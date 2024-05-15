@@ -5,6 +5,11 @@
 ![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405062252951.png)
 
 ![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405062248692.png)
+- 三级存储 offline storage
+    - optical disk 光学存储器  CD
+    - tape disk
+      访问必须从头开始，顺序访问
+
 
 ![s](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405062250332.png)
 
@@ -36,7 +41,7 @@
 - 通过机械运动，比较慢
 
 ![image-20240506225916221](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405062259320.png)
-
+- 扇区是最小的读写单元
 ![image-20240506230134356](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405062301480.png)
 
 ### Performance

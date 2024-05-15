@@ -172,6 +172,8 @@ nav:
           - 6. ER Model: CS/DB/Chapter_6.md
           - 7. Relational Database Design: CS/DB/Chapter_7.md
           - 12. Physical Storage: CS/DB/Chapter_12.md
+          - 13. Data Storage Structures: CS/DB/Chapter_13.md
+          - 14. Indexing: CS/DB/Chapter_14.md
       - CO:
           - 1 Interface: CS/CO/1_Interface.md
           - 2 Instruction: CS/CO/2_Instruction.md
