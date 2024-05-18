@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.22">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.732c4fb1.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1260,6 +1260,15 @@
   <a href="#log-structured-merge-lsm-tree" class="md-nav__link">
     <span class="md-ellipsis">
       Log Structured Merge (LSM) Tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer Tree
     </span>
   </a>
   
@@ -3052,6 +3061,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#buffer-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer Tree
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3086,16 +3104,18 @@
 
 <h1 id="indexing">Indexing<a class="headerlink" href="#indexing" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1286 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 5 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 6 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1491 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 5 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 8 分钟</p>
 </div>
 <h2 id="basic">Basic<a class="headerlink" href="#basic" title="Permanent link">&para;</a></h2>
 <p><img alt="image-20240514211757292" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405142117441.png" /></p>
 <p><strong>Evaluation</strong></p>
 <ul>
-<li>Access Type</li>
-<li>Point query: records with <strong>a specified value</strong> in the attribute</li>
 <li>
-<p>Range query: records with an attribute value <strong>falling in a specified range of values</strong>.</p>
+<p>Access Type</p>
+<ul>
+<li>Point query: records with <strong>a specified value</strong> in the attribute</li>
+<li>Range query: records with an attribute value <strong>falling in a specified range of values</strong>.</li>
+</ul>
 </li>
 <li>
 <p>Access time</p>
@@ -3163,14 +3183,14 @@
 <div class="admonition info">
 <p class="admonition-title">trick</p>
 <p>Block_id entry
-Block_id + 绝对偏移</p>
+Block_id + 绝对偏移的表示方法并不利于位置的记录</p>
 </div>
-<p>Point Query 和 Range Query 和 Scanning</p>
-<p>因为叶子节点含有指向兄弟的指针，含有一个Scanning pointer</p>
+<p><strong>支持查询方式</strong> Point Query 和 Range Query 和 Scanning</p>
+<p>因为叶子节点含有指向兄弟的指针；可能含有一个Scanning pointer，指向第一个Leaf</p>
 <p><img alt="image-20240515213816926" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152138001.png" /></p>
 <h3 id="query">Query<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
 <p>每一个节点都对应一个磁盘的块 block, 把这一块读入内存，之后可以获得这个节点.
-<strong>A node is generally the same size as a disk block, typically 4 kilobytes</strong></p>
+<strong>A node is generally the same size as  a disk block, typically 4 kilobytes</strong></p>
 <div class="admonition info">
 <p class="admonition-title">info</p>
 <p>在DB中的B+ Tree下，inner node的值不一定在leaf出现。<strong>（这种情况是在Deletion下发生）</strong></p>
@@ -3316,20 +3336,41 @@ $$
 <p>With flash memory, one page overwrite per insert</p>
 </li>
 </ul>
+<p>闪存的update代价比较大</p>
 </blockquote>
 <h3 id="log-structured-merge-lsm-tree">Log Structured Merge (LSM) Tree<a class="headerlink" href="#log-structured-merge-lsm-tree" title="Permanent link">&para;</a></h3>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152219300.png" alt="image-20240515221952236" style="zoom:33%;" /></p>
 <ul>
-<li>Records inserted first into in-memory tree (𝐿0 tree)</li>
-<li>When in-memory tree is full, records moved to disk (𝐿1 tree)
-  B+-tree constructed using <em>bottom-up build</em> by merging existing 𝐿1 tree with records from 𝐿0 tree
-  内存里的 B+ 树如果满了，就马上写到磁盘里去（可以连续写）</li>
-<li>When 𝐿1 tree exceeds some threshold, merge into $L_2￥ tree
-  And so on for more levels
-  Size threshold for 𝐿𝑖+1 tree is 𝑘 times size threshold for 𝐿𝑖 tree</li>
+<li>Size threshold for <span class="arithmatex">\(𝐿_{𝑖+1}\)</span> tree is 𝑘 times size threshold for <span class="arithmatex">\(𝐿_𝑖\)</span> tree
+一个record在一个节点最多写K次</li>
 </ul>
+<p><strong>插入</strong>
+- Records inserted first into in-memory tree (𝐿0 tree)
+- When in-memory tree is full, records moved to disk (𝐿1 tree)
+  B+-tree constructed using <em>bottom-up build</em> by merging existing 𝐿1 tree with records from 𝐿0 tree
+  内存里的 B+ 树如果满了，就马上写到磁盘里去（可以连续写）
+- When 𝐿1 tree exceeds some threshold, merge into <span class="arithmatex">\(L_2\)</span> tree
+  And so on for more levels</p>
 <p>这样我们把随机写变为了顺序写。但此时查找一个索引，就要遍历所有 B + Tree</p>
+<p><strong>Stepped-merge index</strong></p>
+<p>在每一级使用更多的B+ Tree 而不是像上面一样每次一棵树满就去merge到下一层</p>
+<ul>
+<li>Variant of LSM tree with multiple trees at each level</li>
+<li>Reduces write cost compared to LSM tree</li>
+<li>But queries are even more expensive</li>
+<li>Bloom filters to avoid lookups in most trees</li>
+</ul>
 <p><img alt="image-20240515222158190" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152221255.png" /></p>
+<p><strong>删除操作</strong></p>
+<p>不同于上面的查找和insert，删除通过<code>deletion entry</code>来实现</p>
+<blockquote>
+<p>Indicates which index entry is to be deleted. The process of inserting a deletion entry is identical to the process of insertinga normal index entry.</p>
+</blockquote>
+<ul>
+<li>When trees are merged, if we find a delete entry matching an originalentry, both are dropped.</li>
+<li>When lookups, find both original entry and the delete entry, and mustreturn only those entries that do not have matching delete entry</li>
+</ul>
+<h3 id="buffer-tree">Buffer Tree<a class="headerlink" href="#buffer-tree" title="Permanent link">&para;</a></h3>
 <h2 id="bitmap-indices">Bitmap Indices<a class="headerlink" href="#bitmap-indices" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Bitmap indices are a special type of index designed for <strong>efficient querying on multiple keys</strong>
@@ -3344,7 +3385,8 @@ not particularly useful for single attribute queries</p>
 <li>可以进行交并操作</li>
 </ul>
 <p><img alt="image-20240515222632062" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152226132.png" /></p>
-<p>```</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>
+</span></code></pre></div></td></tr></table></div>
 
 
 
@@ -3367,7 +3409,7 @@ not particularly useful for single attribute queries</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月15日 23:23:52</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月18日 19:07:47</span>
   </span>
 
     
@@ -3432,7 +3474,7 @@ not particularly useful for single attribute queries</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.5cfa9459.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
