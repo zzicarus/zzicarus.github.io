@@ -186,15 +186,20 @@ Bubble：空挡
 ??? note "Privilege"
     > 了解
     > 可以看马德老师智云
+    
     - 模式
+    
     ![alt text](images/custom-image.png)
-	  ![image-20240513134529477](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405131345874.png)
+	  
+    ![image-20240513134529477](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405131345874.png)
+
     - 与模式相关
         - 用户模式(User Mode)
         - 机器模式(Machine Mode)
         - 监督模式(Supervisor Mode)
     - 原子操作
     - 一共4096个CSR寄存器
+    
     **Instruction**
     
     ![image-20240513134757839](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405131347080.png)

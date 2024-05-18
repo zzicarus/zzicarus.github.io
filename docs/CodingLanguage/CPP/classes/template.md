@@ -1,10 +1,7 @@
 # 模板和泛型编程
 
 !!! info "INFO"
-    
-
-
-
+    [template](https://github.com/xiaoweiChen/Cpp-Templates-2nd/releases)
 ## 模板
 
 ### 函数模板

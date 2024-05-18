@@ -7,8 +7,8 @@
 **Evaluation**
 
 - Access Type
-  - Point query: records with **a specified value** in the attribute
-  - Range query: records with an attribute value **falling in a specified range of values**.
+	- Point query: records with **a specified value** in the attribute
+	- Range query: records with an attribute value **falling in a specified range of values**.
 
 - Access time
 - insertion time  包括找到插入位置、更新索引结构的时间
@@ -92,19 +92,19 @@ $P_i都指向它的Children$
 
 !!! info "trick"
 	Block_id entry
-    Block_id + 绝对偏移
+	Block_id + 绝对偏移的表示方法并不利于位置的记录
     
 
-Point Query 和 Range Query 和 Scanning
+**支持查询方式** Point Query 和 Range Query 和 Scanning
 
-因为叶子节点含有指向兄弟的指针，含有一个Scanning pointer
+因为叶子节点含有指向兄弟的指针；可能含有一个Scanning pointer，指向第一个Leaf
 
 ![image-20240515213816926](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152138001.png)
 
 ### Query
 
 每一个节点都对应一个磁盘的块 block, 把这一块读入内存，之后可以获得这个节点.
-**A node is generally the same size as a disk block, typically 4 kilobytes**
+**A node is generally the same size as  a disk block, typically 4 kilobytes**
 
 !!! info "info"
 	在DB中的B+ Tree下，inner node的值不一定在leaf出现。**（这种情况是在Deletion下发生）**
@@ -267,22 +267,50 @@ drop index takes_pk
 > - With magnetic disks, < 100 inserts per second per disk
 >
 > - With flash memory, one page overwrite per insert
+> 
+> 闪存的update代价比较大
 
 ### Log Structured Merge (LSM) Tree
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152219300.png" alt="image-20240515221952236" style="zoom:33%;" />
 
+- Size threshold for $𝐿_{𝑖+1}$ tree is 𝑘 times size threshold for $𝐿_𝑖$ tree
+一个record在一个节点最多写K次
+
+**插入**
 - Records inserted first into in-memory tree (𝐿0 tree)
 - When in-memory tree is full, records moved to disk (𝐿1 tree)
   B+-tree constructed using *bottom-up build* by merging existing 𝐿1 tree with records from 𝐿0 tree
   内存里的 B+ 树如果满了，就马上写到磁盘里去（可以连续写）
-- When 𝐿1 tree exceeds some threshold, merge into $L_2￥ tree
+- When 𝐿1 tree exceeds some threshold, merge into $L_2$ tree
   And so on for more levels
-  Size threshold for 𝐿𝑖+1 tree is 𝑘 times size threshold for 𝐿𝑖 tree
+  
 
 这样我们把随机写变为了顺序写。但此时查找一个索引，就要遍历所有 B + Tree
 
+**Stepped-merge index**
+
+在每一级使用更多的B+ Tree 而不是像上面一样每次一棵树满就去merge到下一层
+
+- Variant of LSM tree with multiple trees at each level
+- Reduces write cost compared to LSM tree
+- But queries are even more expensive
+  - Bloom filters to avoid lookups in most trees
+
 ![image-20240515222158190](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152221255.png)
+
+**删除操作**
+
+不同于上面的查找和insert，删除通过`deletion entry`来实现
+>Indicates which index entry is to be deleted. The process of inserting a deletion entry is identical to the process of insertinga normal index entry.
+
+- When trees are merged, if we find a delete entry matching an originalentry, both are dropped.
+- When lookups, find both original entry and the delete entry, and mustreturn only those entries that do not have matching delete entry
+
+### Buffer Tree
+
+
+
 
 ## Bitmap Indices
 
@@ -299,3 +327,14 @@ drop index takes_pk
 ![image-20240515222632062](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152226132.png)
 
 ```
+
+```
+
+
+
+
+
+
+
+
+

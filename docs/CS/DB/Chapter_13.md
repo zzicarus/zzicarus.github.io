@@ -70,6 +70,7 @@
 ## Data Dictionary Storage
 
 - 有助于语义检查
+- 使用`metadata`的想法
 
 ![image-20240509183253687](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091832771.png)
 

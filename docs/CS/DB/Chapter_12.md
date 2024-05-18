@@ -7,7 +7,7 @@
 ![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405062248692.png)
 - 三级存储 offline storage
     - optical disk 光学存储器  CD
-    - tape disk
+    - tape disk  磁带
       访问必须从头开始，顺序访问
 
 
