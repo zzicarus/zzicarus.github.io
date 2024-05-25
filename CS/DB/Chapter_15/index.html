@@ -13,14 +13,18 @@
         <link rel="canonical" href="https://zzicarus.github.io/CS/DB/Chapter_15/">
       
       
+        <link rel="prev" href="../Chapter_14/">
+      
+      
+        <link rel="next" href="../Chapter_16/">
       
       
       <link rel="icon" href="../../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
     
     
       
-        <title>Chapter 15 - ZZIcarus NOTE</title>
+        <title>15. Process - ZZIcarus NOTE</title>
       
     
     
@@ -120,6 +124,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -150,7 +159,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chapter 15
+              15. Process
             
           </span>
         </div>
@@ -300,10 +309,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../" class="md-tabs__link">
           
   
@@ -685,6 +696,8 @@
       
   
   
+    
+  
   
   
     
@@ -705,14 +718,17 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
@@ -728,13 +744,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             课内
@@ -747,8 +763,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -768,17 +786,21 @@
       
         
       
+        
+      
+        
+      
     
     
       
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -792,7 +814,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             DB
@@ -967,6 +989,327 @@
 
               
             
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    15. Process
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    15. Process
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Step
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measures-of-query-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measures of Query Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection-operation-external-sort-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selection Operation | External Sort-Merge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sorting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sorting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-sort-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Sort-Merge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Join Operation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Join Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nested-loop-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nested-loop join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-nested-loop-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block nested-loop join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexed-nested-loop-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indexed nested-loop join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge-Join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash-join
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hash-join">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursive-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归划分 | recursive partitioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-table-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      溢出处理 | hash-table overflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      cost
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-hash-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      混合散列连接 | Hybrid hash-join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      复杂连接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      other operation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="other operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation-of-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluation of Expressions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation of Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#materialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Materialized | 物化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      pipeline | 流水线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      加速Memory中的查询过程
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Chapter_16/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -983,6 +1326,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -1098,6 +1445,48 @@
   
   <span class="md-ellipsis">
     4 Processor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/5_/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 Speed and Size
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 IO
   </span>
   
 
@@ -2475,6 +2864,253 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Step
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measures-of-query-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measures of Query Cost
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection-operation-external-sort-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selection Operation | External Sort-Merge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sorting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sorting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-sort-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Sort-Merge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Join Operation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Join Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nested-loop-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nested-loop join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-nested-loop-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block nested-loop join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexed-nested-loop-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Indexed nested-loop join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge-Join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash-join
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hash-join">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recursive-partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      递归划分 | recursive partitioning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-table-overflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      溢出处理 | hash-table overflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      cost
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hybrid-hash-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      混合散列连接 | Hybrid hash-join
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      复杂连接
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      other operation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="other operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation-of-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluation of Expressions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation of Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#materialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      Materialized | 物化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      pipeline | 流水线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      加速Memory中的查询过程
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2492,11 +3128,178 @@
   
 
 
-  <h1>Chapter 15</h1>
-
+<h1 id="_1">查询处理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 0 个字 </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 945 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 5 分钟</p>
 </div>
+<h2 id="basic-step">Basic Step<a class="headerlink" href="#basic-step" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20240523091317582" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405230913806.png" /></p>
+<ul>
+<li>
+<p><strong>Parsing</strong> and <strong>Translation</strong></p>
+<ul>
+<li>Translate the query into <strong>its internal form</strong>. This is then <strong>translated into relational algebra.</strong></li>
+<li>
+<p>Parser checks syntax, verifies relations  解析器</p>
+</li>
+<li>
+<p><strong>Optimization</strong></p>
+</li>
+<li>Amongst all equivalent evaluation plans <strong>choose the one with lowest cost.</strong> </li>
+</ul>
+</li>
+<li>
+<p><strong>Evaluation</strong></p>
+<ul>
+<li>The <strong>query-execution engine</strong> takes a <strong>query-evaluation plan</strong>, executes that plan, and returns the answers to the query.</li>
+</ul>
+</li>
+</ul>
+<p>An <strong>evaluation plan</strong> defines exactly what algorithm is used for each operation, and how the execution of the operations is coordinated.</p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405230917997.png" alt="image-20240523091730860" style="zoom:33%;" /></p>
+<h2 id="measures-of-query-cost">Measures of Query Cost<a class="headerlink" href="#measures-of-query-cost" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20240523092041613" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405230920786.png" /></p>
+<ul>
+<li>We often use worst case estimates, assuming only the minimum amount of memory needed for the operation is available</li>
+</ul>
+<h2 id="selection-operation-external-sort-merge">Selection Operation | External Sort-Merge<a class="headerlink" href="#selection-operation-external-sort-merge" title="Permanent link">&para;</a></h2>
+<p>https://note.hobbitqia.cc/DB/db11/#selection-operation</p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251119700.png" alt="image-20240525111932603" style="zoom: 80%;" /></p>
+<h2 id="sorting">Sorting<a class="headerlink" href="#sorting" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>数据库主要考虑需要外排的情况</p>
+</blockquote>
+<p>We may build an index on the relation, and then use the index to read the relation in sorted order. May lead to one disk block access for each tuple.</p>
+<h3 id="external-sort-merge">External Sort-Merge<a class="headerlink" href="#external-sort-merge" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Build Runs 得到 <span class="arithmatex">\(\lceil{\frac{B_r}{M}}\rceil\)</span> Runs  需要<span class="arithmatex">\(2B_r\)</span>次Transfer  ，<span class="arithmatex">\(2\lceil{\frac{B_r}{M}}\rceil\)</span>次Seek（这里应该是物理存储临近</li>
+<li>Merge Runs  归并次数 <span class="arithmatex">\(\lceil{\log_{\lfloor{\frac{M}{B_b}-1}\rfloor}{B_r/M}}\rceil\)</span> 除了最后一次归并，其余每次都是<span class="arithmatex">\(2B_r\)</span>次Transfer
+    Seek：每一次<span class="arithmatex">\(2\lceil{\frac{B_r}{B_b}}\rceil\)</span>​</li>
+<li><span class="arithmatex">\(B_b\)</span>把<span class="arithmatex">\(B_b\)</span>个缓冲块分配给 <strong>每个</strong> 归并段</li>
+</ul>
+<p><strong>Cost of Transfer</strong>
+$$
+2 <em>B_r</em> \lceil{\log_{\lfloor{\frac{M}{B_b}-1}\rfloor}{B_r/M}}\rceil  + 2B_r-B_r
+$$
+<strong>Cost of Seek</strong>
+$$
+2\lceil{\frac{B_r}{B_b}}\rceil<em>\lceil{\log_{\lfloor{\frac{M}{B_b}-1}\rfloor}{B_r/M}}\rceil+2\lceil{\frac{B_r}{M}}\rceil - \lceil{\frac{B_r}{B_b}}\rceil\
+=\lceil{\frac{B_r}{B_b}}\rceil</em>(Merge-1)+build Seek
+$$</p>
+<h2 id="join-operation">Join Operation<a class="headerlink" href="#join-operation" title="Permanent link">&para;</a></h2>
+<h3 id="nested-loop-join">Nested-loop join<a class="headerlink" href="#nested-loop-join" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20240525114950588" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251149689.png" /></p>
+<p><strong>cost</strong></p>
+<p><img alt="image-20240525115244962" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251152053.png" /></p>
+<ul>
+<li>Transfer </li>
+<li>Seek </li>
+</ul>
+<h3 id="block-nested-loop-join">Block nested-loop join<a class="headerlink" href="#block-nested-loop-join" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20240525115701344" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251157427.png" /></p>
+<p>尽可能把小的放在外层</p>
+<p><strong>Improvement</strong></p>
+<p>对外层使用更多的缓冲块</p>
+<p><img alt="image-20240525115820333" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251158410.png" /></p>
+<h3 id="indexed-nested-loop-join">Indexed nested-loop join<a class="headerlink" href="#indexed-nested-loop-join" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20240525120313621" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251203724.png" /></p>
+<p>• Where <em>c</em> is the cost of traversing index and fetching all  matching <em>s</em> tuples for one tuple of <em>r</em></p>
+<p>• <em>c</em> can be estimated as cost of a single selection on <em>s</em> using the  join condition.</p>
+<h3 id="merge-join">Merge-Join<a class="headerlink" href="#merge-join" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Can be used only for equi-joins and natural joins</li>
+</ul>
+<p><img alt="image-20240523192825321" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405231928410.png" /></p>
+<p><img alt="image-20240525120619474" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251206556.png" /></p>
+<ul>
+<li>按照地址排序，使得地址连续，方便从一个Block中取出</li>
+</ul>
+<h3 id="hash-join">Hash-join<a class="headerlink" href="#hash-join" title="Permanent link">&para;</a></h3>
+<ul>
+<li>用同一个哈希函数进行划分  分别进行一次完整的读入写回</li>
+<li>为每个<span class="arithmatex">\(S_i\)</span>​构造一个散列索引（内存中），这个散列函数必须与之前的不同<ul>
+<li>小的表要能放在内存中</li>
+</ul>
+</li>
+<li>用<span class="arithmatex">\(R_i\)</span>中的每一个tuple去探查</li>
+</ul>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405232239307.png" alt="image-20240523223923207" style="zoom: 33%;" /></p>
+<p><img alt="image-20240523224445909" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405232244979.png" /></p>
+<p><img alt="image-20240523224140435" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405232241512.png" /></p>
+<ul>
+<li>这里使用的散列函数必须与之前使用的H不同</li>
+</ul>
+<p><img alt="image-20240523230126575" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405232301630.png" /></p>
+<h4 id="recursive-partitioning">递归划分 | recursive partitioning<a class="headerlink" href="#recursive-partitioning" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>没有足够的缓冲块支撑一次完成所有的partition</p>
+</blockquote>
+<p>多次产生更小的划分。每一趟的散列函数都不同，不断重复输入的分裂过程直到构造用输入关系的每个划分都能被内存容纳为止
+$$
+M&gt;b_s/M+1\ \text{缓冲区大小大于每个partition的大小 + 一个输出块}\
+M&gt;\sqrt {b_s}
+$$</p>
+<h4 id="hash-table-overflow">溢出处理 | hash-table overflow<a class="headerlink" href="#hash-table-overflow" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>散列索引大于主存</p>
+</blockquote>
+<p><strong>skewed</strong>  划分不均匀  if some partitions have significantly more  tuples than some others</p>
+<p><strong>fudge factor</strong> 避让因子  使得每个划分的期望大小比内存容量略小，增加的划分个数称之为避让银子</p>
+<ul>
+<li>
+<p><strong>溢出分解 | resolution</strong>   构造阶段，<span class="arithmatex">\(s_i\)</span>​太大，用另一个hash func进行进一步划分；同时<span class="arithmatex">\(r_i\)</span>必须进行同样的划分</p>
+</li>
+<li>
+<p><strong>溢出避免 | avoidance</strong>  在构造阶段进行谨慎的划分
+     partition build relation into many partitions, <strong>then combine them</strong></p>
+</li>
+</ul>
+<h4 id="cost">cost<a class="headerlink" href="#cost" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20240523232851347" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405232328437.png" /></p>
+<div class="admonition example">
+<p class="admonition-title">example</p>
+<p><img alt="image-20240523234114405" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405232341606.png" /></p>
+</div>
+<h4 id="hybrid-hash-join">混合散列连接  | Hybrid hash-join<a class="headerlink" href="#hybrid-hash-join" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20240523234732122" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405232347325.png" /></p>
+<p>把一个<span class="arithmatex">\(S_0\)</span>存放在内存中，之后读入<span class="arithmatex">\(R_i\)</span>，对于<span class="arithmatex">\(R_0\)</span>，就只需要读入之后直接去和<span class="arithmatex">\(s_0\)</span>“连接”，之后不需要写回，直接丢弃</p>
+<h4 id="_2">复杂连接<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>$ \Pi_{T.branch_name} ( (\Pi_{branch_name, assets}(\rho_T(branch))) \bowtie_{T.assets &gt; S.assets} (\Pi_{assets} (\sigma_{branch_city = 'Brooklyn'}(\rho_S(branch))))) $</p>
+<p><span class="arithmatex">\(\Pi_{}\)</span></p>
+<h2 id="other-operation">other operation<a class="headerlink" href="#other-operation" title="Permanent link">&para;</a></h2>
+<h3 id="project">Project<a class="headerlink" href="#project" title="Permanent link">&para;</a></h3>
+<h3 id="_3"><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h2 id="evaluation-of-expressions"><strong>Evaluation of Expressions</strong><a class="headerlink" href="#evaluation-of-expressions" title="Permanent link">&para;</a></h2>
+<h3 id="materialized">Materialized | 物化<a class="headerlink" href="#materialized" title="Permanent link">&para;</a></h3>
+<ul>
+<li>从最底层开始</li>
+<li>需要存储临时结果</li>
+</ul>
+<p><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405240907340.png" /> </p>
+<h3 id="pipeline">pipeline | 流水线<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h3>
+<p><strong>demand driven</strong></p>
+<ul>
+<li>pull</li>
+<li>状态的维护依赖于算子 operator，<code>open() next() close()</code></li>
+</ul>
+<p><img alt="image-20240524091117044" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405240911221.png" /></p>
+<p><strong>producer driven</strong></p>
+<ul>
+<li>push 从底层往上push</li>
+</ul>
+<p><img alt="image-20240524091145791" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405240911977.png" /></p>
+<p><strong>Blocking operations | 阻塞操作</strong>: cannot generate any output until all input is consumed</p>
+<p><strong>Pipeline stages</strong>: </p>
+<ul>
+<li>All operations in a stage run concurrently</li>
+<li>A stage can start only after preceding stages have completed  execution</li>
+</ul>
+<p><img alt="image-20240524091526277" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405240915417.png" /></p>
+<p><strong>Double-pipeline</strong></p>
+<p><img alt="image-20240524091806308" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405240918556.png" /></p>
+<h2 id="memory">加速Memory中的查询过程<a class="headerlink" href="#memory" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20240524092659753" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405240926981.png" /></p>
+<p><img alt="image-20240524092643279" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405240926547.png" /></p>
 
 
 
@@ -2519,7 +3322,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月18日 19:07:47</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月25日 15:53:31</span>
   </span>
 
     
@@ -2584,7 +3387,7 @@
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
