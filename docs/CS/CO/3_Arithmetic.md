@@ -1,4 +1,4 @@
-# Arithmetic for Computer
+# Chapter 3 | Arithmetic for Computer
 
 > 3.1  Introduction
 >

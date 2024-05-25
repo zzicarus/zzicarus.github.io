@@ -174,11 +174,15 @@ nav:
           - 12. Physical Storage: CS/DB/Chapter_12.md
           - 13. Data Storage Structures: CS/DB/Chapter_13.md
           - 14. Indexing: CS/DB/Chapter_14.md
+          - 15. Process: CS/DB/Chapter_15.md
+          - 16. Optimization: CS/DB/Chapter_16.md
       - CO:
           - 1 Interface: CS/CO/1_Interface.md
           - 2 Instruction: CS/CO/2_Instruction.md
           - 3 Arithmetic for Computer: CS/CO/3_Arithmetic.md
           - 4 Processor: CS/CO/4_Processor.md
+          - 5 Speed and Size: CS/CO/5_.md
+          - 6 IO: CS/CO/6.md
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md
       - 【短学期】大数据可视化: CS/大数据可视化.md

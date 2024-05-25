@@ -1,4 +1,4 @@
-# Chapter 4
+# Chapter 4 | Processor
 
 
 
@@ -190,9 +190,9 @@ Bubble：空挡
     - 模式
     
     ![alt text](images/custom-image.png)
-	  
+      
     ![image-20240513134529477](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405131345874.png)
-
+    
     - 与模式相关
         - 用户模式(User Mode)
         - 机器模式(Machine Mode)
@@ -206,4 +206,11 @@ Bubble：空挡
 
 - 异常控制程序
 
+#### Multiple
+
+![alt text](images/custom-image-1.png)
+
+- `precise` 按照异常的先后实现
+- `imprecise` 
+    - Let the handler work out
 
