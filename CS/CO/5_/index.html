@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
     
     
       
@@ -1443,7 +1443,7 @@
           <li class="md-nav__item">
   <a href="#page-faults" class="md-nav__link">
     <span class="md-ellipsis">
-      Page faults
+      Page faults | 缺页
     </span>
   </a>
   
@@ -1459,18 +1459,51 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#page-faults_1" class="md-nav__link">
+  <a href="#tlb" class="md-nav__link">
     <span class="md-ellipsis">
-      Page faults
+      TLB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      例题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-back-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write back / through概念
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tlb" class="md-nav__link">
+  <a href="#cache" class="md-nav__link">
     <span class="md-ellipsis">
-      TLB
+      Cache 计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      替换策略
     </span>
   </a>
   
@@ -3102,7 +3135,7 @@
           <li class="md-nav__item">
   <a href="#page-faults" class="md-nav__link">
     <span class="md-ellipsis">
-      Page faults
+      Page faults | 缺页
     </span>
   </a>
   
@@ -3118,18 +3151,51 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#page-faults_1" class="md-nav__link">
+  <a href="#tlb" class="md-nav__link">
     <span class="md-ellipsis">
-      Page faults
+      TLB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      例题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-back-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write back / through概念
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tlb" class="md-nav__link">
+  <a href="#cache" class="md-nav__link">
     <span class="md-ellipsis">
-      TLB
+      Cache 计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      替换策略
     </span>
   </a>
   
@@ -3160,22 +3226,22 @@
 
 <h1 id="speed-and-size">Speed and Size<a class="headerlink" href="#speed-and-size" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1648 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 8 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2217 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 11 分钟</p>
 </div>
 <p>处理器速度  &lt;= 高度相关 =&gt;  寄存器速度</p>
 <h2 id="memory-technology">Memory Technology<a class="headerlink" href="#memory-technology" title="Permanent link">&para;</a></h2>
 <h3 id="sram"><strong>SRAM</strong><a class="headerlink" href="#sram" title="Permanent link">&para;</a></h3>
 <ul>
-<li>value is stored  on a pair of inverting gates</li>
+<li>value is stored  on a pair of <strong>inverting gates</strong> 两个反相器</li>
 <li>very fast but takes up more space than DRAM </li>
 </ul>
 <p><img alt="alt text" src="../images/custom-image-2.png" /></p>
 <h3 id="dram"><strong>DRAM</strong><a class="headerlink" href="#dram" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Value is stored as a charge on capacitor 电容器</li>
+<li>Value is stored as a charge on <strong>capacitor 电容器</strong></li>
 <li>Very small but slower than SRAM (factor of 5 to 10)</li>
-<li>Must periodically be refreshed</li>
-<li>Read contents and write back (destructive read)</li>
+<li>Must periodically be refreshed 必须定期刷新</li>
+<li>Read contents and write back (destructive read) 破坏性读取</li>
 </ul>
 <p>Bits in a DRAM are organized as a rectangular array</p>
 <p>DRAM accesses an entire row</p>
@@ -3186,15 +3252,15 @@
 <p>高速的口一般是串行的，接口很少  &lt;== 保证多条线同时到达目标</p>
 </div>
 <h3 id="flash"><strong>Flash</strong><a class="headerlink" href="#flash" title="Permanent link">&para;</a></h3>
-<p>Nonvolatile semiconductor storage</p>
+<p><strong>Nonvolatile semiconductor storage 非易失半导体</strong></p>
 <p>只能从1写到0，擦除代价大</p>
 <ul>
-<li>NOR flash: bit cell like a NOR gate<ul>
+<li><strong>NOR flash: bit cell like a NOR gate</strong><ul>
 <li><strong>Random read/write access</strong></li>
 <li>Used for instruction memory in embedded systems</li>
 </ul>
 </li>
-<li>NAND flash: bit cell like a NAND gate<ul>
+<li><strong>NAND flash: bit cell like a NAND gate</strong><ul>
 <li><strong>Denser (bits/area), but block-at-a-time access</strong></li>
 <li>Cheaper per GB</li>
 <li>Used for USB keys, media storage, …</li>
@@ -3207,6 +3273,7 @@
 </li>
 </ul>
 <h3 id="disk"><strong>Disk</strong><a class="headerlink" href="#disk" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405261604328.png" /></p>
 <h2 id="memory-hierarchy-introduction">Memory Hierarchy Introduction<a class="headerlink" href="#memory-hierarchy-introduction" title="Permanent link">&para;</a></h2>
 <p><strong>locality</strong></p>
 <ul>
@@ -3224,16 +3291,16 @@
 </li>
 <li>
 <p>Copy recently accessed (and nearby) items <strong>from disk to smaller DRAM memory</strong>
-Main memory</p>
+Main memory  主存</p>
 </li>
 <li>
 <p>Copy more recently accessed (and nearby) items <strong>from DRAM to smaller SRAM memory</strong>
-Cache memory attached to CPU</p>
+Cache memory attached to CPU  缓冲</p>
 </li>
 </ul>
-<p>cache 在CPU内部</p>
+<p>​   <strong>cache 在CPU内部</strong></p>
 <p><strong>概念</strong></p>
-<p><img alt="alt text" src="../images/custom-image-4.png" /></p>
+<p><img src="images/custom-image-4.png" alt="alt text" style="zoom:50%;" /></p>
 <ul>
 <li>
 <p><code>Block</code> : unit of copying 搬运的最小单位 可能是一个word或者多个word</p>
@@ -3254,7 +3321,7 @@ Cache memory attached to CPU</p>
 <p><code>Miss</code> : block copied from lower level</p>
 <ul>
 <li><code>Miss ratio</code> : misses/accesses = 1 – hit ratio</li>
-<li><code>Miss penalty</code> :         The time to <strong>replace a block in the upper level</strong> with the corresponding block from the lower level, plus the time to <strong>deliver this block to the processor.</strong>（可能会有"脏数据"需要写回去）</li>
+<li><code>Miss penalty</code> :         The time to <strong>replace a block in the upper level</strong> with the corresponding block from the lower level, plus the time to <strong>deliver this block to the processor.</strong> 把数据从底层拿到高层，之后再传给processor</li>
 </ul>
 </li>
 </ul>
@@ -3266,38 +3333,29 @@ Cache memory attached to CPU</p>
 <h3 id="direct-mapped">Direct mapped<a class="headerlink" href="#direct-mapped" title="Permanent link">&para;</a></h3>
 <p><img alt="alt text" src="../images/custom-image-6.png" /></p>
 <p><strong>(Block address) modulo (Number of blocks in the cache)</strong></p>
-<p>固定的位置，</p>
+<p>固定的位置  $\text{(Block address) \% (Number of blocks in the cache)} $</p>
 <p><strong>Tag</strong>  区分存放的哪个数据
-- Store block address as well as the data
-- Actually, only need the high-order bits</p>
+- Store <strong>block address</strong> as well as the data
+- Actually, only need the <strong>high-order bits</strong></p>
 <p><strong>Valid Bits</strong>  这个Block是否为空
-Valid bit: 1 = present, 0 = not present
-Initially 0</p>
+Valid bit: 1 = present, 0 = not present  最初设置为0</p>
 <p><img alt="alt text" src="../images/custom-image-9.png" /></p>
 <details class="example">
 <summary>example</summary>
-<p><img alt="alt text" src="../images/custom-image-7.png" /></p>
+<p><img src="images/custom-image-7.png" alt="alt text" style="zoom:50%;" /></p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">理解cache中的各个位</p>
 <p><img alt="alt text" src="../images/custom-image-11.png" />
 上面的部分是 Memory address，下面的才是cache中的。这里每一个Block有四个word，需要两位来定位word，每个word有四个字节，需要两位来定位byte，故而<code>Byte offset = 4</code></p>
-<p><code>index</code> 在cache中寻找block，其大小由Block num决定</p>
-<p><code>Offset</code> 用于去在data中寻址。注意寻址方式，一般是字节寻址。</p>
-<p>所以cache实际的size是 data + Tag + Valid</p>
+<p><code>index</code> 在cache中寻找block，其大小由cache size决定</p>
+<p><code>Offset</code> 用于去在data中寻址。注意寻址方式，一般是字节寻址。比如，一个 4-word blocks，就需要 index 先去寻找block，再由offset分别确定word和byte，故需要4bit</p>
+<p>所以cache实际的size是 data size of a block + Tag + Valid</p>
 <p><code>Tag</code> 由 memory address 减去 Index、Byte Offset计算</p>
+<p><code>Total cache size</code>: 
+Block num(2^n) * (data size + tag size + valid bit)</p>
 </div>
 <p><strong>计算</strong></p>
-<p>Cache : Tag Index Byte offset</p>
-<p><code>Byte offset</code>: 根据Block Size计算</p>
-<p><code>Tag bits</code>: 64 − (n + m + byte offset)</p>
-<p><code>Byte Offset</code> : 根据 <code>m words/block</code>计算</p>
-<p><code>2^n</code>: cache size, block num</p>
-<p><code>Index bits</code> : data size / block size</p>
-<p><code>m</code>: index to reference words in block</p>
-<p><code>Total cache size</code>: 
-Block num(2^n) * (data size + tag size + valid bit)
-cache中含有valid bit, tag bit , data bit</p>
 <p>block size 其实就是数据</p>
 <p>cache的命名不考虑标签和有效位的大小，只考虑数据的大小</p>
 <details class="example">
@@ -3308,17 +3366,37 @@ cache中含有valid bit, tag bit , data bit</p>
 <p><strong>Handling Cache reads hit and Misses</strong></p>
 <ul>
 <li>
-<p>Read</p>
+<p><code>Read</code></p>
+<ul>
+<li>
+<p>Read Miss  暂停处理器，直到从内存中返回数据</p>
+<ul>
+<li>
+<p>instruction cache miss</p>
 </li>
 <li>
-<p>Write</p>
-<ul>
-<li>write-back: Cause Inconsistent 
-Wrote the data into only the data cache</li>
+<p>data cache miss</p>
+</li>
 </ul>
-<p>Strategy ---- write back data from the cache to memory later</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Write hits</code></p>
 <ul>
-<li>write-through: Ensuring Consistent</li>
+<li>
+<p><strong>write-back: Cause Inconsistent</strong> 
+Wrote the data into only the data cache</p>
+</li>
+<li>
+<p><strong>write-through: Ensuring Consistent</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Write Miss</code></p>
+<ul>
+<li></li>
 </ul>
 </li>
 </ul>
@@ -3340,6 +3418,7 @@ Wrote the data into only the data cache</li>
 If sets have n blocks, the cache is said to be <strong>n-way set associative.</strong>  </p>
 <h4 id="block-identification">Block identification<a class="headerlink" href="#block-identification" title="Permanent link">&para;</a></h4>
 <p>基本相同</p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405261647281.png" alt="image-20240526164722183" style="zoom:50%;" /></p>
 <h4 id="block-replacement">Block replacement<a class="headerlink" href="#block-replacement" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
@@ -3356,7 +3435,7 @@ If sets have n blocks, the cache is said to be <strong>n-way set associative.</s
 <li>Choose a block from the set which was first came into the cache</li>
 </ul>
 <h4 id="write-strategy">Write Strategy<a class="headerlink" href="#write-strategy" title="Permanent link">&para;</a></h4>
-<p><strong>write hit</strong></p>
+<p><strong>write hit</strong> </p>
 <ul>
 <li><strong>If the data are written to memory</strong>, the cache is called a <strong>write-through cache</strong><ul>
 <li>Can always discard cached data - most up-to-date data is in memory</li>
@@ -3372,6 +3451,9 @@ If sets have n blocks, the cache is said to be <strong>n-way set associative.</s
 </ul>
 </li>
 </ul>
+<p><mark>这两种策略，都会使用Buffer。</mark>
+<mark>Write-Through 使用Buffer是为了降低不断写回下一层的cost，使用的是下面的 Write Buffer，数据写入Cache的同时，也写入buffer</mark>
+<mark>Write-Back 也有写缓冲，Buffer</mark></p>
 <p><strong>Write stall</strong> </p>
 <p>When the CPU must wait for writes to complete during write through</p>
 <p><strong>Write buffers</strong></p>
@@ -3382,7 +3464,7 @@ If sets have n blocks, the cache is said to be <strong>n-way set associative.</s
 </ul>
 <p><img alt="alt text" src="../images/custom-image-18.png" /></p>
 <ul>
-<li>增加了数据访问的复杂度，需要检测数据是否在write buffer中，否则并行的一IC数据访问读取的是旧数据</li>
+<li>增加了数据访问的复杂度，需要检测数据是否在write buffer中，否则并行的IC数据访问读取的是旧数据</li>
 </ul>
 <p><strong>Write miss</strong></p>
 <p>看是否写回到cache中去</p>
@@ -3392,9 +3474,13 @@ If sets have n blocks, the cache is said to be <strong>n-way set associative.</s
 The block is </strong>loaded into the cache** on a miss before anything else occurs. </p>
 </li>
 <li>
-<p><strong>Write around (no write allocate) **
-The block is only </strong>written to main memory** 
-It is not stored in the cache. </p>
+<p>**Write around (no write allocate) **</p>
+</li>
+<li>
+<p>The block is only <strong>written to main memory</strong> </p>
+</li>
+<li>
+<p>It is not stored in the cache. </p>
 </li>
 <li>
 <p><strong>In general, write-back caches use write-allocate , and write-through caches use write-around.</strong>  </p>
@@ -3407,6 +3493,10 @@ It is not stored in the cache. </p>
 <p class="admonition-title">概念</p>
 <p><code>Bandwidth</code> 带宽，是一个时钟周期能访问的Bytes数目  <span class="arithmatex">\(Bandwidth = \frac{Bytes}{CLK}\)</span></p>
 <p><code>miss penalty</code> 移动一个Block的代价</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">example</p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405262135022.png" alt="image-20240526213529904" style="zoom: 50%;" /></p>
 </div>
 <p><strong>增大 Memory 位宽</strong></p>
 <p><img alt="image-20240521155329202" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211553286.png" /></p>
@@ -3459,18 +3549,25 @@ Write-through  Write-back
 Write-allocate  Write-around</p>
 <p><strong>计算</strong></p>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211645286.png" alt="image-20240521164455798" style="zoom: 33%;" /></p>
+<ul>
+<li>Instruction miss</li>
+<li>Data miss</li>
+</ul>
 <h3 id="improving">Improving<a class="headerlink" href="#improving" title="Permanent link">&para;</a></h3>
 <ul>
 <li>提高命中率</li>
 <li>减少 miss 代价</li>
 </ul>
 <h4 id="block-placement_1">映射 Block Placement<a class="headerlink" href="#block-placement_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>相联度和容量不是相互独立的</li>
+</ul>
 <p><img alt="image-20240521171627715" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211716792.png" /></p>
 <p><img alt="image-20240521184428283" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211844353.png" /></p>
 <details class="example">
 <summary>Tag计算</summary>
-<p><img alt="image-20240521184732495" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211847562.png" /></p>
-<p><strong>主存中的Block Address = Index + Tag</strong> 
+<p><img alt="image-20240521184732495" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211847562.png" />
+<strong>主存中的Block Address = Index + Tag</strong> 
 <img alt="image-20240521184749374" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211847448.png" /></p>
 </details>
 <blockquote>
@@ -3480,7 +3577,7 @@ Write-allocate  Write-around</p>
 <p><strong>Add a second level cache:</strong></p>
 <ul>
 <li>
-<p>often primary cache is on the same chip as the processor</p>
+<p><strong>often primary cache is on the same chip as the processor</strong>  一级缓存在处理器的芯片上</p>
 </li>
 <li>
 <p><strong>use SRAMs to add another cache above primary memory (DRAM)</strong></p>
@@ -3491,14 +3588,18 @@ Write-allocate  Write-around</p>
 </ul>
 <p>一级和二级的cache关注的目标不同：</p>
 <ul>
-<li>一级  hit time</li>
-<li>二级  miss rate</li>
+<li>一级  hit time，降低失效代价</li>
+<li>二级  miss rate 相联度更高</li>
 </ul>
 <p>如果第一级的cache失效，就会访问第二级的cache，如果成功，那么第一级的penalty就是第二级的访问时间；...</p>
 <div class="admonition example">
 <p class="admonition-title">例题</p>
 <p><img alt="image-20240521190448405" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211904480.png" />
 <img alt="image-20240521193325732" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211933797.png" /></p>
+<ul>
+<li>Main Memory 的失效代价：访问Main Memory 的时间</li>
+<li>总CPI = 基准CPI + 各级代价   注意计算的是什么单位</li>
+</ul>
 </div>
 <h2 id="virtual-memory"><strong>Virtual Memory</strong><a class="headerlink" href="#virtual-memory" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -3516,7 +3617,13 @@ Write-allocate  Write-around</p>
 </ul>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211911891.png" alt="image-20240521191101834" style="zoom:50%;" /></p>
 <p>Larger number of virtual pages than physical pages  现如今不再是这样</p>
-<h3 id="page-faults">Page faults<a class="headerlink" href="#page-faults" title="Permanent link">&para;</a></h3>
+<ul>
+<li>个人设备中，通常是DRAM和闪存充当两级存储层次结构</li>
+<li>illusion of having more physical memory</li>
+<li>program relocation </li>
+<li>protection</li>
+</ul>
+<h3 id="page-faults">Page faults | 缺页<a class="headerlink" href="#page-faults" title="Permanent link">&para;</a></h3>
 <p><strong>The data is not in memory, retrieve it from disk</strong></p>
 <ul>
 <li>huge miss penalty, thus pages should be fairly large (e.g., 4KB)</li>
@@ -3528,18 +3635,29 @@ Write-allocate  Write-around</p>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211919729.png" alt="image-20240521191908680" style="zoom:50%;" /></p>
 <h3 id="page-table">Page Table | 页表<a class="headerlink" href="#page-table" title="Permanent link">&para;</a></h3>
 <p><img alt="image-20240521200223719" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405212002834.png" /></p>
+<ul>
+<li>Page offset 计算：由整个Page size决定， = log(Page Size)</li>
+</ul>
 <blockquote>
-<p>页表指针</p>
+<p>页表指针 Page Table Register</p>
 </blockquote>
 <ul>
 <li>在Memory中存储  indexed by the virtual page number</li>
 <li><strong>Each Entry</strong> in the table contains the <strong>physical page number for that virtual pages if the page is current in memory</strong></li>
 <li><strong>Page table, Program counter and the page table register</strong>, specifies the state of the program. Each process has one page table. 
-    如果转换进程，要保存当前进程的状态</li>
+    如果转换进程，要保存<strong>当前进程的状态</strong>
+    包括 页表、程序计数器、寄存器</li>
 <li>操作系统只分配物理内存地址，不保存页表。</li>
 <li>Each program has its own page table  每一个进程有自己的页表。</li>
+<li>
+<p><strong>Size</strong></p>
+<p><img alt="image-20240526223135359" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405262231517.png" /></p>
+<ul>
+<li>Virtual Address - Page Offset  =  Virtual Number</li>
 </ul>
-<p>操作系统 OS</p>
+</li>
+</ul>
+<p><strong>操作系统 OS</strong></p>
 <ul>
 <li>When the OS creates a process, it usually <strong>creates the space on disk for all the pages of a process.</strong><ul>
 <li>When a page fault occurs, the OS will be given control <strong>through exception mechanism.</strong></li>
@@ -3548,7 +3666,7 @@ Write-allocate  Write-around</p>
 </ul>
 </li>
 </ul>
-<p>Virtual Address</p>
+<p><strong>Virtual Address</strong></p>
 <ul>
 <li>
 <p>virtual page number</p>
@@ -3557,7 +3675,6 @@ Write-allocate  Write-around</p>
 <p>Page offset</p>
 </li>
 </ul>
-<h3 id="page-faults_1">Page faults<a class="headerlink" href="#page-faults_1" title="Permanent link">&para;</a></h3>
 <p><strong>Write</strong></p>
 <ul>
 <li>
@@ -3569,7 +3686,58 @@ Write-allocate  Write-around</p>
 </ul>
 <h3 id="tlb">TLB<a class="headerlink" href="#tlb" title="Permanent link">&para;</a></h3>
 <p>相当于Page Table的一个cache</p>
+<ul>
+<li>Without a TLB, almost every memory access would require two accesses to RAM: An access to the page table, followed by an access to the requested data. </li>
+</ul>
 <p><img alt="image-20240521201254225" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405212012363.png" /></p>
+<ul>
+<li>TLB一般采用全相联</li>
+</ul>
+<h2 id="_1">例题<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>大部分地址都是从00开始的，别忘了0的地址</p>
+</div>
+<ul>
+<li>计算<ul>
+<li>cache<ul>
+<li>cache的size</li>
+<li>多重cache的performance measure</li>
+</ul>
+</li>
+<li>Virtual Memory<ul>
+<li>Page Table、TLB 是如何work的，可能要给出流程</li>
+<li>Page Table 的size</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="write-back-through">Write back / through概念<a class="headerlink" href="#write-back-through" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20240526233606383" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405262336678.png" /></p>
+<p><img alt="image-20240527194926682" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405271949822.png" /></p>
+<ul>
+<li>If all blocks in the higher level cache are also present in the lower level cache, then the lower level cache is said to be <strong>inclusive</strong> of the higher level cache. </li>
+<li>If the lower level cache contains only blocks that are not present in the higher level cache, then the lower level cache is said to be <strong>exclusive</strong> of the higher level cache. </li>
+</ul>
+<p><img alt="image-20240527201717213" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405272017343.png" /></p>
+<details class="example">
+<summary>Answer</summary>
+<p><img alt="image-20240527195609044" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405271956158.png" />
+5.6.2  And the result written to L2, may update it in L2, and then tag it dirty.
+5.6.3  </p>
+</details>
+<h3 id="cache">Cache 计算<a class="headerlink" href="#cache" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405272036920.png" /></p>
+<ul>
+<li><code>instruction access, data access</code><br />
+<span class="arithmatex">\(\text{Total CPI = Base + Instruction miss + Data miss}\)</span></li>
+</ul>
+<h3 id="_2">替换策略<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20240528155234227" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405281552405.png" /></p>
+<p><code>two-way set associative cache with four one-word blocks</code></p>
+<p>两组</p>
+<p>每组两个block</p>
 
 
 
@@ -3592,7 +3760,7 @@ Write-allocate  Write-around</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月25日 15:53:31</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月4日 21:37:06</span>
   </span>
 
     
