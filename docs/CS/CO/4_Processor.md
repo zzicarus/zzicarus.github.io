@@ -293,7 +293,7 @@ Bubble：空挡
 
 #### Multiple
 
-![alt text](images/custom-image-1.png)
+![alt text](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130853646.png)
 
 - `precise` 按照异常的先后实现
 - `imprecise` SEPC保存的地址不一定是发生例外/异常时的地址
@@ -303,11 +303,13 @@ Bubble：空挡
 
 #### Pipline | ITP
 
+
+
 ## Problem
 
 ### Excution Diagram的画法
 
-![image-20240610134731066](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406101347201.png)
+![image-20240610134731066](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130852601.png)
 
 ??? info "Answer"
 	![image-20240610134856404](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406101348498.png)

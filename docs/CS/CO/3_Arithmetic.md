@@ -1,7 +1,6 @@
 # Chapter 3 | Arithmetic for Computer
 
 > 3.1  Introduction
->
 > - 数值表达
 > - 
 >
@@ -171,12 +170,14 @@ $OverFlow = C_{n} \oplus C_{n-1}$
 - **双精度**  double   1 + 11 +   52
 
 为了节省符号位的空间，`exponent`我们都加上了一个`biased`
+
 $$
 于是可以表示： \ \ (-1)^{sign}(1+significand)*2^{exponent - bias}
 $$
+
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202403172212979.png" alt="image-20240317221248926" style="zoom:50%;" />
 
-### **Range **  
+### Range
 
 **Exponents** 
 
