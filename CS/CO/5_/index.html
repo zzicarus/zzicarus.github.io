@@ -3304,7 +3304,7 @@
 <li>value is stored  on a pair of <strong>inverting gates</strong> 两个反相器</li>
 <li>very fast but takes up more space than DRAM </li>
 </ul>
-<p><img alt="alt text" src="../images/custom-image-2.png" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130854258.png" alt="alt text" style="zoom:50%;" /></p>
 <h3 id="dram"><strong>DRAM</strong><a class="headerlink" href="#dram" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Value is stored as a charge on <strong>capacitor 电容器</strong></li>
@@ -3369,7 +3369,7 @@ Cache memory attached to CPU  缓冲</p>
 </ul>
 <p>​   <strong>cache 在CPU内部</strong></p>
 <p><strong>概念</strong></p>
-<p><img src="images/custom-image-4.png" alt="alt text" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855650.png" alt="alt text" style="zoom:50%;" /></p>
 <ul>
 <li>
 <p><code>Block</code> : unit of copying 搬运的最小单位 可能是一个word或者多个word</p>
@@ -3394,13 +3394,13 @@ Cache memory attached to CPU  缓冲</p>
 </ul>
 </li>
 </ul>
-<p><img alt="alt text" src="../images/custom-image-5.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855651.png" /></p>
 <h2 id="the-basic-of-cache">The basic of Cache<a class="headerlink" href="#the-basic-of-cache" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>SRAM and DRAM (main memory) </p>
 </blockquote>
 <h3 id="direct-mapped">Direct mapped<a class="headerlink" href="#direct-mapped" title="Permanent link">&para;</a></h3>
-<p><img alt="alt text" src="../images/custom-image-6.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855652.png" /></p>
 <p><strong>(Block address) modulo (Number of blocks in the cache)</strong></p>
 <p>固定的位置  $\text{(Block address) \% (Number of blocks in the cache)} $</p>
 <p><strong>Tag</strong>  区分存放的哪个数据
@@ -3408,14 +3408,14 @@ Cache memory attached to CPU  缓冲</p>
 - Actually, only need the <strong>high-order bits</strong></p>
 <p><strong>Valid Bits</strong>  这个Block是否为空
 Valid bit: 1 = present, 0 = not present  最初设置为0</p>
-<p><img alt="alt text" src="../images/custom-image-9.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855653.png" /></p>
 <details class="example">
 <summary>example</summary>
-<p><img src="images/custom-image-7.png" alt="alt text" style="zoom:50%;" /></p>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855654.png" alt="alt text" style="zoom:50%;" /></p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">理解cache中的各个位</p>
-<p><img alt="alt text" src="../images/custom-image-11.png" />
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855655.png" />
 上面的部分是 Memory address，下面的才是cache中的。这里每一个Block有四个word，需要两位来定位word，每个word有四个字节，需要两位来定位byte，故而<code>Byte offset = 4</code></p>
 <p><code>index</code> 在cache中寻找block，其大小由cache size决定</p>
 <p><code>Offset</code> 用于去在data中寻址。注意寻址方式，一般是字节寻址。比如，一个 4-word blocks，就需要 index 先去寻找block，再由offset分别确定word和byte，故需要4bit</p>
@@ -3429,8 +3429,8 @@ Block num(2^n) * (data size + tag size + valid bit)</p>
 <p>cache的命名不考虑标签和有效位的大小，只考虑数据的大小</p>
 <details class="example">
 <summary>example</summary>
-<p><img alt="alt text" src="../images/custom-image-8.png" />
-<img alt="alt text" src="../images/custom-image-10.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855656.png" />
+<img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855657.png" /></p>
 </details>
 <p><strong>Handling Cache reads hit and Misses</strong></p>
 <ul>
@@ -3472,12 +3472,12 @@ Wrote the data into only the data cache</p>
 <h3 id="deep-concept">Deep Concept<a class="headerlink" href="#deep-concept" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p class="admonition-title">引入</p>
-<p><img alt="alt text" src="../images/custom-image-13.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855658.png" /></p>
 </div>
 <p>1-word block
-<img alt="alt text" src="../images/custom-image-15.png" /></p>
+<img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855659.png" /></p>
 <h4 id="block-placement">Block Placement<a class="headerlink" href="#block-placement" title="Permanent link">&para;</a></h4>
-<p><img alt="alt text" src="../images/custom-image-14.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855660.png" /></p>
 <h5 id="fully-associative">Fully Associative<a class="headerlink" href="#fully-associative" title="Permanent link">&para;</a></h5>
 <p>Block can go anywhere in cache</p>
 <h5 id="set-associative">Set Associative<a class="headerlink" href="#set-associative" title="Permanent link">&para;</a></h5>
@@ -3531,7 +3531,7 @@ If sets have n blocks, the cache is said to be <strong>n-way set associative.</s
 <li>This buffer helps when writes are clustered. </li>
 <li>如果一次写入的量很大，很可能超过buffer的容量 </li>
 </ul>
-<p><img alt="alt text" src="../images/custom-image-18.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855661.png" /></p>
 <ul>
 <li>增加了数据访问的复杂度，需要检测数据是否在write buffer中，否则并行的IC数据访问读取的是旧数据</li>
 </ul>
@@ -3556,7 +3556,7 @@ The block is </strong>loaded into the cache** on a miss before anything else occ
 </li>
 </ul>
 <h4 id="designing-the-memory-system-to-support-cache">Designing the Memory system to Support Cache<a class="headerlink" href="#designing-the-memory-system-to-support-cache" title="Permanent link">&para;</a></h4>
-<p><img alt="alt text" src="../images/custom-image-19.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855662.png" /></p>
 <p>对主存的加速。单纯的One-word-wide架构，由于对DRAM取数据很耗时，会造成很多时间浪费</p>
 <div class="admonition note">
 <p class="admonition-title">概念</p>
@@ -3829,7 +3829,7 @@ Write-allocate  Write-around</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月4日 21:37:06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月13日 08:57:14</span>
   </span>
 
     
