@@ -176,6 +176,9 @@ nav:
           - 14. Indexing: CS/DB/Chapter_14.md
           - 15. Process: CS/DB/Chapter_15.md
           - 16. Optimization: CS/DB/Chapter_16.md
+          - 17. Transaction: CS/DB/Chapter_17.md
+          - 18. 并发控制: CS/DB/Chapter_18.md
+          - 19. Recovery: CS/DB/Chapter_19.md
       - CO:
           - 1 Interface: CS/CO/1_Interface.md
           - 2 Instruction: CS/CO/2_Instruction.md

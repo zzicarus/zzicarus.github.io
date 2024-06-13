@@ -27,3 +27,4 @@ If a schedule *S* can be transformed into a schedule *S’* by a series of swaps
 
 ## **Recoverable Schedules**
 
+必须在

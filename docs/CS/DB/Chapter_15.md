@@ -65,8 +65,10 @@ $$
 
 ![image-20240525115244962](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251152053.png)
 
+这里有一个隐含的假设：内层的数据可以通过一次seek获取全部
+
 - Transfer 
-- Seek 
+- Seek  外层需要seek $b_r$ times，内层其实是$n_r*b_s$
 
 
 
