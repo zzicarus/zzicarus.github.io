@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.25">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
@@ -227,7 +227,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             正在初始化搜索引擎
@@ -788,6 +788,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -1029,6 +1035,69 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DB/Chapter_17/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Transaction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DB/Chapter_18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. 并发控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DB/Chapter_19/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Recovery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1209,11 +1278,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#part-1-data-path" class="md-nav__link">
+  <a href="#part-1" class="md-nav__link">
     <span class="md-ellipsis">
-      Part 1 Data Path
+      Part 1 单周期
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Part 1 单周期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1256,7 +1349,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#control" class="md-nav__link">
+  <a href="#control_1" class="md-nav__link">
     <span class="md-ellipsis">
       控制竞争 | Control
     </span>
@@ -1289,7 +1382,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#control_1" class="md-nav__link">
+  <a href="#control_2" class="md-nav__link">
     <span class="md-ellipsis">
       Control 指令
     </span>
@@ -1342,6 +1435,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Branch hazard | Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      缩短分支延迟
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      动态预测
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1363,8 +1480,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pipline-itp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipline | ITP
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excution-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Excution Diagram的画法
+    </span>
+  </a>
   
 </li>
         
@@ -2802,11 +2952,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#part-1-data-path" class="md-nav__link">
+  <a href="#part-1" class="md-nav__link">
     <span class="md-ellipsis">
-      Part 1 Data Path
+      Part 1 单周期
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Part 1 单周期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Control
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2849,7 +3023,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#control" class="md-nav__link">
+  <a href="#control_1" class="md-nav__link">
     <span class="md-ellipsis">
       控制竞争 | Control
     </span>
@@ -2882,7 +3056,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#control_1" class="md-nav__link">
+  <a href="#control_2" class="md-nav__link">
     <span class="md-ellipsis">
       Control 指令
     </span>
@@ -2935,6 +3109,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Branch hazard | Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      缩短分支延迟
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      动态预测
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -2956,8 +3154,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pipline-itp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipline | ITP
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excution-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Excution Diagram的画法
+    </span>
+  </a>
   
 </li>
         
@@ -2986,23 +3217,42 @@
 
 <h1 id="chapter-4-processor">Chapter 4 | Processor<a class="headerlink" href="#chapter-4-processor" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 593 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 8 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 3 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1227 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 8 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 6 分钟</p>
 </div>
-<h2 id="part-1-data-path">Part 1 Data Path<a class="headerlink" href="#part-1-data-path" title="Permanent link">&para;</a></h2>
-<h2 id="part-2">Part 2 流水线<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h2>
-<p><img alt="image-20240415141757404" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404151418595.png" /></p>
-<p><img alt="image-20240415141814602" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404151418760.png" /></p>
+<h2 id="part-1">Part 1 单周期<a class="headerlink" href="#part-1" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20240604214214286" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406042142427.png" /></p>
+<h3 id="data-path">Data Path<a class="headerlink" href="#data-path" title="Permanent link">&para;</a></h3>
+<p>略</p>
+<h3 id="control">Control<a class="headerlink" href="#control" title="Permanent link">&para;</a></h3>
 <ul>
-<li>a pipline in which one instruction is in each stage</li>
+<li>七个控制信号和一个四位的<code>ALU operation</code></li>
+</ul>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406042158366.png" alt="image-20240604215831264" style="zoom: 33%;" /></p>
+<p><img alt="image-20240604220111242" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406042201396.png" /></p>
+<ul>
+<li>ALU 信号</li>
+</ul>
+<p><img alt="image-20240604220744730" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406042207863.png" /></p>
+<h2 id="part-2">Part 2 流水线<a class="headerlink" href="#part-2" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>单周期的弊端：
+假设取指令 200ps, 寄存器读 100ps, ALU 计算 200ps, 内存访问 200ps, 寄存器写 100ps.
+那么 <code>add</code> 需要 600ps, <code>ld</code> 需要 800ps, <code>sd</code> 需要 700ps, <code>beq</code> 需要 500ps.</p>
+</blockquote>
+<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404151418760.png" alt="image-20240415141814602" style="zoom:33%;" /></p>
+<ul>
+<li>a pipeline in which one instruction is in each stage</li>
 <li><strong>CPI is decreased to 1, since one instruction will be issued (or finished) each cycle.</strong> </li>
 </ul>
+<p><strong>吞吐率 | throughput</strong></p>
+<p>流水线实际上是提高了系统的<strong>吞吐率</strong>。但是<strong>Latency (time for each instruction)</strong>不会减少</p>
 <h3 id="hazards">竞争 | Hazards<a class="headerlink" href="#hazards" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>导致下一条指令无法正常进行的</p>
 </blockquote>
 <h4 id="structure">结构竞争 | Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h4>
 <blockquote>
-<p>A <strong>required resource is busy</strong></p>
+<p>A <strong>required resource is busy</strong>  大多数是硬件问题导致</p>
 </blockquote>
 <ul>
 <li><strong>In RISC-V pipeline with a single memory</strong></li>
@@ -3014,7 +3264,8 @@
 </ul>
 </li>
 <li>
-<p>把指令和数据分开存储</p>
+<p>把指令和数据分开存储
+    如果只有一块，那么当IF需要获取指令，Mem需要获取数据时就会发生结构冒险</p>
 </li>
 </ul>
 <h4 id="data">数据竞争 | Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h4>
@@ -3042,10 +3293,13 @@
 </ul>
 <p><img alt="image-20240416210641497" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162106571.png" /></p>
 <p><img alt="c6046a551adfecdd177565cc417c846" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162106899.jpg" /></p>
-<h4 id="control">控制竞争 | Control<a class="headerlink" href="#control" title="Permanent link">&para;</a></h4>
+<h4 id="control_1">控制竞争 | Control<a class="headerlink" href="#control_1" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p>Deciding on control action depends on previous instruction</p>
 </blockquote>
+<p>在ID阶段加入更多的硬件去判断</p>
+<p>或者</p>
+<p>使用Prediction技术</p>
 <p><img alt="image-20240416212441149" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162124223.png" /></p>
 <ul>
 <li>例如，对<code>beq</code>，<code>IF</code>需要得知要去的地址，会把计算提前到<code>ID</code>步骤</li>
@@ -3058,9 +3312,12 @@
 <h3 id="risc-v-pipelined-datapath">RISC-V Pipelined Datapath<a class="headerlink" href="#risc-v-pipelined-datapath" title="Permanent link">&para;</a></h3>
 <h4 id="form">Form<a class="headerlink" href="#form" title="Permanent link">&para;</a></h4>
 <p><img alt="image-20240416213943317" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162139375.png" /></p>
+<ul>
+<li>注意，上图中的Write Register是错误的</li>
+</ul>
 <p><img alt="image-20240416214740739" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162147804.png" /></p>
-<p><img alt="image-20240416214800619" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162148679.png" /><img alt="image-20240416214931469" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162149535.png" /></p>
-<h4 id="control_1">Control 指令<a class="headerlink" href="#control_1" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20240416214931469" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162149535.png" /></p>
+<h4 id="control_2">Control 指令<a class="headerlink" href="#control_2" title="Permanent link">&para;</a></h4>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202404162202604.png" alt="image-20240416220209541" style="zoom:67%;" /></p>
 <ul>
 <li><code>WB</code>步骤的<code>Write Register</code>传回寄存器堆</li>
@@ -3093,12 +3350,12 @@ sd  x15,100(x2)</p>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042248653.png" alt="image-20240504224803575" style="zoom:50%;" /></p>
 <h4 id="double-data-hazard"><strong>Double Data Hazard</strong><a class="headerlink" href="#double-data-hazard" title="Permanent link">&para;</a></h4>
 <blockquote>
-<p>考虑两个地方都触发了数据竞争</p>
+<p>考虑两个地方都触发了数据竞争，选择最近的那个数据</p>
 <p>add x1,x1,x2
 add x1,x1,x3
 add x1,x1,x4</p>
 </blockquote>
-<p>需要对<code>Mem/WB</code>级的特判</p>
+<p>需要对<code>Mem/WB</code>寄存器的特判</p>
 <p><code>EX/MEM</code></p>
 <p><code>EX/MEM.RegWrite and (EX/MEM.RegisterRd!=0) and EX/MEM.RegisterRd = ID/EX.RegisterRs1</code></p>
 <p><code>MEM/WB</code></p>
@@ -3113,7 +3370,7 @@ add x1,x1,x4</p>
 1--&gt;2--&gt;3--&gt;4--&gt;5
 </code></pre>
 <ul>
-<li>Load的时候，在<code>IF/ID</code>步骤需要判断，因为</li>
+<li>Load的时候，在<code>IF/ID</code>步骤需要判断，因为 Load 的结果必须要到mem级才能获取，不能ID到错误的数据</li>
 </ul>
 <p><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042317621.png" /></p>
 <ul>
@@ -3121,12 +3378,58 @@ add x1,x1,x4</p>
 </ul>
 <p>Bubble：空挡</p>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042321949.png" alt="image-20240504232137871" style="zoom:50%;" /></p>
+<ul>
+<li><strong>Force control values in ID/EX register to 0</strong>  插零后面的，把当前的ID/EX变为NOP<ul>
+<li>EX, MEM and WB do <code>nop (no-operation)</code></li>
+</ul>
+</li>
+<li><strong>Prevent update of PC and IF/ID register</strong>  停滞之前的<ul>
+<li>Using instruction is decoded again</li>
+</ul>
+</li>
+</ul>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405042326178.png" alt="image-20240504232637109" style="zoom:50%;" /></p>
 <h3 id="branch-hazard-control">Branch hazard | Control<a class="headerlink" href="#branch-hazard-control" title="Permanent link">&para;</a></h3>
 <p><img alt="image-20240512232013934" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405122320030.png" /></p>
 <ul>
-<li></li>
+<li>需要清除分支指令到达Mem阶段时其他前面几个寄存器</li>
 </ul>
+<h4 id="_1">缩短分支延迟<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>将对分支的检测提前到ID阶段</p>
+</blockquote>
+<ul>
+<li>需要新的前递和Stall单元<ul>
+<li>bypass </li>
+<li>Stall ：比如计算分支地址需要的数据来自于上一级的EX、Mem<ul>
+<li>上一级存在ALU操作，且存在依赖关系。Stall one bubble</li>
+<li>上一级存在ld操作，且存在依赖关系。Stall two bubbles</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_2">动态预测<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>Branch prediction buffer (aka branch history table)</p>
+</li>
+<li>
+<p><strong>Indexed by recent branch instruction addresses</strong>  按照分支指令的低位地址定位的小存储</p>
+</li>
+<li>
+<p>Stores outcome (taken/not taken)</p>
+</li>
+<li>To execute a branch<ul>
+<li>Check table, expect the same outcome</li>
+<li>Start fetching from fall-through or target</li>
+<li>If wrong, flush pipeline and flip prediction</li>
+</ul>
+</li>
+</ul>
+<p>分支预测单元可以放在ID级</p>
+<p>即使存在Prediction，计算Branch Target的一个周期损失也不可避免</p>
+<p><strong>Branch target buffer | 分支目标缓存</strong></p>
 <h3 id="exceptions-and-interrupts">Exceptions and Interrupts | 异常与中断<a class="headerlink" href="#exceptions-and-interrupts" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Interrupts</p>
@@ -3141,6 +3444,17 @@ add x1,x1,x4</p>
 <p>遇到异常需要处理两件事：
 - 在哪里处理异常，如何跳过去
 - 如何回去</p>
+<blockquote>
+<p>1.中断来了怎么办。</p>
+<p>2.存PC到Supervisor Exception Program Counter (SEPC)，控制权交给操作系统，通过强制跳转，</p>
+<p>3.操作系统进行预先规定的操作，也可能是执行问题分析，也可能是重复执行。</p>
+<p>4.分析原因时使用两种方法通知系统，</p>
+<p>a. 设置SCAUSE</p>
+<p>b. 向量式中断 | vectored interrupt</p>
+</blockquote>
+<ul>
+<li>RISCV中，由硬件部分实现对多个异常的优先级排序</li>
+</ul>
 <details class="note">
 <summary>Privilege</summary>
 <blockquote>
@@ -3172,11 +3486,21 @@ add x1,x1,x4</p>
 <p><img alt="alt text" src="../images/custom-image-1.png" /></p>
 <ul>
 <li><code>precise</code> 按照异常的先后实现</li>
-<li><code>imprecise</code> <ul>
+<li><code>imprecise</code> SEPC保存的地址不一定是发生例外/异常时的地址<ul>
 <li>Let the handler work out</li>
+<li><strong>Simplifies hardware, but more complex handler software</strong></li>
+<li>Not feasible for complex multiple-issue out-of-order pipelines 对于无序的流水线不适用</li>
 </ul>
 </li>
 </ul>
+<h4 id="pipline-itp">Pipline | ITP<a class="headerlink" href="#pipline-itp" title="Permanent link">&para;</a></h4>
+<h2 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h2>
+<h3 id="excution-diagram">Excution Diagram的画法<a class="headerlink" href="#excution-diagram" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20240610134731066" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406101347201.png" /></p>
+<details class="info">
+<summary>Answer</summary>
+<p><img alt="image-20240610134856404" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406101348498.png" /></p>
+</details>
 
 
 
@@ -3199,7 +3523,7 @@ add x1,x1,x4</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月25日 15:53:31</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月13日 08:06:15</span>
   </span>
 
     
@@ -3264,7 +3588,7 @@ add x1,x1,x4</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.081f42fc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
