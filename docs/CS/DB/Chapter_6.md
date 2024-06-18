@@ -25,3 +25,21 @@
 **多对一**
 
 ![image-20240412174951128](C:/Users/orz20/AppData/Roaming/Typora/typora-user-images/image-20240412174951128.png)
+
+- 部分可能会出现null
+
+## 其他特性
+
+### 特化
+
+![image-20240616104757599](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406161048723.png)
+
+- 重叠特化  Overlapping  一个实体集可能属于多个特化实体集
+- 不相交特化  必须属于至多一个特化实体集
+
+### 泛化
+
+![image-20240616104912307](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406161049389.png)
+
+- **Partial generalization is the default.** 
+- 

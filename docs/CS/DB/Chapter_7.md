@@ -28,7 +28,10 @@ graph
 - 无损连接的分解
 
   分解 之后 至少有一个**公共属性**，**且是其中一个关系的` key`**(不是`primary`)
-  $证明的思路\\ R_1\cap R_2\to R_1 \\or \\ R_1\cap R_2\to R_2$
+  
+  这里是一个充分条件，而不是必要的：
+  
+  $证明的思路\\ R_1\cap R_2\to R_1 \\or \\ R_1\cap R_2\to R_2$​
 
 ![image-20240417220300169](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091151535.png)
 
@@ -106,6 +109,8 @@ B-->D
 - 化简，使得不存在多余的属性和函数依赖
 
 ![image-20240417205621149](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091151319.png)
+
+![image-20240616151649350](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406161516574.png)
 
 - **Extraneous Attributes(无关属性)**
 

@@ -51,6 +51,10 @@ flowchart LR
 
 ​	security control (安全控制)
 
+**file system的问题**
+
+![image-20240614182114786](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406141821854.png)
+
 ## View Of data
 
 ![image-20240305151254876](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202403051513004.png)

@@ -34,5 +34,9 @@
 
 ## **Choice of Evaluation Plans**
 
+> 局部最优不一定全局最优
+
+
+
 ## **Additional** **Optimization** **Techniques**
 

@@ -99,7 +99,7 @@ U Lock, 先读后面可能会写
 1. 只有排他锁
 2. 第一个锁可以加到任何地方，但是之后的锁要加的数据 的父节点一定要有锁
 3. 锁用过之后就可以随时放掉
-4. A data item that has been locked and unlocked by $T_i$ cannot subsequently be relocked by $T_i$​ 
+4. 同一个节点不能重复加锁（lock - unlock - lock ×）
 
 **好处**
 

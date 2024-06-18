@@ -22,6 +22,8 @@ An **evaluation plan** defines exactly what algorithm is used for each operation
 
 ## Measures of Query Cost
 
+- Resource Consumption
+
 ![image-20240523092041613](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405230920786.png)
 
 - We often use worst case estimates, assuming only the minimum amount of memory needed for the operation is available
@@ -97,6 +99,11 @@ $$
 - Can be used only for equi-joins and natural joins
 
 ![image-20240523192825321](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405231928410.png)
+
+- 直接对辅助索引的值排序代价太大了
+- 先把有序关系和B+ Tree的叶子进行Merge
+- 按照物理地址对上述结果排序，使之能够更加方便地进行物理访问
+- 进行Merge，用真实物理地址替换
 
 ![image-20240525120619474](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405251206556.png)
 

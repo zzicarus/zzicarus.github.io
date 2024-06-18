@@ -21,16 +21,17 @@
 
 ![image-20240509192415843](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091924926.png)
 - id name dept_name salary(fixed length)
+- 在部分表示方法中，Null Bitmap放在数据开头，并且只要置为1其数据部分就为空
 
 **Slotted page （分槽页）**
 
 ![image-20240509192903431](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091929510.png)
 
-## Organization of Records in Files
+### Organization of Records in Files
 
 ![image-20240509193235079](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091932166.png)
 
-### Heap
+#### Heap
 
 - Records usually **do not move once allocated**
 - Important to be able to efficiently find free space within file
@@ -39,7 +40,7 @@
 
 ![image-20240509193611151](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091936224.png)
 
-- **Free space map** written to disk periodically, OK to have wrong (old) values for some entries (will be detected and fixed)
+- **Free space map** written to disk periodically, OK to have wrong (old) values for some entries (will be detected and fixed
 ### Sequential File Organization
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091816296.png" alt="image-20240509181640193" style="zoom:50%;" />
@@ -78,7 +79,7 @@
 
 ## Buffer
 
-- **Blocks** are units of both storage allocation and data transfer
+- **Blocks** are units of both storage allocation and data transfer 内存申请、数据传输
 - **Buffer (缓冲区)** – portion of main memory available to store copies of disk blocks，但是在磁盘上的拷贝可能旧于缓冲区的
 - **Buffer manager (缓冲区管理器)** – subsystem responsible for allocating buffer space in main memory.
 
@@ -87,16 +88,17 @@
 ![image-20240509194854556](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091948633.png)
 
 - System Call
-  - in the buffer
+  - in the buffer  Return
   - not in the buffer
     - buffer is full
       - The replaced block is updated -> write back to disk
-      - not , deleted, and replaced
+      - not , deleted the replaced page, and replaced
     - buffer is not full
+        - Read The Page and return 
 
 **pinned Block**
 > memory block that is not allowed to be written back to disk
-- **Pin** done before reading/writing data from a block
+- **Pin** done before reading/writing data from a block 在申请数据/写数据之前“Pin”
 - **Unpin** done when read /write is complete
 - **Multiple concurrent** pin/unpin operations possible
     - Keep a **pin count**, buffer block can be evicted only if pin count = 0
@@ -129,8 +131,33 @@
 
 **Most recently used (MRU) strategy**
 
+操作系统/缓存管理器可能会对写操作进行重新排序
+
+Operating system or buffer manager may **reorder writes**
+
+- Can lead to corruption of data structures on disk
+    - E.g., linked list of blocks with missing block on disk	
+    - File systems perform consistency check to detect such situations  或者可以使用下面介绍的日志
+
 ### 日志
 ![alt text](images/custom-image-1.png)
 
 ## Column-Oriented Storage
 
+> Store each attribute of a relation separately
+>
+> ![image-20240616211256145](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406162112496.png)
+
+- 最简单的情况是每一种属性分文件存放  Further, each file is *compressed*, to reduce its size.
+
+**优点**  Analysis Queries —— 可能访问很多rows，但是只取其中部分属性
+
+- 提高CPU效率
+- 减少I/O
+- 减少Disk访问时间
+- 向量访问方便
+- 对于Decision Support更加高效
+
+**缺点**
+
+Traditional row-oriented representation preferable for transaction processing

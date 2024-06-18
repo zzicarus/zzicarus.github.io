@@ -17,9 +17,14 @@
 
 ## Ordered Indices
 
+- 当发生插入/删除
+    - 所有受到影响的index都要改变
+- update
+    - 受影响则变
+
 ### Primary Index | 主索引  ||   Clustering index | 聚集索引
 
-In a sequentially ordered file, the index whose search key specifies the sequential order of the file.
+- In a sequentially ordered file, the index whose search key specifies the sequential order of the file.
 
 #### Dense Index | 稠密索引
 
@@ -41,7 +46,7 @@ In a sequentially ordered file, the index whose search key specifies the sequent
 
 > 必须是聚集索引，按顺序存放
 
-Contains index records for only **some** search-key values.
+- Contains index records for only **some** search-key values.
 
 ![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405142128126.png)
 
@@ -52,18 +57,26 @@ Contains index records for only **some** search-key values.
 ![image-20240515195153676](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405151951742.png)
 
 - `index entry `**Index record points to a bucket that contains pointers to all the actual records with that particular search-key value.**
-- 必须是稠密索引
+- 必须是稠密索引，物理存储必须是有序的
+- 对其进行顺序Scan代价很高
 
 ### Multi Level index
 
 - outer index – a sparse index of the basic index
 - inner index – the basic index file
+- **Indices at all levels must be updated on insertion or deletion from the file**
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405142130660.png" alt="image-20240514213005631" style="zoom:50%;" />
 
 ### Others
 
 **Composite search key**
+
+### Operation
+
+![image-20240616214656803](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406162146066.png)
+
+![image-20240616214649704](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406162146001.png)
 
 ## B+ Tree Index
 
@@ -107,7 +120,7 @@ $P_i都指向它的Children$
 **A node is generally the same size as  a disk block, typically 4 kilobytes**
 
 !!! info "info"
-	在DB中的B+ Tree下，inner node的值不一定在leaf出现。**（这种情况是在Deletion下发生）**
+	在DB中的B+ Tree下，inner node的值不一定在leaf出现，中间结点的值只起到索引的作用。**（这种情况是在Deletion下发生）**
 
 ### Insert / Delete
 
@@ -141,7 +154,7 @@ $$
   **Blocks for storing**
   Records size / Records per block
 
-- 要计算`fan-out`，也就是这个B+ Tree的分支，对于一个M叉的B+ Tree，它有 M+1 个指针，M个索引值。
+- 要计算`fan-out`，也就是这个B+ Tree的分支，对于一个M叉的B+ Tree，它有 M+1 个指针，M个索引值。（每一个节点都是一个Page/Block）
   于是，计算方式就是  ($\frac{Block Size - 4}{index\ size+\ pointer\ size}$ +1 )
 
 - **层数**
@@ -212,7 +225,7 @@ Solution: **use search key of B+-tree file organization instead of record pointe
 
 ## Hash | 散列
 
-> A **bucket** is a unit of storage **containing one or more entries** (a bucketis typically a disk block).
+> A **bucket** is a unit of storage **containing one or more entries** (a buckets typically a disk block).
 >
 > - we obtain the bucket of an entry from its search-key value using a hash function
 >
@@ -228,9 +241,19 @@ Solution: **use search key of B+-tree file organization instead of record pointe
 
 使用 **overflow bucket** 处理，形成溢出链
 
+**闭散列**
+
+
+
+**开散列**
+
+插入到其他bucket中，比如使用线性探测等方式
+
 ### Dynamic Hashing
 
 - Periodic rehashing
+    - 
+
 - Linear Hashing
 - Extendable Hashing
 
@@ -299,6 +322,8 @@ drop index takes_pk
 
 ![image-20240515222158190](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152221255.png)
 
+- Bloom filters to avoid lookups in most trees 
+
 **删除操作**
 
 不同于上面的查找和insert，删除通过`deletion entry`来实现
@@ -309,13 +334,25 @@ drop index takes_pk
 
 ### Buffer Tree
 
+![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406162302215.png)
 
+在每个Internal节点加一个Buffer缓冲
+
+- Insert
+    - 先放在Root的缓冲区
+    - 满了往下放
+    - 放在internal缓冲区...
+    - 一直到叶子节点
+
+- Query
+    - 在查找所遍历的每个内部节点时，都必须检查该节点的缓冲区，以查看是否有与查找键匹配的记录。是否有与查找键匹配的记录。范围查找与普通 B+-树中的做法一样，但它们还必须检查被访问的叶节点上面的所有内部节点的缓冲区。
+- 
 
 
 ## Bitmap Indices
 
 > Bitmap indices are a special type of index designed for **efficient querying on multiple keys**
-> not particularly useful for single attribute queries
+> **not particularly useful for single attribute queries**
 >
 > - **Applicable on attributes that take on a relatively small number of distinct values**
 >   每一列不同的属性值不要太多
@@ -325,10 +362,6 @@ drop index takes_pk
 - 可以进行交并操作
 
 ![image-20240515222632062](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152226132.png)
-
-```
-
-```
 
 
 
