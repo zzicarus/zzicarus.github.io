@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
     
     
       
@@ -1035,12 +1035,7 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#organization-of-records-in-files" class="md-nav__link">
     <span class="md-ellipsis">
       Organization of Records in Files
@@ -1056,6 +1051,11 @@
       Heap
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2892,12 +2892,7 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#organization-of-records-in-files" class="md-nav__link">
     <span class="md-ellipsis">
       Organization of Records in Files
@@ -2913,6 +2908,11 @@
       Heap
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3043,7 +3043,7 @@
 
 <h1 id="data-storage-structures">Data Storage Structures<a class="headerlink" href="#data-storage-structures" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 708 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 4 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 930 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 5 分钟</p>
 </div>
 <h2 id="file-organization">File Organization<a class="headerlink" href="#file-organization" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -3064,12 +3064,13 @@
 <li>如何在Block中存储变长的record？</li>
 </ul>
 <p><img alt="image-20240509192415843" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091924926.png" />
-- id name dept_name salary(fixed length)</p>
+- id name dept_name salary(fixed length)
+- 在部分表示方法中，Null Bitmap放在数据开头，并且只要置为1其数据部分就为空</p>
 <p><strong>Slotted page （分槽页）</strong></p>
 <p><img alt="image-20240509192903431" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091929510.png" /></p>
-<h2 id="organization-of-records-in-files">Organization of Records in Files<a class="headerlink" href="#organization-of-records-in-files" title="Permanent link">&para;</a></h2>
+<h3 id="organization-of-records-in-files">Organization of Records in Files<a class="headerlink" href="#organization-of-records-in-files" title="Permanent link">&para;</a></h3>
 <p><img alt="image-20240509193235079" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091932166.png" /></p>
-<h3 id="heap">Heap<a class="headerlink" href="#heap" title="Permanent link">&para;</a></h3>
+<h4 id="heap">Heap<a class="headerlink" href="#heap" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Records usually <strong>do not move once allocated</strong></li>
 <li>Important to be able to efficiently find free space within file</li>
@@ -3077,7 +3078,7 @@
 <p><strong>Free-space map (自由空间图)</strong></p>
 <p><img alt="image-20240509193611151" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091936224.png" /></p>
 <ul>
-<li><strong>Free space map</strong> written to disk periodically, OK to have wrong (old) values for some entries (will be detected and fixed)</li>
+<li><strong>Free space map</strong> written to disk periodically, OK to have wrong (old) values for some entries (will be detected and fixed</li>
 </ul>
 <h3 id="sequential-file-organization">Sequential File Organization<a class="headerlink" href="#sequential-file-organization" title="Permanent link">&para;</a></h3>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091816296.png" alt="image-20240509181640193" style="zoom:50%;" /></p>
@@ -3115,7 +3116,7 @@
 <p><img alt="image-20240509183619704" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091836790.png" /></p>
 <h2 id="buffer">Buffer<a class="headerlink" href="#buffer" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Blocks</strong> are units of both storage allocation and data transfer</li>
+<li><strong>Blocks</strong> are units of both storage allocation and data transfer 内存申请、数据传输</li>
 <li><strong>Buffer (缓冲区)</strong> – portion of main memory available to store copies of disk blocks，但是在磁盘上的拷贝可能旧于缓冲区的</li>
 <li><strong>Buffer manager (缓冲区管理器)</strong> – subsystem responsible for allocating buffer space in main memory.</li>
 </ul>
@@ -3123,19 +3124,22 @@
 <p><img alt="image-20240509194854556" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091948633.png" /></p>
 <ul>
 <li>System Call</li>
-<li>in the buffer</li>
+<li>in the buffer  Return</li>
 <li>not in the buffer<ul>
 <li>buffer is full</li>
 <li>The replaced block is updated -&gt; write back to disk</li>
-<li>not , deleted, and replaced</li>
-<li>buffer is not full</li>
+<li>not , deleted the replaced page, and replaced</li>
+<li>buffer is not full<ul>
+<li>Read The Page and return </li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <p><strong>pinned Block</strong></p>
 <blockquote>
 <p>memory block that is not allowed to be written back to disk
-- <strong>Pin</strong> done before reading/writing data from a block
+- <strong>Pin</strong> done before reading/writing data from a block 在申请数据/写数据之前“Pin”
 - <strong>Unpin</strong> done when read /write is complete
 - <strong>Multiple concurrent</strong> pin/unpin operations possible
     - Keep a <strong>pin count</strong>, buffer block can be evicted only if pin count = 0</p>
@@ -3166,9 +3170,35 @@
 <h4 id="others">others<a class="headerlink" href="#others" title="Permanent link">&para;</a></h4>
 <p><strong>Toss-immdiate 立即丢弃</strong></p>
 <p><strong>Most recently used (MRU) strategy</strong></p>
+<p>操作系统/缓存管理器可能会对写操作进行重新排序</p>
+<p>Operating system or buffer manager may <strong>reorder writes</strong></p>
+<ul>
+<li>Can lead to corruption of data structures on disk<ul>
+<li>E.g., linked list of blocks with missing block on disk    </li>
+<li>File systems perform consistency check to detect such situations  或者可以使用下面介绍的日志</li>
+</ul>
+</li>
+</ul>
 <h3 id="_2">日志<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><img alt="alt text" src="../images/custom-image-1.png" /></p>
 <h2 id="column-oriented-storage">Column-Oriented Storage<a class="headerlink" href="#column-oriented-storage" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Store each attribute of a relation separately</p>
+<p><img alt="image-20240616211256145" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406162112496.png" /></p>
+</blockquote>
+<ul>
+<li>最简单的情况是每一种属性分文件存放  Further, each file is <em>compressed</em>, to reduce its size.</li>
+</ul>
+<p><strong>优点</strong>  Analysis Queries —— 可能访问很多rows，但是只取其中部分属性</p>
+<ul>
+<li>提高CPU效率</li>
+<li>减少I/O</li>
+<li>减少Disk访问时间</li>
+<li>向量访问方便</li>
+<li>对于Decision Support更加高效</li>
+</ul>
+<p><strong>缺点</strong></p>
+<p>Traditional row-oriented representation preferable for transaction processing</p>
 
 
 
@@ -3191,7 +3221,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月18日 19:07:47</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月18日 19:08:21</span>
   </span>
 
     
