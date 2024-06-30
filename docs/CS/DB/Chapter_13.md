@@ -41,7 +41,7 @@
 ![image-20240509193611151](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091936224.png)
 
 - **Free space map** written to disk periodically, OK to have wrong (old) values for some entries (will be detected and fixed
-### Sequential File Organization
+#### Sequential File Organization
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405091816296.png" alt="image-20240509181640193" style="zoom:50%;" />
 
@@ -54,7 +54,7 @@
 
 - **Reorganize** 使之重新物理有序存储. 由于上面的溢出块模式，导致物理存储不一定按照指针顺序，进而降低访问效率
 
-### Multitable Clustering File Organization
+#### Multitable Clustering File Organization
 
 - 对相同的信息聚类；把不同的关系放在同一个表中
 - Results in variable size records

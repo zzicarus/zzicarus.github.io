@@ -38,9 +38,9 @@
 
 - 左侧的部分都是`index entry`，包括一个索引键值和指针
 - 它的`pointer`有三种情况（索引是否是`key`）
-  - 直接指向对应search key的记录
-  - 指向所有具有相同search key的指针，相当于是上图中的指针指向一个bucket，这个bucket含有所有指向相应记录的指针
-  - 指向所有具有相同search key的第一条记录的指针，如上图
+    - 直接指向对应search key的记录
+    - 指向所有具有相同search key的指针，相当于是上图中的指针指向一个bucket，这个bucket含有所有指向相应记录的指针
+    - 指向所有具有相同search key的第一条记录的指针，如上图
 
 #### Sparse Index | 稀疏索引
 
@@ -135,6 +135,8 @@ $P_i都指向它的Children$
 ![image-20240515205649092](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405152056194.png)
 
 - Gold删除后仍然在root的索引中
+
+==优先考虑合并节点，只有当合并后的大于能容纳量，才会去考虑重新分配指针==
 
 ### 计算
 

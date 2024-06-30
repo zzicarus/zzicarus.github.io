@@ -15,6 +15,9 @@
 
 - 类中函数修饰  只能使用`static`变量，比如下面的例子中如果在foo函数中调用value就会报错
 这个函数是独立于对象之外的，没有隐含的`this`指针
+    - 没有`this`指针
+    - 只能使用静态数据
+    - 不能被dynamically Overridden
 
 ??? example "code"
     注意12，18行的写法
@@ -49,9 +52,12 @@
     ```
 
 ## Extern
+> extern is a declaration says there will be such a variable somewhere in the whole program
+
 
 如果需要重复使用同一个变量，有两种方式：
 
 1.使用头文件，然后声明它们，然后其他文件去包含头文件。
 
 2.在其他文件中直接extern
+

@@ -44,7 +44,6 @@ A(const A &rhs) : mi(rhs.mi)
     ```c++
     #include <iostream>
     using namespace std;
-
     class A
     {
     public:
@@ -77,7 +76,6 @@ A(const A &rhs) : mi(rhs.mi)
     ```c++
     int main()
     {
-
         // 编译器优化
         // 拷贝构造被优化 相当于 xa = A(5)
         A xa = f(5);

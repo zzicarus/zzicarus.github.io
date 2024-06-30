@@ -88,6 +88,7 @@ extra_css:
   - css/extra.css
   - css/status.css
   - css/Myself.css
+  - css/counter.css
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 extra_javascript:
   - javascripts/mathjax.js
@@ -164,7 +165,7 @@ nav:
           - mkdocs: Tools/站点/mkdocs.md
   - 课内:
       - CS/index.md
-
+      - OOP: CS/OOP.md
       - DB:
           - 1. Interface: CS/DB/Chapter_1.md
           - 2. Relation: CS/DB/Chapter_2.md

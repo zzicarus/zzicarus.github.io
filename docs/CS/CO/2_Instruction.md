@@ -106,11 +106,7 @@
 >
 > ==> 78 is the lsb, 这个byte位于3
 
-<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202403211044711.png" alt="image-20240321104457553" style="zoom:50%;" />
-
-上图中，箭头的方向指的是内存中的地址方向。
-
-例如，Big endian的低地址从A开始，到D结束
+![image-20240618225145806](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406182251898.png)
 
 #### word 对齐 Alignment
 
@@ -362,12 +358,23 @@ Example：sd x9, 64(x22)
 
 ### 大小端对齐
 
-> Todo  2.35 题目
+> ![image-20240618223842575](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406182238696.png)
+
+这里一个byte存储两个16进制数
+
+??? example "answer"
+ 	1. 0x11
+    
+	2. 0x88 
 
 ### 汇编
 
 #### 斐波那契数
 
+![image-20240619112610242](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406191126358.png)
 
+### 尾递归的优化、
 
-### 
+> ![image-20240619112555245](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406191125338.png)
+
+![image-20240619112536945](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406191125070.png)
