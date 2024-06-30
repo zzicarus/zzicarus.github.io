@@ -16,12 +16,6 @@
 @import url("https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.css");
 @import url("https://chinese-fonts-cdn.deno.dev/chinesefonts3/packages/mzxst/dist/MZPXorig/result.css");
 
-h2::before,
-h3::before,
-h4::before {
-  content: "# ";
-}
-
 .md-ellipsis,
 h1,
 .headerlink {
@@ -62,7 +56,6 @@ strong {
 }
 
 .md-typeset img {
-  border: 2px solid black;
   margin: 5px;
   padding: 2px;
   border-radius: 5px;
