@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -100,6 +100,10 @@
       <link rel="stylesheet" href="../../css/counter.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/obsidian.min.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/obsidian.min.css.map">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -229,7 +233,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+      <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             正在初始化搜索引擎
@@ -613,6 +617,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#git_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git 配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      gitignore的写法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       Usage
@@ -661,6 +683,15 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag
+    </span>
+  </a>
   
 </li>
         
@@ -2828,6 +2859,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#git_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git 配置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      gitignore的写法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     <span class="md-ellipsis">
       Usage
@@ -2876,6 +2925,15 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag
+    </span>
+  </a>
   
 </li>
         
@@ -2946,52 +3004,101 @@
 
 <h1 id="git">Git<a class="headerlink" href="#git" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 307 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 42 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 353 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 61 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Docs</p>
 <ul>
 <li><a href="https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">Command 汇总</a></li>
 <li><a href="https://learngitbranching.js.org/?locale=zh_CN">Learn Branch ：一个分支的练习\学习网站</a></li>
+<li>推荐阅读：ProGit</li>
 </ul>
 </div>
+<h2 id="git_1">Git 配置<a class="headerlink" href="#git_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>查看配置文件 <code>git config --list --show-origin</code> </li>
+<li>查看配置信息 <code>git config --list</code></li>
+<li>配置用户信息
+<div class="language-c++ highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="n">global</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="s">&quot;ZZIcarus&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">--</span><span class="n">global</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="n">email</span><span class="w"> </span><span class="mi">2450606426</span><span class="err">@</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span>
+</span></code></pre></div></td></tr></table></div></li>
+</ul>
+<h2 id="gitignore">gitignore的写法<a class="headerlink" href="#gitignore" title="Permanent link">&para;</a></h2>
+<p>通配符
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a># 忽略所有的 .a 文件
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>*.a
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a># 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>!lib.a
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a># 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>/TODO
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a># 忽略任何目录下名为 build 的文件夹
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a>build/
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a># 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a>doc/*.txt
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a>doc/**/*.pdf
+</span></code></pre></div></td></tr></table></div></p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p>英文状态下按<code>q</code>可以退出<code>git log</code>等输出信息的命令</p>
 </div>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git init 
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>git add
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>git commit -m &quot;message&quot;
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>git status
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>git diff
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>git push origin main
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>git pull origin main
+<p><strong>git log</strong></p>
+<p><img alt="alt text" loading="lazy" src="../images/custom-image-2.png" /></p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git init 
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>git add
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>git commit -m &quot;message&quot;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>git status
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>git diff
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>git push origin main
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a>git pull origin main
 </span></code></pre></div></td></tr></table></div>
 <h3 id="_1">版本回退<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>HEAD表示最新版本，HEAD<sup>,HEAD</sup>^,HEAD~100表示前一个、前两个、前100个版本</p>
 <p><code>d16f1504a39840ea6962aa3e464a51bd8f72f298</code>是版本号，可以在<code>git log</code>命令中查看</p>
 <p>如果在一次回退之后想要回到“未来”，使用<code>git relog</code>, 可以查看之前的命令</p>
-<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>d16f1504a39840ea6962aa3e464a51bd8f72f298
+<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>d16f1504a39840ea6962aa3e464a51bd8f72f298
 </span></code></pre></div></td></tr></table></div>
 <h3 id="_2">远程连接<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div class="admonition tip">
@@ -3006,54 +3113,55 @@
 <p>分离的 HEAD 就是让其指向了某个具体的提交记录而不是分支名。</p>
 </div>
 <p><code>git checkout HEAD</code>
-<img alt="alt text" src="../images/custom-image-1.png" />
-<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>dev<span class="w">  </span>//<span class="w"> </span>创建并跳转
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># 创建 移动分支</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>git<span class="w"> </span>branch<span class="w"> </span>dev
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>dev
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># 移动指定分支到指定位置</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>git<span class="w"> </span>branch<span class="w"> </span>-f<span class="w"> </span>main<span class="w"> </span>HEAD~3
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>git<span class="w"> </span>branch<span class="w">          </span>//<span class="w"> </span>查看当前分支
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># 分支合并</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a>git<span class="w"> </span>merge<span class="w"> </span>dev
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="c1"># 删除分支</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>dev
+<img alt="alt text" loading="lazy" src="../images/custom-image-1.png" />
+<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>dev<span class="w">  </span>//<span class="w"> </span>创建并跳转
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="c1"># 创建 移动分支</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>git<span class="w"> </span>branch<span class="w"> </span>dev
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>dev
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1"># 移动指定分支到指定位置</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>git<span class="w"> </span>branch<span class="w"> </span>-f<span class="w"> </span>main<span class="w"> </span>HEAD~3
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>git<span class="w"> </span>branch<span class="w">          </span>//<span class="w"> </span>查看当前分支
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1"># 分支合并</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>git<span class="w"> </span>checkout<span class="w"> </span>main
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a>git<span class="w"> </span>merge<span class="w"> </span>dev
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="c1"># 删除分支</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>dev
 </span></code></pre></div></td></tr></table></div></p>
 <h4 id="_4">分支合并<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>两种方式<code>git merge</code> <code>git rebase</code></p>
+<h3 id="tag">Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h3>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">&para;</a></h2>
 <h3 id="_5">冲突<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p><a href="https://stackoverflow.com/questions/20467179/git-push-rejected-non-fast-forward/20467414#20467414">stockOverflow</a></p>
-<p><img alt="alt text" src="../images/custom-image.png" /></p>
-<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="w"> </span>!<span class="w"> </span><span class="o">[</span>rejected<span class="o">]</span><span class="w">        </span>main<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="w"> </span><span class="o">(</span>non-fast-forward<span class="o">)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>error:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>push<span class="w"> </span>some<span class="w"> </span>refs<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;github.com:zzicarus/zzicarus.github.io.git&#39;</span><span class="w">   </span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>hint:<span class="w"> </span>Updates<span class="w"> </span>were<span class="w"> </span>rejected<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>tip<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>current<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>behind<span class="w">      </span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>hint:<span class="w"> </span>its<span class="w"> </span>remote<span class="w"> </span>counterpart.<span class="w"> </span>Integrate<span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span>changes<span class="w"> </span><span class="o">(</span>e.g.
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>hint:<span class="w"> </span><span class="s1">&#39;git pull ...&#39;</span><span class="o">)</span><span class="w"> </span>before<span class="w"> </span>pushing<span class="w"> </span>again.
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>hint:<span class="w"> </span>See<span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;Note about fast-forwards&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;git push --help&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>details.<span class="w">  </span>
+<p><img alt="alt text" loading="lazy" src="../images/custom-image.png" /></p>
+<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="w"> </span>!<span class="w"> </span><span class="o">[</span>rejected<span class="o">]</span><span class="w">        </span>main<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="w"> </span><span class="o">(</span>non-fast-forward<span class="o">)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>error:<span class="w"> </span>failed<span class="w"> </span>to<span class="w"> </span>push<span class="w"> </span>some<span class="w"> </span>refs<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;github.com:zzicarus/zzicarus.github.io.git&#39;</span><span class="w">   </span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>hint:<span class="w"> </span>Updates<span class="w"> </span>were<span class="w"> </span>rejected<span class="w"> </span>because<span class="w"> </span>the<span class="w"> </span>tip<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>current<span class="w"> </span>branch<span class="w"> </span>is<span class="w"> </span>behind<span class="w">      </span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>hint:<span class="w"> </span>its<span class="w"> </span>remote<span class="w"> </span>counterpart.<span class="w"> </span>Integrate<span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span>changes<span class="w"> </span><span class="o">(</span>e.g.
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>hint:<span class="w"> </span><span class="s1">&#39;git pull ...&#39;</span><span class="o">)</span><span class="w"> </span>before<span class="w"> </span>pushing<span class="w"> </span>again.
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>hint:<span class="w"> </span>See<span class="w"> </span>the<span class="w"> </span><span class="s1">&#39;Note about fast-forwards&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;git push --help&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>details.<span class="w">  </span>
 </span></code></pre></div></td></tr></table></div>
 <h3 id="_6">分支<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <blockquote>
@@ -3062,47 +3170,47 @@
 <p>需要将本地新建的分支与远程的分支建立连接</p>
 <p>方法1：<code>git push --set-upstream origin dev</code> 这里的dev是新的分支</p>
 <p>方法2： </p>
-<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span>
-<span class="normal"><a href="#__codelineno-4-4">4</a></span>
-<span class="normal"><a href="#__codelineno-4-5">5</a></span>
-<span class="normal"><a href="#__codelineno-4-6">6</a></span>
-<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>fatal:<span class="w"> </span>The<span class="w"> </span>current<span class="w"> </span>branch<span class="w"> </span>dev<span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>upstream<span class="w"> </span>branch.
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>To<span class="w"> </span>push<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>branch<span class="w"> </span>and<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span>as<span class="w"> </span>upstream,<span class="w"> </span>use
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>dev
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>To<span class="w"> </span>have<span class="w"> </span>this<span class="w"> </span>happen<span class="w"> </span>automatically<span class="w"> </span><span class="k">for</span><span class="w"> </span>branches<span class="w"> </span>without<span class="w"> </span>a<span class="w"> </span>tracking
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>upstream,<span class="w"> </span>see<span class="w"> </span><span class="s1">&#39;push.autoSetupRemote&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;git help config&#39;</span>.
-</span></code></pre></div></td></tr></table></div>
-<h3 id="_7">代理问题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="admonition info">
-<p><strong>问题</strong>
-<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span>
-<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>Connection<span class="w"> </span>reset<span class="w"> </span>by<span class="w"> </span><span class="m">20</span>.205.243.160<span class="w"> </span>port<span class="w"> </span><span class="m">443</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>fatal:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span><span class="nb">read</span><span class="w"> </span>from<span class="w"> </span>remote<span class="w"> </span>repository.
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>Please<span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>the<span class="w"> </span>correct<span class="w"> </span>access<span class="w"> </span>rights
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>and<span class="w"> </span>the<span class="w"> </span>repository<span class="w"> </span>exists.
-</span></code></pre></div></td></tr></table></div>
-由于设置的代理与当前的代理不同。一般是翻墙之后，网络代理发生变化。</p>
-</div>
-<p><strong>Solution</strong>
 <div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span>
 <span class="normal"><a href="#__codelineno-6-4">4</a></span>
 <span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>http://127.0.0.1:7890<span class="w"> </span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>http://127.0.0.1:7890
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>fatal:<span class="w"> </span>The<span class="w"> </span>current<span class="w"> </span>branch<span class="w"> </span>dev<span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>upstream<span class="w"> </span>branch.
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>To<span class="w"> </span>push<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>branch<span class="w"> </span>and<span class="w"> </span><span class="nb">set</span><span class="w"> </span>the<span class="w"> </span>remote<span class="w"> </span>as<span class="w"> </span>upstream,<span class="w"> </span>use
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># 取消代理</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>http.proxy
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>https.proxy
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span>git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>dev
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>To<span class="w"> </span>have<span class="w"> </span>this<span class="w"> </span>happen<span class="w"> </span>automatically<span class="w"> </span><span class="k">for</span><span class="w"> </span>branches<span class="w"> </span>without<span class="w"> </span>a<span class="w"> </span>tracking
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>upstream,<span class="w"> </span>see<span class="w"> </span><span class="s1">&#39;push.autoSetupRemote&#39;</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">&#39;git help config&#39;</span>.
+</span></code></pre></div></td></tr></table></div>
+<h3 id="_7">代理问题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p><strong>问题</strong>
+<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>Connection<span class="w"> </span>reset<span class="w"> </span>by<span class="w"> </span><span class="m">20</span>.205.243.160<span class="w"> </span>port<span class="w"> </span><span class="m">443</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>fatal:<span class="w"> </span>Could<span class="w"> </span>not<span class="w"> </span><span class="nb">read</span><span class="w"> </span>from<span class="w"> </span>remote<span class="w"> </span>repository.
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>Please<span class="w"> </span>make<span class="w"> </span>sure<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>the<span class="w"> </span>correct<span class="w"> </span>access<span class="w"> </span>rights
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>and<span class="w"> </span>the<span class="w"> </span>repository<span class="w"> </span>exists.
+</span></code></pre></div></td></tr></table></div>
+由于设置的代理与当前的代理不同。一般是翻墙之后，网络代理发生变化。</p>
+</div>
+<p><strong>Solution</strong>
+<div class="language-shell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>http.proxy<span class="w"> </span>http://127.0.0.1:7890<span class="w"> </span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>https.proxy<span class="w"> </span>http://127.0.0.1:7890
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># 取消代理</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>http.proxy
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--unset<span class="w"> </span>https.proxy
 </span></code></pre></div></td></tr></table></div></p>
 <details class="note">
 <summary>关于代理</summary>
@@ -3129,7 +3237,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月15日 23:23:52</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年7月30日 21:38:47</span>
   </span>
 
     
@@ -3194,7 +3302,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
