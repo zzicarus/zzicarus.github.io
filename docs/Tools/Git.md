@@ -3,10 +3,47 @@
 !!! info "Docs"
     - [Command 汇总](https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
     - [Learn Branch ：一个分支的练习\学习网站](https://learngitbranching.js.org/?locale=zh_CN)
+    - 推荐阅读：ProGit
+## Git 配置
+
+- 查看配置文件 ` git config --list --show-origin` 
+- 查看配置信息 `git config --list`
+- 配置用户信息
+```c++
+$ git config --global user.name "ZZIcarus"
+$ git config --global user.email 2450606426@qq.com
+```
+
+## gitignore的写法
+通配符
+```text
+# 忽略所有的 .a 文件
+*.a
+
+# 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件
+!lib.a
+
+# 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO
+/TODO
+
+# 忽略任何目录下名为 build 的文件夹
+build/
+
+# 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt
+doc/*.txt
+
+# 忽略 doc/ 目录及其所有子目录下的 .pdf 文件
+doc/**/*.pdf
+```
+
 ## Usage
 
 !!! note ""
     英文状态下按`q`可以退出`git log`等输出信息的命令
+
+**git log**
+
+![alt text](images/custom-image-2.png)
 
 ```
 git init 
@@ -77,6 +114,7 @@ git branch -d dev
 
 两种方式`git merge` `git rebase`
 
+### Tag
 
 ## Errors
 

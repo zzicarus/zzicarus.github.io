@@ -1,6 +1,12 @@
+# local 
 .vscode/
+.typora/
+.cache/
+.obsidian/
+# 
 site/
 temp/
 ignored/
-TODO.md
-.cache/
+
+# private
+/TODO.md

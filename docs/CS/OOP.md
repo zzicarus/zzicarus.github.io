@@ -5,13 +5,13 @@
 
     本来是想要把C++的笔记作为每个点一个Page，后来发现这样从复习OOP的角度非常不利。
 	
-    内容来源：陈翔老师上课内容及PPT，ljj老师PPT，及部分网络资源（但是注意，ljj 21年的PPT中内容有一定纰漏，看的时候不要盲从，有一部分规范已经被较新的规范取代）
+    内容来源：陈翔老师上课内容及PPT，ljj老师PPT，及部分网络资源（ljj 21年的PPT中内容有一定纰漏，看的时候不要盲从，有一部分规范已经被较新的规范取代;但总体上还是挺实用的）
 
     - 一些题目收集的BLOG
 		- [OOP Midterm Review](https://zhoutimemachine.github.io/note/courses/oop-mid-review/)
     - 历年卷
         - [98汇总](https://www.cc98.org/topic/5642245)
-        - [新的98汇总](https://www.cc98.org/topic/5928482) 这个已经很全面了，建议看这个
+        - [新的98汇总](https://www.cc98.org/topic/5928482) **这个已经很全面了，建议看这个
     - 网站推荐
         - [cpp reference](https://en.cppreference.com/w/)
         - [modern CPP Programing](https://github.com/federico-busato/Modern-CPP-Programming) 这个里面讲得很多东西很实用
@@ -23,17 +23,19 @@
 !!! tip "课程评价/总结"
     授课教师：陈翔
 
-    陈翔老师是OOP这门课公认的“神”，在课堂上用Vim演示代码讲解C++特性，~~很符合我对程序员的认识~~
+    陈翔老师是OOP这门课公认的“神”，在课堂上用Vim演示代码讲解C++特性，~~很符合我对程序员的刻板印象~~
 
     关于考试：这门课的考试这几年不是很难，考前一定刷几套历年卷，虽然风格差异会比较大，但对于难点的考察大差不差。
 
 
 !!! success "分数构成"
-    分数构成多个教学班相差不大。据我个人了解，翁恺老师班会有期中考试、课前小测、签到，平时作业也会稍微多一点。
+    分数构成多个教学班相差不大。据我个人了解，翁恺老师班会有期中考试、课前小测、签到，平时作业也会稍微多一点。cx老师班平时分基本给满
 
     - Attendance
-    - Assignment
+    - Assignment 陈翔老师班级作业单周一个Lab，双周是简单的程序填空、选择
     - Lab
+        - 平时Lab
+        - Final Lab 做序列化的处理
     - Exam
         - Fill in Blank (text) -------- 30 points, 8 problems
             - write the output of the given code

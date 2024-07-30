@@ -83,6 +83,7 @@ plugins:
 
   - statistics:
       words_per_minute: 200
+  - pub-obsidian
 
 extra_css:
   - css/extra.css
