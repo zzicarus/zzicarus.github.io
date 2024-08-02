@@ -1,3 +1,7 @@
+---
+tags:
+  - class/DB
+---
 # SQL
 
 - A query returns a single table 

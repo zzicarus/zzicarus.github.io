@@ -1,3 +1,7 @@
+---
+tags:
+  - class/DB
+---
 # Relation
 
 > § Structure of Relational Databases

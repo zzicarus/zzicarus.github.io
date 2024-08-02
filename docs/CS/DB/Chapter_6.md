@@ -1,3 +1,7 @@
+---
+tags:
+  - class/DB
+---
 # Chapter 6 | ER Model
 
 ## How to draw a ER graph
