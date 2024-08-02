@@ -1,4 +1,8 @@
-#tools 
+---
+tags:
+  - tools/shell
+---
+
 # Shell
 
 **环境变量**
@@ -121,7 +125,6 @@ ls *.py
 ls project?
 {}
 ```
-
 ### prompt
 
 <span class="box box-blue">xargs</span>

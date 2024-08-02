@@ -1,4 +1,11 @@
+---
+tags:
+  - tools/git
+---
+
 # Git
+
+[[Collection]]
 
 !!! info "Docs"
     - [Command 汇总](https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
@@ -13,7 +20,6 @@
 $ git config --global user.name "ZZIcarus"
 $ git config --global user.email 2450606426@qq.com
 ```
-
 ## gitignore的写法
 通配符
 ```text
@@ -45,7 +51,7 @@ doc/**/*.pdf
 
 ![alt text](images/custom-image-2.png)
 
-```
+```shell title='usage'
 git init 
 
 git add

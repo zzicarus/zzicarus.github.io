@@ -1,4 +1,7 @@
-
+---
+tags:
+  - tools/GNUMake
+---
 
 # GNU Make
 
@@ -15,10 +18,10 @@
 
     windows 下可以使用 gcc _.c -o _.o
 
-## 使用过程
 
 ```c
 
+## 使用过程
 // 指定文件
 gcc your_source_file.c -o ../your_executable
 // 链接c++标准库

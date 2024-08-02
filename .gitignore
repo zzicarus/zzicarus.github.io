@@ -1,12 +1,14 @@
-# local 
+# local setting
 .vscode/
 .typora/
 .cache/
 .obsidian/
-# 
+
+# not required
 site/
 temp/
 ignored/
 
 # private
-/TODO.md
+TODO.md/
+/docs/NOTES

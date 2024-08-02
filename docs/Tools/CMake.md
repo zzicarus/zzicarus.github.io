@@ -1,4 +1,8 @@
-#tools 
+---
+tags:
+  - tools/Cmake
+---
+
 # CMake
 
 !!! abstract "资源"
