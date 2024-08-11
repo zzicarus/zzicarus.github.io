@@ -168,6 +168,7 @@ nav:
       - CS/index.md
       - OOP: CS/OOP.md
       - DB:
+          - CS/DB/index.md
           - 1. Interface: CS/DB/Chapter_1.md
           - 2. Relation: CS/DB/Chapter_2.md
           - 345. SQL: CS/DB/Chapter_3_4_5.md
@@ -182,6 +183,7 @@ nav:
           - 18. 并发控制: CS/DB/Chapter_18.md
           - 19. Recovery: CS/DB/Chapter_19.md
       - CO:
+          - CS/CO/index.md
           - 1 Interface: CS/CO/1_Interface.md
           - 2 Instruction: CS/CO/2_Instruction.md
           - 3 Arithmetic for Computer: CS/CO/3_Arithmetic.md
@@ -213,11 +215,6 @@ nav:
               - inherit: CodingLanguage/CPP/classes/inherit.md
               - copy: CodingLanguage/CPP/classes/Copy.md
               - OverloadOperator: CodingLanguage/CPP/classes/OverloadOperator.md
-          - cake:
-              - const: CodingLanguage/CPP/const.md
-              - memory: CodingLanguage/CPP/memory.md
-              - Static&Extern: CodingLanguage/CPP/Static&Extern.md
-              - TypeCast: CodingLanguage/CPP/TypeCast.md
       - ⌨️ Python:
           - CodingLanguage/Python/index.md
           - 💡CS61A: CodingLanguage/Python/CS61A.md

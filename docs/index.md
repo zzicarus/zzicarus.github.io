@@ -1,5 +1,5 @@
 ---
-statistics: false
+statistics: true
 tags:
   - homepage
 ---
@@ -12,5 +12,3 @@ tags:
         {{ words }} 个字<br>
         {{ codes }} 行代码  
     </div>  
-
-![custom-HomePage.jpg](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202407302316737.jpg)
