@@ -319,11 +319,7 @@ for <name> in <expression>:
 
 ### Sequence Processing
 
-:::info
-**List Comprehensions**
-:::
-
-```python
+```python title='list Compression'
 [<map expression> for <name> in <sequence expression> if <filter expression>]
 # 注意是在【】中进行，生成新的 List 
 >>> odds = [1, 3, 5, 7, 9]
@@ -333,11 +329,7 @@ for <name> in <expression>:
 sum max min , etc
 ```
 
-:::info
-**Higher-Order Function**
-:::
-
-```python
+```python title='Higher-Order Function'
 # reduce 重复计算
 from functools import reduce
 reduce(fn_reduce,iterable,initial)
@@ -347,20 +339,12 @@ list(r)
 # 
 ```
 
-:::info
-**Conventional Names**
-:::
-
-```python
+```python title='Conventional Names'
 >>> apply_to_all = lambda map_fn, s: list(map(map_fn, s))
 >>> keep_if = lambda filter_fn, s: list(filter(filter_fn, s))
 ```
 
-:::info
-**Sequence Abstraction**
-:::
-
-```python
+```python title='Sequence Abstraction'
 lists = [0,1,2,3,4,5,6,7]
 # Membership
 x in lists / not in

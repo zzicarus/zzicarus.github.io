@@ -35,7 +35,7 @@ The **immediate-modification** scheme allows updates of **an uncommitted transac
 **redo undo**
 
 - redo 历史重演
-- undo 需要记录日志  redo-only，完成后，记录 <T abort>
+- undo 需要记录日志  redo-only，完成后，记录\<T abort>
     - 正常执行过程中的回滚
     - 系统崩溃后恢复发现没有结束
 
@@ -52,11 +52,6 @@ The **immediate-modification** scheme allows updates of **an uncommitted transac
 补偿日志记录
 
 ![image-20240614143814771](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406141438835.png)
-
-### 
-
-
-
 ## 缓冲区管理
 
 ![image-20240614150207603](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406141502665.png)
@@ -94,8 +89,6 @@ Typically an offset from beginning of log file to allow fast access
 
 - **Physiological redo**
 
-
-
 - Dirty Page Table
     - 在后台周期性写回，而不是在Check Point
 
@@ -123,7 +116,6 @@ Typically an offset from beginning of log file to allow fast access
 - Redo
     - 脏页表，注意是跟log record中的LSN比较
     - 磁盘页
-    - ![image-20240614160210994](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20240614160210994.png)
 - Undo
 
 ![image-20240614160502406](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406141605474.png)
