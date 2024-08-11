@@ -10,28 +10,24 @@
         <meta name="author" content="ZZIcarus">
       
       
-        <link rel="canonical" href="https://zzicarus.github.io/CS/DB/Chapter_18/">
+        <link rel="canonical" href="https://zzicarus.github.io/Tools/Docker/">
       
       
-        <link rel="prev" href="../Chapter_17/">
       
       
-        <link rel="next" href="../Chapter_19/">
-      
-      
-      <link rel="icon" href="../../../images/joystick.png">
+      <link rel="icon" href="../../images/joystick.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
     
     
       
-        <title>18. 并发控制 - ZZIcarus NOTE</title>
+        <title>NOTE - ZZIcarus NOTE</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -91,21 +87,21 @@
       
     
     
-      <link rel="stylesheet" href="../../../css/extra.css">
+      <link rel="stylesheet" href="../../css/extra.css">
     
-      <link rel="stylesheet" href="../../../css/status.css">
+      <link rel="stylesheet" href="../../css/status.css">
     
-      <link rel="stylesheet" href="../../../css/Myself.css">
+      <link rel="stylesheet" href="../../css/Myself.css">
     
-      <link rel="stylesheet" href="../../../css/counter.css">
+      <link rel="stylesheet" href="../../css/counter.css">
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/obsidian.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/obsidian.min.css">
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/obsidian.min.css.map">
+      <link rel="stylesheet" href="../../assets/stylesheets/obsidian.min.css.map">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -131,7 +127,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#docker" class="md-skip">
           跳转至
         </a>
       
@@ -145,7 +141,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="ZZIcarus NOTE" class="md-header__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
+    <a href="../.." title="ZZIcarus NOTE" class="md-header__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v1h-1v6h-1v1H9v1H8v1H7v1H5v-1H4v-1H3V9H2v6h1v1h1v1h1v1h1v4h2v-1H7v-1h1v-1h1v-1h1v1h1v3h2v-1h-1v-4h1v-1h1v-1h1v-3h1v1h1v-2h-2V9h5V8h-3V7h5V3h-1V2m-7 1h1v1h-1Z"/></svg>
@@ -165,7 +161,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              18. 并发控制
+              NOTE
             
           </span>
         </div>
@@ -279,7 +275,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
     
@@ -299,7 +295,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Tools/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
     
@@ -315,13 +311,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../CS/" class="md-tabs__link">
           
   
     
@@ -341,7 +335,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../CodingLanguage/" class="md-tabs__link">
+        <a href="../../CodingLanguage/" class="md-tabs__link">
           
   
     
@@ -361,7 +355,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../%E6%9D%82%E8%B0%88/" class="md-tabs__link">
+        <a href="../../%E6%9D%82%E8%B0%88/" class="md-tabs__link">
           
   
     
@@ -381,7 +375,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../others/" class="md-tabs__link">
+        <a href="../../others/" class="md-tabs__link">
           
   
     
@@ -416,7 +410,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="ZZIcarus NOTE" class="md-nav__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
+    <a href="../.." title="ZZIcarus NOTE" class="md-nav__button md-logo" aria-label="ZZIcarus NOTE" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2v1h-1v6h-1v1H9v1H8v1H7v1H5v-1H4v-1H3V9H2v6h1v1h1v1h1v1h1v4h2v-1H7v-1h1v-1h1v-1h1v1h1v3h2v-1h-1v-4h1v-1h1v-1h1v-3h1v1h1v-2h-2V9h5V8h-3V7h5V3h-1V2m-7 1h1v1h-1Z"/></svg>
@@ -467,7 +461,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
+            <a href="../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -531,7 +525,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Tools/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -564,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tools/Git/" class="md-nav__link">
+      <a href="../Git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -585,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tools/Shell/" class="md-nav__link">
+      <a href="../Shell/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -606,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tools/GNUMake/" class="md-nav__link">
+      <a href="../GNUMake/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -669,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Tools/%E7%AB%99%E7%82%B9/mkdocs/" class="md-nav__link">
+      <a href="../%E7%AB%99%E7%82%B9/mkdocs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -702,8 +696,6 @@
       
   
   
-    
-  
   
   
     
@@ -726,22 +718,19 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../CS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -752,13 +741,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             课内
@@ -774,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OOP/" class="md-nav__link">
+      <a href="../../CS/OOP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -792,10 +781,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -831,11 +818,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
@@ -849,7 +836,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             DB
@@ -863,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_1/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -884,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_2/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -905,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_3_4_5/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_3_4_5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -926,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_6/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -947,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_7/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -968,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_12/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -989,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_13/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1010,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_14/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_14/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1031,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_15/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_15/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1052,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_16/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_16/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1073,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_17/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_17/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1091,30 +1078,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    18. 并发控制
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../CS/DB/Chapter_18/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1123,178 +1090,6 @@
   
 
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="This Page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      This Page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#two-phase-locking-protocol" class="md-nav__link">
-    <span class="md-ellipsis">
-      Two-Phase Locking Protocol | 两阶段封锁协议
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Two-Phase Locking Protocol | 两阶段封锁协议">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lock-conversion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lock Conversion
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#automatic-acquisition-of-locks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Automatic Acquisition of Locks
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dead-lock" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dead Lock | 死锁
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dead Lock | 死锁">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#recovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recovery
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#graph-based" class="md-nav__link">
-    <span class="md-ellipsis">
-      Graph-Based
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Graph-Based">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tree-protocol" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tree Protocol
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-granularity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Multiple Granularity | 多粒度
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#insert-and-delete-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Insert and Delete Operations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Insert and Delete Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#phantom-phenomenon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Phantom Phenomenon | 幻读
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      谓词锁
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#index-locking-to-prevent-phantoms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Index Locking To Prevent Phantoms | 索引封锁
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#next-key-locking-to-prevent-phantoms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next-Key Locking to Prevent Phantoms
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1307,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Chapter_19/" class="md-nav__link">
+      <a href="../../CS/DB/Chapter_19/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1388,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/1_Interface/" class="md-nav__link">
+      <a href="../../CS/CO/1_Interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1409,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/2_Instruction/" class="md-nav__link">
+      <a href="../../CS/CO/2_Instruction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1430,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/3_Arithmetic/" class="md-nav__link">
+      <a href="../../CS/CO/3_Arithmetic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1451,7 +1246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/4_Processor/" class="md-nav__link">
+      <a href="../../CS/CO/4_Processor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1472,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/5_/" class="md-nav__link">
+      <a href="../../CS/CO/5_/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1493,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CO/6/" class="md-nav__link">
+      <a href="../../CS/CO/6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1564,7 +1359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../DIP/DIP_Review/" class="md-nav__link">
+      <a href="../../CS/DIP/DIP_Review/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1593,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" class="md-nav__link">
+      <a href="../../CS/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1648,7 +1443,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../CodingLanguage/" class="md-nav__link ">
+            <a href="../../CodingLanguage/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1706,7 +1501,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../CodingLanguage/C/" class="md-nav__link ">
+            <a href="../../CodingLanguage/C/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1739,7 +1534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/C/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB%E3%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+      <a href="../../CodingLanguage/C/%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB%E3%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1760,7 +1555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/C/%E6%8C%87%E9%92%88/" class="md-nav__link">
+      <a href="../../CodingLanguage/C/%E6%8C%87%E9%92%88/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1818,7 +1613,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../CodingLanguage/CPP/" class="md-nav__link ">
+            <a href="../../CodingLanguage/CPP/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1851,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1922,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/Stadard_Library/IO/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/Stadard_Library/IO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1943,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/Stadard_Library/string/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/Stadard_Library/string/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1964,7 +1759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/Stadard_Library/%E5%AE%B9%E5%99%A8/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/Stadard_Library/%E5%AE%B9%E5%99%A8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1985,7 +1780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/Stadard_Library/Algorithm/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/Stadard_Library/Algorithm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2006,7 +1801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/Stadard_Library/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/Stadard_Library/%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2066,7 +1861,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../CodingLanguage/CPP/classes/" class="md-nav__link ">
+            <a href="../../CodingLanguage/CPP/classes/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2099,7 +1894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/classes/class/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/classes/class/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2120,7 +1915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/classes/模板.md" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/classes/模板.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2141,7 +1936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/classes/inherit.md" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/classes/inherit.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2162,7 +1957,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/classes/Copy/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/classes/Copy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2183,7 +1978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/classes/OverloadOperator/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/classes/OverloadOperator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2260,7 +2055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/const/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/const/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2281,7 +2076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/memory/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/memory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2302,7 +2097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/Static%26Extern/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/Static%26Extern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2323,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/CPP/TypeCast/" class="md-nav__link">
+      <a href="../../CodingLanguage/CPP/TypeCast/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2385,7 +2180,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../CodingLanguage/Python/" class="md-nav__link ">
+            <a href="../../CodingLanguage/Python/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2418,7 +2213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/Python/CS61A/" class="md-nav__link">
+      <a href="../../CodingLanguage/Python/CS61A/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2439,7 +2234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../CodingLanguage/Python/basic/" class="md-nav__link">
+      <a href="../../CodingLanguage/Python/basic/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2496,7 +2291,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../%E6%9D%82%E8%B0%88/" class="md-nav__link ">
+            <a href="../../%E6%9D%82%E8%B0%88/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2556,7 +2351,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../others/" class="md-nav__link ">
+            <a href="../../others/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2589,7 +2384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C/" class="md-nav__link">
+      <a href="../../others/%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2647,7 +2442,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-nav__link ">
+            <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2680,7 +2475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%201%20%20%E4%BB%B7%E6%A0%BC%E6%9C%BA%E5%88%B6/" class="md-nav__link">
+      <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%201%20%20%E4%BB%B7%E6%A0%BC%E6%9C%BA%E5%88%B6/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2701,7 +2496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%202%20%E6%B6%88%E8%B4%B9%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
+      <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%202%20%E6%B6%88%E8%B4%B9%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2722,7 +2517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%203%20%E7%94%9F%E4%BA%A7%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
+      <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%203%20%E7%94%9F%E4%BA%A7%E8%80%85%E7%90%86%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2743,7 +2538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%204%20%E5%BC%B9%E6%80%A7%E7%90%86%E8%AE%BA/" class="md-nav__link">
+      <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%204%20%E5%BC%B9%E6%80%A7%E7%90%86%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2764,7 +2559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%205%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+      <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%205%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2785,7 +2580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%206%20%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+      <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%206%20%E4%B8%8D%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E5%B8%82%E5%9C%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2806,7 +2601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%207%20%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
+      <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%207%20%E5%8D%9A%E5%BC%88%E8%AE%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2827,7 +2622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%208%20%E8%A6%81%E7%B4%A0%E5%B8%82%E5%9C%BA/" class="md-nav__link">
+      <a href="../../others/%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chapter%208%20%E8%A6%81%E7%B4%A0%E5%B8%82%E5%9C%BA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2885,152 +2680,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#two-phase-locking-protocol" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Two-Phase Locking Protocol | 两阶段封锁协议
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Two-Phase Locking Protocol | 两阶段封锁协议">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lock-conversion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lock Conversion
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#automatic-acquisition-of-locks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Automatic Acquisition of Locks
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#dead-lock" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dead Lock | 死锁
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Dead Lock | 死锁">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#recovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recovery
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#graph-based" class="md-nav__link">
-    <span class="md-ellipsis">
-      Graph-Based
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Graph-Based">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tree-protocol" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tree Protocol
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#multiple-granularity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Multiple Granularity | 多粒度
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#insert-and-delete-operations" class="md-nav__link">
+  <a href="#image" class="md-nav__link">
     <span class="md-ellipsis">
-      Insert and Delete Operations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Insert and Delete Operations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#phantom-phenomenon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Phantom Phenomenon | 幻读
+      image
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#container" class="md-nav__link">
     <span class="md-ellipsis">
-      谓词锁
+      container
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#index-locking-to-prevent-phantoms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Index Locking To Prevent Phantoms | 索引封锁
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#next-key-locking-to-prevent-phantoms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next-Key Locking to Prevent Phantoms
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3052,174 +2724,17 @@
   
 
 
-<h1 id="_1">并发控制<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 738 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 13 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 4 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 30 个字 </p>
 </div>
-<h2 id="two-phase-locking-protocol"><strong>Two-Phase Locking Protocol</strong> | 两阶段封锁协议<a class="headerlink" href="#two-phase-locking-protocol" title="Permanent link">&para;</a></h2>
-<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406120054297.png" alt="image-20240612005442143" style="zoom:33%;" /></p>
-<ul>
-<li>无法保证可恢复性</li>
-</ul>
-<p>=&gt; 是冲突可并行的充分条件，但不是必要条件；满足两阶段封锁协议，一定可冲突串行化，但可冲突串行化，不一定满足两阶段封锁协议</p>
-<p><strong>strict | 严格的</strong></p>
-<p>a transaction must hold all its exclusive locks <strong>till it commits/aborts.</strong></p>
-<ul>
-<li>排他锁维持更长的时间</li>
-<li>Ensures recoverability and avoids cascading roll-backs</li>
-</ul>
-<p><strong>rigorous | 强</strong></p>
-<ul>
-<li>所有的锁都到最后（commit/abort）才释放 </li>
-<li>Transactions can be serialized in the order in which they commit.</li>
-</ul>
-<h3 id="lock-conversion">Lock Conversion<a class="headerlink" href="#lock-conversion" title="Permanent link">&para;</a></h3>
-<p>U Lock, 先读后面可能会写</p>
-<p><strong>Growing</strong></p>
-<ul>
-<li>upgrade</li>
-</ul>
-<p><strong>Shrinking</strong></p>
-<ul>
-<li>downgrade</li>
-</ul>
-<h3 id="automatic-acquisition-of-locks">Automatic Acquisition of Locks<a class="headerlink" href="#automatic-acquisition-of-locks" title="Permanent link">&para;</a></h3>
-<p><code>write</code></p>
-<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">operation</span><span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">processed</span><span class="w"> </span><span class="k">as</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">Ti</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">lock</span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">D</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">begin</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">necessary</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="k">until</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">trans</span><span class="p">.</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="k">any</span><span class="w"> </span><span class="k">lock</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">D</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">Ti</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">lock</span><span class="o">-</span><span class="n">S</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">D</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="k">then</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">            </span><span class="n">upgrade</span><span class="w"> </span><span class="k">lock</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">lock</span><span class="o">-</span><span class="n">X</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="k">else</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">        </span><span class="k">grant</span><span class="w"> </span><span class="n">Ti</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">lock</span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">D</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w"> </span><span class="k">end</span><span class="p">;</span>
-</span></code></pre></div></td></tr></table></div>
-<h2 id="dead-lock">Dead Lock | 死锁<a class="headerlink" href="#dead-lock" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>System is <strong>deadlocked</strong> if there is a set of transactions such that every transaction in the set is waiting for another transaction in the set.  两个事务相互等待。</p>
-<ul>
-<li>死锁是基于锁协议共有的问题</li>
-</ul>
-<p><img alt="image-20240611232202759" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406112322824.png" /></p>
-</blockquote>
-<p><strong>Deadlock Prevention</strong></p>
-<p><strong>Timeout-Based Schemes</strong></p>
-<ul>
-<li>
-<p>a transaction waits for a lock only for a specified amount of time. After that, the wait times out and the transaction is rolled back.</p>
-</li>
-<li>
-<p>thus deadlocks are not possible</p>
-</li>
-<li>
-<p>simple to implement; but <strong>starvation</strong> is possible. Also <strong>difficult to determine good value</strong> of the timeout interval. 一直无法获得锁，一直在等待</p>
-</li>
-</ul>
-<h3 id="detection">Detection<a class="headerlink" href="#detection" title="Permanent link">&para;</a></h3>
-<p><strong>wait-for Graph</strong></p>
-<ul>
-<li><span class="arithmatex">\(T_i -&gt; T_j，前一个等待后面的\)</span></li>
-</ul>
-<h3 id="recovery">Recovery<a class="headerlink" href="#recovery" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Some transaction will have to rolled back (made a <strong>victim</strong>) to break deadlock.  选择牺牲者<ul>
-<li>Select that transaction as victim that will incur minimum cost.</li>
-</ul>
-</li>
-<li>Rollback -- determine how far to roll back transaction  回滚<ul>
-<li><strong>Total rollback:</strong> Abort the transaction and then restart it.</li>
-<li><strong>Partial rollback</strong>: Roll back victim transaction only as far as necessary to release locks that another transaction in cycle is waiting for.</li>
-</ul>
-</li>
-</ul>
-<h2 id="graph-based">Graph-Based<a class="headerlink" href="#graph-based" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>对数据的访问有一定“预知”</p>
-</blockquote>
-<h3 id="tree-protocol">Tree Protocol<a class="headerlink" href="#tree-protocol" title="Permanent link">&para;</a></h3>
-<p><img src="http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406112347099.png" alt="image-20240611234708975" style="zoom:33%;" /></p>
-<ol>
-<li>只有排他锁</li>
-<li>第一个锁可以加到任何地方，但是之后的锁要加的数据 的父节点一定要有锁</li>
-<li>锁用过之后就可以随时放掉</li>
-<li>同一个节点不能重复加锁（lock - unlock - lock ×）</li>
-</ol>
-<p><strong>好处</strong></p>
-<ul>
-<li>冲突可串行</li>
-<li>不会产生死锁，deadlock-free</li>
-<li>可以早点放锁，提高了并发度、吞吐率</li>
-</ul>
-<p><strong>缺点</strong></p>
-<ul>
-<li>不保证可恢复性  recoverability. 可能读取脏数据<ul>
-<li>可通过添加“提交依赖”来保证这一点</li>
-</ul>
-</li>
-<li>可能锁住更多不需要的数据，lock more data items 
-    —— 比如同时访问根节点和某一个叶子节点，就需要按照Tree的一条path锁到叶子节点</li>
-</ul>
-<h2 id="multiple-granularity">Multiple Granularity | 多粒度<a class="headerlink" href="#multiple-granularity" title="Permanent link">&para;</a></h2>
-<p>Granularity of locking (level in tree where locking is done):</p>
-<ul>
-<li><strong>Fine granularity</strong> (细粒度) (lower in tree): high concurrency, high locking overhead</li>
-<li><strong>Coarse granularity</strong> (粗粒度) (higher in tree): low locking overhead, low concurrency</li>
-</ul>
-<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406120004561.png" alt="image-20240612000432340" style="zoom: 50%;" /></p>
-<ul>
-<li>可以在更大的粒度上面加锁</li>
-</ul>
-<p><strong>Intension Lock</strong></p>
-<p>在一个节点显式加锁之前, 对他的父节点加意向锁</p>
-<p><strong>相容表</strong></p>
-<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406120015105.png" alt="image-20240612001459905" style="zoom: 33%;" /></p>
-<ul>
-<li>在粗粒度上面加锁，可以先不去管下面的细粒度是否会冲突；<strong>意向</strong></li>
-</ul>
-<p><img alt="image-20240612011019748" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406120110999.png" /></p>
-<div class="admonition example">
-<p class="admonition-title">example</p>
-<p><img alt="image-20240612001931663" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406120019972.png" />
-- 加锁从上面
-- Unlock从下面</p>
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">和虚拟机的不同之处</p>
+<p>他们都是通过对 operating system 进行虚拟化来实现</p>
 </div>
-<h2 id="insert-and-delete-operations">Insert and Delete Operations<a class="headerlink" href="#insert-and-delete-operations" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Locking rules for insert/delete operations<ul>
-<li>An exclusive lock must be obtained on an item before it is deleted    自动加排他锁</li>
-<li>A transaction that inserts a new tuple into the database  automatically gives an X-mode lock on the tuple</li>
-</ul>
-</li>
-</ul>
-<h3 id="phantom-phenomenon">Phantom Phenomenon | 幻读<a class="headerlink" href="#phantom-phenomenon" title="Permanent link">&para;</a></h3>
-<p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406121904493.png" alt="image-20240612190420368" style="zoom: 33%;" /></p>
-<h3 id="_2">谓词锁<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<h3 id="index-locking-to-prevent-phantoms"><strong>Index Locking To Prevent Phantoms</strong> | 索引封锁<a class="headerlink" href="#index-locking-to-prevent-phantoms" title="Permanent link">&para;</a></h3>
-<ul>
-<li>在索引上面锁住一段</li>
-</ul>
-<h3 id="next-key-locking-to-prevent-phantoms"><strong>Next-Key Locking to Prevent Phantoms</strong><a class="headerlink" href="#next-key-locking-to-prevent-phantoms" title="Permanent link">&para;</a></h3>
-<ul>
-<li>锁住单独的数据</li>
-</ul>
-<p><img alt="image-20240612192118855" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406121921950.png" /></p>
+<h2 id="image">image<a class="headerlink" href="#image" title="Permanent link">&para;</a></h2>
+<h2 id="container">container<a class="headerlink" href="#container" title="Permanent link">&para;</a></h2>
 
 
 
@@ -3242,7 +2757,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月18日 19:08:21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年8月11日 21:35:34</span>
   </span>
 
     
@@ -3252,7 +2767,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年1月19日 14:57:50</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年8月11日 21:35:34</span>
   </span>
 
     
@@ -3304,26 +2819,26 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
-        <script src="../../../javascripts/box.js"></script>
+        <script src="../../javascripts/box.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../../../javascripts/katex.js"></script>
+        <script src="../../javascripts/katex.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
-        <script src="../../../javascripts/extra.js"></script>
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>
