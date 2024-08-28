@@ -65,13 +65,20 @@
 **类的const对象**
 
 - 不能调用non-const函数
+### 初始化
+>[!note] 不同类型
+>1. 直接初始化
+>2. Uniform initialization
+> ```c++
+> int a = 5.0; 
+> int b(5.0);
+> int c{5.0};  // 这里会运行前报错，相当于这样必须强类型匹配
+> ```
 
 ### inline
 
 - 递归函数不能声明为inline函数
 - 类中含有函数体默认为inline函数
-
-
 ### 引用
 
 > 像是一个指针常量,只有在初始化的时候才会赋值,之后它的值不变,但是指向的可能会变. 
@@ -93,17 +100,10 @@
     ```
 
 ### static & extern
-
-[NOTES](https://zzicarus.github.io/CodingLanguage/CPP/Static%26Extern/)
-
-### inline Function
-```c++
-inline int add(int a,int b){...}
-```
-
-### Defalut Value
-- Defalut value必须在函数最右侧
-- 第一个缺省值出现之后，后面的所有缺省值都默认为缺省值
+[[Static&Extern]]
+### Default Value
+- Default value必须在函数最右侧
+- 第一个缺省值出现之后，后面的所有缺省值都默认为缺省[]值
 ```c++
 int fun(int I,int j=5,int k);   //错误
 int fun(int I,int k = 1,int j=5);   //正确
@@ -264,7 +264,26 @@ namespace mine {
 - 
 
 **Protocol / Interface classes**
+### lambda 表达式
+``[capture list] (parameter list) -> return type { function body }
+- Capture list
+>[!note] 不同的捕获类型
+>1. 值捕获
+>2. 引用捕获
+>3. 隐式捕获
+> ```c++ 
+> 	int x = 10;
+    int y = 5;
+    auto f1 = [=, &y](int z){ return x + y + z; }; // x 隐式捕获 y引用捕获 z 参数
+    y = 1;
+    std::cout << f1(1);
+> ```
+- Parameter list
+- Return type
+- 函数体
+```c++
 
+```
 ## Memory
 
 ### 内存基础知识
@@ -692,8 +711,6 @@ int main()
 
 ## 重载 Overload
 
-
-
 ### 函数重载
 
 ### 运算符重载
@@ -837,7 +854,7 @@ z = 3 + 7; // Integer(10)  先求和 后转换
     	char *p;
     public:
         A& operator=(const A& a){
-            if(a == *this){
+            if(a == *this){ // self-assignment
                 ...
             }else{
                 delete [] p;
@@ -1043,16 +1060,11 @@ ostream& operator<<(ostream& out,T& obj){
 ### Stream流
 
 - cin
-
 	- standard input
-
 - cout
 	- standard output
-
-
 - cerr 
 	- unbuffered error (debugging) output
-
 - clog
 	- buffered error (debugging) output
 
@@ -1193,7 +1205,13 @@ class B<T1*>{ };
 ## Iterator
 
 > Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
-
+```c++ title='STL 迭代器共有的操作'
+iter = s.begin() # initialize
+++iter			# increment
+*iter			# derefer
+iter != s.end() # compare
+new_iter = iter # copy
+```
 封装
 ```c++ 
 template<class T>
@@ -1231,6 +1249,7 @@ public:
 }
 ```
 ### Catagory
+迭代器总体可以分为五大类
 ![alt text](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406301125160.png)
 
 category info
@@ -1244,6 +1263,9 @@ struct bidirectional_iterator_tag
 struct random_access_iterator_tag
  : public bidirectional_iterator_tag {};
 ```
+
+>[!note] 和容器的对应关系
+>![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202408191116245.png)
 
 ## 异常处理
 

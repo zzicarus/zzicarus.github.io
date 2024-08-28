@@ -11,6 +11,7 @@ tags:
     - [Command 汇总](https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
     - [Learn Branch ：一个分支的练习\学习网站](https://learngitbranching.js.org/?locale=zh_CN)
     - 推荐阅读：ProGit
+
 ## Git 配置
 
 - 查看配置文件 ` git config --list --show-origin` 
@@ -20,7 +21,10 @@ tags:
 $ git config --global user.name "ZZIcarus"
 $ git config --global user.email 2450606426@qq.com
 ```
-## gitignore的写法
+
+## gitignore
+[官方模板](https://github.com/github/gitignore)
+
 通配符
 ```text
 # 忽略所有的 .a 文件

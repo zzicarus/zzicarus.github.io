@@ -219,8 +219,6 @@ nav:
           - CodingLanguage/Python/index.md
           - 💡CS61A: CodingLanguage/Python/CS61A.md
           - 一些实践: CodingLanguage/Python/basic.md
-  - 杂谈:
-      - 杂谈/index.md
   - Others:
       - others/index.md
       - 大学物理实验: others/大物实验.md
