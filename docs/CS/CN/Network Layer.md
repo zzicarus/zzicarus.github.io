@@ -1,6 +1,7 @@
 ---
 tags:
   - doing
+  - CN
 statistics: true
 title: NOTE
 author: zzicarus

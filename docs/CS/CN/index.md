@@ -1,13 +1,11 @@
 ---
 tags:
   - doing
-statistics: true
-title: NOTE
-publish: draft
-author: zzicarus
+  - CN
 Statistics: false
 Title: Index
 Publish: draft
+author: zzicarus
 ---
 >[!abstract] 概述
 
@@ -17,3 +15,7 @@ Publish: draft
 
 >[!todo] Todo
 >- [ ] todolist
+
+- [[../CA/Ch1|Overview]]
+- [[Network Layer]]
+- 

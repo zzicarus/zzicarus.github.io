@@ -1,6 +1,7 @@
 ---
 tags:
   - doing
+  - class/CA
 statistics: true
 title: NOTE
 author: zzicarus
