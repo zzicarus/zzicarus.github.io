@@ -10,7 +10,9 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 ---
 
 # Overview
+
 ## 实验部分 | 了解一些术语和基本协议
+
 >[!note] Terms
 >- ISP（Internet Service Provider）因特网服务提供商。端系统通过 ISP 连接到网络
 >- host/end system 主机/端系统
@@ -32,7 +34,9 @@ MAC 唯一的，基于网卡的
 >![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409121558575.png)
 
 ## 交换方式
+
 `Router` 对收到的 packet 进行存储转发实现分组交换
+
 - 电路交换
   有线电话网络。
 	- 连接建立 —— 数据传送 —— 连接释放
@@ -43,7 +47,9 @@ MAC 唯一的，基于网卡的
 	- 可以进行流水线化处理
 
 ## 计算机网络的分类
+
 ## 性能指标
+
 - **Speed**：连接到网络上的节点在数字信道上传送数据的速率，又称之为数据传输速率、比特率，单位 b/s 、bit/s 、bps
 - **Bandwidth 带宽**：最高数据传输速率
 - **Throughput 吞吐量**：单位时间通过某个网络的实际数据量
@@ -53,12 +59,16 @@ MAC 唯一的，基于网卡的
 - **时延带宽积** = 传播时延 * 信道带宽，是发送的第一个 bit 到达终点时，发送端发出的 **bit 数**
 - **Round-Trip Time | RTT 往返时延**: 
 - 
+
 >[!caution] 注意审题
 >看看清楚 bits 还是 byte，1 B = 8 bits
 
 ## OSI 模型 & TCP/IP 模型
+
 ![image.png](http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409242000269.png)
+
 ### OSI
+
 ![image.png](http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409242003204.png)
 
 - Service
@@ -70,20 +80,19 @@ MAC 唯一的，基于网卡的
   传输单位为 ``。
 - Data Link Layer 
   将来自网络层的 IP 分组封装成 **frame**，可靠地传输到相邻结点的网络层。可以将强物理层传输原始比特流的功能，将物理层可能出错的错误进行修正
-  > The data link layer operates between two directly connected nodes and does not provide end-to-end communication。
 
-
-
+  >The data link layer operates between two directly connected nodes and does not provide end-to-end communication。
 
 IP Service
+
 **simple service**
+
 - Datagram
 - Unreliable
 - Best Effort
 - Connectionless
 **features**
 - End-to-end
-
 - 阻止 packets 永远 loop
 	- TTL
 - Fragment packet

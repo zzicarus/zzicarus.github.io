@@ -7,6 +7,7 @@ author: zzicarus
 date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 ---
+
 # Physical Layer
 
 - 速率
@@ -21,8 +22,9 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 		- 极限数据传输速率 = $2Wlog_2V$ (V 为每个码元的离散电平数目——多少种不同的码元)
 	- **Shannon’s formula** for capacity of **a noisy channel**
 		- Max data rate = $Wlog_2{(1+\frac{S}{N})}$  S 传输信号的平均功率，N 高斯噪声功率，信噪比 = S/N = $10log_{10}S/N$ dB
+
 >[!note] 
->
+
 - 编码：数据 -> 数字信号
 	- **归零编码 Return to Zero (RZ)**: 每个时钟周期均跳变到低电平（归零）
 	- **非归零编码 Non-Return to Zero (NRZ)**
@@ -41,6 +43,7 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 	- 
 
 ## Guided Transmission Media
+
 - Persistent storage
 - Twisted pairs 双绞线
 - Coaxial cable 同轴电缆
@@ -52,27 +55,42 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 ## Wireless
 
 ## From Waveforms to bits
+
 - 傅里叶变换
   ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251023470.png)
 
 - Bandwidth-limited signals
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409260926012.png)
+
 ## Multiplexing
+
 ### Frequency Division Multiplexing
+
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261034571.png)
+
 - 同时不同频
+
 ### Time Division Multiplexing
+
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261034127.png)
+
 - 按时间分时
+
 ### Code Division Multiplexing
+
 - 码分，更加灵活可以灵活调整带宽的分配
 - 同频又同时，同时发出但存在规律可以反解码
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261044456.png)
 - 0 silence，-1 发送 0，1 发送 1
+
 ### Wavelength Division Multiplexing
+
 - 不同光的频率不同，本质上是频分
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261046301.png)
+
 ## 设备 | 中继器
+
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261055974.png)
+
 - 上面的方式 A/D 转换次数多，信噪比低，传输速率低
 - Trunk
