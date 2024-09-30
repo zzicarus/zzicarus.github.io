@@ -8,34 +8,24 @@ tags:
 > **资料:**
 
 > [makefile 介绍 — 跟我一起写 Makefile 1.0 文档](https://seisman.github.io/how-to-write-makefile/introduction.html)
+> [上面文档的重制版本](https://write-makefile-with-me.elabtalk.com/articles)
 
 > **视频:**
 
 > 一个较简单的入门 [https://www.youtube.com/watch?v=E1_uuFWibuM&t=1152s](https://www.youtube.com/watch?v=E1_uuFWibuM&t=1152s)
 
-!!! tip "TIPS"
-    -  cc 是 C 编译器的命令。在一般的系统上（Unix/Linux），通常是一个指向 实际 C 编译器（gcc）的符号链接或别名
-
-    windows 下可以使用 gcc _.c -o _.o
-
+>[!tip] Tips
+>- cc 是 C 编译器的命令。在一般的系统上（Unix/Linux），通常是一个指向实际 C 编译器（gcc）的符号链接或别名。一般可以直接把它定义为一个变量，更方便书写
+>- `make -j` 可以并行编译 `make -j($nproc)` 使用当前所有核
+>- 在某些命令前面可以加 `-` 表示不理会无法正确执行的步骤。例如，`-include <filename>` 就会自动忽视无法找到路径的 `makefile `
 
 ```c
-
 ## 使用过程
 // 指定文件
 gcc your_source_file.c -o ../your_executable
 // 链接c++标准库
 gcc source/pdShow.cpp pd.cpp -o source/pdShow -lstdc++
-
 ```
-
-
-
-
-​    
-
-- 
-
 ## 基本介绍
 
 ```makefile
@@ -52,9 +42,7 @@ target ... : prerequisites ...
 生成该 target 所依赖的文件和/或 target。
 **recipe**
 该 target 要执行的命令（任意的 shell 命令）。
-
 - 第一个目标会作为默认目标
-
 ### 变量
 
 - makefile 中的变量相当于 C 中的宏定义
@@ -63,19 +51,17 @@ target ... : prerequisites ...
 `usage` : `edit : $(objects)`
 
 ### Makefile 如何工作
-
 1. make 会在当前目录下找名字叫“Makefile”或“makefile”的文件。
-2. 如果找到，它会找文件中的第一个目标文件（target），在上面的例子中，他会找到“edit”这个文件，并把这个文件作为最终的目标文件。
+2. 如果找到，它会找文件中的第一个目标文件（target），在上面的例子中，他会找到“edit”这个文件，并**把这个文件作为最终的目标文件**。
 3. 如果 edit 文件不存在，或是 edit 所依赖的后面的 .o 文件的文件修改时间要比 edit 这个文件新，那么，他就会执行后面所定义的命令来生成 edit 这个文件。
 4. 如果 edit 所依赖的 .o 文件也不存在，那么 make 会在当前文件中找目标为 .o 文件的依赖性，如果找到则再根据那一个规则生成 .o 文件。（这有点像一个堆栈的过程）
 5. 当然，你的 C 文件和头文件是存在的啦，于是 make 会生成 .o 文件，然后再用 .o 文件生成 make 的终极任务，也就是可执行文件 edit 了。
 
-### windows
-
 ## 书写规则
 
 - 命令一定要以`tab`开头
-
+>[!note] 
+>现在也可以使用其他方法来避免使用空格和 Tab 之间存在错误。
 ### 通配符
 
 `*`

@@ -10,7 +10,7 @@ tags:
 !!! info "Docs"
     - [Command 汇总](https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
     - [Learn Branch ：一个分支的练习\学习网站](https://learngitbranching.js.org/?locale=zh_CN)
-    - 推荐阅读：ProGit
+    - 推荐阅读：ProGit  [英文](https://git-scm.com/book/en/v2)
 
 ## Git 配置
 
@@ -20,6 +20,7 @@ tags:
 ```c++
 $ git config --global user.name "ZZIcarus"
 $ git config --global user.email 2450606426@qq.com
+$ git config --list
 ```
 
 ## gitignore
@@ -69,9 +70,10 @@ git diff
 git push origin main
 
 git pull origin main
-
 ```
 
+### 文件操作
+- `git rm <file>` 删除
 ### 版本回退
 
 HEAD表示最新版本，HEAD^,HEAD^^,HEAD~100表示前一个、前两个、前100个版本

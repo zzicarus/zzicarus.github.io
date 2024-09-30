@@ -190,6 +190,21 @@ nav:
           - 4 Processor: CS/CO/4_Processor.md
           - 5 Speed and Size: CS/CO/5_.md
           - 6 IO: CS/CO/6.md
+
+      - OS:
+          - CS/OS/index.md
+          - 1 Overview: CS/OS/Ch1_Overview.md
+          - 2 Process: CS/OS/Ch2_Process.md
+          - 3 Thread: CS/OS/Ch3_Thread.md
+      - CN:
+          - CS/CN/index.md
+          - 1 Overview: CS/CN/Overview.md
+          - 2 Physical Layer: CS/CN/Physical Layer.md
+          - 3 Data Link Layer: CS/CN/Data Link Layer.md
+          - 4 Network Layer: CS/CN/Network Layer.md
+          - 5 Transport Layer: CS/CN/Transport Layer.md
+          - 6 Application Layer: CS/CN/Application Layer.md
+
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md
       - 【短学期】大数据可视化: CS/大数据可视化.md

@@ -4,16 +4,17 @@
 >
 
 ## 仓库收集
-- [求是潮](https://github.com/QSCTech/zju-icicles)
+- [求是潮](https://github.com/QSCTech/zju-icicles)比较老旧，但很全面
 - [ZJU-CKCMix-CS-Course-Material](https://github.com/zyxNova/ZJU-CKCMix-CS-Course-Material/tree/master)
 - [CourseNoteOfZJUSE](https://github.com/Zhang-Each/CourseNoteOfZJUSE)
 - [ZJU-CS](https://github.com/2811668688/ZJU-CS) 含有 CS 比较全的课程资料
 - [Latex笔记](https://github.com/Tian42chen/Transcription-Malfunctioned)
 ## 笔记收集
 - [修佬](https://note.isshikih.top/)
+- [HobbitQia](https://note.hobbitqia.cc/)
 - [咸鱼暄](https://xuan-insr.github.io/)
 - [小角龙](https://zhang-each.github.io/My-CS-Notebook/)
-- 
+- [鹤翔万里](https://note.tonycrane.cc/)
 ## 专业主修课
 ### 离散数学/DM
 ### 数字逻辑
@@ -41,7 +42,7 @@
 > 
 > **书目**
 > - 王道
-> - [Top and down](https://github.com/ece-cohort/Computer-Networking-A-Top-Down-Approach-7th-Edition)
+> - [Top and down](https://github.com/ece-cohort/Computer-Networking-A-Top-Down-Approach-7th-Edition) 计算机网络：自顶向下方法
 
 ### 操作系统 | OS
 > [!info]
@@ -65,7 +66,6 @@
 [[Java/index]]
 ### 汇编与接口
 [[汇编与接口]]
-
 - [22-23 回忆卷](https://www.cc98.org/topic/5510882)
 - [23-24 回忆卷](https://www.cc98.org/topic/5804583)
 - 
