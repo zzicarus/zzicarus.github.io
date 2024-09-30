@@ -10,13 +10,17 @@
         <meta name="author" content="zzicarus">
       
       
-        <link rel="canonical" href="https://zzicarus.github.io/CS/CN/Ch1_/">
+        <link rel="canonical" href="https://zzicarus.github.io/CS/OS/Ch2_Process/">
       
       
+        <link rel="prev" href="../Ch1_Overview/">
+      
+      
+        <link rel="next" href="../../CN/">
       
       
       <link rel="icon" href="../../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
@@ -24,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -127,7 +131,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#concept" class="md-skip">
           跳转至
         </a>
       
@@ -311,10 +315,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../" class="md-tabs__link">
           
   
@@ -676,6 +682,8 @@
       
   
   
+    
+  
   
   
     
@@ -695,17 +703,24 @@
       
         
       
-    
-    
+        
       
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
@@ -721,13 +736,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             课内
@@ -1322,6 +1337,485 @@
                 
   
   
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OS
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch1_Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2 Process
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2 Process
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="This Page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      State
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-control-block-pcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Control Block | PCB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Scheduling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scheduling Queues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Scheduler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Operation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      Termination
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interprocess-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interprocess Communication
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch3_Thread.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 Thread
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../CN/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CN
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            CN
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Physical%20Layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 Physical Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Data%20Link%20Layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 Data Link Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Network%20Layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 Network Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Transport%20Layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 Transport Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Application%20Layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 Application Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     
@@ -1339,10 +1833,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
         
           
-          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1353,8 +1847,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
             <span class="md-nav__icon md-icon"></span>
             DIP
           </label>
@@ -2480,8 +2974,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2490,9 +2982,108 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#concept" class="md-nav__link">
     <span class="md-ellipsis">
-      实验部分 | 了解一些术语和基本协议
+      Concept
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      State
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-control-block-pcb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Control Block | PCB
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Scheduling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scheduling Queues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Scheduler
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process Operation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Operation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      Termination
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interprocess-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interprocess Communication
     </span>
   </a>
   
@@ -2516,42 +3107,150 @@
   
 
 
-<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
+  <h1>2 Process</h1>
+
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 82 个字 </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 849 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3"/></svg></span> 5 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 4 分钟</p>
 </div>
-<h2 id="_1">实验部分 | 了解一些术语和基本协议<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h2>
+<p>A <code>process</code> is one program being executing. (<code>job</code> 是历史遗留的称呼)</p>
 <div class="admonition note">
-<p class="admonition-title">Terms</p>
+<p class="admonition-title">内存布局</p>
 <ul>
 <li>
-<p>ISP（Internet Service Provider）因特网服务提供商</p>
+<p>Text 运行的代码</p>
 </li>
 <li>
-<p>router 路由器</p>
+<p>Data 全局变量、静态变量</p>
 </li>
 <li>
-<p>message</p>
-<ul>
-<li>packet 将较长的 message 进行分组后的结果</li>
+<p>heap 运行时动态申请</p>
+</li>
+<li>
+<p>stack 调用函数的临时变量</p>
+</li>
 </ul>
-</li>
-<li>
-<p>packet switch 分组交换机</p>
-</li>
-<li></li>
-</ul>
-</div>
+<p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281535558.png" /></p>
 <div class="admonition note">
-<p class="admonition-title">传输层协议</p>
+<p class="admonition-title">一个 C 程序中各部分的内存布局</p>
 </div>
-<p>TCP 面向连接的
-UDP
-MAC 唯一的，基于网卡的</p>
-<div class="admonition info">
-<p class="admonition-title">Four Internet Model</p>
-<p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409121558575.png" /></p>
+<p><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251532666.png" /></p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code> 使用 `size &lt;executable_file_name&gt;` 命令查看，
+
+ ```c
+
+ text     data     bss     dec      hex       filename
+
+1382     600       8    1990     7c6        test
+
+ ```
+</code></pre></div></td></tr></table></div>
 </div>
+<h3 id="state">State<a class="headerlink" href="#state" title="Permanent link">&para;</a></h3>
+<p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251520016.png" />
+- <code>Scheduler dispatch</code> : OS 进行 CPU 调度</p>
+<h3 id="process-control-block-pcb">Process Control Block | PCB<a class="headerlink" href="#process-control-block-pcb" title="Permanent link">&para;</a></h3>
+<p>上面提到单个进程在 memory 中的内存布局以及 state 的转换，但我们的操作系统同时会运行多个进程，这些进程不断地切换，所以我们需要 PCB 来保存一些管理资源的必要信息。
+- PCB 相关的维护代码在 kernel 部分，在中断时调用更新 PCB 的值
+<strong>PCB 的一般结构</strong>
+<img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251548836.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">两个进程的示意图</p>
+<p>通过 PCB 的切换来切换进程</p>
+<p><img alt="image.png" src="http://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251549111.png" /></p>
+</div>
+<h2 id="process-scheduling">Process Scheduling<a class="headerlink" href="#process-scheduling" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>In general, most processes can be described as either I/O bound or CPU bound. 按照花费时间的多寡分类
+An <strong>I/O-bound process</strong> is one that spends more of its time doing I/O than it spends doing computations.
+A <strong>CPU-bound process</strong>, in contrast, generates I/O requests infrequently, using more of its time doing computations.</p>
+</blockquote>
+<h3 id="scheduling-queues">Scheduling Queues<a class="headerlink" href="#scheduling-queues" title="Permanent link">&para;</a></h3>
+<p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281624763.png" /></p>
+<ul>
+<li>Job queue – set of <strong>all processes</strong> in the system</li>
+<li>Ready queue – set of all processes residing in main memory, ready and waiting to execute</li>
+<li>Device queues – set of processes waiting for an I/O device</li>
+<li>I/O waiting queue</li>
+<li>......
+<strong>运行示意图</strong>
+<img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281618875.png" /></li>
+</ul>
+<h3 id="process-scheduler">Process Scheduler<a class="headerlink" href="#process-scheduler" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Long-term scheduler</strong>  (or <strong>job scheduler</strong>) – selects which processes should be brought into memory (the ready queue) 选择哪一个程序进行运行<ul>
+<li>控制 degree of multiprogramming</li>
+</ul>
+</li>
+<li><strong>Short-term scheduler</strong>  (or <strong>CPU scheduler</strong>) – selects which process should be executed next and allocates CPU </li>
+<li><strong>Medium term</strong> 进行 <strong>swapping</strong>，可以将一个 process 从内存移动到 disk，降低 multiprogram 的程度，之后再存回来
+<img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281627397.png" /></li>
+</ul>
+<h2 id="process-operation">Process Operation<a class="headerlink" href="#process-operation" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Linux 可以使用 <code>ps/pstree</code> 命令查看当前进程
+<img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281633165.png" />
+- 不同 process 之间使用 pid 区分
+- Systemd pid = 1</p>
+</blockquote>
+<h3 id="creation">Creation<a class="headerlink" href="#creation" title="Permanent link">&para;</a></h3>
+<p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281709506.png" /></p>
+<ul>
+<li>
+<p><code>Fork</code> 创建一个新的进程，对于新创建的子进程，其返回值为 0 否则为 pid 值
+  !!! note "From Linux <code>fork</code> Manual"</p>
+<p>The child process is an  exact  duplicate  of  the  parent process except for the following points:</p>
+<ul>
+<li>does not inherit its  parent's  memory  locks</li>
+</ul>
+<p><strong>Return value</strong></p>
+<p>On success, the PID of the child process  is  returned  in the  parent,  and 0 is returned in the child.  On failure, -1 is returned in the parent, no child process is created, and err no is set appropriately.</p>
+</li>
+<li>
+<p><code>Exec</code> 载入新的二进制程序，顶替之前的镜像</p>
+</li>
+<li><code>waie</code> 父进程阻塞，等待子进程
+<strong>Resource sharing 的分类</strong></li>
+<li>子进程和父进程共享</li>
+<li>子进程的资源严格限制在父进程的子集中</li>
+<li>No resource sharing
+<strong>父进程在创建子进程之后</strong></li>
+<li>阻塞，等待 child process</li>
+<li>并行执行
+<strong>子进程</strong></li>
+<li>要么是父进程的 duplicate</li>
+<li>要么 load 另一个程序</li>
+</ul>
+<h3 id="termination">Termination<a class="headerlink" href="#termination" title="Permanent link">&para;</a></h3>
+<p><strong>Exit</strong> : A process terminates when it finishes executing its final statement and asks the operating system to delete it by using the <code>exit()</code> system call. 运行结束
+- 为 waiting 中的父进程返回 status value 
+- Deallocated 所有分配的资源
+<strong>Abort</strong> : Parent may terminate execution of children processes
+- Child has exceeded allocated resources
+- Task assigned to child is no longer required
+- Parent 存在
+    - <strong>cascading termination</strong> ：部分操作系统不允许没有父进程的子进程存在，在父进程中止时会级联中断子进程
+    - In some other operating systems, the child gets orphaned – and its parent becomes the “init” process (PID=1).  父进程不调用 wait 的情况下，子进程成为“孤儿”，这时部分操作系统会把父进程设置为 systemd，其周期性调用 wait 函数</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>所有中断的进程都会变成 <strong>zombie</strong> process，只有在父进程调用 wait 之后，进程相关的 process table 的内容才会被释放</p>
+</div>
+<h2 id="interprocess-communication">Interprocess Communication<a class="headerlink" href="#interprocess-communication" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Shared Memory</li>
+<li>Message Passing<ul>
+<li>需要 copy 多次内存/Buffer</li>
+</ul>
+</li>
+</ul>
 
 
 
@@ -2574,7 +3273,7 @@ MAC 唯一的，基于网卡的</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月15日 23:03:46</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月30日 11:21:42</span>
   </span>
 
     
@@ -2584,7 +3283,7 @@ MAC 唯一的，基于网卡的</p>
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月15日 23:03:46</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月30日 11:21:42</span>
   </span>
 
     
@@ -2636,10 +3335,10 @@ MAC 唯一的，基于网卡的</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.tracking", "navigation.path", "search.highlight", "search.share"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
       
