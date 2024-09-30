@@ -3068,15 +3068,21 @@ MAC 唯一的，基于网卡的</p>
 <p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409121558575.png" /></p>
 </div>
 <h2 id="_2">交换方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>Router</code> 对收到的 packet 进行存储转发实现分组交换
-- 电路交换
-  有线电话网络。
-    - 连接建立 —— 数据传送 —— 连接释放
-    - 缺点：中间节点无法发现并纠正错误；建立连接时间长
-- 报文（message）交换 ——使用存储转发技术
-  将 data 和其他数据封装
-- 分组交换 —— 在报文交换的基础上，对较长的 message 进行划分，在头部加上数据段形成新的 packet
-    - 可以进行流水线化处理</p>
+<p><code>Router</code> 对收到的 packet 进行存储转发实现分组交换</p>
+<ul>
+<li>电路交换
+  有线电话网络。<ul>
+<li>连接建立 —— 数据传送 —— 连接释放</li>
+<li>缺点：中间节点无法发现并纠正错误；建立连接时间长</li>
+</ul>
+</li>
+<li>报文（message）交换 ——使用存储转发技术
+  将 data 和其他数据封装</li>
+<li>分组交换 —— 在报文交换的基础上，对较长的 message 进行划分，在头部加上数据段形成新的 packet<ul>
+<li>可以进行流水线化处理</li>
+</ul>
+</li>
+</ul>
 <h2 id="_3">计算机网络的分类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h2 id="_4">性能指标<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3109,20 +3115,20 @@ MAC 唯一的，基于网卡的</p>
 <li>Network Layer
   传输单位为 ``。</li>
 <li>Data Link Layer 
-  将来自网络层的 IP 分组封装成 <strong>frame</strong>，可靠地传输到相邻结点的网络层。可以将强物理层传输原始比特流的功能，将物理层可能出错的错误进行修正<blockquote>
+  将来自网络层的 IP 分组封装成 <strong>frame</strong>，可靠地传输到相邻结点的网络层。可以将强物理层传输原始比特流的功能，将物理层可能出错的错误进行修正</li>
+</ul>
+<blockquote>
 <p>The data link layer operates between two directly connected nodes and does not provide end-to-end communication。</p>
 </blockquote>
-</li>
-</ul>
-<p>IP Service
-<strong>simple service</strong>
-- Datagram
-- Unreliable
-- Best Effort
-- Connectionless
-<strong>features</strong>
-- End-to-end</p>
+<p>IP Service</p>
+<p><strong>simple service</strong></p>
 <ul>
+<li>Datagram</li>
+<li>Unreliable</li>
+<li>Best Effort</li>
+<li>Connectionless
+<strong>features</strong></li>
+<li>End-to-end</li>
 <li>阻止 packets 永远 loop<ul>
 <li>TTL</li>
 </ul>
@@ -3168,7 +3174,7 @@ MAC 唯一的，基于网卡的</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月30日 11:21:42</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月30日 14:17:16</span>
   </span>
 
     

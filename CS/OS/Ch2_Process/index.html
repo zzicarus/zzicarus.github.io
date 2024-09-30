@@ -3135,33 +3135,27 @@
 <p class="admonition-title">一个 C 程序中各部分的内存布局</p>
 </div>
 <p><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251532666.png" /></p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code> 使用 `size &lt;executable_file_name&gt;` 命令查看，
-
- ```c
-
- text     data     bss     dec      hex       filename
-
-1382     600       8    1990     7c6        test
-
- ```
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> 使用 `size &lt;executable_file_name&gt;` 命令查看，
 </code></pre></div></td></tr></table></div>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">text</span><span class="w">     </span><span class="n">data</span><span class="w">     </span><span class="n">bss</span><span class="w">     </span><span class="n">dec</span><span class="w">      </span><span class="n">hex</span><span class="w">       </span><span class="n">filename</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="mi">1382</span><span class="w">     </span><span class="mi">600</span><span class="w">       </span><span class="mi">8</span><span class="w">    </span><span class="mi">1990</span><span class="w">     </span><span class="mi">7</span><span class="n">c6</span><span class="w">        </span><span class="n">test</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
 <h3 id="state">State<a class="headerlink" href="#state" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251520016.png" />
-- <code>Scheduler dispatch</code> : OS 进行 CPU 调度</p>
+<p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251520016.png" /></p>
+<ul>
+<li><code>Scheduler dispatch</code> : OS 进行 CPU 调度</li>
+</ul>
 <h3 id="process-control-block-pcb">Process Control Block | PCB<a class="headerlink" href="#process-control-block-pcb" title="Permanent link">&para;</a></h3>
-<p>上面提到单个进程在 memory 中的内存布局以及 state 的转换，但我们的操作系统同时会运行多个进程，这些进程不断地切换，所以我们需要 PCB 来保存一些管理资源的必要信息。
-- PCB 相关的维护代码在 kernel 部分，在中断时调用更新 PCB 的值
+<p>上面提到单个进程在 memory 中的内存布局以及 state 的转换，但我们的操作系统同时会运行多个进程，这些进程不断地切换，所以我们需要 PCB 来保存一些管理资源的必要信息。</p>
+<ul>
+<li>PCB 相关的维护代码在 kernel 部分，在中断时调用更新 PCB 的值
 <strong>PCB 的一般结构</strong>
-<img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251548836.png" /></p>
+<img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251548836.png" /></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">两个进程的示意图</p>
 <p>通过 PCB 的切换来切换进程</p>
@@ -3197,26 +3191,28 @@ A <strong>CPU-bound process</strong>, in contrast, generates I/O requests infreq
 <h2 id="process-operation">Process Operation<a class="headerlink" href="#process-operation" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>Linux 可以使用 <code>ps/pstree</code> 命令查看当前进程
-<img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281633165.png" />
-- 不同 process 之间使用 pid 区分
-- Systemd pid = 1</p>
+<img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281633165.png" /></p>
 </blockquote>
+<ul>
+<li>不同 process 之间使用 pid 区分</li>
+<li>Systemd pid = 1</li>
+</ul>
 <h3 id="creation">Creation<a class="headerlink" href="#creation" title="Permanent link">&para;</a></h3>
 <p><img alt="image.png" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281709506.png" /></p>
 <ul>
-<li>
-<p><code>Fork</code> 创建一个新的进程，对于新创建的子进程，其返回值为 0 否则为 pid 值
-  !!! note "From Linux <code>fork</code> Manual"</p>
+<li><code>Fork</code> 创建一个新的进程，对于新创建的子进程，其返回值为 0 否则为 pid 值</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">From Linux <code>fork</code> Manual</p>
 <p>The child process is an  exact  duplicate  of  the  parent process except for the following points:</p>
 <ul>
 <li>does not inherit its  parent's  memory  locks</li>
 </ul>
 <p><strong>Return value</strong></p>
 <p>On success, the PID of the child process  is  returned  in the  parent,  and 0 is returned in the child.  On failure, -1 is returned in the parent, no child process is created, and err no is set appropriately.</p>
-</li>
-<li>
-<p><code>Exec</code> 载入新的二进制程序，顶替之前的镜像</p>
-</li>
+</div>
+<ul>
+<li><code>Exec</code> 载入新的二进制程序，顶替之前的镜像</li>
 <li><code>waie</code> 父进程阻塞，等待子进程
 <strong>Resource sharing 的分类</strong></li>
 <li>子进程和父进程共享</li>
@@ -3232,13 +3228,17 @@ A <strong>CPU-bound process</strong>, in contrast, generates I/O requests infreq
 <h3 id="termination">Termination<a class="headerlink" href="#termination" title="Permanent link">&para;</a></h3>
 <p><strong>Exit</strong> : A process terminates when it finishes executing its final statement and asks the operating system to delete it by using the <code>exit()</code> system call. 运行结束
 - 为 waiting 中的父进程返回 status value 
-- Deallocated 所有分配的资源
-<strong>Abort</strong> : Parent may terminate execution of children processes
-- Child has exceeded allocated resources
-- Task assigned to child is no longer required
-- Parent 存在
-    - <strong>cascading termination</strong> ：部分操作系统不允许没有父进程的子进程存在，在父进程中止时会级联中断子进程
-    - In some other operating systems, the child gets orphaned – and its parent becomes the “init” process (PID=1).  父进程不调用 wait 的情况下，子进程成为“孤儿”，这时部分操作系统会把父进程设置为 systemd，其周期性调用 wait 函数</p>
+- Deallocated 所有分配的资源</p>
+<p><strong>Abort</strong> : Parent may terminate execution of children processes</p>
+<ul>
+<li>Child has exceeded allocated resources</li>
+<li>Task assigned to child is no longer required</li>
+<li>Parent 存在<ul>
+<li><strong>cascading termination</strong> ：部分操作系统不允许没有父进程的子进程存在，在父进程中止时会级联中断子进程</li>
+<li>In some other operating systems, the child gets <strong>orphaned</strong> – and its parent becomes the “init” process (PID=1).  父进程不调用 wait 的情况下，子进程成为“孤儿”，这时部分操作系统会把父进程设置为 systemd，其周期性调用 wait 函数</li>
+</ul>
+</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>所有中断的进程都会变成 <strong>zombie</strong> process，只有在父进程调用 wait 之后，进程相关的 process table 的内容才会被释放</p>
@@ -3273,7 +3273,7 @@ A <strong>CPU-bound process</strong>, in contrast, generates I/O requests infreq
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月30日 11:21:42</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月30日 14:17:16</span>
   </span>
 
     
