@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../../images/joystick.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
     
     
       
@@ -3566,9 +3566,7 @@
 <li>e.g., instructions in a loop, induction variables</li>
 </ul>
 </li>
-<li>
-<p>Spatial locality   空间局部性</p>
-<ul>
+<li>Spatial locality   空间局部性<ul>
 <li>Items <strong>near those accessed recently</strong> are likely to be accessed soon</li>
 <li>E.g., sequential instruction access, array data</li>
 </ul>
@@ -3586,24 +3584,14 @@ Cache memory attached to CPU  缓冲</p>
 <p><strong>概念</strong></p>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855650.png" alt="alt text" style="zoom:50%;" /></p>
 <ul>
-<li>
-<p><code>Block</code> : unit of copying 搬运的最小单位 可能是一个word或者多个word</p>
-</li>
+<li><code>Block</code> : unit of copying 搬运的最小单位 可能是一个word或者多个word</li>
 <li>
 <p><code>Hit</code> : If accessed data is present in upper level
     两层：从硬盘到内存，从内存到cache</p>
 <ul>
-<li>
-<p><code>Hit Time</code> : The time to <strong>access the upper level</strong> of the memory hierarchy, which includes the time needed to <strong>determine whether the access is a hit</strong> or a miss.</p>
-</li>
-<li>
-<p><code>Hit ratio</code>: hits/accesses</p>
-</li>
-</ul>
-</li>
-<li>
-<p><code>Miss</code> : block copied from lower level</p>
-<ul>
+<li><code>Hit Time</code> : The time to <strong>access the upper level</strong> of the memory hierarchy, which includes the time needed to <strong>determine whether the access is a hit</strong> or a miss.</li>
+<li><code>Hit ratio</code>: hits/accesses</li>
+<li><code>Miss</code> : block copied from lower level</li>
 <li><code>Miss ratio</code> : misses/accesses = 1 – hit ratio</li>
 <li><code>Miss penalty</code> :         The time to <strong>replace a block in the upper level</strong> with the corresponding block from the lower level, plus the time to <strong>deliver this block to the processor.</strong> 把数据从底层拿到高层，之后再传给processor</li>
 </ul>
@@ -3633,8 +3621,8 @@ Cache memory attached to CPU  缓冲</p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">理解cache中的各个位</p>
-<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855655.png" />
-上面的部分是 Memory address（Tag + Index)，下面的才是cache中的(这里Cache Address就是它的索引Index)。这里每一个Block有四个word，需要两位来定位word，每个word有四个字节，需要两位来定位byte，故而<code>Byte offset = 4</code></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855655.png" /></p>
+<p>上面的部分是 Memory address（Tag + Index)，下面的才是cache中的(这里Cache Address就是它的索引Index)。这里每一个Block有四个word，需要两位来定位word，每个word有四个字节，需要两位来定位byte，故而<code>Byte offset = 4</code></p>
 <p><code>index</code> 在cache中寻找block，其大小由cache size决定</p>
 <p><code>Offset</code> 用于去在data中寻址。注意寻址方式，一般是字节寻址，<mark>但是很多题目会是word寻址，同时也看清楚给的地址是以字节址还是Word</mark>。比如，一个 4-word blocks，就需要 index 先去寻找block，再由offset分别确定word和byte，故需要4bit</p>
 <p>一个cache slot实际的size是 data size of a block + Tag + Valid，但是提及某个cache大小时，都是只计算Data部分</p>
@@ -3645,23 +3633,15 @@ Cache memory attached to CPU  缓冲</p>
 <p>cache的命名不考虑标签和有效位的大小，只考虑数据的大小</p>
 <details class="example">
 <summary>example</summary>
-<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855656.png" />
-<img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855657.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855656.png" /></p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855657.png" /></p>
 </details>
 <p><strong>Handling Cache reads hit and Misses</strong></p>
 <ul>
-<li>
-<p><code>Read</code></p>
-<ul>
-<li>
-<p>Read Miss  暂停处理器，直到从内存中返回数据</p>
-<ul>
-<li>
-<p><strong>instruction cache miss</strong></p>
-</li>
-<li>
-<p><strong>data cache miss</strong></p>
-</li>
+<li><code>Read</code><ul>
+<li>Read Miss  暂停处理器，直到从内存中返回数据<ul>
+<li><strong>instruction cache miss</strong></li>
+<li><strong>data cache miss</strong></li>
 </ul>
 </li>
 </ul>
@@ -3699,8 +3679,8 @@ Wrote the data into only the data cache</p>
 <p class="admonition-title">引入</p>
 <p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855658.png" /></p>
 </div>
-<p>1-word block
-<img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855659.png" /></p>
+<p>1-word block</p>
+<p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855659.png" /></p>
 <h4 id="block-placement">Block Placement<a class="headerlink" href="#block-placement" title="Permanent link">&para;</a></h4>
 <p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855660.png" /></p>
 <h5 id="fully-associative">Fully Associative<a class="headerlink" href="#fully-associative" title="Permanent link">&para;</a></h5>
@@ -3715,12 +3695,11 @@ Wrote the data into only the data cache</p>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405261647281.png" alt="image-20240526164722183" style="zoom:50%;" /></p>
 <h4 id="block-replacement">Block replacement<a class="headerlink" href="#block-replacement" title="Permanent link">&para;</a></h4>
 <ul>
-<li>
-<p><code>Random replacement</code> - randomly pick any block</p>
+<li><code>Random replacement</code> <ul>
+<li>randomly pick any block</li>
+</ul>
 </li>
-<li>
-<p><code>Least-recently used (LRU)</code> </p>
-<ul>
+<li><code>Least-recently used (LRU)</code> <ul>
 <li>pick the block in the set which was least recently accessed</li>
 </ul>
 </li>
@@ -3750,9 +3729,9 @@ Wrote the data into only the data cache</p>
 </ul>
 </li>
 </ul>
-<p><mark>这两种策略，都会使用Buffer。</mark>
-<mark>Write-Through 使用Buffer是为了降低不断写回下一层的cost，使用的是下面的 Write Buffer，数据写入Cache的同时，也写入buffer</mark> 
-<mark>Write-Back 也有写缓冲，Buffer</mark></p>
+<p><mark>这两种策略，都会使用Buffer。</mark></p>
+<p><mark>Write-Through 使用Buffer是为了降低不断写回下一层的cost，使用的是下面的 Write Buffer，数据写入Cache的同时，也写入buffer</mark> </p>
+<p><mark>Write-Back 也有写缓冲，Buffer</mark></p>
 <p><strong>Write stall</strong> </p>
 <p>When the CPU must wait for writes to complete during <strong>write through</strong></p>
 <p><strong>Write buffers</strong></p>
@@ -3772,16 +3751,12 @@ Wrote the data into only the data cache</p>
 </ul>
 <p>The block is <strong>loaded into the cache</strong> on a miss before anything else occurs. </p>
 <ul>
-<li>
-<p>**Write around (no write allocate) **</p>
-<ul>
+<li>**Write around (no write allocate) **<ul>
 <li>The block is only <strong>written to main memory</strong> </li>
 <li>It is not stored in the cache. </li>
 </ul>
 </li>
-<li>
-<p><strong>In general, write-back caches use write-allocate , and write-through caches use write-around.</strong>  </p>
-</li>
+<li><strong>In general, write-back caches use write-allocate , and write-through caches use write-around.</strong>  </li>
 </ul>
 <h4 id="designing-the-memory-system-to-support-cache">Designing the Memory system to Support Cache<a class="headerlink" href="#designing-the-memory-system-to-support-cache" title="Permanent link">&para;</a></h4>
 <p><img alt="alt text" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406130855662.png" /></p>
@@ -3796,35 +3771,29 @@ Wrote the data into only the data cache</p>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405262135022.png" alt="image-20240526213529904" style="zoom: 50%;" /></p>
 </div>
 <p><strong>增大 Memory 位宽</strong></p>
-<p><img alt="image-20240521155329202" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211553286.png" />
-如果位宽增加，单位时间内传输的Block数目增加</p>
+<p><img alt="image-20240521155329202" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211553286.png" /></p>
+<p>如果位宽增加，单位时间内传输的Block数目增加</p>
 <p><strong>增加Memory数量（类似并行</strong></p>
 <p><code>4 banks Interleaved Memory</code></p>
-<p><img alt="image-20240521155558321" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211555404.png" />
-但是bus的位宽没有变化，导致通过bus传输数据需要等待</p>
+<p><img alt="image-20240521155558321" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211555404.png" /></p>
+<p>但是bus的位宽没有变化，导致通过bus传输数据需要等待</p>
 <h2 id="measuring-and-improving-cache-performance">Measuring and improving cache performance<a class="headerlink" href="#measuring-and-improving-cache-performance" title="Permanent link">&para;</a></h2>
 <p>The main contents are the following:</p>
 <ol>
-<li>
-<p>Measuring cache performance</p>
-</li>
-<li>
-<p>Reducing <strong>cache misses</strong> by <strong>more flexible placement</strong> of blocks</p>
-</li>
-<li>
-<p>Reducing the <strong>miss penalty</strong> using multilevel caches</p>
-</li>
+<li>Measuring cache performance</li>
+<li>Reducing <strong>cache misses</strong> by <strong>more flexible placement</strong> of blocks</li>
+<li>Reducing the <strong>miss penalty</strong> using multilevel caches</li>
 </ol>
 <div class="arithmatex">\[
 \text{Average Memory Assess Time (AMAT) = hit time + miss time}\\
 \text{= hit rate × Cache time + miss rate ×memory time}
 \]</div>
 <h3 id="measuring">Measuring<a class="headerlink" href="#measuring" title="Permanent link">&para;</a></h3>
-<p>我们使用CPU Time来衡量 how good it works
-$$
-{CPU Time} = \text{CPI * I * CPU cycle time}
-\ =\text{CPU Excution Time} + \text{CPU Memory-stall Time}
-$$</p>
+<p>我们使用CPU Time来衡量 how good it works</p>
+<div class="arithmatex">\[
+{CPU\ Time} = \text{CPI * I * CPU cycle time}
+\\ =\text{CPU Excution Time} + \text{CPU Memory-stall Time}
+\]</div>
 <div class="arithmatex">\[
 \text{CPU Memory-Stall Time} = \text{Read-stall+Write-stall}\\
 = \#of\ instructions\text{ * miss ratio * miss penalty}
@@ -3834,12 +3803,8 @@ $$</p>
 <p><strong>For Write</strong></p>
 <p><span class="arithmatex">\(Write-stall = \frac{Write}{Program}*\text{Write miss rate * Write miss penalty} + Write Buffer\)</span></p>
 <ul>
-<li>
-<p><strong>If the write buffer stalls are small, we can safely ignore them .</strong></p>
-</li>
-<li>
-<p><strong>If the cache block size is one word, the write miss penalty is 0.</strong></p>
-</li>
+<li><strong>If the write buffer stalls are small, we can safely ignore them .</strong></li>
+<li><strong>If the cache block size is one word, the write miss penalty is 0.</strong></li>
 <li>通常情况下都可以忽略  &lt;== 设计的较好的CPU一般不会满</li>
 </ul>
 <p><strong>一定要注意Write的类型，针对write hit</strong></p>
@@ -3868,9 +3833,9 @@ $$</p>
 <p><img alt="image-20240521184428283" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211844353.png" /></p>
 <details class="example">
 <summary>Tag计算</summary>
-<p><img alt="image-20240521184732495" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211847562.png" />
-<strong>主存中的Block Address = Index + Tag</strong> 
-<img alt="image-20240521184749374" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211847448.png" /></p>
+<p><img alt="image-20240521184732495" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211847562.png" /></p>
+<p><strong>主存中的Block Address = Index + Tag</strong> </p>
+<p><img alt="image-20240521184749374" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211847448.png" /></p>
 </details>
 <blockquote>
 <p>前面已经写的比较详细了</p>
@@ -3878,15 +3843,9 @@ $$</p>
 <h4 id="decreasing-miss-penalty-with-multilevel-caches"><strong>Decreasing miss penalty</strong> <strong>with multilevel caches</strong><a class="headerlink" href="#decreasing-miss-penalty-with-multilevel-caches" title="Permanent link">&para;</a></h4>
 <p><strong>Add a second level cache:</strong></p>
 <ul>
-<li>
-<p><strong>often primary cache is on the same chip as the processor</strong>  一级缓存在处理器的芯片上</p>
-</li>
-<li>
-<p><strong>use SRAMs to add another cache above primary memory (DRAM)</strong></p>
-</li>
-<li>
-<p>miss penalty goes down if data is in 2<sup>nd</sup> level cache</p>
-</li>
+<li><strong>often primary cache is on the same chip as the processor</strong>  一级缓存在处理器的芯片上</li>
+<li><strong>use SRAMs to add another cache above primary memory (DRAM)</strong></li>
+<li>miss penalty goes down if data is in 2<sup>nd</sup> level cache</li>
 </ul>
 <p>一级和二级的cache关注的目标不同：</p>
 <ul>
@@ -3896,8 +3855,8 @@ $$</p>
 <p>如果第一级的cache失效，就会访问第二级的cache，如果成功，那么第一级的penalty就是第二级的访问时间；...  (这里有点疑问)</p>
 <div class="admonition example">
 <p class="admonition-title">例题</p>
-<p><img alt="image-20240521190448405" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211904480.png" />
-<img alt="image-20240521193325732" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211933797.png" /></p>
+<p><img alt="image-20240521190448405" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211904480.png" /></p>
+<p><img alt="image-20240521193325732" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211933797.png" /></p>
 <ul>
 <li>Main Memory 的失效代价：访问Main Memory 的时间</li>
 <li>总CPI = 基准CPI + 各级代价   注意计算的是什么单位</li>
@@ -3905,8 +3864,8 @@ $$</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Local/Global miss rate</p>
-<p><img alt="image-20240621191620259" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406211916419.png" />
-实际做题的时候,有时候算L2-cache失效的CPI需要在第一级失效的基础上进行计算,那时候第二级的miss rate实际上就是local miss rate</p>
+<p><img alt="image-20240621191620259" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406211916419.png" /></p>
+<p>实际做题的时候,有时候算L2-cache失效的CPI需要在第一级失效的基础上进行计算,那时候第二级的miss rate实际上就是local miss rate</p>
 </div>
 <h2 id="virtual-memory">Virtual Memory<a class="headerlink" href="#virtual-memory" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -3915,12 +3874,8 @@ $$</p>
 </blockquote>
 <p><strong>Motivation:</strong> </p>
 <ul>
-<li>
-<p>Efficient and safe <strong>sharing of memory</strong> among multiple programs.（多个Va映射到同一个Pa）</p>
-</li>
-<li>
-<p>Remove the programming burdens of a small, limited <strong>amount of main memory.</strong> </p>
-</li>
+<li>Efficient and safe <strong>sharing of memory</strong> among multiple programs.（多个Va映射到同一个Pa）</li>
+<li>Remove the programming burdens of a small, limited <strong>amount of main memory.</strong> </li>
 </ul>
 <p><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405211911891.png" alt="image-20240521191101834" style="zoom:50%;" /></p>
 <p>Larger number of virtual pages than physical pages  现如今不再是这样</p>
@@ -3976,21 +3931,13 @@ $$</p>
 </ul>
 <p><strong>Virtual Address</strong></p>
 <ul>
-<li>
-<p>virtual page number</p>
-</li>
-<li>
-<p>Page offset</p>
-</li>
+<li>virtual page number</li>
+<li>Page offset</li>
 </ul>
 <p><strong>Write</strong></p>
 <ul>
-<li>
-<p><strong>use write-back strategy. To do so, the machines need add a dirty bit to the entry of page table.</strong> </p>
-</li>
-<li>
-<p>The dirty bit is set when a page is first written. If the dirty bit of a page is set, the page must be written back to disk before being replaced.</p>
-</li>
+<li><strong>use write-back strategy. To do so, the machines need add a dirty bit to the entry of page table.</strong> </li>
+<li>The dirty bit is set when a page is first written. If the dirty bit of a page is set, the page must be written back to disk before being replaced.</li>
 </ul>
 <h3 id="tlb">TLB<a class="headerlink" href="#tlb" title="Permanent link">&para;</a></h3>
 <p>相当于Page Table的一个cache</p>
@@ -3999,12 +3946,8 @@ $$</p>
 </ul>
 <p><img alt="image-20240521201254225" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405212012363.png" /></p>
 <ul>
-<li>
-<p>使用Page Table中的Valid标记是否在主存中</p>
-</li>
-<li>
-<p>TLB一般采用全相联</p>
-</li>
+<li>使用Page Table中的Valid标记是否在主存中</li>
+<li>TLB一般采用全相联</li>
 <li>硬件/软件处理失效，大多数MIPS使用软件</li>
 </ul>
 <p><img alt="image-20240615185750427" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202406151857574.png" /></p>
@@ -4042,9 +3985,9 @@ $$</p>
 <p><img alt="image-20240527201717213" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405272017343.png" /></p>
 <details class="example">
 <summary>Answer</summary>
-<p><img alt="image-20240527195609044" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405271956158.png" />
-5.6.2  And the result written to L2, may update it in L2, and then tag it dirty.
-5.6.3  </p>
+<p><img alt="image-20240527195609044" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405271956158.png" /></p>
+<p>5.6.2  And the result written to L2, may update it in L2, and then tag it dirty.</p>
+<p>5.6.3  </p>
 </details>
 <h3 id="cache">Cache 计算<a class="headerlink" href="#cache" title="Permanent link">&para;</a></h3>
 <p><img alt="" src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202405272036920.png" /></p>
@@ -4095,7 +4038,7 @@ $$</p>
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年8月2日 13:52:56</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月10日 23:02:04</span>
   </span>
 
     
