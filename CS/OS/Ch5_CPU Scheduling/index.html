@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://zzicarus.github.io/CS/OS/Ch5_CPU%20Scheduling/">
       
       
+        <link rel="prev" href="../Ch2_Process/">
+      
+      
+        <link rel="next" href="../../CN/">
       
       
       <link rel="icon" href="../../../images/joystick.png">
@@ -311,10 +315,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../" class="md-tabs__link">
           
   
@@ -676,6 +682,8 @@
       
   
   
+    
+  
   
   
     
@@ -702,14 +710,17 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
@@ -725,13 +736,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             课内
@@ -1326,6 +1337,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1341,17 +1354,19 @@
       
         
       
+        
+      
     
     
       
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
         
           
           
@@ -1373,7 +1388,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_5">
             <span class="md-nav__icon md-icon"></span>
             OS
@@ -1445,6 +1460,318 @@
 
               
             
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    5 Scheduling
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    5 Scheduling
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="This Page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      This Page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cpu-scheduling_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU Scheduling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CPU Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu-io-burst-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU-I/O Burst Cycle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-cpu-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      The CPU Scheduler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The CPU Scheduler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-decision-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scheduling Decision Points
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduling-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scheduling Mechanisms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scheduling Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scheduling Queues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dispatcher
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scheduling-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scheduling Algorithms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scheduling Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-come-first-served-scheduling-fcfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      First-Come, First-Served Scheduling (FCFS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shortest-job-first-sjf-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shortest-Job-First (SJF) Scheduling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shortest-Job-First (SJF) Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#predicting-cpu-burst-durations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predicting CPU burst durations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#priority-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority Scheduling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#round-robin-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Round-Robin Scheduling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multilevel-feedback-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multilevel Feedback Queues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-Time Scheduling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thread-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thread Scheduling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-processor-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple-Processor Scheduling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple-Processor Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multithreaded-multicore-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multithreaded Multicore System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-processor-scheduling_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple-Processor Scheduling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple-Processor Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processor-affinity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processor Affinity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux Scheduling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      Takeaway
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1464,6 +1791,10 @@
       
         
           
+        
+      
+        
+      
         
       
         
@@ -1636,6 +1967,48 @@
   
   <span class="md-ellipsis">
     6 Application Layer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Network Security.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7 Network Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CN/Appendix.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
   </span>
   
 
