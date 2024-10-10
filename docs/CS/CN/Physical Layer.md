@@ -21,9 +21,10 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 		- 极限码元传输速率为 2W Baud （W 为 channel 的频率带宽）
 		- 极限数据传输速率 = $2Wlog_2V$ (V 为每个码元的离散电平数目——多少种不同的码元)
 	- **Shannon’s formula** for capacity of **a noisy channel**
-		- Max data rate = $Wlog_2{(1+\frac{S}{N})}$  S 传输信号的平均功率，N 高斯噪声功率，信噪比 = S/N = $10log_{10}S/N$ dB
+		- Max data rate = $Wlog_2{(1+\frac{S}{N})}$  S 传输信号的平均功率，N 高斯噪声功率，信噪比 = S/N = $10lgS/N$ dB
 
 >[!note] 
+>二进制信号在信噪比为 127:1 的 4kHz 信道上传输，求最大数据传输速率。根据 Nyquist's theroem，最大数据率为 2 \* 4k \* log_2(2) b/s = 8kb/s；根据 Shannon's theroem，最大数据率为 4k * log_2(1+127) b/s = 28kb/s。二者均为上界，取较小的一个，因此最大数据传输速率为 8kb/s
 
 - 编码：数据 -> 数字信号
 	- **归零编码 Return to Zero (RZ)**: 每个时钟周期均跳变到低电平（归零）
@@ -36,7 +37,7 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 
 - 调制：数据 -> 模拟信号 module
 	- FM 应用广泛
-	- PM 改变载波的香味来表示 1/0，用相位 $0/pai$ 表示——绝对调相
+	- PM 改变载波的相位来表示 1/0，用相位 $0/pai$ 表示——绝对调相
 	- QAM 正交幅度调制 ：在频率相同的条件下，结合 AM、PM
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261020490.png)
 - 多路复用 multiplexing
@@ -64,11 +65,12 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 
 ## Multiplexing
 
-### Frequency Division Multiplexing
+### Frequency Division Multiplexing | FDM 频分复用
 
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261034571.png)
 
 - 同时不同频
+- 中间留有一段保护频道
 
 ### Time Division Multiplexing
 

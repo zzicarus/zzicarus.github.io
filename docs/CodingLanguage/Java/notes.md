@@ -10,10 +10,14 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 ---
 
 >[!todo] 
+>**Overview 部分**
 >- [ ] 垃圾回收机制
+>- [ ] 保留字
 >- [ ] 内存分布
->- [ ] 类
->	- [ ] 继承
+>- [ ] 访问权限符
+>
+>**类** 
+>- [ ] 继承
 
 # Java
 
@@ -133,6 +137,18 @@ System.out.println(n3 == n4);  // true
 
 ### Package
 
+- Java 的 Package 依赖于目录
+	- 之后的代码属于这个 package
+	- 这部分代码必须放在一个名为 `<Package name>` 的文件夹中
+
+```java	
+package <Package name>
+```
+
+- 设置寻找 Package 的地址
+	- 环境变量
+	- 通过 `-cp` 指定寻找路径， ` java -cp java hello.Hello `
+
 ### Class
 
 >[!note] 
@@ -140,25 +156,24 @@ System.out.println(n3 == n4);  // true
 >- Java 会对 new 的对象的内存清空为 0
 >- 定义初始化，在构造函数之前，初始化顺序与在 class 中定义的顺序相关
 
-- 代理构造
+#### 代理构造
 
-  ```java
+Java 的代理构造和调用父类的构造函数都要放在构造函数开始的位置。
 
+```java
 public Rectangle(int width, int length) {
-
 	this.width = width;
-
 	this.length = length;
-
 }
-
 public Rectangle() {
-
 	this(0, 0);
-
 }
+```
 
-  ```
+#### 静态初始化
+
+Static member is to be initialized in the **loading** of the class
+
 ```mermaid
 graph LR
 1[Load 调用static函数] --> 2[定义初始化] --> 3[调用构造函数]
@@ -173,7 +188,64 @@ Flower(String s, int petals) {
     }
 ```
 
-- 静态
+#### 定义初始化
+
+#### 函数的绑定
+
+>Case 2 Shape. Java
+
+Java 默认为动态绑定，
+
+- Static binding: call the function as the code
+- Dynamic binding: call the function of the object
+
+#### override
+
+#### Final
+
+#### Abstract & Interface
+
+- 一个抽象类中可以没有 abstract 函数，但含有 abstract 函数一定要是抽象类
+**Interface**
+- All methods in interface are public.
+- All data members in interface are **public static final**.
+- `implements` `interface` 可以实现多个接口
+
+```Java
+interface Instrument5 {
+    // Compile-time constant:
+    int i = 5; // static & final
+    // Cannot have method definitions:
+    void play(); // Automatically public
+    String what();
+    void adjust();
+}
+```
+
+## 继承与多态
+
+```Java
+class BoardGame extends Game {
+    BoardGame(int i) {
+        super(i);
+        System.out.println("BoardGame constructor");
+    }
+}
+```
+
+- Java 没有 name hide 的问题，子类的一个函数 override 不会覆盖父类的同名函数
+
+```Java
+
+```
+
+- 静态初始化的顺序问题
+- Upcast
+
+### 内部类
+
+- 装载是分开做的，只有在使用的时候才会进行装载。
+- 函数中的内部类
 
 ## 练习题
 

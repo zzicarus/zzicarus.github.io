@@ -28,7 +28,9 @@ $ cd .. parent
 因此，**``drwxr-xr-x``** 表示这个目录的所有者具有读、写和执行的权限，组和其他用户具有读和执行的权限，但没有写的权限。
 
 `rmdir` `mkdir` `man`
+
 `ctrl + L`清除
+
 `cat`
 
 ## streams
@@ -51,9 +53,11 @@ hello
 \>\>
 
 pipe
+
 |
 
 sudo    :   super user
+
 ## 关于Unix中的root用户
 
 ```
@@ -80,8 +84,6 @@ sudo    :   super user
 - 其他用户具有执行权限。
 
 这样的权限设置将确保不同用户类别具有适当的权限，以控制对文件或目录的访问。
-
-
 
 ## Bash 编程
 
@@ -125,10 +127,10 @@ ls *.py
 ls project?
 {}
 ```
+
 ### prompt
 
 <span class="box box-blue">xargs</span>
-
 
 ### Instance
 

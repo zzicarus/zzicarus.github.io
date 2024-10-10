@@ -9,6 +9,8 @@ date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 ---
 
+# Process
+
 ## Concept
 
 A `process` is one program being executing. (`job` 是历史遗留的称呼)
@@ -22,13 +24,13 @@ A `process` is one program being executing. (`job` 是历史遗留的称呼)
 >![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281535558.png)
 >
 >>[!note] 一个 C 程序中各部分的内存布局
->![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251532666.png)
+>>![](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251532666.png)
 >>使用 `size <executable_file_name>` 命令查看，
->
->```c
->text     data     bss     dec      hex       filename
->1382     600       8    1990     7c6        test
->```
+>>
+>>```c
+>>text     data     bss     dec      hex       filename
+>>1382     600       8    1990     7c6        test
+>>```
 
 ### State
 
@@ -41,6 +43,7 @@ A `process` is one program being executing. (`job` 是历史遗留的称呼)
 上面提到单个进程在 memory 中的内存布局以及 state 的转换，但我们的操作系统同时会运行多个进程，这些进程不断地切换，所以我们需要 PCB 来保存一些管理资源的必要信息。
 
 - PCB 相关的维护代码在 kernel 部分，在中断时调用更新 PCB 的值
+
 **PCB 的一般结构**
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251548836.png)
 
@@ -51,7 +54,9 @@ A `process` is one program being executing. (`job` 是历史遗留的称呼)
 ## Process Scheduling
 
 >In general, most processes can be described as either I/O bound or CPU bound. 按照花费时间的多寡分类
+>
 >An **I/O-bound process** is one that spends more of its time doing I/O than it spends doing computations.
+>
 >A **CPU-bound process**, in contrast, generates I/O requests infrequently, using more of its time doing computations.
 
 ### Scheduling Queues
@@ -63,6 +68,7 @@ A `process` is one program being executing. (`job` 是历史遗留的称呼)
 - Device queues – set of processes waiting for an I/O device
 - I/O waiting queue
 - ......
+
 **运行示意图**
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281618875.png)
 
@@ -97,14 +103,22 @@ A `process` is one program being executing. (`job` 是历史遗留的称呼)
 
 - `Exec` 载入新的二进制程序，顶替之前的镜像
 - `waie` 父进程阻塞，等待子进程
+
 **Resource sharing 的分类**
+
 - 子进程和父进程共享
 - 子进程的资源严格限制在父进程的子集中
 - No resource sharing
+
 **父进程在创建子进程之后**
+
+两种可能性（都进入 ready queue，根据调度算法决定）
+
 - 阻塞，等待 child process
 - 并行执行
+
 **子进程**
+
 - 要么是父进程的 duplicate
 - 要么 load 另一个程序
 
@@ -125,8 +139,30 @@ A `process` is one program being executing. (`job` 是历史遗留的称呼)
 >[!note] 
 >所有中断的进程都会变成 **zombie** process，只有在父进程调用 wait 之后，进程相关的 process table 的内容才会被释放
 
-## Interprocess Communication
+## Interprocess Communication | IPC
 
-- Shared Memory
-- Message Passing
-	- 需要 copy 多次内存/Buffer
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410102221772.png" alt="image-20241010222119675" style="zoom:67%;" />
+
+- Shared Memory 速度会更快，减少了对kernel代码的调用 (Message Passing requires the more time-consuming task of kernel intervention.)
+- Message Passing 实现起来更简单  useful for exchanging smaller amounts of data for no conflicts to be considered
+
+### Shared Memory
+
+>[!note]
+>
+> **Producer-Consumer Problem**
+>
+> - **unbounded-buffer** places no practical limit on the size of the buffer. Consumer has to *wait if no new item.* buffer不会填满
+> - **bounded-buffer** assumes that there is a fixed buffer size. Producer must *wait if buffer full.*
+>
+>共享内存 —— sharing memory
+
+### Message Passing
+
+- 需要 copy 多次内存/Buffer  （在内存和内核之中）
+
+### Synchronization
+
+#TODO
+
+看之后吧	

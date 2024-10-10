@@ -1,5 +1,7 @@
 !!! info "概述"
+
     这里放一些自己在CS学习过程中用到的一些工具以及学习这些工具的资源索引。
+
     
     - [MissingSemester](https://missing.csail.mit.edu/2020/course-shell/)
 
@@ -13,4 +15,5 @@
 | [[Docker]]             |                                                                                                                                                                                                 |
 | [[正则表达式]]              |                                                                                                                                                                                                 |
 | [[gcc & gdb]]          |                                                                                                                                                                                                 |
+
 ![[Collection]]

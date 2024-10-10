@@ -63,7 +63,7 @@
 ### 人工智能
 [[AI/index|AI]]
 ### Java
-[[Java/index]]
+[[../CodingLanguage/Java/index]]
 ### 汇编与接口
 [[汇编与接口]]
 - [22-23 回忆卷](https://www.cc98.org/topic/5510882)
