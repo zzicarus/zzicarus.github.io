@@ -196,6 +196,7 @@ nav:
           - 1 Overview: CS/OS/Ch1_Overview.md
           - 2 Process: CS/OS/Ch2_Process.md
           - 3 Thread: CS/OS/Ch3_Thread.md
+          - 5 Scheduling: CS/OS/Ch5_CPU Scheduling.md
       - CN:
           - CS/CN/index.md
           - 1 Overview: CS/CN/Overview.md
@@ -204,6 +205,8 @@ nav:
           - 4 Network Layer: CS/CN/Network Layer.md
           - 5 Transport Layer: CS/CN/Transport Layer.md
           - 6 Application Layer: CS/CN/Application Layer.md
+          - 7 Network Security: CS/CN/Network Security.md
+          - Appendix: CS/CN/Appendix.md
 
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md
