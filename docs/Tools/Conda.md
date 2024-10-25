@@ -1,6 +1,7 @@
 # Conda
 
 !!! abstraction "Conda"
+
 	Conda是一个管理Python环境和版本的工具。
 
 - [知乎](https://zhuanlan.zhihu.com/p/44398592)
@@ -59,4 +60,3 @@ conda create xxx -c channels
 conda config --add channels
 conda config --remove channels
 ```
-

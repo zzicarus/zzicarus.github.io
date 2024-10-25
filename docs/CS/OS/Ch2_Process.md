@@ -92,17 +92,35 @@ A `process` is one program being executing. (`job` 是历史遗留的称呼)
 
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409281709506.png)
 
-- `Fork` 创建一个新的进程，对于新创建的子进程，其返回值为 0 否则为 pid 值
+- `Fork` 创建一个新的进程，对于新创建的子进程，其返回值为 0  returns the child’s pid to the parent, and 0 to the child.
 
 >[!note] From Linux `fork` Manual
 >The child process is an  exact  duplicate  of  the  parent process except for the following points:
+>
 >- does not inherit its  parent's  memory  locks
 >
 >**Return value**
 >On success, the PID of the child process  is  returned  in the  parent,  and 0 is returned in the child.  On failure, -1 is returned in the parent, no child process is created, and err no is set appropriately.
+>
+>>[!Example]example
+>>How many processes does this C program create?
+>> ```
+>> int main (int argc, char *arg[])
+>> {
+>>     fork ();
+>>     if (fork ()) {
+>>         fork ();
+>>     }
+>>     fork (); 
+>> }
+>> ```
+>>
+>>The answer should be 12.
+>>
+>>#todo:给出树形图
 
-- `Exec` 载入新的二进制程序，顶替之前的镜像
-- `waie` 父进程阻塞，等待子进程
+- `Exec` 载入新的二进制程序，顶替之前的镜像。用在`fork`函数调用之后
+- `wait` 父进程阻塞，等待子进程
 
 **Resource sharing 的分类**
 
@@ -121,6 +139,30 @@ A `process` is one program being executing. (`job` 是历史遗留的称呼)
 
 - 要么是父进程的 duplicate
 - 要么 load 另一个程序
+
+```c
+#include <sys/types.h>
+#include <stdio.h>
+#include <unistd.h>
+int value = 10;
+int main()
+{
+    pid_t pid;
+    pid = fork();
+    value += 10;
+    if (pid == 0)
+    { /* child process */
+        value += 5;
+        printf("CHILD: value = %d", value); /* LINE C 25 */ 
+    }
+    else if (pid > 0)
+    { /* parent process */
+        wait(NULL);
+        printf("PARENT: value = %d", value); /* LINE A 20 */
+        exit(0);
+    }
+}
+```
 
 ### Termination
 

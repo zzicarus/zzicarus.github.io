@@ -69,6 +69,10 @@ graph LR
 
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409181501574.png)
 
+**状态切换**
+
+- 
+
 ### Timer
 
 >一般包含一个 clock 和一个 counter，每次 clock tick 都会使 counter--，counter 等于 0 触发中断。
@@ -138,3 +142,23 @@ https://note.hobbitqia.cc/OS/chap01/#system-calls
 >**The root filesystem is at the top of the hierarchical file tree** (also known as ‘/’). The Linux kernel directly mounts rootfs through the configuration argument ‘_root=_‘. The root filesystem also has mount points where we can mount other filesystems as well in order to connect them to this filesystem hierarchy. It has a number of directories containing files critical for booting the system and system operations.
 >相较于其他文件系统，rootfs 的特殊之处就在于它是第一个被挂载的文件系统，且其被挂载之后，将启动一些默认的初始化程序。
 >比如，在命令 ``
+
+## 题目
+
+Which of the following instructions should be privileged(in kernel mode)?
+
+a. Set value of timer.
+
+b. Read the clock.
+
+c. Clear memory.
+
+d. Issue a trap instruction.
+
+e. Turn off interrupts.
+
+f. Modify entries in device-status table.
+
+g. Switch from user to kernel mode.
+
+h. Access I/O device.

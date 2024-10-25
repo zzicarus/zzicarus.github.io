@@ -10,7 +10,7 @@ update: 2024-10-09 14:02:58
 
 # CPU Scheduling
 
-> 这一章的笔记很大一部分是在 HabbitQia 学长的笔记基础上增改的
+>这一章的笔记很大一部分是在 HabbitQia 学长的笔记基础上增改的
 
 ## CPU Scheduling
 
@@ -82,13 +82,14 @@ Selects from among the processes in memory that are ready to execute, and alloca
     
     比如这里，我们将进程 2 运行，就将它从 ready queue 里拿出来。随后如果他要读硬盘，我们就把 PCB2 挂载到 disk unit 0 的 device queue 上。
 
-!!! Example
-
-    <div align = center><img src="https://cdn.hobbitqia.cc/20231101214207.png" width=60%></div>
-    
-    parent call fork 之后，子进程进入 ready queue。如果父进程使用了 `wait`，他就会被放到子进程的 waiting queue 里（实际上每个被等待的对象都有一个 waiting queue）。当子进程拿到 CPU 时，它结束之后，操作系统会把父进程唤醒，随后父进程进入 ready queue。
-    
-    当 CPU 再次被父进程拿到时，它会回收子进程这个 zombie。
+> [!example]
+>
+>  <div align = center><img src="https://cdn.hobbitqia.cc/20231101214207.png" width=60%></div>
+>  parent call fork 之后，子进程进入 ready queue。如果父进程使用了 `wait`，他就会被放到子进程的 waiting queue 里（实际上每个被等待的对象都有一个 waiting queue）。
+>
+> 当子进程拿到 CPU 时，它结束之后，操作系统会把父进程唤醒，随后父进程进入 ready queue。
+>
+> 当 CPU 再次被父进程拿到时，它会回收子进程这个 zombie。
 
 ### Dispatcher
 
@@ -109,8 +110,6 @@ Selects from among the processes in memory that are ready to execute, and alloca
 这是 pure overhead，因为 CPU 没有做实际的工作。
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410102252647.png" alt="image-20241010225219546" style="zoom: 33%;" />
-
-
 
 ## Scheduling Algorithms
 
@@ -259,6 +258,12 @@ The **Multilevel Feedback Queues** scheme is very general because highly *config
 	- requires that critical processes receive priority over less fortunate ones
 
 ## Thread Scheduling
+
+Local Scheduling (Process-Contention Scope) – How the **threads library** decides which thread to put onto an available LWP
+
+- 将 user kernel 和 system kernel 进行绑定
+
+Global Scheduling (System-Contention Scope) – How the **kernel** decides which kernel thread to run next
 
 * **process-contention scope (PCS)**  
 
