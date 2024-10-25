@@ -58,8 +58,6 @@ theme:
     # - navigation.instant
     - toc.follow
     - navigation.tabs
-    # - navigation.tabs.sticky
-    # - navigation.sections
     - navigation.indexes
     - navigation.top
     - navigation.tracking # 地址栏中的 URL 会自动更新为目录中突出显示的活动定位点
@@ -90,6 +88,7 @@ extra_css:
   - css/status.css
   - css/Myself.css
   - css/counter.css
+  - css/status.css
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
 extra_javascript:
   - javascripts/mathjax.js
@@ -105,42 +104,17 @@ extra_javascript:
 markdown_extensions:
   - toc:
       permalink: true
-      title: This Page
-      toc_depth: 4 # 目录中的级别范围
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.arithmatex:
-      generic: true
-  # 加入html 支持
+      toc_depth: 4
+  - meta
   - md_in_html
-  # 属性列表扩展允许使用特殊语法将 HTML 属性和 CSS 类添加到几乎每个Markdown 内联和块级元素。
+  - def_list
   - attr_list
-  # 工具提示
   - abbr
-  # annotation
   - admonition
-  # task list
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  # 代码块
   - pymdownx.details
-  - pymdownx.highlight:
-      linenums: true
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
   - pymdownx.inlinehilite
-  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#embedding-external-files
-  #
   - pymdownx.snippets # 将任意文件中的内容嵌入到文档
   - pymdownx.superfences # 允许代码和内容嵌套
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg # 选项卡
-
-
-  - pymdownx.tabbed:
-      alternate_style: true
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.mark
@@ -148,23 +122,29 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.highlight
   - pymdownx.keys
-
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 nav:
-  - 封面:
+  - Home:
       - "封面": index.md
-  - ⚙️ Tools:
+  - Tools:
       - Tools/index.md
-      - ⚙️ Git: Tools/Git.md
-      - ⚙️ Shell: Tools/Shell.md
-      - ⚙️ GNU Make: Tools/GNUMake.md
-      - ⚙️ 站点:
+      - Git: Tools/Git.md
+      - Shell: Tools/Shell.md
+      - GNU Make: Tools/GNUMake.md
+      - 站点:
           - mkdocs: Tools/站点/mkdocs.md
-  - 课内:
+  - CS:
       - CS/index.md
       - OOP: CS/OOP.md
       - DB:
@@ -225,3 +205,5 @@ nav:
           - others/微观经济学/Chapter 6 不完全竞争市场.md
           - others/微观经济学/Chapter 7 博弈论.md
           - others/微观经济学/Chapter 8 要素市场.md
+  - Blog:
+      - blog/index.md
