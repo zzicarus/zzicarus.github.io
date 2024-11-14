@@ -20,6 +20,25 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 >**类** 
 >- [ ] 继承
 >- [ ] 类内类的顺序
+>
+>**容器**
+>
+>- [ ] Vector
+>- [ ] 
+>
+>**Exception**
+>
+>- [ ] fw
+>
+>**IO**
+>
+>**Others**
+>
+>- [ ] regex
+>
+>
+
+
 
 # Java
 
@@ -108,6 +127,8 @@ package <Package name>
 
 - **public**：公共访问，任何类都可以访问。
 - **protected**：受保护的访问，允许**同一包内的类和不同包中的子类**访问。
+	- 跟C++不同
+
 - **默认（包私有）**：如果不指定访问修饰符，默认为包私有，只有同一包内的类可以访问。
 - **private**：私有访问，仅在同一类内可见
 
@@ -212,6 +233,8 @@ System.out.println(n1 == n2);  // false
 ### 垃圾回收 GC
 
 [深入理解 JVM 的垃圾回收机制 | 二哥的Java进阶之路 (javabetter.cn)](https://javabetter.cn/jvm/gc.html)
+
+使用大端编码
 
 ## Class
 
@@ -515,6 +538,37 @@ public Contents cont() {
 
 ![img](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410172337488.png)
 
+> [!note] Var Args
+>
+> ```java
+> static void f(Object[] x) {
+>     for (int i = 0; i < x.length; i++)
+>         System.out.println(x[i]);
+> }
+> 
+> f(new Object[] { new A(), new A(), new A() });
+> ```
+>
+> 使用 Object 可以接受这种类型的数组，但是对于Array就会失效
+
+- 与C++相同，同时使用index和iterator访问时，如果使用index删除某个元素，可能导致iterator的混乱
+
+```java
+Iterator<A> it = v.iterator();
+while (it.hasNext()) {
+    System.out.println(it.next());
+}
+```
+
+> [!note] ArrayList
+>
+> ```java
+> ArrayList<Integer> a = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+> // error
+> ```
+>
+> 不应该使用int赋给Integer，`ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));`
+
 ### Array
 
 ```java
@@ -538,12 +592,19 @@ for (var x: a) // 这里x为指针，通过x访问它的元素然后改变
 ### Collection
 
 - Java没有实现重载，访问某个元素只能使用`get`不能使用`[]`
+- Java的泛型不支持Primitive，只能使用wrapper类
 
 **共有操作**
 
 - `add`
 - `addAll(Collection)`
 - `toArray`
+
+
+
+**Colletion**
+
+
 
 #### List
 
@@ -566,15 +627,32 @@ Value v1 = list.get(0);
 
 ### Map
 
+```java
+```
+
+**使用自己定义的类作为键值对**
+
+- must override both  **hashCode( )** and **equals( )**,
+
+```java
+```
+
+
+
 ### Generic
 
-存放类型的变量 Class类的变量
+- A generic type declaration is compiled once and for all, and turned into a single class file.  这一点和C++不同
+- 
 
 
 
 **subtype**
 
 ![image-20241024164037656](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410241640825.png)
+
+> [!note] - Vector
+>
+> 
 
 
 
@@ -591,6 +669,8 @@ public void drawAll(List<? extends Shape> shapes)
 { ... }
 ```
 
+- 带边界的泛型可以是一个类或多个类的子类。例如，`<T extends A & B>`表示T必须是A和B的子类。如果用户不清楚这一点，可能会误解如何使用泛型。
+
 ## Exception & IO
 
 - `System.out.println(true ? Integer.valueOf(1) : Double.valueOf(2.0));`
@@ -604,6 +684,7 @@ public void drawAll(List<? extends Shape> shapes)
 **异常声明**
 
 - 未处理的异常必须要声明`throws ...`
+	`void f() throws TooBig, TooSmall, DivZero{ }`
 - 一个函数中存在异常
 	- 调用的函数抛出异常
 	- 自己抛出异常
@@ -626,6 +707,92 @@ public void drawAll(List<? extends Shape> shapes)
 	- 非构造
 - 对于多来源的类，子类的能抛出的异常是父类的交集（可能被当做任何一种类，is-a）
 
+## Stream
+
+![img](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411082137887.png)
+
+> 这里不同种类的IO不是相互替代的关系
+
+**version 1**
+
+- inputStream
+
+- outputStream
+
+一些需要注意的类
+
+- media
+- `filter Stream`
+	- `DataInputStream` 实现读写基本数据类型 读取xx个byte并转换
+	- 
+
+
+> System.in.read 读取裸数据
+
+**version 2**
+
+- Reader
+- Writer
+	- 
+
+> 在binary和/R/W之间搭建桥梁
+
+### File Class
+
+
+
+### 序列化
+
+```java
+public class Employee implements Serializable {
+    public static final long serialVersionUID = 1L; // 用于检测是否是同一个版本，判断是否可用于反串行化
+    public String name;
+    public String address;
+    public transient int age; // transient瞬态修饰成员,不会被序列化
+}
+
+
+```
+
+- [`static`](https://javabetter.cn/oo/static.html) 和 [`transient`](https://javabetter.cn/io/transient.html) 修饰的字段是不会被序列化的。
+- 读写之后的对象不是同一个对象
+	- 但是写进去的时候构造函数不会被调用，直接把值放进去
+- 只有在父类也实现`Serializable`才能保存其数据，也可以直接由父类实现，而子类不实现
+
+**transient**
+
+- 只能修饰字段，而不能修饰方法和类
+
+**自定义**
+
+```java
+private void writeObject(ObjectOutputStream oos) throws IOException {
+    oos.defaultWriteObject(); // 使用默认序列化
+    oos.writeObject(encrypt(password)); // 对敏感数据加密后序列化
+}
+
+private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
+    ois.defaultReadObject(); // 使用默认反序列化
+    password = decrypt((String) ois.readObject()); // 反序列化后解密
+}
+```
+
+### 
+
+
+
+## GUI
+
+> [!note]
+>
+> **MVC** 
+>
+> **MVVM**
+
+## Thread
+
+
+
 ## **补充知识**
 
 ### 命名规范
@@ -634,13 +801,38 @@ public void drawAll(List<? extends Shape> shapes)
 
 ### Java 正则表达式
 
+```java
+Pattern pattern = Pattern.compile("your_regex_pattern"); // 创建正则表达式
+Matcher matcher = pattern.matcher("your_input_string");  // 创建匹配器对象
+```
+
+#### Pattern
+
 
 
 #### Matcher类
 
 [Matcher 类 - Dev.java - Java 中文 (java-lang.cn) ](https://dev.java-lang.cn/learn/regex/matchers/)
 
+**`boolean matches()`**：整个输入字符串是否完全匹配正则表达式。
+
+**`boolean find()`**：扫描输入字符串，查找与正则表达式匹配的下一个子序列。
+
+**`String group()`**：返回上一次匹配的子序列。
+
+**`int start()`**：返回上一次匹配的起始索引。
+
+**`int end()`**：返回上一次匹配的结束索引（不包括）。
+
+**`String replaceAll(String replacement)`**：替换所有匹配的子字符串。
+
+**`String replaceFirst(String replacement)`**：替换第一个匹配的子字符串。
+
 ### 中文处理
+
+### 处理输入输出
+
+
 
 ## 练习题
 
@@ -698,3 +890,105 @@ public void drawAll(List<? extends Shape> shapes)
 
 ---
 
+### Week 5 容器
+
+> [!question]
+>
+> Given list an object of ArrayList, which code below for //todo delete can remove an element in the list correctly and safely?
+>
+> ```Java
+>         Iterator it = list.iterator();
+>         int index = 0;
+>         while (it.hasNext()){
+>               Object obj = it.next();
+>               if (needDelete(obj)) { // returns Boolean for removing or not
+>                    //todo delete
+>               }
+>               index ++;
+>         }
+> ```
+>
+> A. list.remove(obj);
+>
+> B. list.remove(index);
+>
+> C. list.remove(it.next());
+>
+> **D. it.remove();**
+
+> [!Question]
+>
+> For code below:
+>
+> ```Java
+> ArrayList<Integer> a = new ArrayList<Integer>();
+> ArrayList<Double> b = new ArrayList<Double>();
+> ```
+>
+> Which statement below is **NOT** correct?
+>
+> A. a.getClass().equals(b.getClass()) is true
+>
+> B. a.getClass() == b.getClass() is true
+>
+> C. a instanceof ArrayList is true
+>
+> **D. a.getClass() == b.getClass() is false**
+
+### Exception
+
+> [!faq]
+>
+> Suppose there is no file Hello.txt in the current directory. Run the program:
+>
+> ```java
+> import java.io.*;
+> public class ABC {
+>     public static void main(String argv[]) throws Exception {
+>         ABC m=new ABC();
+>         System.out.println(m.ff());
+>     }
+> 
+>     public int ff() {
+>         try {
+>             FileInputStream dis=new FileInputStream("Hello.txt");
+>         } catch (FileNotFoundException fne) {
+>             System.out.print("No such file found, ");
+>             throw fne;
+>         } finally {
+>             System.out.print("Doing finally, ");
+>         }
+>         return 0;
+>     }
+> }
+> ```
+>
+> A.
+>
+> No such file found,
+>
+> B.
+>
+> No such file found ,0
+>
+> C.
+>
+> No such file found, Doing finally,
+>
+> D.
+>
+> No such file found, Doing finally, 0
+>
+> > [!note]
+> >
+> > 
+
+### IO
+
+![image-20241108225943443](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411082259607.png)
+
+![image-20241108225918666](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411082259091.png)
+
+![image-20241108230027881](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411082300037.png)
+
+- `read()` 返回 `int`，因为需要返回 -1 表示文件结束。

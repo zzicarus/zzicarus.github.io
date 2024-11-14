@@ -33,7 +33,7 @@
 >
 >![image-20241011163429012](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410111634101.png)
 
-##### 带**比特**填充的定界符法
+##### 带**比特**填充的定界符法 HDLC
 
 ![image-20241011163521376](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410111635477.png)
 
@@ -135,8 +135,8 @@
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410112154090.png" alt="img" style="zoom: 80%;" />
 
-- 把一个数据为拆为某几个检验位的和，$P_n$检验位的值就等于所有使用到这个检验位的数据位的异或的结果
-- 检验原理就是将这个过程重新进行
+- 把一个数据为拆为某几个检验位的和，$P_n$检验位的值就等于所有使用到这个检验位的数据位$D_i$的异或的结果
+- 检验原理:
 
 **见王道 P62 **
 
@@ -277,7 +277,7 @@
 >
 >$1<W_T\leq2^n-1$​
 >
->序号是重复使用的
+>**序号是重复使用的**
 
 #### 选择重传协议 SR
 
@@ -289,9 +289,7 @@
 
 • 上层的调用：检测有没有可以使用的序号，如果有就发送
 
-• 收到ACK：如果收到的是最小序号的ACK，窗口滑动。如果收到其他序号的
-
-ACK，进行标记
+• 收到ACK：如果收到的是最小序号的ACK，窗口滑动。如果收到其他序号的 ACK，进行标记
 
 • 超时事件：每个PDU都有定时器，哪个超时重传哪个
 
@@ -309,7 +307,12 @@ ACK，进行标记
 
 ![image-20241012154747738](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410121547917.png)
 
+- NCP 网络控制协议
+
 - 但是HDLC是 bit 填充的，PPP是byte填充
+- 不适用序号和确认机制只保证无差别接受，不可靠服务
+- 只支持全双工点对点链路
+- 两端可以运行不同的网络层协议
 
 **帧格式**
 
@@ -346,9 +349,6 @@ ARQ包括GBN和SR
 >![image-20241022102654624](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410221027770.png)
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410221027307.png" alt="image-20241022102754213" style="zoom:50%;" />
-
->[!faq]- Are callouts foldable? 
->Yes! In a foldable callout, the contents are hidden when the callout is collapsed.
 
 **网络链路**
 
@@ -479,6 +479,8 @@ $\frac{1}{e}$
 >- **10 Base-T**  10 Mbps 双绞线
 >- **1000Base-T** 1000 Mbps 双绞线
 >- **100Base-FX**  光纤
+>- **10Base5** 同轴电缆 最大传输距离 500m
+>- **10Base2** 同轴电缆 最大传输距离 185m
 
 - 以太网通过 二进制指数后退 binary exponential backoff 算法确定每次冲突后的等待时间。
 	我们将时间按照 51.2μs 分块；在第 i = 1 ~ 15 次冲突发生后，站等待 0 ~ min((2^i-1), 1023) 个时间槽后再次尝试发送；在发生 16 次冲突后，它放弃发送并给上层返回一个失败报告；高层协议负责进一步的恢复工作。这种算法的考量是，如果等待时间的上限较低，那么多个站发生冲突的时候很可能再次发生冲突；而如果上限较高，则很有可能发生很多无意义的延迟。这种算法可以保证：如果只有少量站发生冲突，则可以保证较低的延迟；当许多站发生冲突时，它也可以保证在一个相对合理的时间内解决冲突。
@@ -504,15 +506,22 @@ $\frac{1}{e}$
 ![image-20241022113347786](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410221133939.png)
 
 - 使用ipconfig /all命令查看MAC地址
+- 前导码
+	- 7 byte 同步码
+	- 1 byte **帧开始定界符**  只有开始，没有结束定界符 <= 曼彻斯特编码，电平容易区分
+
 - **源地址后面的两个字节**，Ethernet V2将其视为上一层的协议类型，IEEE802.3将其视为数据长度
-	- 大的表示长度
-	- 小的表示类型
+  - 大的表示长度
+  - 小的表示类型
 - **数据字段**
-	- 46 ~ 1500字节
-	- 最小帧长 = 46+18 = 64B
-	- 最大帧长 = 1500+18 = 1518B （MTU：1500B）
-	- 数据字段不足46字节，需要填充整数字节（Padding）至46字节，以保证以太网MAC帧不小于64字节。
-	- 以太网规定最短有效帧长为 64 字节，凡长度小于 64 字节的帧都是由于冲突而异常中止的无效帧。
+  - 46 ~ 1500字节
+  - 最小帧长 = 46+18 = 64B
+  - 最大帧长 = 1500+18 = 1518B （MTU：1500B）
+  - 数据字段不足46字节，需要填充整数字节（Padding）至46字节，以保证以太网MAC帧不小于64字节。
+  - 以太网规定最短有效帧长为 64 字节，凡长度小于 64 字节的帧都是由于冲突而异常中止的无效帧。
+- 校验和
+  - 采用CRC编码
+
 
 #### 交换式以太网
 
@@ -662,7 +671,434 @@ $\frac{1}{e}$
 
 LAN 本质上都是广播的
 
+> [!note] 范围问题
+>
+> • 传输范围(TX-Range)：成功接收帧的通信范围，取决于发送功率和无线电波传输特性
+>
+> • 物理层侦听范围（PCS-Range ）：检测到该传输的范围，取决于接收器的灵敏度和无
+>
+> 线电波传输特性
+>
+> • 干扰范围（IF-Range ）：在此范围内的节点如果发送不相关的帧，将干扰接收端的接
+>
+> 收并导致丢帧
+>
+> ![image-20241027145806406](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410271458503.png)
+>
+> 
+
+#### 组网模式
+
+![image-20241027145221051](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410271452277.png)
+
+#### 体系结构
+
+#### IEEE 802.11
+
+**隐藏终端 | 暴露终端 问题**
+
+![image-20241027145651784](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410271456905.png)
+
+#### CSMA/CA
+
+不同帧间隙控制优先级
+
+- SIFS（Short IFS）：最高优先级，用于Ack, CTS, 轮询响应等
+- PIFS（PCF IFS）：中等优先级（SIFS+1槽口时间），轮询服务
+- DIFS（DCF IFS）：最低优先级（ SIFS+2槽口时间），异步数据服务
+
+### WAN 广域网 和 
+
+
+
+## Network
+
+> [!note]
+>
+> - 点到点通信：由物理层、数据链路层和网络层组成的通信子网
+> - 端到端通信：传输层
+>
+> | **特性**     | **端到端（End-to-End）**                  | **点到点（Point-to-Point）**                                 |
+> | ------------ | ----------------------------------------- | ------------------------------------------------------------ |
+> | **连接结构** | 源和目标之间可能有多个中间路由            | 只有两个端点直接相连                                         |
+> | **协议层**   | 传输层和应用层                            | 物理层、链路层、网络层                                       |
+> | **应用场景** | 互联网中的远程通信，如浏览网页、流媒体等  | 局域网中或物理上直接连接的设备之间的通信                     |
+> | **传输控制** | 复杂可靠性控制机制，如 TCP 提供的可靠传输 | 直接传输，中间不含有中间设备（两个设备直接通信）通常不涉及复杂的可靠性控制 |
+
+### 服务
+
+**网络中的传输是否有确认和网络层提供的两种服务没有关系**
+
+#### Virtual Circuit
+
+**优劣**
+
+#### Datagram
+
+#### 拥塞控制
+
+**检测拥塞**
+
+**处理拥塞**
+
+### 路由器
+
+#### 路由表 | Routing Table
+
+> 有些时候和转发表不加以区分
+>
+
+
+
+### 网络层协议
+
+#### IPv4
+
+![image-20241029110503003](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410291105217.png)
+
+- Version： IPV 4/6
+- **Total Packer Length** ：Header and data | MAX = 64KB
+- **Type Of service**: **how important is the packet**  
+- **Packet ID**
+- **Flags** | 帮助分段
+	- **第 1 位**：保留位，必须为 0。
+	- **第 2 位（DF, Don't Fragment）**：不分片位，如果设置为 1，数据包不能被分片
+	- **第 3 位（MF, More Fragments）**：更多分片位，若为 1 表示后面还有分片，若为 0 表示这是最后一个分片
+
+- Fragment Offset 指明分片在原始数据包中的位置，以 8 字节为单位，帮助接收方重新组合分片。
+- Protocol ID：说明 data 是哪种类型，将 data 交给相应的 code 进行处理。（  == 6 ）
+- TTL
+
+- Option:可选择
+
+> [!tip]
+>
+> 1. 不同的单位
+>   - Header Length 4B
+>   - Total Length B
+>   - Fragment Offset 8B 
+> 2. IP首部字节以0x45开头 - > IPv4, 没有Option选项
+> 2. IP Header 为 20 bytes
+
+> [!note] IPV4 地址
+>
+> 
+>
+> <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091836867.png" alt="image-20241109183615724" style="zoom:50%;" />
+>
+> - A
+> - B
+> - C
+> - D 常用于组播 multicasting
+>
+> ![image-20241109170849547](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091708743.png)
+>
+> - 私有IP地址
+> 	- A类 10.0.0.0 - 10.255.255.255
+> 	- B类 172.16.0.0 - 172.31.255.255
+> 	- C类 192.168.0.0 - 192.168.255.255
+
+##### 分片
+
+MTU（Maximum Transmission Unit）, 最大传输单元
+
+- 链路MTU
+- 路径MTU (Path MTU)
+	- 以太网的MTU = 1500B
+
+#### NAT | 网络地址转换
+
+- 普通路由器仅仅工作在网络层，而NAT还需要查看和转换传输层的端口号
+
+#### 子网划分
+
+
+
+##### CIDR 无类域间路由和路由聚合
+
+#### DHCP动态主机配置协议
+
+> **基于UDP的应用层协议**
+
+当主机加入IP网络，允许主机从DHCP服务器动态获取IP地址
+
+![image-20241109172352337](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091723462.png)
+
+![image-20241109173448753](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091734876.png)
+
+#### ARP
+
+**在不同网络传输，MAC帧会改变**
+
+![image-20241109174047628](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091740765.png)
+
+> [!note] Address Resolution Protocol | ARP
+>
+> **地址解析协议：**在局域网中将IP地址映射到物理地址（MAC地址）的网络协议。ARP的主要作用是在同一网络中，设备通过已知的IP地址来获取目标设备的MAC地址，以便进行数据包的传输。
+>
+> ![image-20241028170616900](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410281706074.png)
+>
+> - Hardware：1（Ethernet）
+> - protocol：0x0800（IP）
+> 	- protocol address：IP地址
+> - opcode：Request/Response
+>
+> > [!example] - 例子
+> >
+> > **步骤：**
+> >
+> > 1. **ARP请求**：
+> > 	- 主机A生成ARP请求，内容为：
+> > 		- 源IP：`192.168.1.2`
+> > 		- 源MAC：`AA:BB:CC:DD:EE:FF`
+> > 		- 目标IP：`192.168.1.3`
+> > 		- 目标MAC：`00:00:00:00:00:00`（未知）
+> > 	- 主机A将该请求广播到局域网。
+> > 2. **ARP响应**：
+> > 	- 主机B接收到ARP请求，发现目标IP匹配自己的IP地址，于是发送ARP响应，内容为：
+> > 		- 源IP：`192.168.1.3`
+> > 		- 源MAC：`FF:EE:DD:CC:BB:AA`
+> > 		- 目标IP：`192.168.1.2`
+> > 		- 目标MAC：`AA:BB:CC:DD:EE:FF`
+> > 	- 主机B将ARP响应单播回主机A。
+> > 3. **缓存更新**：
+> > 	- 主机A收到ARP响应后，将`192.168.1.3`和对应的MAC地址`FF:EE:DD:CC:BB:AA`存储在ARP缓存中，以便下次直接使用。
+
+#### ICMP
+
+• ICMP 允许主机或路由器报告差错情况和提供有关异常情况的报告
+
+• 由主机和路由器用于网络层信息的通信
+
+• ICMP 报文携带在 IP 数据报中： IP上层协议号为1
+
+- 类型
+	- **差错报文**
+		- 终点不可达：不可达主机、不可达网络，无效端口、协议
+	- **询问报文**
+		- ping 使用 回送请求/应答
+- 不发送的类型
+	- 针对ICMP报文不发送错误提示ICMP
+	- **第一个分片的数据报片的所有后续数据报片**
+	- 具有多播/特殊地址的数据包
+
+![image-20241109181017066](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091810194.png)
+
+> [!note] Ping
+>
+> - Ping 命令工作在应用层
+> - 使用ICMP回送请求和回送回答报文
+>
+> ![image-20241109181715786](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091817956.png)
+
+> [!note]Traceroute
+>
+> - 工作在应用层
+
+### 路由算法
+
+这里讨论动态路由算法
+
+#### Vector Distance
+
+> 最常用的是RIP，使用跳数估计距离
+
+利用 bellman-ford 算法，计算单源最短路径
+
+![image-20241109185157264](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091851425.png)
+
+#### 链路 link state
+
+使用Dijkstra算法
+
+> 将邻居状态发送给所有nodes
+
+![image-20241109190750490](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091907633.png)
+
+- tag
+- age
+	- 
+- seq
+	- 限制flooding的影响。拒绝所有 < # 该路由器收到过最大的序号
+
+
+
+### 层次路由
+
+**AS | Autonomous System**
+
+- IGP
+	- 同一AS内部
+	- OSPF RIP IS-IS
+- EGP
+	- AS 之间
+	- BGP
+
+**广播 | Broadcasting**
+
+- flooding 不加以控制容易出现广播风暴
+
+	- sequence number controlled flooding
+
+		![image-20241109225313515](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411092253697.png)
+
+	- **RPF | reverse Path Forwarding** 逆向路径转发**
+
+	- Spanning Tree
+
+		- 改进了逆向路径转发
+		- 没有环路
+		- 一个路由器可以不必知道整颗树，只需要知道在一颗树中的邻居即可
+		- 消除冗余分组
+
+		<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411092259896.png" alt="image-20241109225939751" style="zoom: 50%;" />
+
+**组播 multicasting**
+
+- **IGMP INternet Group Management PRotocol**
+- multicasting address 只能用于目的地址
+- 不产生 ICMP 差错bao'wen
+
+### 路由协议
+
+这一部分看王道
+
+#### RIP | Routing Info Protocol
+
+王道 P187
+
+- 使用跳数衡量到达目的网络的距离
+- 周期性更新：30s
+- 允许一条路径最多只能包含 15 个路由器
+- 防止环路 》？
+	- 触发更新
+	- 毒性反转
+	- 水平分割
+
+#### OSPF | Open Shortest Path First
+
+- 将一组网段组合在一起，称为一个区域
+- 使用层次结构的区域划分，上层区域称之为主干区域，其他区域都必须和主干区域相连
+	- 区域边界路由器 (Area Bounder Router，ABR)
+	- 内部路由器 IR
+	- 自治系统边界路由器 ASBR
+
+![image-20241110160728951](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411101607096.png)
+
+#### BGP | Border Gateway Protocol
+
+![image-20241110161328127](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411101613262.png)
+
+### 路由器工作原理
+
+**控制层**
+
+- 路由表
+	- 路由选择
+
+![image-20241112105725717](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411121057961.png)
+
+**数据层**
+
+![image-20241112110247237](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411121102542.png)
+
+### 拥塞控制 | Congestion Control
+
+
+
+### IPV6
+
+Which is not a legal IPV6 address?
+
+- 8300::1382:4567:89AB:CDEF
+- **1382:4567:89AB:CDEF**
+- ::211.31.20.46
+- 2A43:0000:0000:0000:0123:4567:89AB:CDEF
+
+
+
+## 总结
+
+### 设备
+
+- 如果一个存储转发设备实现了某个层次的功能，那么他可以互联两个在该层次上使用不同协议的网络/网段
+- 冲突域：能产生介质冲突的
+- 广播域：能收到同一广播的
+
+==第一层==
+
+- 不能划分冲突域
+- 不能隔离广播域
+
+**集线器**
+
+**中继器**
+
+- 不能互联两个物理层不同的网段
+
+---
+
+==第二层==
+
+- 划分冲突域
+- 不能隔离广播域
+
+**网桥**
+
+- 可以互联两个物理层和数据链路层不同的网段
+
+**交换机**
+
+- 
+
+****
+
+==第三层==
+
+**路由器**
+
+- 划分冲突域
+- 隔离广播域  ---  可以缓解广播风暴（ 不转发广播地址 255.255.255.255 ）
+- 实现了物理层、数据链路层和网络层
+	- 能够解析这三层的数据
+- **功能**
+	- **路由选择**
+		- 通过协议不断更新路由表
+	- **分组转发**
+		- 输入接口卡
+			- 转发表查询
+		- 交换设备
+		- 输出接口卡
+- **转发表和路由表**
+	- 转发表由路由表得到，是核心路由表
+	- 路由表：对网络拓扑变化的计算最优化；总是软件实现
+	- 转发表：查询目标最优化；可以软件/特殊硬件实现
+- **交付方式**
+	- 直接交付
+		- 主机和目标网络在同一网络上，不通过路由器
+	- 间接交付
+- **默认路由**
+	- 0.0.0.0 / 0
+
+- **发送数据包的过程**
+	- 源主机首先构建一个 Destination Address = ，Source Address = 的 Datagram
+
+
+****
+
+#### 题目
+
+
+
+### 协议
+
 ## 题目
+
+> [!note]
+>
+> **Data Link Layer**
+>
+> **Network Layer**
 
 ### Data Link Layer
 
@@ -691,7 +1127,21 @@ A 100-km-long cable runs at the T1 data rate. The propagation speed in the cable
 
 Assume the sequence number has 5 bits. What is the maximum number of outstanding sending frames for a go back N protocol?
 
-$2^n-1$
+$2^n-1$​
+
+---
+
+**Go-back-n 的具体计算**
+
+![70ab360670edaa425a7efc1b9242c42](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411112242586.png)
+
+![image-20241111224227878](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411112242051.png)
+
+- 
+
+> [!faq]
+>
+> ![image-20241111231723602](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411112317735.png)
 
 ---
 
@@ -741,5 +1191,58 @@ Box 1: Select the best answer
 
 ---
 
+### 网络层
 
+**CIDR 的地址分配问题**
+
+**Q.** A large number of consecutive IP address are available starting at 198.16.0.0. Suppose that four organizations, A, B, C, and D, request 4000, 2000, 4000, and 8000 addresses, respectively, and in that order. For each of these, give the first IP address assigned, the last IP address assigned, and the mask in w.x.y.z/s notation.
+**A.** Fill your answer in the blank
+
+| Org# | First IP | Last IP | net/mask |
+| ---- | -------- | ------- | -------- |
+| A    |          |         |          |
+| B    |          |         |          |
+| C    |          |         |          |
+| D    |          |         |          |
+
+---
+
+**IP 数据包分组问题**
+
+![image-20241110141343128](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411101413347.png)
+
+----
+
+**私有地址网络的问题**
+
+Which is not the private address that will not appear in Internet datagram? 
+
+A 10.3.18.82 
+
+B192.168.8.3 
+
+C 10.214.0.1 
+
+D 172.33.8.8
+
+> [!faq]
+>
+> 在互联网数据报中，私有地址不会出现在公共网络中，RFC 1918 指定了以下三个私有 IP 地址范围：
+>
+> 1. **10.0.0.0 - 10.255.255.255**（10.0.0.0/8）
+> 2. **172.16.0.0 - 172.31.255.255**（172.16.0.0/12）
+> 3. **192.168.0.0 - 192.168.255.255**（192.168.0.0/16）
+>
+> 根据这些范围，我们可以分析给出的地址：
+>
+> - **10.3.18.82**：属于 10.0.0.0/8 范围，是私有地址。
+> - **192.168.8.3**：属于 192.168.0.0/16 范围，是私有地址。
+> - **10.214.0.1**：属于 10.0.0.0/8 范围，是私有地址。
+> - **172.33.8.8**：不在 172.16.0.0 - 172.31.255.255 的范围内，因此不是私有地址。
+>
+> **结论**：**172.33.8.8** 不是私有地址，它可能出现在互联网数据报中。
+
+## 小测
+
+![image-20241104234453384](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20241104234453384.png)
 

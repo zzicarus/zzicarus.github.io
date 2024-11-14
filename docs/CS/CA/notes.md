@@ -53,21 +53,23 @@
 	- Matrix
 	- Loop Fusion
 	- Merging Array
-- 
 
 
 
 
 
-
-
-2. Reduce the miss penalty and miss rate via parallelism
+### Reduce the miss penalty and miss rate via parallelism
 
 - Nonblocking Caches
+	- The cache to continues to supply hits while processing read misses ( **hit under miss , hit under multiple miss** ). 
+
 - Hardware Prefetching of Instructions and data
+	- reduces compulsory misses 
+	- 
+
 - Compiler-controlled prefetch
-	- Binding prefetch
-	- Non-Binding prefetch
+  - Binding prefetch
+  - Non-Binding prefetch
 
 ​			
 
@@ -86,3 +88,28 @@ Fitting the cache on the chip with the CPU is also very important for fast acces
 **pipelined Cache Access**
 
 **Trace Cache**
+
+## Memory
+
+organizing memory to improve bandwidth
+
+- Main memory is usually made from DRAM while caches use SRAM.
+
+### Improving Performance
+
+#### Wider Main Memory
+
+#### simple Interleaved Memory
+
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410291411064.png" alt="image-20241029141107912" style="zoom:33%;" />
+
+#### Independent Memory Banks
+
+### Memory Tech
+
+- Access time ----- time between when a read is requested and when the desired word arrives
+- Cycle time ----- minimum time between requests to memory. One reason that cycle time is greater than access time is that the memory needs the address lines to be stable between accesses.
+
+[内存基础 - HobbitQia的笔记本](https://note.hobbitqia.cc/Logic/logic07/#ram)
+
+如何激活使用激活快捷方式（默认：田+ Shift +@） 屏幕上将显示覆盖区。单击并按住主鼠标按钮，然后拖动以激活捕获。文本将保存到剪贴板。

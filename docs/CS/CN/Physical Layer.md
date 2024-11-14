@@ -32,14 +32,14 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 	- **反向非归零编码 NRZ Insert (NRZI)**：信号翻转代表 1，不翻转代表 0
 	- **曼彻斯特编码 Manchester**: 将码元分割成两个相等的间隔，下跳表示 1，上跳表示 0. 电平跳变既是时钟信号用于同步，又是数据信号
 		- 以太网使用
-	- **差分曼彻斯特编码**：电平跳变仅仅表示时钟信号，码元开始处无跳变为 0 有则为 1
-![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261002264.png)
+	- **差分曼彻斯特编码**：电平跳变仅仅表示时钟信号，码元开始处无跳变为 1 有则为 0
+	![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261002264.png)
 
 - 调制：数据 -> 模拟信号 module
 	- FM 应用广泛
 	- PM 改变载波的相位来表示 1/0，用相位 $0/pai$ 表示——绝对调相
 	- QAM 正交幅度调制 ：在频率相同的条件下，结合 AM、PM
-![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261020490.png)
+	![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261020490.png)
 - 多路复用 multiplexing
 	- 
 
@@ -78,7 +78,7 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 
 - 按时间分时
 
-### Code Division Multiplexing
+### Code Division Multiplexing | CDM | CDMA
 
 - 码分，更加灵活可以灵活调整带宽的分配
 - 同频又同时，同时发出但存在规律可以反解码
