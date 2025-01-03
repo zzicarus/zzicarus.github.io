@@ -1,6 +1,6 @@
 ---
 tags:
-  - doing
+  - "#class/OS"
 statistics: true
 title: NOTE
 author: zzicarus
@@ -65,7 +65,8 @@ Selects from among the processes in memory that are ready to execute, and alloca
 3. When a process switches from the waiting state to the ready state (for example, at completion of I/O)
 4. When a process terminates
 
-抢占式都有可能发生，如果一个scheduling只在1，4情况下发生，那么是非抢占式
+- Scheduling under 1 and 4 is nonpreemptive
+- 2，3 preemptive
 
 ## Scheduling Mechanisms
 
@@ -74,22 +75,20 @@ Selects from among the processes in memory that are ready to execute, and alloca
 * The Ready Queue contains processes that are in the READY state
 * Device Queues contain processes waiting for particular devices
 
-    每个被等待的 devices 都有一个 device queues, 通过双向链表连接。
+每个被等待的 devices 都有一个 device queues, 通过双向链表连接。
 
-!!! Example
+<div align = center><img src="https://cdn.hobbitqia.cc/20231101214011.png" width=60%></div>
 
-    <div align = center><img src="https://cdn.hobbitqia.cc/20231101214011.png" width=60%></div>
-    
-    比如这里，我们将进程 2 运行，就将它从 ready queue 里拿出来。随后如果他要读硬盘，我们就把 PCB2 挂载到 disk unit 0 的 device queue 上。
+比如这里，我们将进程 2 运行，就将它从 ready queue 里拿出来。随后如果他要读硬盘，我们就把 PCB2 挂载到 disk unit 0 的 device queue 上。
 
-> [!example]
+>[!example]
 >
->  <div align = center><img src="https://cdn.hobbitqia.cc/20231101214207.png" width=60%></div>
+><div align = center><img src="https://cdn.hobbitqia.cc/20231101214207.png" width=60%></div>
 >  parent call fork 之后，子进程进入 ready queue。如果父进程使用了 `wait`，他就会被放到子进程的 waiting queue 里（实际上每个被等待的对象都有一个 waiting queue）。
 >
-> 当子进程拿到 CPU 时，它结束之后，操作系统会把父进程唤醒，随后父进程进入 ready queue。
+>当子进程拿到 CPU 时，它结束之后，操作系统会把父进程唤醒，随后父进程进入 ready queue。
 >
-> 当 CPU 再次被父进程拿到时，它会回收子进程这个 zombie。
+>当 CPU 再次被父进程拿到时，它会回收子进程这个 zombie。
 
 ### Dispatcher
 
@@ -375,16 +374,14 @@ prio_array.head_queue[bsfl(bitmap)].task_struct
 
 ## Takeaway
 
-!!! Summary "Takeaway"
+* There are many options for CPU scheduling
 
-    * There are many options for CPU scheduling
-    
-    * Modern OSes use preemptive scheduling
-    
-    * Some type of multilevel feedback priority queues is what most OSes do right now
-    
-    * A common concern is to ensure interactivity
-    
-    * I/O bound processes often are interactive, and thus should have high priority
-    
-    * Having “quick” short-term scheduling is paramoun
+* Modern OSes use preemptive scheduling
+
+* Some type of multilevel feedback priority queues is what most OSes do right now
+
+* A common concern is to ensure interactivity
+
+* I/O bound processes often are interactive, and thus should have high priority
+
+* Having “quick” short-term scheduling is paramoun

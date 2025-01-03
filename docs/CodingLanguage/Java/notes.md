@@ -412,8 +412,9 @@ abstract interface BaseTest
 
 - 也是类，相当于构建了匿名子类，不是像C一样的宏（会进行类型检查`int i = 1; i == ONE`报错）
 	- `==` 和 `equals` 效果相同，是比较特殊的引用类型
+		- `equals`会在null的时候报错
 		- `enum`类型的每个常量在JVM中只有一个唯一实例，所以可以直接用`==`比较
-	
+		
 	- 无法通过`new`创建实例
 	- `Suit.values()`直接遍历访问整个enum类的所有
 	
@@ -513,6 +514,17 @@ class BoardGame extends Game {
 - 函数中的内部类
 	- 会在前面加上数字编号以区分不同的函数中的类
 
+#### 成员内部类
+
+- 成员内部类可以调用外部的变量
+
+#### 局部内部类
+
+```cpp
+```
+
+
+
 
 #### 匿名类
 
@@ -531,6 +543,18 @@ public Contents cont() {
             return i;
         }
     }; // Semicolon required in this case
+}
+
+public class ThreadDemo {
+    public static void main(String[] args) {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName());
+            }
+        });
+        t.start();
+    }
 }
 ```
 
@@ -591,7 +615,7 @@ for (var x: a) // 这里x为指针，通过x访问它的元素然后改变
 
 ### Collection
 
-- Java没有实现重载，访问某个元素只能使用`get`不能使用`[]`
+- Java没有实现重载，**访问某个元素只能使用`get`不能使用`[]`**
 - Java的泛型不支持Primitive，只能使用wrapper类
 
 **共有操作**
@@ -729,6 +753,12 @@ public void drawAll(List<? extends Shape> shapes)
 
 > System.in.read 读取裸数据
 
+
+
+**Bridge**
+
+
+
 **version 2**
 
 - Reader
@@ -750,8 +780,6 @@ public class Employee implements Serializable {
     public String address;
     public transient int age; // transient瞬态修饰成员,不会被序列化
 }
-
-
 ```
 
 - [`static`](https://javabetter.cn/oo/static.html) 和 [`transient`](https://javabetter.cn/io/transient.html) 修饰的字段是不会被序列化的。
@@ -791,6 +819,255 @@ private void readObject(ObjectInputStream ois) throws IOException, ClassNotFound
 
 ## Thread
 
+![image-20241114165902044](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411141659299.png)
+
+- RR [round-robin-scheduling](https://zzicarus.github.io/CS/OS/Ch5_CPU%20Scheduling/#round-robin-scheduling)
+- ==在调用start之后，只是加入到了Ready queue中并不会马上执行==
+
+**基本实现**
+
+1. `public class MyThread extends Thread`
+	1. `Thread t1; t1.setName(""); t1.start();`
+2. `public class MyRunnable implements Runnable`
+	1. `MyRunnable mr; Thread t1 = new Thread(mr, "name");`
+	2. 好处：避免了 Java 单继承的局限性，Java 不支持多重继承，因此如果我们的类已经继承了另一个类，就不能再继承 Thread 类了。
+
+
+
+**函数**
+
+- `wait`
+
+  - `public final void wait() throws InterruptedException`
+
+  	- 调用wait需要考虑后面的**exception**
+
+  - *进入等待队列前，会把所有线程的 key "归还"*
+
+  - 回来的条件
+
+    - 被nofity
+
+    - 能够获得key
+    	```java
+    	synchronized (theSender) {
+    	    theSender.isValid = false;
+    	    // 
+    	    theSender.notify();
+    	}
+    	// 
+    	```
+
+- **The `wait()`, `notify()`, and `notifyAll()` methods must be called in a synchronized method or a synchronized block on the calling object of these methods.**
+
+- `sleep`
+
+  - 和wait抛出的异常相同
+  - 一个静态函数`Thread.sleep(<time>)`，针对对当前线程
+  - 使得休眠时间 >= 指定时间
+
+- `yield`
+
+	- 放弃当前这个时间片，直接进入ready queue
+
+	- 可能导致资源被浪费：CPU 占用率居高不下
+	
+- `join`
+
+  - 等待
+
+
+### **Group**
+
+- [介绍](https://javabetter.cn/thread/thread-group-and-thread-priority.html#%E7%BA%BF%E7%A8%8B%E7%BB%84-threadgroup)
+- 每个线程属于一个group
+- Tree的架构
+- 优先级问题
+	- 默认和创建线程的线程优先级相同
+
+### **synchronized | 对共享变量的访问控制**
+
+- 保证一个线程的变化(主要是共享数据的变化)被其他线程所看到
+- zhi'neng
+- 阻止同时访问某一段代码
+- **Synchronized Method | 不需要在函数内部使用关键字**
+
+```java
+synchronized void sync() {
+    System.out.println(Thread.currentThread().getName() + "in sync");
+}
+```
+
+![image-20241202171112719](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412021711899.png)
+
+**线程交互**
+
+- 
+
+- Syco
+
+**自嵌套**
+
+- java可以保证再次使用`key`的正确性，不会导致死锁
+
+- 
+
+**DeadLock**
+
+
+
+**Pipe**
+
+out - > in
+
+
+
+### **Producer - Consumer**
+
+- 
+
+### **Explicit Lock**
+
+- 由 *synchronized* 是一个内置的同步机制（内部锁 | 隐式锁），它依赖于JVM来管理锁的获取和释放。
+- 显式锁
+
+```java
+ReentrantReadWriteLock rwLock = new ReentrantReadWriteLock();
+Lock readLock = rwLock.readLock();
+Lock writeLock = rwLock.writeLock();
+
+// 获取读锁
+readLock.lock();
+try {
+// 执行读操作
+} finally {
+	readLock.unlock();
+}
+
+// 获取写锁
+writeLock.lock();
+try {
+	// 执行写操作
+} finally {
+	writeLock.unlock();
+}
+```
+
+
+
+### **并行和并发**
+
+### **线程安全类**
+
+- **ArrayList、HashSet** 线程不安全
+- 
+
+### **volatile**
+
+- mark 一个主存中的变量
+- 不保证原子性(相邻原子操作之间不是原子)
+	- increment操作可能失效
+	- Any operation over double and long is not an atomic one,  unless the variable is declared as volatile
+		- 对于一个
+	
+- 作为 fence (和OS中的指令作用`sfence.vma zero, zero`很相似，用来刷新之前的写的值到memory/cache)
+	- volatile object
+		- `Student S` s the pointer is volatile, not the whole object
+
+
+## Socket & JDBC
+
+### SQL
+
+- PK 的选择
+	- 一般整数
+- 数据字典
+	- {1 : "Name"}
+- 数据库迁移
+	- 数据类型（某些特殊的）
+
+### TCP
+
+- ServerSocket 
+	- 在一个线程中一直等待连接，一旦来了一个连接就创建一个新的线程来处理（创建一个socket）
+- Socket
+	- 具体的连接都是使用这个类
+
+
+### NIO
+
+- Channels: Connections to files, sockets etc that support non-blocking reads 
+	- 
+
+- Buffers: Array-like objects that can be directly read or written by Channels
+	- 不同的数据类型
+- Selectors: Tell which of a set of Channels have IO events 
+	- 向 selector 注册 channel
+	- 阻塞，
+- SelectionKeys: Maintain IO event status and bindings 
+
+## Lambda 表达式
+
+- 没有变量必须存在`()`
+	- `btn.addActionListener(event -> System.out.println("OK"));`
+- 存在一个的情况下可以不加`()`
+- Lambda expression needs an explicit target-type
+- 从lambda 表达式引用的本地变量必须是最终变量或实际上的最终变量
+	- 内部新定义的值可以不是 final var
+- Lambda expression's local variable i cannot redeclare another local variable defined in an enclosing scope.  表达式内部使用的值不能覆盖外部的值
+- 闭包 closure
+	- 
+
+```java
+BinaryOperator<Long> add = (x,y) -> x+y;
+System.out.println(add.apply(100L, 200L));
+BinaryOperator<Long> addExp = (Long x,Long y) -> x+y;
+System.out.println(addExp.apply(100L, 200L));
+```
+
+
+
+- **赋值**
+	- 如果某个类/接口中只有一个函数，可以直接把lambda表达式赋值 | Functional Interface
+
+```java
+interface Func {
+	void ff();
+}
+public class FuncInterface {
+    public void app(Func f) {
+        f.ff();
+    }
+    public static void main(String[] args) {
+        FuncInterface fi = new FuncInterface();
+        fi.app(()->System.out.println("Hello"));
+    }
+}
+```
+
+- **Predicate**
+
+```java
+Predicate<Integer> atLeast5 = x-> x>5;
+public inteface Predicate<T> {
+    boolean test(T t);
+}
+```
+
+- **Binary Operator**
+
+```java
+BinaryOperator<Integer> addInt = (x,y) -> x+y;
+```
+
+## Stream | 流式计算
+
+
+
+## 设计模式
+
+### 单例模式 | Singleton 
+
 
 
 ## **补充知识**
@@ -812,7 +1089,7 @@ Matcher matcher = pattern.matcher("your_input_string");  // 创建匹配器对�
 
 #### Matcher类
 
-[Matcher 类 - Dev.java - Java 中文 (java-lang.cn) ](https://dev.java-lang.cn/learn/regex/matchers/)
+ [Matcher 类 - Dev.java - Java 中文 (java-lang.cn) ](https://dev.java-lang.cn/learn/regex/matchers/)
 
 **`boolean matches()`**：整个输入字符串是否完全匹配正则表达式。
 
@@ -856,6 +1133,8 @@ Matcher matcher = pattern.matcher("your_input_string");  // 创建匹配器对�
 
 >[!note] 
 >Java 中的访问权限是 public、protected、default 和 private。其中 default 具有包访问权
+>
+>
 
 ---
 
@@ -992,3 +1271,169 @@ Matcher matcher = pattern.matcher("your_input_string");  // 创建匹配器对�
 ![image-20241108230027881](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411082300037.png)
 
 - `read()` 返回 `int`，因为需要返回 -1 表示文件结束。
+
+### Week 10 | Thread & 同步问题
+
+![image-20241202163347637](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412021633846.png)
+
+![image-20241121234950928](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411212349202.png)
+
+![image-20241121231604850](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411212316045.png)
+
+![image-20241121234400292](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411212344469.png)
+
+1. 广播的实现
+2. Send 的效率问题
+	1. 消息队列
+		1. 经典的consumer - producer
+
+
+
+
+
+```java
+import java.io.*;
+import java.net.*;
+import java.util.concurrent.*;
+import java.nio.channels.*;
+import java.nio.*;
+import java.util.*;
+
+public class Server {
+    // 使用CopyOnWriteArrayList保证线程安全，适合读多写少的场景
+    private final CopyOnWriteArrayList<ClientHandler> clients = new CopyOnWriteArrayList<>();
+    // 使用线程池处理客户端连接和消息
+    private final ExecutorService executorService = Executors
+            .newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+    // 使用NIO的Selector实现非阻塞IO
+    private Selector selector;
+    // 消息队列，用于异步处理消息广播
+    private final BlockingQueue<String> messageQueue = new LinkedBlockingQueue<>();
+
+    class ClientHandler {
+        private SocketChannel socketChannel;
+        private String clientId;
+
+        public ClientHandler(SocketChannel socketChannel) {
+            this.socketChannel = socketChannel;
+            this.clientId = UUID.randomUUID().toString();
+        }
+
+        public void sendMessage(String message) {
+            try {
+                ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
+                socketChannel.write(buffer);
+            } catch (IOException e) {
+                removeClient(this);
+            }
+        }
+    }
+
+    public void start(int port) {
+        try {
+            // 创建ServerSocketChannel
+            ServerSocketChannel serverChannel = ServerSocketChannel.open();
+            serverChannel.bind(new InetSocketAddress(port));
+            serverChannel.configureBlocking(false);
+
+            // 创建Selector
+            selector = Selector.open();
+            serverChannel.register(selector, SelectionKey.OP_ACCEPT);
+
+            // 启动消息处理线程
+            startMessageProcessor();
+
+            while (true) {
+                selector.select();
+                Set<SelectionKey> selectedKeys = selector.selectedKeys();
+                Iterator<SelectionKey> iter = selectedKeys.iterator();
+
+                while (iter.hasNext()) {
+                    SelectionKey key = iter.next();
+                    iter.remove();
+
+                    if (key.isAcceptable()) {
+                        handleAccept(serverChannel);
+                    } else if (key.isReadable()) {
+                        handleRead(key);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleAccept(ServerSocketChannel serverChannel) throws IOException {
+        SocketChannel clientChannel = serverChannel.accept();
+        clientChannel.configureBlocking(false);
+        clientChannel.register(selector, SelectionKey.OP_READ);
+
+        ClientHandler client = new ClientHandler(clientChannel);
+        clients.add(client);
+    }
+
+    private void handleRead(SelectionKey key) throws IOException {
+        SocketChannel channel = (SocketChannel) key.channel();
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        int numRead = -1;
+
+        try {
+            numRead = channel.read(buffer);
+        } catch (IOException e) {
+            key.cancel();
+            channel.close();
+            return;
+        }
+
+        if (numRead == -1) {
+            key.cancel();
+            channel.close();
+            return;
+        }
+
+        buffer.flip();
+        byte[] data = new byte[buffer.remaining()];
+        buffer.get(data);
+        String message = new String(data);
+
+        // 将消息放入队列异步处理
+        messageQueue.offer(message);
+    }
+
+    private void startMessageProcessor() {
+        executorService.submit(() -> {
+            while (true) {
+                try {
+                    String message = messageQueue.take();
+                    broadcast(message);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+        });
+    }
+
+    private void broadcast(String message) {
+        for (ClientHandler client : clients) {
+            executorService.submit(() -> client.sendMessage(message));
+        }
+    }
+
+    private void removeClient(ClientHandler client) {
+        clients.remove(client);
+        try {
+            client.socketChannel.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        Server server = new Server();
+        server.start(5382);
+    }
+}
+```
+

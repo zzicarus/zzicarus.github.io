@@ -12,8 +12,10 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 # overview
 
 >[!note] 什么是一个操作系统？
->一个不断运行着的、控制硬件的软件程序
+>
+>kernel 是 一个不断运行着的、控制硬件的软件程序，kernel是OS中最重要的一个部分
 >**职能**
+>
 >- Resource Allocator
 >为上层的 App 分配底层资源
 >- Control Program
@@ -30,6 +32,10 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 	  多核的优势在于耗能更低，一个芯片中数据交互更方便
 	  ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409181458604.png)
 	- NUMA
+
+## I/O
+
+![image-20241229114157590](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20241229114157590.png)
 
 ## Operation
 

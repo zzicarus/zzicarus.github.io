@@ -765,7 +765,7 @@ Laplacian-of-Gaussian = "blob" detector <img src="https://zzh-pic-for-self.oss-c
 
 ## 图像拼接的主要流程
 
-![image-20240107181501952](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202401071815006.png)
+
 
 ## 拉普拉斯金字塔
 

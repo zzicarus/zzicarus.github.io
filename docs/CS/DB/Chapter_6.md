@@ -47,3 +47,7 @@ tags:
 
 - **Partial generalization is the default.** 
 - 
+
+```	assembly
+```
+

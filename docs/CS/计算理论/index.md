@@ -1,0 +1,1 @@
+- [关于Grammar的内容](https://www.cs.utexas.edu/~cline/ear/automata/CS341-Fall-2004-Packet/1-LectureNotes/25-TuringMachinesHandout.pdf)

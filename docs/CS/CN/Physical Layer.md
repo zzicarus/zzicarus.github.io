@@ -10,6 +10,8 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 
 # Physical Layer
 
+尽可能地屏蔽掉不同传输媒体和通信手段的差异，为数据链路层提供一个统一的数据传输服务
+
 - 速率
 	- **码元传输速率/波特率** ：单位时间数字通信系统传输的码元数  Baud
 	- **信息传输速率/比特率 max data rate** ： 单位时间内数字通信系统传输的二进制码元数  b/s
@@ -41,7 +43,8 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 	- QAM 正交幅度调制 ：在频率相同的条件下，结合 AM、PM
 	![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261020490.png)
 - 多路复用 multiplexing
-	- 
+
+![image-20241218113821739](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412181138930.png)
 
 ## Guided Transmission Media
 

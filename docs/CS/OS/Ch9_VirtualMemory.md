@@ -1,5 +1,7 @@
 # Virtual Memory
 
+## Intro
+
 >virtual memory isn’t a physical object, but refers to *the collection of abstractions and mechanisms the kernel* provides to **manage physical memory and virtual addresses.**
 >
 >是一种机制
@@ -8,6 +10,7 @@
 - Logical address space can therefore be much larger than physical address space
 - Allows address spaces to be **shared by several processes**  Page共享
 - Allows for more efficient **process creation**  只加载要用的部分
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411192235387.png" alt="image.png" style="zoom: 50%;" />
 
 ## Demand Paging
 
@@ -15,18 +18,22 @@
 
 - Swapper that deals with pages is a pager
 
->[!note]Transfer of a Paged Memory to Contiguous Disk Space
+>[!note] Transfer of a Paged Memory to Contiguous Disk Space
 
 ### Page Fault
 
 - Operating system looks at another table (kept with PCB) to decide
-	- Invalid reference  => abort
+	- Invalid reference  => **abort**
 	- Just not in memory
 - Get empty frame
 - Swap page into frame
 - Reset tables
 - Set validation bit = v
 - Restart the instruction that caused the page fault
+
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411192241991.png" alt="image-20241119224108889" style="zoom: 50%;" />
+
+>backing Store：disk acts as the *backing store* for RAM
 
 >[!note]EAT 计算
 >
@@ -47,9 +54,17 @@
 
 ### Copy on write
 
-- 发生之后两边的page table都更新
+- 发生之后两边的page table都更新 
+	- 初始的父子进程的PTE都是只读
+	- 触发写操作后，在中断处理中完成COW的copy操作
+
+![image-20241120101027673](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411201010845.png)
+
+### Memory-Mapped Files
 
 ## Page Replacement
+
+![image-20241120103643581](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411201036746.png)
 
 ### FIFO
 
@@ -73,7 +88,7 @@
 
 >[!note]
 >
->the minimum number of frames per process is defined by the architecture, the maximum number is defined by the amount of available physical memory
+>**the minimum number of frames per process is defined by the architecture**, the maximum number is defined by the amount of available physical memory
 
 - fixed allocation
 	- 比例分配
@@ -117,16 +132,15 @@
 - Queuing at paging device, the ready queue becomes empty
 - operating system thinks that it needs to increase the degree of multiprogramming
 	- another process added to the system
-
-接下来介绍缓解这种Thrashing的方法， limit the effects of thrashing by using a **local replacement algo**
-
-**rithm** (or **priority replacement algorithm**).
+- limit the effects of thrashing by using a **local replacement algorithm** (or **priority replacement algorithm**).
 
 ### Locality model
 
 >To prevent thrashing, we must provide a process with as many frames as it needs. **But how do we know how many frames it “needs”?** One strategy starts by looking at how many frames a process is actually using. This approach defines the **locality model** of process execution.
 
 ### Working-Set Model
+
+![image-20241120104133434](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411201041563.png)
 
 基于局部性假设，近似地描述程序在一段时间内活跃使用的page
 
@@ -136,6 +150,11 @@
 - 总页面需求 D 超过了系统的内存总量 mmm，操作系统的策略是**挂起一个进程**，将其页面内容换出，并重新分配其内存帧给其他进程。
 - 随时间监控每个进程的工作集变化。当进程的活动区域发生变化（即工作集变化）时，系统可以相应地增加或减少为该进程分配的页面帧
 
+近似这种滑动窗口
+
+- 使用定时器和ref bit（频率计算）
+- 
+
 ### PFF
 
 限制Page Fault rate
@@ -144,7 +163,7 @@
 
 ## MMF
 
-**Memory-Mapped Files** 是一种将文件内容直接映射到进程的内存地址空间的文件I/O方式，使得文件操作可以像操作内存一样简单。这种方法通过将文件的磁盘块映射到内存页中来实现，从而省去了频繁的系统调用如 `read()` 和 `write()`。以下是 Memory-Mapped Files 的详细解释和示例。
+**Memory-Mapped Files** 是一种将文件内容直接映射到进程的内存地址空间的文件I/O方式，使得文件操作可以像操作内存一样简单。这种方法通过将文件的磁盘块映射到内存页中来实现，从而省去了频繁的系统调用如 `read()` 和 `write()`。
 
 ### 工作原理
 
@@ -155,3 +174,31 @@
 4. **进程间共享**：多个进程可以将同一文件映射到它们各自的地址空间，这样这些进程可以共享文件内容在内存中的映射，实现跨进程的数据共享。
 
 <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411072342201.png" alt="image-20241107234257104" style="zoom: 50%;" />
+
+## Kernel Page Allocating
+
+Kernel memory is often allocated from a **free-memory pool different from the list used to satisfy ordinary user-mode processes**
+
+- kernel 具有很多不同长度的数据结构
+- 部分kernel对应的物理设备需要申请连续的物理页面
+
+### Buddy Algorithm
+
+- fixed size segment
+- 2-power allocator
+- **coalescing**
+	- 合并空余小内存
+
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411201101278.png" alt="image-20241120110130125" style="zoom:33%;" />
+
+### Slab
+
+- There is **a single cache for each unique kernel data structure**
+- 在一个cache创建之后，就会申请对应的object,   a number of objects—which are initially marked as free— are allocated to the cache
+- a 12-KB slab (made up of three contiguous 4-KB pages) could store six 2-KB objects
+- 申请过程
+	- 优先申请 半满的slab
+	- 然后申请 empty 的slab
+	- 全满就开一个新的slab
+
+![image-20241120110909606](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411201109742.png)

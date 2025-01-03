@@ -23,7 +23,7 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 >	- router 路由器
 >	- link-layer switch 链路层交换机
 >- socket interface 套接字接口是数据发送端需要遵循的一种规则，这样数据才能正常发送
->- 
+>- 区分 Internet 和 internet
 
 >[!note] 传输层协议
 TCP 面向连接的
@@ -33,35 +33,7 @@ MAC 唯一的，基于网卡的
 >[!info] Four Internet Model
 >![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409121558575.png)
 
-## 交换方式
-
-`Router` 对收到的 packet 进行存储转发实现分组交换
-
-- 电路交换
-  有线电话网络。
-	- 连接建立 —— 数据传送 —— 连接释放
-	- 缺点：中间节点无法发现并纠正错误；建立连接时间长
-- 报文（message）交换 ——使用存储转发技术
-  将 data 和其他数据封装
-- 分组交换 —— 在报文交换的基础上，对较长的 message 进行划分，在头部加上数据段形成新的 packet
-	- 可以进行流水线化处理
-
-## 计算机网络的分类
-
-## 性能指标
-
-- **Speed**：连接到网络上的节点在数字信道上传送数据的速率，又称之为数据传输速率、比特率，单位 b/s 、bit/s 、bps
-- **Bandwidth 带宽**：最高数据传输速率
-- **Throughput 吞吐量**：单位时间通过某个网络的实际数据量
-- **Delay 时间延迟**: 发送延迟 + 传播延迟 + 处理延迟 + 排队延迟
-	- 发送时延又称为传输时延，一个分组传输的的时间
-	- 传播时延是从某个 router 到另一个 router，是两台路由器之间距离的函数
-- **时延带宽积** = 传播时延 * 信道带宽，是发送的第一个 bit 到达终点时，发送端发出的 **bit 数**
-- **Round-Trip Time | RTT 往返时延**: 
-- 
-
->[!caution] 注意审题
->看看清楚 bits 还是 byte，1 B = 8 bits
+>
 
 ## OSI 模型 & TCP/IP 模型
 

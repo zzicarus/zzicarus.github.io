@@ -168,7 +168,8 @@ int main()
 
 **Exit** : A process terminates when it finishes executing its final statement and asks the operating system to delete it by using the ` exit() ` system call. 运行结束
 - 为 waiting 中的父进程返回 status value 
-- Deallocated 所有分配的资源
+	- Deallocated 所有分配的资源
+
 
 **Abort** : Parent may terminate execution of children processes
 

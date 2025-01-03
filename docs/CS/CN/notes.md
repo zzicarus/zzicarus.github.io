@@ -1,12 +1,223 @@
 # Computer Network
 
+> [!note]
+>
+> - [zjucomp 实验网站](https://zjucomp.net/)
+>
+> [TOC]
+
+## Overview 
+
+![image-20241217102836462](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412171028674.png)
+
+- 以太网 | Ethernet
+
+计算机网络的功能：
+
+- **数据通信 最基础的功能**
+- 资源共享
+
+**按逻辑分**
+
+- 通信子网
+- 资源子网
+
+### 交换方式
+
+`Router` 对收到的 packet 进行存储转发实现分组交换
+
+- 电路交换
+	有线电话网络。
+	- **连接建立 —— 数据传送 —— 连接释放**
+	- 缺点：中间节点无法发现并纠正错误；建立连接时间长
+- 报文（message）交换 ——使用存储转发技术
+	将 data 和其他数据封装
+	- 将L位数据报文，以R bps的速率，发送到链路中： 需要L/R秒
+
+- 分组交换 packet switching —— 在报文交换的基础上，对较长的 message 进行划分，在头部加上数据段形成新的 packet
+	- 可以进行流水线化处理
+
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412171032461.png" alt="image-20241217103208274" style="zoom:67%;" />
+
+### 计算机网络的分类
+
+**工作方式**
+
+![image-20241217095855631](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412170959938.png)
+
+
+
+### 性能指标
+
+- **Speed**：连接到网络上的节点在数字信道上传送数据的速率，又称之为数据传输速率、比特率，单位 b/s 、bit/s 、bps
+- **Bandwidth 带宽**：最高数据传输速率
+- **Throughput 吞吐量**：单位时间通过某个网络的实际数据量
+- **goodput 有效吞吐量** ：正确接收到的有用信息的数目
+- **Delay 时间延迟**: 发送延迟 + 传播延迟 + 处理延迟 + 排队延迟
+	- 发送时延又称为**传输时延 | transmission delay**，一个分组传输的的时间
+	- **传播时延 | propagation delay**
+		- 是从某个 router 到另一个 router，是两台路由器之间距离的函数
+	- **处理时延 | processing delay**
+		- 主机或路由器在收到分组时，为处理分组（例如分析首部、提取数据、差错检验或查找路由）所花费的时间
+	- **排队时延 | queueing delay**
+		- 分组在路由器输入输出队列中排队等待处理所经历的时延
+- **时延带宽积** = 传播时延 * 信道带宽，是发送的第一个 bit 到达终点时，发送端发出的 **bit 数**
+- **Round-Trip Time | RTT 往返时延**
+- **Packet Per Second | packet 转发率**
+	- 
+
+
+>[!caution] 注意审题
+>
+>1. 看看清楚 bits 还是 byte，1 B = 8 bits
+>2. **中间有几个路由器**
+>	1. 比如甲乙通过一个路由器相连，那么它们分组转发的时候，第一组需要2t的时间，之后的按照流水线形式每一个间隔t的时间就能够到达
+>3. 注意是否要计算 propagation dalay 和 transmission delay
+>	1. Transmission delay一般都要计算，要形成流水线也是先发送之后，再去传播，传播时可以接着发送
+
+
+
+
+
+### 协议与分层结构
+
+#### network protocol
+
+![image-20241217103406517](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412171034773.png)
+
+- 协议 Protocol
+	- 语法 | **Syntax**。数据和控制信息的格式。如报文段格式
+	- 语义 | **Semantics**。需要发出何种控制信息、完成何种动作及做出什么应答。比如TCP三次握手时所执行的操作。
+	- 同步/时序 | **Synchronization**。执行操作的条件、时序关系。比如TCP三次握手的时序
+- 不是所有的本层的功能都是service
+- SAP | Service Access Point 接口
+- 服务原语
+	- Request  ->  Confirmation
+	- Indication  ->  Response
+	- Response
+	- Confimation
+
+**Service Primitives**
+
+- 典型服务：面向连接传输服务，无连接传输服务
+- 原语告诉服务执行某些操作或报告对等实体所采取的操作
+
+![image-20241217103608808](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412171036010.png)
+
+#### OSI
+
+ 
+
+物理层（Physical Layer）
+
+•  定义如何在信道上传输0、1：Bits on the wire
+
+•  机械接口（Mechanical）：网线接口大小形状、线缆排列等
+
+•  电子信号（Electronic）：电压、电流等
+
+•  时序接口（Timing）：采样频率、波特率、比特率等
+
+•  介质（Medium）：各种线缆、无线频谱等
+
+
+
+数据链路层 (Data Link Layer)
+
+•  实现相邻（Neighboring）网络实体间的数据传输
+
+•  成帧（Framing）：从物理层的比特流中提取出完整的帧
+
+•  **错误检测与纠正**：为提供可靠数据通信提供可能
+
+•  物理地址（MAC address）：48位，理论上唯一网络标识，烧录在网卡，不便更改
+
+•  **流量控制**，避免“淹没”（overwhelming）:当快速的发送端遇上慢速的接收端，接收端缓存溢出
+
+•  共享信道上的访问控制（MAC）：同一个信道，同时传输信号。如同：同一间教室内，多人同时发言，需要纪律来控制
+
+
+
+网络层 (Network Layer)
+
+•  将数据包跨越网络从源设备发送到目的设备（host to host）
+
+•  路由（Routing）：在网络中选取从源端到目的端转发路径，常常会根据网络可达性动态选取最佳路径，也可以使用静态路由
+
+•  路由协议：路由器之间交互路由信息所遵循的协议规范，使得单个路由器能够获取网络的可达性等信息
+
+•  服务质量（QoS）控制：处理网络拥塞、负载均衡、准入控制、保障延迟
+
+•  异构网络互联：在异构编址和异构网络中路由寻址和转发
+
+
+
+传输层 (Transport Layer)
+
+•  将数据从源端口发送到目的端口（**进程到进程 端到端**）
+
+•  网络层定位到一台主机（host），传输层的作用域具体到主机上的某一个进程
+
+•  网络层的控制主要面向运营商，传输层为终端用户提供端到端的数据传输控制
+
+•  两类模式：可靠的传输模式，或不可靠传输模式
+
+•  可靠传输：可靠的端到端数据传输，适合于对通信质量有要求的应用场景，如文件传输等
+
+•  不可靠传输：更快捷、更轻量的端到端数据传输，适合于对通信质量要求不高，对通信响应速度要求高的应用场景，如语音对话、视频会议等
+
+
+
+应用层
+
+**七层ISO/OSI**
+
+1. **会话层（Session Layer）**：
+	- 负责建立、管理和终止应用程序之间的会话。
+	- 涉及会话的同步和检查点，以允许会话在通信失败后恢复。
+	- 提供了会话管理功能，如会话建立和终止。
+2. **表示层（Presentation Layer）**：
+	- 负责数据的表示、安全和压缩。
+	- 转换数据格式以确保一个系统的应用层所发送的信息可以被另一个系统的应用层读取。
+	- 涉及数据加密、解密、编码和转换。
+
+
+
+**OSI模型和TCP/IP模型的不同之处**
+
+1. TCP/IP**的网际层仅仅只有一种无连接的通信方式，而传输层支持无连接和面向连接**
+2. OSI/ISO **在网络层支持无连接和面向连接，但在传输层仅支持面向连接的通信**
+
+**概念**
+
+1. **PDU**   Protocol Data Unit，协议数据单元
+	1. 
+
+2. **PCI**  Protocol Control Information，协议控制信息
+3. **SDU**  Service Data Unit，服务数据单元; 来自上一层的数据
+
+$$
+PDU_n = PCI_n+SDU_n\\
+$$
+
+
+
+
+
+## Physical Layer 
+
+
+
 ## Data Link Layer
+
+![image-20241219215259584](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412192153820.png)
 
 ### 功能
 
  成帧 （Framing）
 
 - 将比特流划分成“帧”的主要目的是为了检测和纠正物理层在比特传输中可能出现的错误，数据链路层功能需借助“帧”的各个域来实现
+	
 
  差错控制 （Error Control）
 
@@ -14,10 +225,17 @@
 
  流量控制 （Flow Control）
 
-- 确保发送方的发送速率，不大于接收方的处理速率
+- 确保**发送方**的发送速率，不大于接收方的处理速率
 	- 避免接收缓冲区溢出
 
 #### 成帧
+
+1. 帧定界
+2. 透明传输
+	1. 无论是什么值都要能够正常传输
+3. 帧同步
+
+![image-20241219215324853](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412192153286.png)
 
 ##### 字节计数
 
@@ -29,7 +247,7 @@
 
 ![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410111632503.png)
 
->[!note] 
+>[!note]  示例
 >
 >![image-20241011163429012](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410111634101.png)
 
@@ -66,22 +284,32 @@
 	- **两个码字的海明距离**：两个码字之间*不同对应比特的数目*
 	- 例：0000000000 与0000011111的海明距离为5
 	- 如果两个码字的海明距离为d，则需要d次单比特纠错就可以把一个码字转换成另一个码字
+	- 最小汉明距离意味着纠错的能力大小，不会被误认为其他比特
+- [更多相关题目/原理的介绍](https://math.bme.hu/~pollux/codingtech/02en.pdf)
 
 >[!note]
 >
-> **The error-detection and error-correcting properties of**  **a code depend on its Hamming distance.**
+>**The error-detection and error-correcting properties of**  **a code depend on its Hamming distance.**
 >
 >To detect *d* errors:
 >
-> - you need *d+1* Hamming distance code. (Because with  such a code there is no way that *d* single-bit errors can change a valid code into another valid codeword).
+>- you need *d+1* Hamming distance code. (Because with  such a code there is no way that *d* single-bit errors can change a valid code into another valid codeword).
 >
 >To correct *d* errors: 
 >
-> - you need *2d*+1 Hamming distance code. (Because that way the legal codewords are so far apart that even with *d* changes (A->A’), the original codeword *A* is still closer to *A’* than any other codeword *B*, so it can be uniquely determined.) 
+>- you need *2d*+1 Hamming distance code. (Because that way the legal codewords are so far apart that even with *d* changes (A->A’), the original codeword *A* is still closer to *A’* than any other codeword *B*, so it can be uniquely determined.) 
 >
 >>[!note] 练习
 >>
 >>Ex2: consider a coding scheme: • 00 => 00000 00000 • 01 => 00000 11111 • 10 => 11111 00000 • 11 => 11111 11111 • Its Hamming distance is ?
+>
+>> [!note] 练习
+>>
+>> ![image-20241219234240295](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412192342537.png)
+>>
+>> > [!note]
+>> >
+>> > ![image-20241219234257956](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412192342172.png)
 
 #### • 检错码（error-detecting code）
 
@@ -308,7 +536,6 @@
 ![image-20241012154747738](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410121547917.png)
 
 - NCP 网络控制协议
-
 - 但是HDLC是 bit 填充的，PPP是byte填充
 - 不适用序号和确认机制只保证无差别接受，不可靠服务
 - 只支持全双工点对点链路
@@ -430,7 +657,7 @@ $\frac{1}{e}$
 
 ##### p-persist
 
-只适用于time slot
+只适用于时分信道
 
 - 只是修改了概率，将空闲时的发送改为概率 p 发送
 - 忙的时候，会持续监听（在下一个时隙）
@@ -476,10 +703,10 @@ $\frac{1}{e}$
 ### 以太网
 
 >[!note] 需要记忆
->- **10 Base-T**  10 Mbps 双绞线
+>- **10 Base-T**  10 Mbps 双绞线 twisted pair 
 >- **1000Base-T** 1000 Mbps 双绞线
->- **100Base-FX**  光纤
->- **10Base5** 同轴电缆 最大传输距离 500m
+>- **100Base-FX**  光纤 optical
+>- **10Base5** 同轴电缆 最大传输距离 500m   coaxial-cable
 >- **10Base2** 同轴电缆 最大传输距离 185m
 
 - 以太网通过 二进制指数后退 binary exponential backoff 算法确定每次冲突后的等待时间。
@@ -498,7 +725,7 @@ $\frac{1}{e}$
 
 - 主机运行CSMA/CD协议
 	- 网络层不负责重传，会直接丢弃不符合要求的Packet
-	- 等待随机一段时间后重发，那么这个时间长度如何确定?
+	- 等待随机一段时间后重发，那么这个时间长度如何7确定?
 		![image-20241022114144279](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410221141384.png)
 
 ![image-20241022113323331](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410221133436.png)
@@ -506,22 +733,20 @@ $\frac{1}{e}$
 ![image-20241022113347786](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410221133939.png)
 
 - 使用ipconfig /all命令查看MAC地址
-- 前导码
+- **前导码**
 	- 7 byte 同步码
 	- 1 byte **帧开始定界符**  只有开始，没有结束定界符 <= 曼彻斯特编码，电平容易区分
-
 - **源地址后面的两个字节**，Ethernet V2将其视为上一层的协议类型，IEEE802.3将其视为数据长度
   - 大的表示长度
   - 小的表示类型
 - **数据字段**
-  - 46 ~ 1500字节
+  - **IP datagram** 46 ~ 1500字节
   - 最小帧长 = 46+18 = 64B
   - 最大帧长 = 1500+18 = 1518B （MTU：1500B）
   - 数据字段不足46字节，需要填充整数字节（Padding）至46字节，以保证以太网MAC帧不小于64字节。
   - 以太网规定最短有效帧长为 64 字节，凡长度小于 64 字节的帧都是由于冲突而异常中止的无效帧。
-- 校验和
+- **校验和**
   - 采用CRC编码
-
 
 #### 交换式以太网
 
@@ -545,7 +770,7 @@ $\frac{1}{e}$
 
 ![image-20241023230221005](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410232302148.png)
 
-#### **基于Mac地址的学习和转发**
+#### 基于Mac地址的学习和转发
 
 透明网桥使用 **MAC地址** 进行数据包的转发，而不依赖于IP地址或其他高层协议。这种方式是透明的，因为：
 
@@ -589,12 +814,12 @@ $\frac{1}{e}$
 
 | **特性**            | **存储转发模式（Store and Forward）** | **直通模式（Cut-through）** | **无碎片模式（Fragment-free）**      |
 |---------------------|------------------------------------|-----------------------------|-------------------------------------|
-| **数据接收方式**    | 接收完整帧                           | 读取到目标MAC地址后立即转发  | 接收前 64 字节后再转发                |
+| **数据接收方式**    | 接收完整帧                           | ==读取到目标MAC地址后立即转发== | 接收前 64 字节后再转发                |
 | **错误检查**        | 完整检查帧校验序列（FCS）             | 不进行错误检查               | 检查前 64 字节                       |
 | **延迟**            | 较高（需等待完整帧）                   | 较低（目标MAC地址解析后立即转发） | 中等（接收 64 字节后转发）             |
 | **可靠性**          | 高（能过滤错误数据帧）                 | 低（可能传播错误数据帧）         | 中等（过滤大部分碰撞和错误帧）         |
 | **适用场景**        | 企业级网络、数据中心                  | 高性能计算、金融交易、实时通信  | 一般网络环境，有中等时延和可靠性要求     |
-| **网络带宽效率**    | 较低（过滤错误帧，消耗带宽）           | 较高（快速转发，无错误检查）     | 适中（减少小部分无效流量）              |
+| **网络带宽效率**    | 较低（过滤错误帧，消耗带宽）           | 较高（快速转发，无错误检查 => ==只检查目的地址 6bytes，所以最小的转发时延 = 6/...==） | 适中（减少小部分无效流量）              |
 | **碰撞检测**        | 完全检测                              | 无检测                        | 前 64 字节内检测                      |
 | **数据完整性保证**  | 最好                                  | 最差                          | 中等                                |
 
@@ -620,23 +845,36 @@ $\frac{1}{e}$
 
 (1) 选举根桥(Root Bridge) 。
 
-- ID最小的交换机（网桥）成为生成树的根
-- 根桥的所有端口都处在转发状态
+- **ID最小**的交换机（网桥）成为生成树的根
+- 同一广播域中的所有交换机均参与选举
+- **根桥的所有端口都处在转发状态**
 
 (2) 为每个非根桥选出一个根端口（Root Port）。
 
-- 每个非根桥，通过比较其每个端口到根桥的根路径开销，选出根端口
-- 具有最小根路径开销的端口被选作根端口
-	- 根路径开销相同，则端口ID最小的端口被选作根端口
-- 非根桥只能有一个根端口，根端口处于转发状态
+- 每个非根桥，通过比较其**每个端口到根桥的根路径开销**，选出根端口
+- 具有**最小根路径开销的端口被选作根端口**
+	- 根路径开销相同，则端口ID最小的端口（连接的网桥的ID）被选作根端口
+	- 再比较链路端口ID比如 Fa0/2 Fa0/3
+- 非根桥只能有一个**根端口，根端口处于转发状态**
 
 ![image-20241024121200596](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410241212773.png)
 
 (3) 为每个网段确定一个指定端口（Designated Port）。
 
+>[!note] 关于什么是一个网段
+>
+> **物理角度**：网段是交换机端口通过线缆连接的链路。比如两台交换机 A 和 B 之间有一根以太网线，那么这就是一个网段。
+>
+> **逻辑角度**：网段是广播域的一部分，位于生成树拓扑结构中的一个单元，用于选举数据流的最佳路径。	
+
 - 对于每一个网段， 在所有连接到它的交换机（网桥）端口中进行选择
 	- 一个具有最小根路径开销的端口，作为该网段的指定端口
 - 指定端口处于转发状态，负责该网段的数据转发
+- 根桥的所有端口都是指定端口，除非自身形成环路
+- 指定端口的每一个网段
+	- 如果两个端口的根路径开销相同，那么比较
+		- 网桥ID
+		- 链路ID
 
 ![image-20241024121438376](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410241214507.png)
 
@@ -671,25 +909,29 @@ $\frac{1}{e}$
 
 LAN 本质上都是广播的
 
-> [!note] 范围问题
+- WLAN使用802.11
+
+>[!note] 范围问题
 >
-> • 传输范围(TX-Range)：成功接收帧的通信范围，取决于发送功率和无线电波传输特性
+>• 传输范围(TX-Range)：成功接收帧的通信范围，取决于发送功率和无线电波传输特性
 >
-> • 物理层侦听范围（PCS-Range ）：检测到该传输的范围，取决于接收器的灵敏度和无
+>• 物理层侦听范围（PCS-Range ）：检测到该传输的范围，取决于接收器的灵敏度和无
 >
-> 线电波传输特性
+>线电波传输特性
 >
-> • 干扰范围（IF-Range ）：在此范围内的节点如果发送不相关的帧，将干扰接收端的接
+>• 干扰范围（IF-Range ）：在此范围内的节点如果发送不相关的帧，将干扰接收端的接
 >
-> 收并导致丢帧
+>收并导致丢帧
 >
-> ![image-20241027145806406](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410271458503.png)
->
-> 
+>![image-20241027145806406](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410271458503.png)
 
 #### 组网模式
 
+P105
+
 ![image-20241027145221051](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410271452277.png)
+
+- 另一种是无固定基础设施：自组网络 | ad hoc network
 
 #### 体系结构
 
@@ -707,23 +949,28 @@ LAN 本质上都是广播的
 - PIFS（PCF IFS）：中等优先级（SIFS+1槽口时间），轮询服务
 - DIFS（DCF IFS）：最低优先级（ SIFS+2槽口时间），异步数据服务
 
-### WAN 广域网 和 
+![image-20241228235910925](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412282359246.png)
 
+![image-20241228235932336](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412282359620.png)
 
+### WAN 广域网
+
+- 广域网和局域网不是包含的关系
+- 广域网通常是点对点连接而局域网是广播信道
 
 ## Network
 
-> [!note]
+>[!note]
 >
 > - 点到点通信：由物理层、数据链路层和网络层组成的通信子网
 > - 端到端通信：传输层
 >
-> | **特性**     | **端到端（End-to-End）**                  | **点到点（Point-to-Point）**                                 |
-> | ------------ | ----------------------------------------- | ------------------------------------------------------------ |
-> | **连接结构** | 源和目标之间可能有多个中间路由            | 只有两个端点直接相连                                         |
-> | **协议层**   | 传输层和应用层                            | 物理层、链路层、网络层                                       |
-> | **应用场景** | 互联网中的远程通信，如浏览网页、流媒体等  | 局域网中或物理上直接连接的设备之间的通信                     |
-> | **传输控制** | 复杂可靠性控制机制，如 TCP 提供的可靠传输 | 直接传输，中间不含有中间设备（两个设备直接通信）通常不涉及复杂的可靠性控制 |
+>| **特性**     | **端到端（End-to-End）**                  | **点到点（Point-to-Point）**                                 |
+>| ------------ | ----------------------------------------- | ------------------------------------------------------------ |
+>| **连接结构** | 源和目标之间可能有多个中间路由            | 只有两个端点直接相连                                         |
+>| **协议层**   | 传输层和应用层                            | 物理层、链路层、网络层                                       |
+>| **应用场景** | 互联网中的远程通信，如浏览网页、流媒体等  | 局域网中或物理上直接连接的设备之间的通信                     |
+>| **传输控制** | 复杂可靠性控制机制，如 TCP 提供的可靠传输 | 直接传输，中间不含有中间设备（两个设备直接通信）通常不涉及复杂的可靠性控制 |
 
 ### 服务
 
@@ -745,10 +992,7 @@ LAN 本质上都是广播的
 
 #### 路由表 | Routing Table
 
-> 有些时候和转发表不加以区分
->
-
-
+>有些时候和转发表不加以区分
 
 ### 网络层协议
 
@@ -764,34 +1008,32 @@ LAN 本质上都是广播的
 	- **第 1 位**：保留位，必须为 0。
 	- **第 2 位（DF, Don't Fragment）**：不分片位，如果设置为 1，数据包不能被分片
 	- **第 3 位（MF, More Fragments）**：更多分片位，若为 1 表示后面还有分片，若为 0 表示这是最后一个分片
-
-- Fragment Offset 指明分片在原始数据包中的位置，以 8 字节为单位，帮助接收方重新组合分片。
+- **Fragment Offset** 指明分片在原始数据包中的位置，以 8 字节为单位，帮助接收方重新组合分片。
 - Protocol ID：说明 data 是哪种类型，将 data 交给相应的 code 进行处理。（  == 6 ）
 - TTL
-
 - Option:可选择
 
-> [!tip]
+>[!tip]
 >
 > 1. 不同的单位
 >   - Header Length 4B
 >   - Total Length B
 >   - Fragment Offset 8B 
 > 2. IP首部字节以0x45开头 - > IPv4, 没有Option选项
-> 2. IP Header 为 20 bytes
+> 	2. IP Header 为 20 bytes
 
-> [!note] IPV4 地址
+>[!note] IPV4 地址
 >
-> 
 >
-> <img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091836867.png" alt="image-20241109183615724" style="zoom:50%;" />
+>
+><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091836867.png" alt="image-20241109183615724" style="zoom:50%;" />
 >
 > - A
 > - B
 > - C
 > - D 常用于组播 multicasting
 >
-> ![image-20241109170849547](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091708743.png)
+>![image-20241109170849547](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091708743.png)
 >
 > - 私有IP地址
 > 	- A类 10.0.0.0 - 10.255.255.255
@@ -812,8 +1054,6 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 #### 子网划分
 
-
-
 ##### CIDR 无类域间路由和路由聚合
 
 #### DHCP动态主机配置协议
@@ -832,37 +1072,37 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 ![image-20241109174047628](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091740765.png)
 
-> [!note] Address Resolution Protocol | ARP
+>[!note] Address Resolution Protocol | ARP
 >
 > **地址解析协议：**在局域网中将IP地址映射到物理地址（MAC地址）的网络协议。ARP的主要作用是在同一网络中，设备通过已知的IP地址来获取目标设备的MAC地址，以便进行数据包的传输。
 >
-> ![image-20241028170616900](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410281706074.png)
+>![image-20241028170616900](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410281706074.png)
 >
 > - Hardware：1（Ethernet）
 > - protocol：0x0800（IP）
 > 	- protocol address：IP地址
 > - opcode：Request/Response
 >
-> > [!example] - 例子
-> >
-> > **步骤：**
-> >
-> > 1. **ARP请求**：
-> > 	- 主机A生成ARP请求，内容为：
-> > 		- 源IP：`192.168.1.2`
-> > 		- 源MAC：`AA:BB:CC:DD:EE:FF`
-> > 		- 目标IP：`192.168.1.3`
-> > 		- 目标MAC：`00:00:00:00:00:00`（未知）
-> > 	- 主机A将该请求广播到局域网。
-> > 2. **ARP响应**：
-> > 	- 主机B接收到ARP请求，发现目标IP匹配自己的IP地址，于是发送ARP响应，内容为：
-> > 		- 源IP：`192.168.1.3`
-> > 		- 源MAC：`FF:EE:DD:CC:BB:AA`
-> > 		- 目标IP：`192.168.1.2`
-> > 		- 目标MAC：`AA:BB:CC:DD:EE:FF`
-> > 	- 主机B将ARP响应单播回主机A。
-> > 3. **缓存更新**：
-> > 	- 主机A收到ARP响应后，将`192.168.1.3`和对应的MAC地址`FF:EE:DD:CC:BB:AA`存储在ARP缓存中，以便下次直接使用。
+>>[!example] - 例子
+>>
+>> **步骤：**
+>>
+>> 1. **ARP请求**：
+>> 	- 主机A生成ARP请求，内容为：
+>> 		- 源IP：`192.168.1.2`
+>> 		- 源MAC：`AA:BB:CC:DD:EE:FF`
+>> 		- 目标IP：`192.168.1.3`
+>> 		- 目标MAC：`00:00:00:00:00:00`（未知）
+>> 	- 主机A将该请求广播到局域网。
+>> 2. **ARP响应**：
+>> 	- 主机B接收到ARP请求，发现目标IP匹配自己的IP地址，于是发送ARP响应，内容为：
+>> 		- 源IP：`192.168.1.3`
+>> 		- 源MAC：`FF:EE:DD:CC:BB:AA`
+>> 		- 目标IP：`192.168.1.2`
+>> 		- 目标MAC：`AA:BB:CC:DD:EE:FF`
+>> 	- 主机B将ARP响应单播回主机A。
+>> 3. **缓存更新**：
+>> 	- 主机A收到ARP响应后，将`192.168.1.3`和对应的MAC地址`FF:EE:DD:CC:BB:AA`存储在ARP缓存中，以便下次直接使用。
 
 #### ICMP
 
@@ -884,14 +1124,14 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 ![image-20241109181017066](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091810194.png)
 
-> [!note] Ping
+>[!note] Ping
 >
 > - Ping 命令工作在应用层
 > - 使用ICMP回送请求和回送回答报文
 >
-> ![image-20241109181715786](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091817956.png)
+>![image-20241109181715786](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091817956.png)
 
-> [!note]Traceroute
+>[!note]Traceroute
 >
 > - 工作在应用层
 
@@ -901,7 +1141,7 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 #### Vector Distance
 
-> 最常用的是RIP，使用跳数估计距离
+>最常用的是RIP，使用跳数估计距离
 
 利用 bellman-ford 算法，计算单源最短路径
 
@@ -911,7 +1151,7 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 使用Dijkstra算法
 
-> 将邻居状态发送给所有nodes
+>将邻居状态发送给所有nodes
 
 ![image-20241109190750490](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091907633.png)
 
@@ -920,8 +1160,6 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 	- 
 - seq
 	- 限制flooding的影响。拒绝所有 < # 该路由器收到过最大的序号
-
-
 
 ### 层次路由
 
@@ -937,15 +1175,12 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 **广播 | Broadcasting**
 
 - flooding 不加以控制容易出现广播风暴
-
 	- sequence number controlled flooding
 
 		![image-20241109225313515](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411092253697.png)
 
 	- **RPF | reverse Path Forwarding** 逆向路径转发**
-
 	- Spanning Tree
-
 		- 改进了逆向路径转发
 		- 没有环路
 		- 一个路由器可以不必知道整颗树，只需要知道在一颗树中的邻居即可
@@ -978,10 +1213,19 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 #### OSPF | Open Shortest Path First
 
 - 将一组网段组合在一起，称为一个区域
+- 使用IP组播收发协议数据
+- 向本区域所有路由器发送信息
+	- 泛洪发送
+	- 发送和本路由器相邻的所有路由器的链路状态
+
+- 是网络层协议，直接以数据报形式发送
 - 使用层次结构的区域划分，上层区域称之为主干区域，其他区域都必须和主干区域相连
-	- 区域边界路由器 (Area Bounder Router，ABR)
-	- 内部路由器 IR
-	- 自治系统边界路由器 ASBR
+  - 区域边界路由器 (Area Bounder Router，ABR)
+  	- OSPF之间
+  - 内部路由器 IR
+  - 自治系统边界路由器 ASBR
+  	- ASBR 是位于 OSPF 路由域与其他路由协议域（如 BGP、EIGRP、RIP）之间的边界路由器
+  	- 桥接 OSPF 域与其他自治系统
 
 ![image-20241110160728951](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411101607096.png)
 
@@ -1004,8 +1248,6 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 ### 拥塞控制 | Congestion Control
 
-
-
 ### IPV6
 
 Which is not a legal IPV6 address?
@@ -1015,7 +1257,383 @@ Which is not a legal IPV6 address?
 - ::211.31.20.46
 - 2A43:0000:0000:0000:0123:4567:89AB:CDEF
 
+## 传输层 | Transport
 
+- 因特网的网络层提供**尽力而为**的服务：
+	- 网络层尽最大努力在终端间交付分组，但不提供任何承诺
+	- 具体来说，不保证交付，不保证按序交付，不保证数据完整，不保证延迟，不保证带宽等
+
+- 传输层的**有所为**、**有所不为**: 
+
+	- 传输层可以通过差错恢复、重排序等手段提供可靠、按序的交付服务
+
+	- 但传输层无法提供延迟保证、带宽保证等服务
+
+
+
+![image-20241126100522114](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261005330.png)
+
+### Socket
+
+**UDP version**
+
+![image-20241126100828237](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261008395.png)
+
+**TCP version**
+
+![image-20241126101155329](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261011504.png)
+
+- 客户程序不需要调用bind()，操作系统将为其在1024～5000之间分配一个端口号
+
+### 分用和复用
+
+![image-20241126101259682](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261012844.png)
+
+**端口号的分类：**
+
+- 熟知端口：0～1023，由公共域协议使用
+	- 一般**服务器**使用，创建 socket 使用指定的 port
+
+- 注册端口：1024～49151，需要向IANA注册才能使用
+- 动态和/或私有端口：49152～65535，一般程序使用
+	- **客户端一般的端口号** 由操作系统分配
+
+
+**可以用来判断发送的方向**
+
+### UDP
+
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261034727.png" alt="image-20241126103437576" style="zoom: 50%;" />
+
+- Header 8B
+- 面向一个 **datagram**
+
+**计算校验和**
+
+![image-20241126103622164](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261036318.png)
+
+- 发送方
+	- 计算时需要包含
+		- pseudoheader
+		- udp header
+			- checksum 全部置为 0
+		- udp data
+	- 还需要确保数据为偶数个字节，不然补 0
+- 接收方
+	- 直接求和
+	- 为 0xFFFF 则为正确
+
+**分层**
+
+- 8192 B 的 data ， UDP总长度为 8200 B，在IP层需要分为 $\lceil\frac{8200}{1500 - 20}\rceil = 6个$
+
+### TCP
+
+**面向字节流**
+
+![image-20241126110145682](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261101899.png)
+
+- **head len**  单位为 4B
+	- min 20B
+	- max 64B
+
+
+
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261149319.png" alt="image-20241126114940105" style="zoom:67%;" />
+
+#### 可靠的数据传输
+
+**发送端**：流水线式发送数据、等待确认、超时重传
+
+- **超时重传**
+	- 仅对最早未确认的报文段**使用一个**重传定时器
+	- 仅在超时后重发**最早未确认**的报文段
+	- **超时值设置**
+		- 依赖于 RTT `EstimatedRTT`
+		- 发送方每重传一个报文段，就直接将超时值增大一倍（不依赖于RTT的更新）
+- **快速重传**
+	- 在发送方短时间内连续发送大量数据时，接收端一直没有收到期望的序号，返回的确认包中的 ack number 都是相同的值
+	- 收到3次重复确认，重发报文段
+
+**接收端**：进行差错检测，采用累积确认机制，缓存失序的报文段
+
+- 收到期待的报文段：发送更新的确认序号
+- 否则重复
+
+- **累计确认 + 推迟确认**
+	- 为减小通信量，TCP允许接收端推迟确认
+	- 接收方至少每隔一个报文段使用正常方式进行确认
+
+![image-20241126112812014](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261128195.png)
+
+#### 流量控制
+
+![image-20241126113803610](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261138753.png)
+
+**接收方**
+
+- 一个 RcvWindow （RcvBuffer 中的可用空间）
+- 接收方将RcvWindow放在报头中，向发送方通告接收缓存的可用空间
+
+**发送方**
+
+- 发送方限制未确认的字节数不超过接收窗口的大小
+- 当接收方通告接收窗口为0时，发送方必须停止发送
+	- 收到 WIN = 0之后，开启一个 persist timer，触发后发一个探测 window probe 
+		- 序号为上一个段中最后一个字节的序号
+
+#### 连接过程
+
+##### 建立连接
+
+##### 数据传输
+
+##### 释放连接
+
+#### 拥塞控制
+
+**端到端**
+
+- 发送方根据自己感知的网络拥塞程度，限制其发送速率
+
+![image-20241202231243304](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412022312533.png)
+
+**cwnd 变化策略** AIMD
+
+![image-20241202231339714](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412022313897.png)
+
+![image-20241202232041326](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412022320530.png).
+
+##### 慢启动 SS | Slow start
+
+-  在**新建连接**上指数增大cwnd，直至检测到丢包（此时终止慢启动）
+
+![image-20241202231548353](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412022315539.png)
+
+- 设置一个初始的阈值 **慢开始门限 | ssthresh**
+- 先进行SS
+	- 达到ssthresh, 进行CA
+- **区分丢包事件**
+	<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412022329358.png" alt="image-20241202232919180" style="zoom:50%;" />
+	- **超时**  这里的意思是只要超时就触发
+		- ssthresh = cwnd / 2
+		- cwnd = 1 MSS
+	- 为了快重传：收到三个重复的ACK
+		- ssthresh = cwnd / 2
+		- TCP Reno ： cwnd = ssthresh + 3 线性增长  (更常用)
+		- TCP Tahoe ：cwnd = 1 MSS. -> SS   
+- 整个过程中，如果遇到网络拥塞，则马上把ssthresh变为**原来cwnd的一半**并且重新从1开始SS(不一定全部从1 比如上面的 TCP Reno)
+
+## 应用层
+
+### 网络应用模型
+
+#### 客户/服务器模型 | Clinet/Server
+
+#### P2P 模型
+
+- Peer 对等节点
+
+### 域名系统 | DNS
+
+- 使用 C/S model
+- 运行在UDP上使用53号端口
+- 域名和主机地址、IP地址、Mac地址都没有一一对应的关系
+	- 一台主机可以有多个网口就意味着有多个IP地址，每个网卡对应一个MAC地址
+	- 同一台主机也可以有多个不同的域名
+- IP 子网中的主机可以由不同的域名服务器来维护其映射
+
+分为三部分
+
+#### 层次域名空间
+
+- **TLD | Top Level Domain 顶级域名**
+
+#### 域名服务器
+
+- 根域名服务器
+- 顶级域名服务器 top-level name server
+- 权限域名服务器 authoritative name server
+	- 每台主机都必须在权限域名服务器登记
+	- 将管辖的主机名转化为该主机的IP地址
+- 本地域名服务器 local name server
+
+
+
+**proxy name server（代理名称服务器）**：
+
+- 代理名称服务器通常用作缓存DNS请求的服务器，它会代理其他DNS服务器的请求。它并不直接负责解析域名，而是将请求转发到其他服务器。
+- 在静态IP配置中，通常不使用代理名称服务器。
+
+#### 解析器
+
+- 递归查询
+- 迭代查询
+
+都是由本地域名服务器发起
+
+- 本地域名服务器
+	- 根域名服务器
+	- 顶级域名服务器
+	- 权限域名服务器
+
+### FTP
+
+- 使用 C/S model
+- 使用TCP协议
+- 允许客户指明文件类型和格式，允许有存取权限
+- 在FTP服务器上 数据经过
+	- 应用层
+	- 传输层 segment
+	- 网络层 datagram
+	- 数据链路层 frame
+	- 物理层 byte
+
+#### 控制连接和数据连接
+
+使用两个TCP连接
+
+- 控制连接 21
+	- 整个会话期间
+	- 也称之带外传送 out-of-band
+- 数据连接 20
+	- 文件传输完毕就会关闭
+	- 两种模式，选择权在于客户端 ==无说明使用PORT==
+		- PORT 主动模式
+			- 客户端随机开放端口，发送PORT指令给服务端，服务端通过20接口连接
+		- PASV 被动模式
+			- 客户端发送PASV给服务端，服务端随即开放端口并告知客户端，客户端连接
+
+### 电子邮件
+
+P278
+
+- 用户代理
+- 接收端/发送端服务器
+- 通信协议
+	- 从user agent -> 发送端服务器，从发送端服务器 -> 接收端服务器 **SMTP**
+	- 接收端拉取服务器的邮件 **POP3**
+
+#### 格式问题
+
+- 首部
+	- From : xxx@qq.com
+	- To : xxx@zju.edu.cn
+	- Subject : About Computer Network
+- 主体
+
+#### SMTP | Simple Mail Transfer Protocol
+
+- TCP 25
+- 过程
+	- 连接
+		- TCP 连接直接建立在发送方和接收方之间
+	- 发送
+	- 释放
+
+#### POP3 | Post Office Protocol
+
+- TCP 110
+- 在传输层使用明文传输密码，不加密
+- 基于ASCII码，也需要MIME
+- 由客户端决定是否将邮件保存到服务器
+	- 下载并保存
+	- 下载并删除
+- 一个账号在服务器上只能有一个邮件接收目录
+
+**另一个代替: IMAP**
+
+- 可以值获取报文的某些部分
+- 为用户提供了创建文件夹
+
+---
+
+**补充**
+
+- 基于万维网
+	- Gmail
+	- 邮件服务器之间 **SMTP**
+	- 其他情况 **HTTP**
+
+#### MIME | Multipurpose Internet Mail Extension
+
+对非ASCII码内容转换
+
+- agent 非ASCII码 -> MIME 转为 7 位 ASCII 码 -> SMTP
+
+### WWW | 
+
+- URL
+	- 每个文档唯一
+	- `<协议>://<host>:<port>/<path>`
+- HTTP
+- HTML
+
+#### HTTP
+
+- 使用TCP 端口80
+- 本身是无连接的，不需要建立HTTP连接
+- 无状态的
+	- 利于大量并发
+	- Cookie 加 数据库
+		- Cookie是由服务器产生的，存储在主机本地的
+		- 记录用户访问的唯一标识码
+
+**操作过程**
+
+- 请求域名解析
+
+**请求页面的时间**
+
+- 非持续连接 1.0
+	- 每个对象都要创建一个 TCP 连接，需要2*RTT
+		- 第三次握手的报文段可以含有HTTP请求报文
+- 持续连接 1.1
+	- 
+
+**报文结构**
+
+
+
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412091815659.png" alt="img" style="zoom:50%;" />
+
+- HEAD 需要服务器响应但不要求返回请求对象
+
+## 网络安全
+
+**类别**
+
+- integrity control 完整性控制
+
+- Authentication 认证
+
+- Secrecy 保密
+
+- Nonrepudiation 不可否认
+
+	![image-20241224095353459](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412240954026.png)
+
+- Kerckhoff原则：所有的算法必须是公开的，密钥的不公开的
+
+
+
+- substitution cipher 置换密码
+- transposition cipher 替代密码
+- one-time pad
+
+**公开的算法**
+
+> ![image-20241224103111116](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412241031385.png)
+
+- RSA
+	![image-20241224104355926](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412241043185.png)
+	- $e*d\ mod \ z  =1$​
+
+**Symmetric-Key**
+
+- Data Encryption Standard | DES
+- Advanced Encryption Standard | AES
+- 
 
 ## 总结
 
@@ -1030,7 +1648,8 @@ Which is not a legal IPV6 address?
 - 不能划分冲突域
 - 不能隔离广播域
 
-**集线器**
+**集线器 | Hub**
+![image-20241229100548010](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412291005300.png)
 
 **中继器**
 
@@ -1038,7 +1657,7 @@ Which is not a legal IPV6 address?
 
 ---
 
-==第二层==
+==第二层 数据链路层==
 
 - 划分冲突域
 - 不能隔离广播域
@@ -1049,7 +1668,13 @@ Which is not a legal IPV6 address?
 
 **交换机**
 
-- 
+- 一般情况下，switch不能隔离广播域
+- 但是支持VLAN的可以
+
+**Adapter | 网络适配器 / NIC(Network Interface Card) 网络接口卡**
+
+- 嵌入在主板上，实现计算机和外界局域网的连接
+- 适配器和局域网的通信通过串行、适配器和计算机通过并行
 
 ****
 
@@ -1079,7 +1704,6 @@ Which is not a legal IPV6 address?
 	- 间接交付
 - **默认路由**
 	- 0.0.0.0 / 0
-
 - **发送数据包的过程**
 	- 源主机首先构建一个 Destination Address = ，Source Address = 的 Datagram
 
@@ -1088,13 +1712,31 @@ Which is not a legal IPV6 address?
 
 #### 题目
 
-
-
 ### 协议
+
+#### 数据链路层
+
+- HDLC
+- SDLC
+- PPP
+- STP
+- 帧中继
+
+
+
+### 术语对照
+
+### 各种帧的格式
+
+#### MAC
+
+![image-20241229100342273](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412291003603.png)
+
+![s](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412291004478.png)
 
 ## 题目
 
-> [!note]
+>[!note]
 >
 > **Data Link Layer**
 >
@@ -1139,9 +1781,13 @@ $2^n-1$​
 
 - 
 
-> [!faq]
+>[!faq]
 >
-> ![image-20241111231723602](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411112317735.png)
+>利用率
+>
+>$$
+>U = \frac{T(传送一个frame) * \#frame}{RTT + R_s+R_r}
+>$$
 
 ---
 
@@ -1225,15 +1871,15 @@ C 10.214.0.1
 
 D 172.33.8.8
 
-> [!faq]
+>[!faq]
 >
-> 在互联网数据报中，私有地址不会出现在公共网络中，RFC 1918 指定了以下三个私有 IP 地址范围：
+>在互联网数据报中，私有地址不会出现在公共网络中，RFC 1918 指定了以下三个私有 IP 地址范围：
 >
 > 1. **10.0.0.0 - 10.255.255.255**（10.0.0.0/8）
 > 2. **172.16.0.0 - 172.31.255.255**（172.16.0.0/12）
 > 3. **192.168.0.0 - 192.168.255.255**（192.168.0.0/16）
 >
-> 根据这些范围，我们可以分析给出的地址：
+>根据这些范围，我们可以分析给出的地址：
 >
 > - **10.3.18.82**：属于 10.0.0.0/8 范围，是私有地址。
 > - **192.168.8.3**：属于 192.168.0.0/16 范围，是私有地址。
@@ -1242,7 +1888,16 @@ D 172.33.8.8
 >
 > **结论**：**172.33.8.8** 不是私有地址，它可能出现在互联网数据报中。
 
+### 传输层
+
+**\** 和IP层结合综合题**
+
+见小测 5 
+
+---
+
+
+
 ## 小测
 
-![image-20241104234453384](../../../../../../AppData/Roaming/Typora/typora-user-images/image-20241104234453384.png)
-
+![image-20241104234453384](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261021701.png)

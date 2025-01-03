@@ -1,6 +1,5 @@
 ---
 tags:
-  - doing
   - class/OS
 statistics: true
 title: NOTE
