@@ -5,7 +5,7 @@
 - **File Concept**
 	- Contiguous logical address space
 	- 文件属性存储在`directory structure`(在disk中)
-- **File Operations**
+- ==**File Operations**==
 	- Create
 	- Truncate  除了file len 其他属性都不变
 	- Open/Close
@@ -19,7 +19,7 @@
 				- Disk Location
 - **Access Methods**
 	- Sequential-access 直线访问，否则reset
-	-  direct/relative access
+	- direct/relative access
 - ==**Directory Structure**==
 	- 目录本质上是一个特殊的文件（Linux 中），把filename映射到FCB
 	- 类别
@@ -93,48 +93,49 @@ mount /dev/sda1 /mnt
 			- Per-process open-file table
 - **层次结构**
 	- **File organization 级别**
+		![image-20250106122514733](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501061225878.png)
 		- VFS
+			![image-20250106122535505](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501061225586.png)
 - File-System Implementation
 	- 
 - Directory Implementation
 	- Linear
 	- Hash Table
 - ==**Allocation Methods** 需要计算！==
+	
+	- 指的是物理页面的分配
 	- 连续(contiguous)
-		- 变种： Extent-Based
+	  - 变种： Extent-Based
 	- 链接(linked)
-		- No random access, poor reliability
-		- 变种： FAT | File-Allocation Table 的使用
+	  - No random access, poor reliability
+	  - 变种： FAT | File-Allocation Table 的使用
 	- 索引(indexed)
-		- 使用一个block作为`index block`
-			- 如果一个太小，使用一个index block的链表==注意这个的计算，先确定在哪个index block中==
-			- ==linked scheme==
-			- ==n-level index==
+	  - 使用一个block作为`index block`
+	  	- 如果一个太小，使用一个index block的链表==注意这个的计算，先确定在哪个index block中==
+	  	- ==linked scheme==
+	  	- ==n-level index==
+	
 - Free-Space Management 
-
-	- Bit map bit[i] = 1，空闲
-		- **Must be kept on disk**
-		- The copy in memory and disk may differ
-		- 为了比较好地维护这两份拷贝的同一
-			- 先set disk中的bit[i]
-			- deallocate memory
-			- 最后set mem中的bit[i]
-
-	- Linked List
-	- Grouping
-
+  - Bit map bit[i] = 1，空闲
+  	- **Must be kept on disk**
+  	- The copy in memory and disk may differ
+  	- 为了比较好地维护这两份拷贝的同一
+  		- 先set disk中的bit[i]
+  		- deallocate memory
+  		- 最后set mem中的bit[i]
+  - Linked List
+  - Grouping
 - Efficiency and Performance
 
-	> ==The page cache== uses **virtual memory techniques** to cache file data as pages rather than as file-system-oriented blocks. Caching file data using virtual addresses is far more efficient than caching through physical disk blocks, as accesses interface with virtual memory rather than the file system
+  >==The page cache== uses **virtual memory techniques** to cache file data as pages rather than as file-system-oriented blocks. Caching file data using virtual addresses is far more efficient than caching through physical disk blocks, as accesses interface with virtual memory rather than the file system
 
-	- Without Unified Buffer
-		![image-20241224153133508](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412241531645.png)
-		- 要访问一个文件有两种形式，如果使用两个cache，在进行routine I/O 时需要将buffer cache的内容复制到page buffer，造成double buffer
-			1. Memory-mapped
-			2. 正常I/O
+  - Without Unified Buffer
+  	![image-20241224153133508](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412241531645.png)
+  	- 要访问一个文件有两种形式，如果使用两个cache，在进行routine I/O 时需要将buffer cache的内容复制到page buffer，造成double buffer
+  		1. Memory-mapped
+  		2. 正常I/O
 
-	- Unified Buffer
-
+  - Unified Buffer
 
 ### 流程
 
@@ -145,4 +146,3 @@ mount /dev/sda1 /mnt
 ![image-20241223225702936](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412232257042.png)
 
 ![image-20241223225717415](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412232257559.png)
-

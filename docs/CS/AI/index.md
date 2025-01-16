@@ -6,9 +6,10 @@ Title: Index
 Publish: draft
 author: zzicarus
 ---
+
 >[!abstract] 概述
-> 教材：《人工智能导论：模型与算法》(吴飞)
-> 成绩构成： 
+>教材：《人工智能导论：模型与算法》(吴飞)
+>成绩构成： 
 > - 项目编程作业   35%  
 > - 考勤           5%
 > - 期末闭卷考试   60%
@@ -20,6 +21,7 @@ author: zzicarus
 >这门课的实验部分设计得比较一般，个人之前比较少用 python，更完全没有涉猎过 pytorch 这一类深度学习的框架，针对这些工具，实验设计中缺乏一些必要的引导（我认同这类工具比起讲解实践才是更好的学习方式，但什么时候我校的课程设计能够像国外部分课程一样提供较为完整的指引/学习路线呢？）另一方面，这些实验带给我的收获并不大，甚至完成这些实验之后我并不能学会如何去搭建一个简单的 CNN（这里表述可能有些奇怪，我想要强调的是，这门课作为一门专业选修课有些过分"通识化"了）
 >
 >如果仅仅是为了通过考试的话，需要比较熟悉 PPT 的内容
+>
 >>[!cite] 推荐
 >>- [B站小土堆的Pytorch](https://www.bilibili.com/video/BV1hE411t7RN/?spm_id_from=333.337.search-card.all.click)
 >>- [李宏毅的ML](https://speech.ee.ntu.edu.tw/~hylee/ml/2022-spring.php)
@@ -32,5 +34,3 @@ author: zzicarus
 >	- http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5921516
 >- 23-24 回忆
 >	- http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5922746
->	- http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/5922778
-

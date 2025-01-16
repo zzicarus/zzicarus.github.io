@@ -147,6 +147,9 @@ nav:
   - CS:
       - CS/index.md
       - OOP: CS/OOP.md
+      - Java:
+          - CodingLanguage/Java/index.md
+          - Notes: CodingLanguage/Java/notes.md
       - DB:
           - CS/DB/index.md
           - 1. Interface: CS/DB/Chapter_1.md
@@ -179,14 +182,7 @@ nav:
           - 5 Scheduling: CS/OS/Ch5_CPU Scheduling.md
       - CN:
           - CS/CN/index.md
-          - 1 Overview: CS/CN/Overview.md
-          - 2 Physical Layer: CS/CN/Physical Layer.md
-          - 3 Data Link Layer: CS/CN/Data Link Layer.md
-          - 4 Network Layer: CS/CN/Network Layer.md
-          - 5 Transport Layer: CS/CN/Transport Layer.md
-          - 6 Application Layer: CS/CN/Application Layer.md
-          - 7 Network Security: CS/CN/Network Security.md
-          - Appendix: CS/CN/Appendix.md
+          - notes: CS/CN/notes.md
 
       - DIP:
           - 期末复习: CS/DIP/DIP_Review.md

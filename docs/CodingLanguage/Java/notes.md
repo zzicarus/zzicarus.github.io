@@ -9,8 +9,9 @@ date: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 ---
 
->[!todo] 
+>[!todo] todo
 >**Overview 部分**
+>
 >- [x] 垃圾回收机制
 >- [x] 保留字
 >- [ ] 内存分布
@@ -58,7 +59,7 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 ## overview
 
 - Compiled Language
-- All objects should be constructed in runtime and be stored in heap.
+- **All objects should be constructed in runtime and be stored in heap.**
 - 单根结构（除了C++的所有OOP语言） Every class in Java is a descendant of one class: Object
 - Java 中的输入输出，Scanner 容易超时
 
@@ -80,7 +81,7 @@ public class Main {
 >[!note] 和 C++ 不同的语言特性
 >
 >- Java 中的常量使用关键字 `final` 而不是 `const`. `final int a = 5;`
->- Java 中类型推导关键字为 `var`. `var s = new StringBuffer();`
+>- Java 中类型推导关键字为 `var` `var s = new StringBuffer();`
 >- Java 的 reference 更像是 C++中的指针，不可计算. 任何对象变量都是指针
 >	- 对象变量的赋值
 >
@@ -144,6 +145,7 @@ double r = cos(PI * theta);
 ## String API
 
 - 所有字符类型都是 unicode，就像下面的中文也会是一个字节
+- 结尾没有`\0`
 
 ```Java title="对长度的判断"
 String a = "hello你好";  // len = 7
@@ -174,7 +176,8 @@ String b = "hello";		// len = 5
 
 - `String trim ()` 删除前导、后导空格
 - `String replace (char c 1, char c 2)` 替换
-- `public String replaceAll(String regex, String replacement)` 可使用正则表达式进行替换。[[../../Tools/正则表达式|正则表达式]]
+- `public String replaceAll(String regex, String replacement)` 可使用正则表达式进行替换。
+- [[../../Tools/正则表达式|正则表达式]]
   **与其他的值相互转化**
 
 ```JAVA
@@ -192,12 +195,10 @@ public static void main(String[] args) {
         String s = "abc";  // 指向字符串常量池
         String t = "abc";
         String u = new String("abc");   // new的时候一定会创建一个新的对象在heap
-        System.out.println(s == t);
-        System.out.println(s == u);
+        System.out.println(s == t); 			//  true
+        System.out.println(s == u); // false
 }
 ```
-
-- 
 
 ```java
 String str = "Person";
@@ -206,15 +207,13 @@ System.out.println(str == "Person");  // true
 System.out.println(str1 == "Person"); // false
 ```
 
-
-
 ## Basic
 
 **参数传递**
 - Passing value
 - 对象传递也是类似指针，无法阻止函数内部对对象的改变
 **Relation**
-- 整型的 wrapper 在[-128,127]之间是一个固定的对象
+- 整型的 wrapper 在[-128,127]之间是一个固定的对象(类似于字符串常量池的概念)
 
 ```Java
 Integer n1 = new Integer(47);
@@ -273,21 +272,6 @@ graph LR
 - Java的初始化会在Heap上申请内存，把这一块内存初始化为空
 	- 对于Primitive会赋初值如0
 
-```Java
-class Cupboard {
-	static {
-		System.out.println("Loading Cupboard");
-	}
-	{
-		System.out.println("Loading Cupboard instance");
-	}
-	Cupboard() {
-		System.out.println("Cupboard()");
-		b3.f(1);
-	}
-}
-```
-
 **静态初始化**
 
 ```java
@@ -303,13 +287,54 @@ static { ... }
 { ... }
 ```
 
-- 每次创建实例都会调用
+- ==每次创建实例==都会调用
 
 **构造初始化**
 
 ```java
 ClassName(){}
 ```
+
+**一个例子**
+
+```java
+class A {
+    {
+        System.out.println("class A : instance initializer");
+    }
+    public int i = baz();
+    {
+        System.out.println("class A : i = " + i);
+    }
+
+    public int baz() {
+        System.out.print("class A : baz\n");
+        return 0;
+    }
+}
+
+public class B extends A {
+
+    public int baz() {
+        System.out.print("class B baz : B\n");
+        return 10;
+    }
+
+    public int i = baz();
+
+    public static void main(String[] args) {
+        B b = new B();
+    }
+}
+```
+
+- 输出
+	```shell
+	class A : instance initializer
+	class B baz : B
+	class A : i = 10
+	class B baz : B
+	```
 
 ### 函数的绑定
 
@@ -332,9 +357,32 @@ Java 默认为动态绑定，
 
 **Interface**
 
-- All methods in interface are public.
 - 不能拥有构造函数
 - All data members in interface are **public static final**.
+- All methods in interface are **public**.
+
+	- 这里实现的时候一定要注意权限的问题，因为默认的权限是`public`的，所以在实现函数的时候要加上`public`
+		```java
+		interface I {
+		    void f();
+		}
+		
+		class C {
+		    void f() {
+		    };
+		}
+		
+		interface A extends I {
+		    void f();
+		}
+		
+		class B extends C implements I { 
+		    // ERROR : 正在尝试分配更低的访问权限; 以前为public,现在为default
+		}
+		```
+
+		
+
 - `implements` `interface` 可以实现多个接口
 
 ```Java
@@ -353,8 +401,6 @@ interface Instrument5 {
 ```java
 abstract interface BaseTest
 ```
-
-
 
 > [!NOTE]
 >
@@ -566,8 +612,9 @@ public class ThreadDemo {
 >
 > ```java
 > static void f(Object[] x) {
->     for (int i = 0; i < x.length; i++)
->         System.out.println(x[i]);
+>      for (int i = 0; i < x.length; i++)
+>          System.out.println(x[i]);
+>     }
 > }
 > 
 > f(new Object[] { new A(), new A(), new A() });
@@ -624,8 +671,6 @@ for (var x: a) // 这里x为指针，通过x访问它的元素然后改变
 - `addAll(Collection)`
 - `toArray`
 
-
-
 **Colletion**
 
 
@@ -644,8 +689,6 @@ ArrayList<Value> list = new ArrayList<>;
 ...
 Value v1 = list.get(0);
 ```
-
-
 
 #### Set
 
@@ -666,9 +709,6 @@ Value v1 = list.get(0);
 ### Generic
 
 - A generic type declaration is compiled once and for all, and turned into a single class file.  这一点和C++不同
-- 
-
-
 
 **subtype**
 
@@ -684,9 +724,9 @@ Value v1 = list.get(0);
 
 ```java
 void printCollection(Collection<?> c) { 
-	for (Object e : c) { 
- 		System.out.println(e); 
-	}
+        for (Object e : c) { 
+            System.out.println(e); 
+        }
 }
 // 限定shape子类
 public void drawAll(List<? extends Shape> shapes) 
@@ -729,7 +769,7 @@ public void drawAll(List<? extends Shape> shapes)
 	- 构造
 		- 仍然存在C++资源泄露的问题（文件）
 	- 非构造
-- 对于多来源的类，子类的能抛出的异常是父类的交集（可能被当做任何一种类，is-a）
+- 对于多来源的类，==子类的能抛出的异常是父类的交集==（可能被当做任何一种类，is-a）
 
 ## Stream
 
@@ -804,10 +844,6 @@ private void readObject(ObjectInputStream ois) throws IOException, ClassNotFound
     password = decrypt((String) ois.readObject()); // 反序列化后解密
 }
 ```
-
-### 
-
-
 
 ## GUI
 
@@ -904,7 +940,6 @@ synchronized void sync() {
 
 - 
 
-- Syco
 
 **自嵌套**
 
@@ -949,7 +984,7 @@ writeLock.lock();
 try {
 	// 执行写操作
 } finally {
-	writeLock.unlock();
+        writeLock.unlock();
 }
 ```
 
@@ -1286,10 +1321,6 @@ Matcher matcher = pattern.matcher("your_input_string");  // 创建匹配器对�
 2. Send 的效率问题
 	1. 消息队列
 		1. 经典的consumer - producer
-
-
-
-
 
 ```java
 import java.io.*;

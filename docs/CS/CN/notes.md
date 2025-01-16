@@ -1,10 +1,10 @@
 # Computer Network
 
-> [!note]
+>[!note]
 >
 > - [zjucomp 实验网站](https://zjucomp.net/)
 >
-> [TOC]
+>[TOC]
 
 ## Overview 
 
@@ -33,7 +33,6 @@
 - 报文（message）交换 ——使用存储转发技术
 	将 data 和其他数据封装
 	- 将L位数据报文，以R bps的速率，发送到链路中： 需要L/R秒
-
 - 分组交换 packet switching —— 在报文交换的基础上，对较长的 message 进行划分，在头部加上数据段形成新的 packet
 	- 可以进行流水线化处理
 
@@ -44,8 +43,6 @@
 **工作方式**
 
 ![image-20241217095855631](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412170959938.png)
-
-
 
 ### 性能指标
 
@@ -66,7 +63,6 @@
 - **Packet Per Second | packet 转发率**
 	- 
 
-
 >[!caution] 注意审题
 >
 >1. 看看清楚 bits 还是 byte，1 B = 8 bits
@@ -74,10 +70,6 @@
 >	1. 比如甲乙通过一个路由器相连，那么它们分组转发的时候，第一组需要2t的时间，之后的按照流水线形式每一个间隔t的时间就能够到达
 >3. 注意是否要计算 propagation dalay 和 transmission delay
 >	1. Transmission delay一般都要计算，要形成流水线也是先发送之后，再去传播，传播时可以接着发送
-
-
-
-
 
 ### 协议与分层结构
 
@@ -120,8 +112,6 @@
 
 •  介质（Medium）：各种线缆、无线频谱等
 
-
-
 数据链路层 (Data Link Layer)
 
 •  实现相邻（Neighboring）网络实体间的数据传输
@@ -136,8 +126,6 @@
 
 •  共享信道上的访问控制（MAC）：同一个信道，同时传输信号。如同：同一间教室内，多人同时发言，需要纪律来控制
 
-
-
 网络层 (Network Layer)
 
 •  将数据包跨越网络从源设备发送到目的设备（host to host）
@@ -149,8 +137,6 @@
 •  服务质量（QoS）控制：处理网络拥塞、负载均衡、准入控制、保障延迟
 
 •  异构网络互联：在异构编址和异构网络中路由寻址和转发
-
-
 
 传输层 (Transport Layer)
 
@@ -166,17 +152,17 @@
 
 •  不可靠传输：更快捷、更轻量的端到端数据传输，适合于对通信质量要求不高，对通信响应速度要求高的应用场景，如语音对话、视频会议等
 
-
-
 应用层
 
 **七层ISO/OSI**
 
 1. **会话层（Session Layer）**：
+
 	- 负责建立、管理和终止应用程序之间的会话。
 	- 涉及会话的同步和检查点，以允许会话在通信失败后恢复。
 	- 提供了会话管理功能，如会话建立和终止。
 2. **表示层（Presentation Layer）**：
+
 	- 负责数据的表示、安全和压缩。
 	- 转换数据格式以确保一个系统的应用层所发送的信息可以被另一个系统的应用层读取。
 	- 涉及数据加密、解密、编码和转换。
@@ -200,13 +186,97 @@ $$
 PDU_n = PCI_n+SDU_n\\
 $$
 
+## Physical Layer
 
+尽可能地屏蔽掉不同传输媒体和通信手段的差异，为数据链路层提供一个统一的数据传输服务
 
+- 速率
+	- **码元传输速率/波特率** ：单位时间数字通信系统传输的码元数  Baud
+	- **信息传输速率/比特率 max data rate** ： 单位时间内数字通信系统传输的二进制码元数  b/s
+- 带宽
+	- 在模拟信号系统，某个信道传输信号的频率范围 Hz
+	- 计算机网络，网络的通信线路传输数据的能力——**最高数据率**，b/s
+- Maximum Data Rate
+	- **Nyquist’s theorem**  在理想低通（无噪声、宽带有限）的条件下，避免码间串行
+		- 极限码元传输速率为 2W Baud （W 为 channel 的频率带宽）
+		- 极限数据传输速率 = $2Wlog_2V$ (V 为每个码元的离散电平数目——多少种不同的码元)
+	- **Shannon’s formula** for capacity of **a noisy channel**
+		- Max data rate = $Wlog_2{(1+\frac{S}{N})}$  S 传输信号的平均功率，N 高斯噪声功率，信噪比 = S/N = $10lgS/N$ dB
 
+>[!note] 
+>二进制信号在信噪比为 127:1 的 4kHz 信道上传输，求最大数据传输速率。根据 Nyquist's theroem，最大数据率为 2 \* 4k \* log_2(2) b/s = 8kb/s；根据 Shannon's theroem，最大数据率为 4k * log_2(1+127) b/s = 28kb/s。二者均为上界，取较小的一个，因此最大数据传输速率为 8kb/s
 
-## Physical Layer 
+- 编码：数据 -> 数字信号
+	- **归零编码 Return to Zero (RZ)**: 每个时钟周期均跳变到低电平（归零）
+	- **非归零编码 Non-Return to Zero (NRZ)**
+	- **反向非归零编码 NRZ Insert (NRZI)**：信号翻转代表 1，不翻转代表 0
+	- **曼彻斯特编码 Manchester**: 将码元分割成两个相等的间隔，下跳表示 1，上跳表示 0. 电平跳变既是时钟信号用于同步，又是数据信号
+		- 以太网使用
+	- **差分曼彻斯特编码**：电平跳变仅仅表示时钟信号，码元开始处无跳变为 1 有则为 0
+		![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501160844418.png)
 
+- 调制：数据 -> 模拟信号 module
+	- FM 应用广泛
+	- PM 改变载波的相位来表示 1/0，用相位 $0/pai$ 表示——绝对调相
+	- QAM 正交幅度调制 ：在频率相同的条件下，结合 AM、PM
+		![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409261020490.png)
+- 多路复用 multiplexing
 
+![image-20241218113821739](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501160844864.png)
+
+### Guided Transmission Media
+
+- Persistent storage
+- Twisted pairs 双绞线
+- Coaxial cable 同轴电缆
+- Power lines
+- Fiber optics 光纤
+	- Essentially infinite bandwidth
+	- 
+
+### Wireless
+
+### From Waveforms to bits
+
+- 傅里叶变换
+	![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409251023470.png)
+
+- Bandwidth-limited signals
+	![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202409260926012.png)
+
+### Multiplexing
+
+#### Frequency Division Multiplexing | FDM 频分复用
+
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501160844020.png)
+
+- 同时不同频
+- 中间留有一段保护频道
+
+#### Time Division Multiplexing
+
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501160844785.png)
+
+- 按时间分时
+
+#### Code Division Multiplexing | CDM | CDMA
+
+- 码分，更加灵活可以灵活调整带宽的分配
+- 同频又同时，同时发出但存在规律可以反解码
+	![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501160844912.png)
+- 0 silence，-1 发送 0，1 发送 1
+
+#### Wavelength Division Multiplexing
+
+- 不同光的频率不同，本质上是频分
+	![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501160844890.png)
+
+### 设备 | 中继器
+
+![image.png](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501160844822.png)
+
+- 上面的方式 A/D 转换次数多，信噪比低，传输速率低
+- 要注意不同地方的连接名称，譬如，本地和电话线之间的
 
 ## Data Link Layer
 
@@ -303,13 +373,13 @@ $$
 >>
 >>Ex2: consider a coding scheme: • 00 => 00000 00000 • 01 => 00000 11111 • 10 => 11111 00000 • 11 => 11111 11111 • Its Hamming distance is ?
 >
->> [!note] 练习
+>>[!note] 练习
 >>
->> ![image-20241219234240295](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412192342537.png)
+>>![image-20241219234240295](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412192342537.png)
 >>
->> > [!note]
->> >
->> > ![image-20241219234257956](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412192342172.png)
+>>>[!note]
+>>>
+>>>![image-20241219234257956](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412192342172.png)
 
 #### • 检错码（error-detecting code）
 
@@ -937,6 +1007,18 @@ P105
 
 #### IEEE 802.11
 
+>AP 是数据链路层的设备
+
+- 无线局域网的最小构件是基本服务集(Basic Service Set,BSS)。一个基本服 务集包括一个接入点和若干移动站
+
+![image-20250109140631523](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091406903.png)
+
+- 三个地址比较重要，全都是MAC地址
+	- 接收地址
+	- 发送地址
+
+![image-20250109140758118](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091407726.png)
+
 **隐藏终端 | 暴露终端 问题**
 
 ![image-20241027145651784](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410271456905.png)
@@ -962,8 +1044,20 @@ P105
 
 >[!note]
 >
-> - 点到点通信：由物理层、数据链路层和网络层组成的通信子网
-> - 端到端通信：传输层
+>![image-20250109151414807](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091514123.png)
+>
+>- 点到点通信：由物理层、数据链路层和网络层组成的通信子网
+>- 端到端通信：传输层
+>- **异构网络**
+>	- 数据链路层和物理层不同
+>
+>- 一台主机可以拥有不同的IP地址，这意味它存在于不同的网络
+>	- 也就是说，它需要有在==不同子网的IP地址==
+>
+>- 在一个 IP 数据包传输过程中，它仍然有可能被再次分片（不同网络的MTU大小可能不同），但是，==只能够在目的主机进行重组==
+>- 主机 A 发送IP 数据包给主机B，途中经过了5个路由器，使用了 (6) 次 ARP 请求
+>	- 注意，==A寻找的它的路由器也需要一次ARP请求==
+>	- 发送的时候也要注意是否在同一子网，如果判断在同一子网直接发送即可，否则要交由网关发送
 >
 >| **特性**     | **端到端（End-to-End）**                  | **点到点（Point-to-Point）**                                 |
 >| ------------ | ----------------------------------------- | ------------------------------------------------------------ |
@@ -978,9 +1072,44 @@ P105
 
 #### Virtual Circuit
 
+- 需要使用 虚电路号 进行分配，分配给虚电路
+- 仅仅在建立时使用完整的目的地址，其他情况都是用虚电路号 => 分组的首部开销小
+- 可以进行流量控制
+- 每个节点都维持一张虚电路表
+	- 虚电路号 上一个/下一个节点的地址
+- 可以对两个端点的数据进行控制
+- 虚电路的路由选择体现在连接建立的阶段
+
 **优劣**
 
 #### Datagram
+
+>数据报交换是网络层的，提供不可靠的服务，属于一种分组交换
+>
+>报文交换是把整个信息不进行分组
+
+- 资源利用率比较高
+
+#### SDN
+
+>广域网内可以这样使用
+
+**特点**
+
+- 将网络层划分
+	- 数据平面
+		- 转发
+	- 控制平面
+		- 路由选择
+- 有一个远程控制器集中控制（控制平面）
+	- 掌握各个主机和整个网络的状态
+- 提供接口
+	- 北向接口
+		- 为编程者提供，有API
+	- 南向接口
+		- 兼容不同的硬件设备
+	- 东西向接口
+		- SDN 控制器集群内部控制器之间的通信
 
 #### 拥塞控制
 
@@ -990,9 +1119,24 @@ P105
 
 ### 路由器
 
-#### 路由表 | Routing Table
+- 控制层：运行各种路由协议：BGP、OSPF、RIP，学习去往不同目的的转发路径：==路由表==
+- 数据层：根据上述路由表，将收到的IP分组转发到正确的下一跳链路，==转发表==
+- 默认路由：`0.0.0.0 0.0.0.0`
+	- 报文输入的接口卡
+		1. 链路层解封装
+		2. 转发表查询（该工作在输入接口卡处理）
+		3. 通过交换结构将报文排队发往目的接口卡（发送过快将产生拥塞）
+	- 报文输出的接口卡
 
->有些时候和转发表不加以区分
+![image-20250109151752474](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091517795.png)
+
+>- 路由表
+>	- 是根据路由选择算法得出来的
+>	- 最优化网络拓扑变化的计算
+>- 转发表
+>	- 是由路由表得到的
+>	- 使得查找过程最优化
+>- 路由表有些时候和转发表不加以区分
 
 ### 网络层协议
 
@@ -1028,17 +1172,19 @@ P105
 >
 ><img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091836867.png" alt="image-20241109183615724" style="zoom:50%;" />
 >
-> - A
-> - B
-> - C
-> - D 常用于组播 multicasting
+>- A
+>- B
+>- C
+>- D 常用于组播 multicasting
+>	- ==但是只能用于目的地址==
+>
 >
 >![image-20241109170849547](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091708743.png)
 >
-> - 私有IP地址
-> 	- A类 10.0.0.0 - 10.255.255.255
-> 	- B类 172.16.0.0 - 172.31.255.255
-> 	- C类 192.168.0.0 - 192.168.255.255
+>- 私有IP地址
+>	- A类 10.0.0.0 - 10.255.255.255
+>	- B类 172.16.0.0 - 172.31.255.255
+>	- C类 192.168.0.0 - 192.168.255.255
 
 ##### 分片
 
@@ -1048,17 +1194,34 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 - 路径MTU (Path MTU)
 	- 以太网的MTU = 1500B
 
+##### IP多播/组播
+
+<img src="https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091503229.png" alt="image-20250109150324921" style="zoom:50%;" />
+
 #### NAT | 网络地址转换
 
 - 普通路由器仅仅工作在网络层，而NAT还需要查看和转换传输层的端口号
 
 #### 子网划分
 
+==子网划分的要求！！==
+
+- 划分出的子网IP地址互不重叠，并且原来的IP地址空间不遗漏
+- 可以通过画一个二叉树来列举所有的情况
+	![image-20250109113749545](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091137968.png)
+
+- ==主机号==全零或者全1的网络不使用
+	- <网络号> <子网号> <主机号>
+	- 子网号就是从主机号“抢”了一部分
+
 ##### CIDR 无类域间路由和路由聚合
+
+- 网络前缀的位数不是固定的
+	- <网络前缀> <主机号>
 
 #### DHCP动态主机配置协议
 
-> **基于UDP的应用层协议**
+> **基于UDP的应用层协议，使用C/S模型**
 
 当主机加入IP网络，允许主机从DHCP服务器动态获取IP地址
 
@@ -1068,53 +1231,60 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 #### ARP
 
+>在路由器之间是通过IP寻找下一跳，而到达目的网络之后，通过MAC帧寻找更加高效
+
 **在不同网络传输，MAC帧会改变**
 
 ![image-20241109174047628](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091740765.png)
 
 >[!note] Address Resolution Protocol | ARP
 >
-> **地址解析协议：**在局域网中将IP地址映射到物理地址（MAC地址）的网络协议。ARP的主要作用是在同一网络中，设备通过已知的IP地址来获取目标设备的MAC地址，以便进行数据包的传输。
+>**地址解析协议：**在局域网中将IP地址映射到物理地址（MAC地址）的网络协议。ARP的主要作用是在==同一网络==中，设备通过已知的IP地址来获取目标设备的MAC地址，以便进行数据包的传输。
+>
+>==每一台主机都有一个ARP 高速缓存==
 >
 >![image-20241028170616900](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202410281706074.png)
 >
-> - Hardware：1（Ethernet）
-> - protocol：0x0800（IP）
-> 	- protocol address：IP地址
-> - opcode：Request/Response
+>- Hardware：1（Ethernet）
+>- protocol：0x0800（IP）
+>	- protocol address：IP地址
+>- opcode：Request/Response
 >
->>[!example] - 例子
->>
->> **步骤：**
->>
->> 1. **ARP请求**：
->> 	- 主机A生成ARP请求，内容为：
->> 		- 源IP：`192.168.1.2`
->> 		- 源MAC：`AA:BB:CC:DD:EE:FF`
->> 		- 目标IP：`192.168.1.3`
->> 		- 目标MAC：`00:00:00:00:00:00`（未知）
->> 	- 主机A将该请求广播到局域网。
->> 2. **ARP响应**：
->> 	- 主机B接收到ARP请求，发现目标IP匹配自己的IP地址，于是发送ARP响应，内容为：
->> 		- 源IP：`192.168.1.3`
->> 		- 源MAC：`FF:EE:DD:CC:BB:AA`
->> 		- 目标IP：`192.168.1.2`
->> 		- 目标MAC：`AA:BB:CC:DD:EE:FF`
->> 	- 主机B将ARP响应单播回主机A。
->> 3. **缓存更新**：
->> 	- 主机A收到ARP响应后，将`192.168.1.3`和对应的MAC地址`FF:EE:DD:CC:BB:AA`存储在ARP缓存中，以便下次直接使用。
+>
+>**步骤：**
+>
+>1. **ARP请求**：
+>
+>  - 主机A生成ARP请求，内容为：
+>  	- 源IP：`192.168.1.2`
+>  	- 源MAC：`AA:BB:CC:DD:EE:FF`
+>  	- 目标IP：`192.168.1.3`
+>  	- 目标MAC：`00:00:00:00:00:00`（未知）
+>  - 主机A将该请求广播到局域网。
+>2. **ARP响应**：
+>
+>  - 主机B接收到ARP请求，发现目标IP匹配自己的IP地址，于是发送ARP响应，内容为：
+>  	- 源IP：`192.168.1.3`
+>  	- 源MAC：`FF:EE:DD:CC:BB:AA`
+>  	- 目标IP：`192.168.1.2`
+>  	- 目标MAC：`AA:BB:CC:DD:EE:FF`
+>  - 主机B将ARP响应单播回主机A。
+>3. **缓存更新**：
+>	- 主机A收到ARP响应后，将`192.168.1.3`和对应的MAC地址`FF:EE:DD:CC:BB:AA`存储在ARP缓存中，以便下次直接使用。
 
 #### ICMP
 
-• ICMP 允许主机或路由器报告差错情况和提供有关异常情况的报告
+>工作在网络层
 
-• 由主机和路由器用于网络层信息的通信
-
-• ICMP 报文携带在 IP 数据报中： IP上层协议号为1
-
+- ICMP 允许主机或路由器报告差错情况和提供有关异常情况的报告
+- 由主机和路由器用于网络层信息的通信
+- ICMP 报文携带在 IP 数据报中： IP上层协议号为1
 - 类型
 	- **差错报文**
-		- 终点不可达：不可达主机、不可达网络，无效端口、协议
+		- ==终点不可达==：不可达主机、不可达网络，无效端口、协议
+			- 比如`DF = 1`但长度超出MTU，那么会发出这个差错报文
+		- ==源点抑制==：因为拥塞丢失数据包，向源点发送
+		- ==时间超过==
 	- **询问报文**
 		- ping 使用 回送请求/应答
 - 不发送的类型
@@ -1124,16 +1294,16 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 ![image-20241109181017066](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091810194.png)
 
->[!note] Ping
+>[!note] Ping & traceout
 >
-> - Ping 命令工作在应用层
-> - 使用ICMP回送请求和回送回答报文
+>- Ping 命令工作在应用层
+>- 使用ICMP**回送请求和回送回答报文**
 >
 >![image-20241109181715786](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091817956.png)
-
->[!note]Traceroute
 >
-> - 工作在应用层
+>- `tracert` `traceroute`
+>	- 工作在网络层
+>	- 使用ICMP时间超过报文
 
 ### 路由算法
 
@@ -1145,11 +1315,16 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 利用 bellman-ford 算法，计算单源最短路径
 
+- 每个节点都有其到全局的距离向量
+
 ![image-20241109185157264](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411091851425.png)
 
 #### 链路 link state
 
 使用Dijkstra算法
+
+- 每个节点都有一个全网拓扑图，并且所有的这个图都是一致的
+- 这个算法只记录相邻节点的信息与距离
 
 >将邻居状态发送给所有nodes
 
@@ -1202,6 +1377,10 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 王道 P187
 
+>应用层协议，使用UDP
+>
+>选择的路径不一定时间最短，但一定跳数最少
+
 - 使用跳数衡量到达目的网络的距离
 - 周期性更新：30s
 - 允许一条路径最多只能包含 15 个路由器
@@ -1209,16 +1388,27 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 	- 触发更新
 	- 毒性反转
 	- 水平分割
+- 如何做更新：
+  - 发送路由表给相邻的节点
+  - 相邻节点进行判断
+    - IF 目的地不在自己的路由表
+      - 加入
+    - IF 目的地在
+      - IF 下一跳的路由一致
+        - 以更新信息为准
+      - ELSE
+        - 以 min 值更新
 
 #### OSPF | Open Shortest Path First
 
+>网络层协议，直接使用IP 数据报传输数据
+
 - 将一组网段组合在一起，称为一个区域
 - 使用IP组播收发协议数据
-- 向本区域所有路由器发送信息
+- 虽然能够使用 Dijkstra 计算最优路径，但只会存储下一跳的地址
+- 向==本区域所有路由器==发送信息
 	- 泛洪发送
 	- 发送和本路由器相邻的所有路由器的链路状态
-
-- 是网络层协议，直接以数据报形式发送
 - 使用层次结构的区域划分，上层区域称之为主干区域，其他区域都必须和主干区域相连
   - 区域边界路由器 (Area Bounder Router，ABR)
   	- OSPF之间
@@ -1229,7 +1419,11 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 ![image-20241110160728951](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411101607096.png)
 
+![image-20250109145650689](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091456005.png)
+
 #### BGP | Border Gateway Protocol
+
+>基于TCP的应用层协议
 
 ![image-20241110161328127](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411101613262.png)
 
@@ -1250,6 +1444,15 @@ MTU（Maximum Transmission Unit）, 最大传输单元
 
 ### IPV6
 
+- IPv6分组不能在传输途中分片，只在源端进行分片
+- 地址表示：==每一个小段前面的0可以省略，使用简化方法忽略的是完全由 0 构成的值域部分==
+
+![image-20250109141908693](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091419002.png)
+
+- 地址分类：
+
+![image-20250109142325501](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501091423781.png)
+
 Which is not a legal IPV6 address?
 
 - 8300::1382:4567:89AB:CDEF
@@ -1262,14 +1465,9 @@ Which is not a legal IPV6 address?
 - 因特网的网络层提供**尽力而为**的服务：
 	- 网络层尽最大努力在终端间交付分组，但不提供任何承诺
 	- 具体来说，不保证交付，不保证按序交付，不保证数据完整，不保证延迟，不保证带宽等
-
 - 传输层的**有所为**、**有所不为**: 
-
 	- 传输层可以通过差错恢复、重排序等手段提供可靠、按序的交付服务
-
 	- 但传输层无法提供延迟保证、带宽保证等服务
-
-
 
 ![image-20241126100522114](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202411261005330.png)
 
@@ -1293,7 +1491,6 @@ Which is not a legal IPV6 address?
 
 - 熟知端口：0～1023，由公共域协议使用
 	- 一般**服务器**使用，创建 socket 使用指定的 port
-
 - 注册端口：1024～49151，需要向IANA注册才能使用
 - 动态和/或私有端口：49152～65535，一般程序使用
 	- **客户端一般的端口号** 由操作系统分配
@@ -1359,7 +1556,6 @@ Which is not a legal IPV6 address?
 
 - 收到期待的报文段：发送更新的确认序号
 - 否则重复
-
 - **累计确认 + 推迟确认**
 	- 为减小通信量，TCP允许接收端推迟确认
 	- 接收方至少每隔一个报文段使用正常方式进行确认
@@ -1406,7 +1602,7 @@ Which is not a legal IPV6 address?
 
 ##### 慢启动 SS | Slow start
 
--  在**新建连接**上指数增大cwnd，直至检测到丢包（此时终止慢启动）
+- 在**新建连接**上指数增大cwnd，直至检测到丢包（此时终止慢启动）
 
 ![image-20241202231548353](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412022315539.png)
 
@@ -1604,26 +1800,20 @@ P278
 **类别**
 
 - integrity control 完整性控制
-
 - Authentication 认证
-
 - Secrecy 保密
-
 - Nonrepudiation 不可否认
 
 	![image-20241224095353459](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412240954026.png)
 
 - Kerckhoff原则：所有的算法必须是公开的，密钥的不公开的
-
-
-
 - substitution cipher 置换密码
 - transposition cipher 替代密码
 - one-time pad
 
 **公开的算法**
 
-> ![image-20241224103111116](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412241031385.png)
+>![image-20241224103111116](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412241031385.png)
 
 - RSA
 	![image-20241224104355926](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412241043185.png)
@@ -1633,7 +1823,10 @@ P278
 
 - Data Encryption Standard | DES
 - Advanced Encryption Standard | AES
-- 
+
+**报文鉴别**
+
+**实体鉴别**
 
 ## 总结
 
@@ -1721,8 +1914,6 @@ P278
 - PPP
 - STP
 - 帧中继
-
-
 
 ### 术语对照
 
@@ -1831,8 +2022,10 @@ Box 1: Select the best answer
 **网络接口卡（Network Interface Card，NIC）** 主要在 **物理层** 和 **数据链路层** 工作。以下是这两个层级的具体作用：
 
 1. **物理层（Physical Layer）**：
+
 	- 网络接口卡负责将计算机生成的二进制数据转换为电信号（如电压或光信号）并通过物理介质（如网线或光纤）进行传输。它同样负责接收从网络介质上传输过来的电信号并将其转换回二进制数据。因此，网络接口卡在物理层上扮演了重要角色。
 2. **数据链路层（Data Link Layer）**：
+
 	- 网络接口卡在数据链路层上负责帧的构建和解析。它处理数据包的封装，将数据包封装为帧并添加数据链路层的头部信息（如源和目标 MAC 地址）。另外，它还负责错误检测和简单的纠错功能（例如通过校验和 CRC 检查数据完整性）。当接收到数据帧时，NIC 会解析这些帧并将其传递给更高层的网络协议进行进一步处理。
 
 ---
@@ -1895,8 +2088,6 @@ D 172.33.8.8
 见小测 5 
 
 ---
-
-
 
 ## 小测
 

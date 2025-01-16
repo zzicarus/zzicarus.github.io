@@ -12,13 +12,13 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 
 [TOC]
 
-> [!note]
+>[!note]
 >
 > - [天外飞仙 - 知乎](https://www.zhihu.com/people/njugao-53/posts?page=1)
 >
 > - 期末各部分占比
 >
-> ![b721faff8797ba5a5fe00d857c50c667](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412250951434.jpg)
+>![b721faff8797ba5a5fe00d857c50c667](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412250951434.jpg)
 >
 > - **Ch1**
 > 	- Great Ideas
@@ -27,7 +27,7 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 > - **Ch 2 Memory**
 > 	- *Memory Hierarchy*
 > 	- ==Cache==
-> 		![image-20241226163752072](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412261637352.png)
+>![image-20241226163752072](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412261637352.png)
 > 		- 计算
 > 		- Improve AMAT
 > 		- TLB
@@ -55,9 +55,9 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 > 	- Loop-Level Parallellism
 > 		- 跨迭代的相关不能做link  todo:togo:
 > 	- MIMD
-> 		![image-20241226165214993](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412261652150.png)
+>![image-20241226165214993](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412261652150.png)
 > 		- Flynn中的范围
-> 			![image-20241226165300749](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412261653991.png)
+>![image-20241226165300749](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412261653991.png)
 > 			- NUMA
 > 			- UMA
 > 		- Cache cohenrence
@@ -72,16 +72,15 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 
 ![image-20241220153412906](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201534967.png)
 
-> ![image-20241220154908280](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201549361.png)
+>![image-20241220154908280](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201549361.png)
 >
-> ![image-20241220154916902](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201549986.png)
+>![image-20241220154916902](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201549986.png)
 
 ![image-20250101185135167](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501011851325.png)
 
 ## Pipelining
 
 - `Latency`---the number of intervening cycles between an instruction that produces a result and an instruction that uses the result.
-
 - `Initiation interval`---the number of cycles that must elapse between instructions issue to the same unit. 
 	- For full pipelined units, initiation interval is 1. 
 	- For unpipelined units, initiation interval is always the latency plus 1.
@@ -142,7 +141,6 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 #### Giving Priority to Read Misses over Writes
 
 - If a system has a write buffer, writes can be delayed to come after reads. 
-
 - The system must, however, be careful to check the write buffer to see if the value being read is about to be written. 
 
 在缓存系统中，缓存需要处理读操作和写操作。当发生缓存未命中时，读操作（read miss）意味着 CPU 需要的数据当前不在缓存中，而写操作（write）则是将 CPU 产生的数据写入缓存或内存。在这两者发生冲突时，优先处理哪一种操作会影响系统的性能。
@@ -201,7 +199,6 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 #### Higher Associativity
 
 - higher associativity decreasing Conflict misses
-
 - Complier Optimization
 	- Loop
 	- Matrix
@@ -218,9 +215,8 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 - **Pseudo-Associative Cache** 是一种优化直接映射缓存的技术，类似于将直接映射缓存扩展为两路组相联缓存。
 - 通过检查优先路径的缓存行，如果未命中，再尝试备用路径，从而减少冲突未命中。
 
-
-
 缺点：
+
 **伪命中的延迟**：
 
 - 如果数据存在于另一个分区（半缓存 B），访问需要额外的 1-2 个周期延迟。
@@ -252,7 +248,6 @@ update: <% tp.date.now("YYYY-MM-DD HH:mm:ss") %>
 
 - Nonblocking Caches
 	- 碰到 cache miss 不阻塞等待处理
-
 	- The cache to continues to supply hits while processing read misses ( **hit under miss , hit under multiple miss** ). 
 	
 	- **Hit Under Miss**：在处理缓存未命中时，如果发生了另一个缓存命中，缓存可以继续服务新的命中请求。
@@ -369,17 +364,14 @@ organizing memory to improve bandwidth
 
 ### loop unrolling
 
-> [!example]
-> ![image-20241220161023355](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201610441.png)![image-20241220162056484](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201620561.png) 
+>[!example]
+>![image-20241220161023355](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201610441.png)![image-20241220162056484](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412201620561.png) 
 
 ### Dynamic Scheduling 
 
 - 乱序执行和完成
-
 - Enables out-of-order execution and allows out-of-order completion
-
 - in-order issue
-
 - 原来的ID变为两个阶段
 	**Issue（发射）**：这一阶段负责解码指令并检查**结构性危害**。如果硬件资源足够并且没有资源冲突，指令可以继续进入下一个阶段。
 
@@ -484,7 +476,7 @@ LD  R6, 0(R3)
 
 - [知乎文章](https://zhuanlan.zhihu.com/p/490749315)
 
-> [!note]
+>[!note]
 >
 > - Taken
 > 	- 不会执行if，不符合条件
@@ -496,8 +488,6 @@ LD  R6, 0(R3)
 ![image-20241220235311896](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412202353035.png)
 
 ![image-20241221183644441](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412211836572.png)
-
-
 
 #### Correlating predictor
 
@@ -513,7 +503,6 @@ LD  R6, 0(R3)
 	![image-20241221192353388](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412211923491.png)
 
 - 一个有4k项的(2, 2)相关预测器，其所有预测位所占的总空间为 32k 比特
-
 - ![image-20250101163259294](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202501011632484.png)
 
 ### Superscalar / VLIW
@@ -570,8 +559,6 @@ multi-issue
 ![image-20241225192148568](https://zzh-pic-for-self.oss-cn-hangzhou.aliyuncs.com/img/202412251921658.png)
 
 - 
-
-
 
 ### DLP
 
@@ -674,9 +661,6 @@ Vector Optimization
 #### Coherence
 
 - Simple write-invalidate protocol
-
-
-
 - Snooping Protocol
 	- 不同的策略
 		1. ==write invalidate==
